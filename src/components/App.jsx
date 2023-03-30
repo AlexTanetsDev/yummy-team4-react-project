@@ -1,7 +1,5 @@
+import { GlobalStyles } from './GlobalStyles';
+
 export const App = () => {
-  return (
-    <div>
-      React homework template
-    </div>
-  );
+  return <GlobalStyles>Yummy-Gummy-Project. Let`s Do IT!</GlobalStyles>;
 };
