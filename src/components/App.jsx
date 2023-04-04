@@ -1,5 +1,13 @@
-import { GlobalStyles } from './GlobalStyles';
+import { Route, Routes } from 'react-router-dom';
+
+import { SharedLayout } from './SharedLayout';
 
 export const App = () => {
-  return <GlobalStyles>Yummy-Gummy-Project. Let`s Do IT!</GlobalStyles>;
+  return (
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        {/* <Route index element={<HomePage />} /> */}
+      </Route>
+    </Routes>
+  );
 };
