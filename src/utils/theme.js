@@ -1,4 +1,5 @@
 export const theme = {
+  breakPoints: ['375px', '768px', '1440px'],
   colors: {
     mainBgColor: '#FAFAFA',
     darkBgColor: '#1E1F28',
