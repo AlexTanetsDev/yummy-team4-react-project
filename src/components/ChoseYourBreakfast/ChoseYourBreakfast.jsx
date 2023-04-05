@@ -5,6 +5,8 @@ import {
   Span,
   HeroInfo,
   BreakfastButton,
+  Text,
+  Arrow,
 } from './ChooseYourBreakfast.styled';
 
 export const ChoseYourBreakfast = onClick => {
@@ -19,10 +21,11 @@ export const ChoseYourBreakfast = onClick => {
       </HeroInfo>
       {/* <img alt={} src={}/> */}
       <BreakfastButton onClick={onClick}>
-        <p>
+        <Text>
           <Span>Delicious and healthy</Span> way to enjoy a variety of fresh
           ingredients in one satisfying meal
-        </p>
+        </Text>
+        <Arrow>See recipes</Arrow>
       </BreakfastButton>
     </div>
   );

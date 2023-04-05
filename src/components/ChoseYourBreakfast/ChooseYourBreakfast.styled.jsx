@@ -42,3 +42,17 @@ export const Text = styled.p`
   letter-spacing: -0.24px;
   color: #3e4462;
 `;
+
+export const Arrow = styled.p`
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1, 2;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-end;
+  letter-spacing: 0.2px;
+  color: #3e4462;
+`;
