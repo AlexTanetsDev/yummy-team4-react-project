@@ -5,7 +5,7 @@ import { SearchButtonBlack } from '../Button/Button';
 export const Search = onClick => {
   return (
     <div>
-      <SearchButtonBlack onClick={onClick} children="Search" />;
+      <SearchButtonBlack onClick={onClick} children="Search" />
     </div>
   );
 };

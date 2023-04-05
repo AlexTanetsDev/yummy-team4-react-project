@@ -26,7 +26,14 @@ letter-spacing: -0.02em;
 color: #23262A;
 `;
 
-export const BreakfastButton = styled.p`
+export const BreakfastButton = styled.button`
+  padding: 8px 8px;
+  width: 225px;
+  background: #fafafa;
+  border-radius: 8px;
+`;
+
+export const Text = styled.p`
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
