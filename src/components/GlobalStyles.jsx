@@ -4,7 +4,7 @@ import 'modern-normalize';
 export const GlobalStyles = createGlobalStyle`
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Poppins','Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -35,4 +35,8 @@ p{
 button, a {
   cursor: pointer;
 }
+
+
+
+
 `;
