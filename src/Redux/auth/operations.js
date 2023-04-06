@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com';
+axios.defaults.baseURL = 'http://yummy-team4-nodejs-project.onrender.com/api';
 
 const token = {
   set(token) {

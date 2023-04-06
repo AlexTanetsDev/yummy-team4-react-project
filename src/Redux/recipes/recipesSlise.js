@@ -1,17 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { maimPageRecipes } from './recipesOperation';
+import { mainPageRecipes } from './recipesOperation';
 
 export const recipesSlice = createSlice({
   name: 'recipes',
-  instialState: { entities: [], isLoading: false, error: null },
+  initialState: { entities: [], isLoading: false, error: null },
+
   extraReducers: {
-    [maimPageRecipes.fulfilled]: (state, action) => {
+    [mainPageRecipes.pending]: (state, action) => {
+      state.isLoading = true;
+    },
+    [mainPageRecipes.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.error = null;
       state.entities = action.payload;
     },
-    [maimPageRecipes.fulfilled]: state => (state.isLoading = true),
-    [maimPageRecipes.rejected]: (state, action) => {
+
+    [mainPageRecipes.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     },
