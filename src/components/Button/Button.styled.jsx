@@ -377,9 +377,12 @@ export const SeeRecipeBtnBlack = styled.button`
   display: none;
 
   @media (min-width: 768px) {
+    position: absolute;
+    bottom: 28px;
+    right: 24px;
     display: block;
-    padding: 11px 32px;
     width: 138px;
+    height: 45px;
     background-color: ${p => p.theme.colors.secondAccentColor};
     color: ${p => p.theme.colors.mainBgColor};
     font-family: 'Poppins';
@@ -390,8 +393,10 @@ export const SeeRecipeBtnBlack = styled.button`
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   @media (min-width: 1440px) {
-    padding: 14px 38px;
+    bottom: 40px;
+    right: 40px;
     width: 160px;
+    height: 58px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 24px;
   }
@@ -432,5 +437,82 @@ export const SeeRecipeBtnGreen = styled.button`
   &:focus {
     background-color: ${p => p.theme.colors.secondAccentColor};
     border: ${p => p.theme.border.blackBtnBorder};
+    outline: none;
+`;
+
+export const FavoritesDeleteBtn = styled.button`
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 24px;
+  height: 24px;
+  background-color: ${p => p.theme.colors.lightGreenText};
+  color: ${p => p.theme.colors.secondAccentColor};
+  font-size: ${p => p.theme.fontSizes.l}px;
+  border: ${p => p.theme.border.favoriteBtnBorder};
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), ;
+
+  @media (min-width: 768px) {
+    top: 28px;
+    right: 24px;
+    padding: 8px;
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+  @media (min-width: 1440px) {
+    top: 40px;
+    right: 40px;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.firstAccentColor};
+    border: ${p => p.theme.border.myRecipesBtnBorder};
+    color: ${p => p.theme.colors.mainBgColor};
+    outline: none;
+`;
+
+export const MyRecipesDeleteBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 24px;
+  height: 24px;
+  background-color: ${p => p.theme.colors.firstAccentColor};
+  color: ${p => p.theme.colors.mainBgColor};
+  font-size: ${p => p.theme.fontSizes.l}px;
+  border: ${p => p.theme.border.myRecipesBtnBorder};
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), ;
+
+  @media (min-width: 768px) {
+    padding: 8px;
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+  @media (min-width: 1440px) {
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.lightGreenText};
+    border: ${p => p.theme.border.favoriteBtnBorder};
+    color: ${p => p.theme.colors.secondAccentColor};
     outline: none;
 `;
