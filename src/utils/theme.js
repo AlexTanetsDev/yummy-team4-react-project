@@ -1,4 +1,5 @@
 export const theme = {
+  breakPoints: ['375px', '768px', '1440px'],
   colors: {
     mainBgColor: '#FAFAFA',
     darkBgColor: '#1E1F28',
@@ -10,7 +11,7 @@ export const theme = {
     whiteText: '#ffffff',
     lightGreenText: '#EBF3D4',
   },
-  space: [10, 30, 40, 50, 100, 200, 300],
+  space: value => `${4 * value}px`,
   fontSizes: {
     xs: 8,
     s: 10,
@@ -24,5 +25,6 @@ export const theme = {
   border: {
     greenBtnBorder: '1px solid #8baa36',
     blackBtnBorder: '1px solid #22252a',
+    grayBorder: '1px solid #E0E0E0',
   },
 };
