@@ -34,5 +34,6 @@ p{
 }
 button, a {
   cursor: pointer;
+	text-decoration:none;
 }
 `;
