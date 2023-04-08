@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useAuth } from '../../hooks';
 import axios from 'axios';
 
 import { SeeAllButton } from 'components/Button/Button.jsx';
 
 // axios.defaults.headers.common['Authorization'] =
 //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5MDY4MTYsImV4cCI6MTY4MDk4OTYxNn0.cOeYg8Y4WvI_KfS6fYlFDxSniwl6yVjnNRcKWjTD15U';
+// 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5NDE3OTksImV4cCI6MTY4MTAyNDU5OX0.R7puNattOS6LksGKc-OmhrSfN95oCp2yHJ1YPfb97D8',
 
 const instance = axios.create({
   baseURL: 'https://yummy-team4-nodejs-project.onrender.com/api',
   headers: {
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5MDY4MTYsImV4cCI6MTY4MDk4OTYxNn0.cOeYg8Y4WvI_KfS6fYlFDxSniwl6yVjnNRcKWjTD15U',
+    Authorization: `Bearer ${useAuth.token}`,
   },
 });
 
@@ -25,7 +26,7 @@ export function PreviewCategories() {
       setItems(response.data);
     });
   }, []);
-  console.log(items);
+
   return (
     <>
       {items.length > 0

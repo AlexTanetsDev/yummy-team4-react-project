@@ -9,14 +9,30 @@ import { PrivateRoute } from './PrivateRout';
 import { SharedLayout } from './SharedLayout';
 import { refreshUser } from 'Redux/auth/operations';
 
-const RegisterPage = lazy(() => import('../pages/RegisterPage'));
-const SigninPage = lazy(() => import('../pages/SinginPage'));
-const WellcomPage = lazy(() => import('../pages/WelcomePage'));
-const MainPage = lazy(() => import('../pages/MainPage'));
-
-const RegisterPage = lazy(() => import('../pages/RegisterPage'));
-const SigninPage = lazy(() => import('../pages/SinginPage'));
-const WellcomPage = lazy(() => import('../pages/WelcomePage'));
+const RegisterPage = lazy(() =>
+  import('../pages/RegisterPage').then(module => ({
+    ...module,
+    default: module.RegisterPage,
+  }))
+);
+const SigninPage = lazy(() =>
+  import('../pages/SinginPage').then(module => ({
+    ...module,
+    default: module.SigninPage,
+  }))
+);
+const WellcomPage = lazy(() =>
+  import('../pages/WelcomePage').then(module => ({
+    ...module,
+    default: module.WellcomPage,
+  }))
+);
+const MainPage = lazy(() =>
+  import('../pages/MainPage').then(module => ({
+    ...module,
+    default: module.MainPage,
+  }))
+);
 
 export const App = () => {
   const dispatch = useDispatch();
