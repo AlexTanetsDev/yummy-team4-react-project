@@ -27,11 +27,7 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
 				<Route index element={<WellcomPage/>} />
-				<Route path="/register" element={
-					<RestrictedRoute
-            redirectTo="/"
-            component={<RegisterPage />}
-          />} />
+				<Route path="/register" element={<RegisterPage />} />
 				<Route path="/signin" element={
 					<RestrictedRoute
             redirectTo="/main"
