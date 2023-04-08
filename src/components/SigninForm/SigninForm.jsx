@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
-import { signin } from '../../Redux/auth/operations';
+import { signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
  
 const initialValues = {
@@ -9,20 +9,20 @@ const initialValues = {
 		password: '',
 };
 	
-const signinSchema = object({
+const signInSchema = object({
 	email: string().email().required(),
 	password: string().min(6).required(),
 });
  
-export const SigninForm = () => {
+export const SignInForm = () => {
 	const dispatch = useDispatch();
 	const handleSubmit = (values, { resetForm }) => {
-		dispatch(signin(values));
+		dispatch(signIn(values));
 		resetForm();
 	}
      
   return (
-		<Formik initialValues={initialValues} validationSchema={signinSchema} onSubmit={handleSubmit}>
+		<Formik initialValues={initialValues} validationSchema={signInSchema} onSubmit={handleSubmit}>
 			<Form>
 				<label htmlFor="text">
 					Email Address
