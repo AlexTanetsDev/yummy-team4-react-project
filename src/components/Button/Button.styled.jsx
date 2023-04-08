@@ -62,6 +62,7 @@ export const SearchBtnGreen = styled.button`
 `;
 
 export const SingInBtn = styled(NavLink)`
+	display:block;
   padding: 10px 24px;
   width: 95px;
   background-color: transparent;
@@ -119,6 +120,7 @@ export const SingInBtnGreen = styled.button`
 `;
 
 export const RegistrationBtn = styled(NavLink)`
+  display:block;
   padding: 11px 24px;
   width: 132px;
   background-color: ${p => p.theme.colors.firstAccentColor};

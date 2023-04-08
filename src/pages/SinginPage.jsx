@@ -1,10 +1,10 @@
-import { SigninForm } from "components/SigninForm/SigninForm";
+import { SignInForm } from "components/SigninForm/SignInForm";
 import { NavLink } from "react-router-dom";
 
-export default function Signin() {
+export default function SignIn() {
 	return (
 		<>
-			<SigninForm/>
+			<SignInForm/>
 			<NavLink to="/register">Register</NavLink>
 		</>
 	)

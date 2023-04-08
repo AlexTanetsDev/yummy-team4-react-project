@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { lazy, useEffect } from 'react';
+
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRout';
 import { SharedLayout } from './SharedLayout';
@@ -8,7 +9,7 @@ import { refreshUser } from 'Redux/auth/operations';
 import { useAuth } from 'hooks';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
-const SigninPage = lazy(() => import('../pages/SinginPage'));
+const SignInPage = lazy(() => import('../pages/SingInPage'));
 const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
 
@@ -28,13 +29,13 @@ export const App = () => {
 				<Route index element={<WellcomPage/>} />
 				<Route path="/register" element={
 					<RestrictedRoute
-            redirectTo="/main"
+            redirectTo="/"
             component={<RegisterPage />}
           />} />
 				<Route path="/signin" element={
 					<RestrictedRoute
             redirectTo="/main"
-            component={<SigninPage/>}
+            component={<SignInPage/>}
 					/>} />
 				<Route
 					path="/main"

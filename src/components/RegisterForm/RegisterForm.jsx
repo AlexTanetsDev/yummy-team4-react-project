@@ -21,6 +21,7 @@ export const RegisterForm = () => {
 	const dispatch = useDispatch();
 	const handleSubmit = (values, { resetForm }) => {
 		dispatch(register(values));
+		// dispatch(verifyEmail());
 		resetForm();
 	};
 
