@@ -35,11 +35,9 @@ export const SearchButtonGreen = ({ type = 'button', onClick, children }) => {
   );
 };
 
-export const SingInButton = ({ type = 'button', onClick, children }) => {
-  return (
-    <SingInBtn type={type} onClick={onClick}>
-      {children}
-    </SingInBtn>
+export const SingInButton = () => {
+	return (
+	<SingInBtn to="/signin">Sign in</SingInBtn>
   );
 };
 
@@ -51,11 +49,9 @@ export const SingInButtonGreen = ({ type = 'button', onClick, children }) => {
   );
 };
 
-export const RegistrationButton = ({ type = 'button', onClick, children }) => {
-  return (
-    <RegistrationBtn type={type} onClick={onClick}>
-      {children}
-    </RegistrationBtn>
+export const RegistrationButton = () => {
+	return (
+		<RegistrationBtn to="/register">Register</RegistrationBtn>
   );
 };
 

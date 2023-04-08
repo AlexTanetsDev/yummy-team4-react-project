@@ -2,6 +2,11 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
 import { SharedLayout } from './SharedLayout';
+import { lazy } from 'react';
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const SigninPage = lazy(() => import('../pages/SinginPage'));
+const WellcomPage= lazy(()=>import('../pages/WelcomePage'))
+
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
