@@ -7,6 +7,7 @@ import vegetables from './vegetables.jpeg';
 import recipeHeroMob from './recipeHeroMob.jpg';
 import recipeHeroTablet from './recipeHero-tablet.jpg';
 import recipeHeroDesktop from './recipeHero-desktop.jpg';
+import pick from './pick.png';
 
 export {
   basilLeaves,
@@ -18,4 +19,5 @@ export {
   recipeHeroMob,
   recipeHeroTablet,
   recipeHeroDesktop,
+  pick,
 };
