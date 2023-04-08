@@ -10,6 +10,7 @@ import { SharedLayout } from './SharedLayout';
 import { refreshUser } from 'Redux/auth/operations';
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 const RegisterPage = lazy(() =>
   import('../pages/RegisterPage').then(module => ({
     ...module,
@@ -35,6 +36,8 @@ const MainPage = lazy(() =>
   }))
 );
 =======
+=======
+>>>>>>> Stashed changes
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
 const WellcomPage = lazy(() => import('../pages/WelcomePage'));
