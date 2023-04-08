@@ -1,21 +1,23 @@
 import PropTypes from 'prop-types';
-import { IngridientsShoppingListItem } from './IngredientsShoppingListItem';
+import { IngridientsShoppingListItem } from './IngridientsShoppingListItem';
 // import { useEffect, useState, Suspense } from 'react';
 
 export const IngridientsShoppingList = ({ ingridients }) => {
   return (
     <>
-      <h2>Shopping List</h2>
       <table>
-        <tr>
-          <th>Products</th>
-          <th>Number</th>
-          <th>Remove</th>
-        </tr>
-
-        {ingridients.map(item => (
-          <IngridientsShoppingListItem item={item} />
-        ))}
+        <thead>
+          <tr>
+            <th>Products</th>
+            <th>Number</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ingridients.map(item => (
+            <IngridientsShoppingListItem item={item} />
+          ))}
+        </tbody>
       </table>
     </>
   );

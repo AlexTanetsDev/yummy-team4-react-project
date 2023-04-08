@@ -13,6 +13,7 @@ const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
 const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
+const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ export const App = () => {
             <PrivateRoute redirectTo="/signin" component={<MainPage />} />
           }
         />
+        <Route path="/shopping-list" element={<ShoppingListPage />} />
       </Route>
     </Routes>
   );
