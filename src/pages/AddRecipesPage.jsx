@@ -1,27 +1,16 @@
 // import { useEffect, useState } from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
-// import { IconButton, Box } from '@mui/material';
-// import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
-
 import { AddRecipeForm } from '../components/AddRecipeForm/AddRecipeForm';
-// import { fetchContacts } from 'redux/operation';
-// import { selectError, selectIsLoading, selectContacts } from 'redux/selectors';
+import { Container } from '../components/Container/Container';
+import {Sections } from "../components/Sections/Sections";
 
 export const AddRecipePage = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        // alignItems: 'center',
-        flexDirection: 'column',
-        maxWidth: 320,
-        padding: 16,
-      }}
-    >
-      <h1>Add recipe</h1>
-      <AddRecipeForm />
-    </div>
+    <Container>
+      <Sections title="Add recipe">
+        <AddRecipeForm />
+      </Sections>
+    </Container>
   );
 };
 
