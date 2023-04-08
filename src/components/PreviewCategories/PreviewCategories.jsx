@@ -21,6 +21,18 @@ function onOtherCategoriesClick() {
 
 export function PreviewCategories() {
   const [items, setItems] = useState('');
+  const [viewportWidth, setViewportWidth] = useState(() => {
+    const width = window.innerWidth;
+
+    if (width >= 1440) {
+      return 4;
+    } else if (width >= 768 && width < 1240) {
+      return 2;
+    } else {
+      return 1;
+    }
+  });
+
   const token = useSelector(state => state.auth.token);
 
   const instance = axios.create({
@@ -36,7 +48,24 @@ export function PreviewCategories() {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(items);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      const width = window.innerWidth;
+
+      if (width >= 1240) {
+        setViewportWidth(4);
+      } else if (width >= 768 && width < 1440) {
+        setViewportWidth(2);
+      } else {
+        setViewportWidth(1);
+      }
+    };
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
+
   return (
     <>
       {items.length > 0
@@ -58,7 +87,7 @@ export function PreviewCategories() {
                           </ul>
                         );
                       })
-                      .slice(0, 4)}
+                      .slice(0, viewportWidth)}
                     <SeeAllButton
                       button
                       onClick={onHandlCklik}

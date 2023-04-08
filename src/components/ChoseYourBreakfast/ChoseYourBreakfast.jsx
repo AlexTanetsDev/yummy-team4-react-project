@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsArrowRight } from 'react-icons/bs';
 import { Link, useLocation } from 'react-router-dom';
 import vegetablesDish from '../../images/mobileMainPage/unsplash.webp';
 
@@ -44,7 +45,9 @@ export const ChoseYourBreakfast = () => {
               ingredients in one satisfying meal
             </Text>
 
-            <Arrow>See recipes</Arrow>
+            <Arrow>
+              See recipes <BsArrowRight />
+            </Arrow>
           </BreakfastButton>
         </Link>
       </div>
