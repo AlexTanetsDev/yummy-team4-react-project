@@ -3,7 +3,10 @@ import { useSelector } from 'react-redux';
 // import { useAuth } from '../../hooks';
 import axios from 'axios';
 import { Sections } from 'components/Sections/Sections';
-import { SeeAllButton } from 'components/Button/Button.jsx';
+import {
+  SeeAllButton,
+  OtherCategoriesButton,
+} from 'components/Button/Button.jsx';
 
 // axios.defaults.headers.common['Authorization'] =
 //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5MDY4MTYsImV4cCI6MTY4MDk4OTYxNn0.cOeYg8Y4WvI_KfS6fYlFDxSniwl6yVjnNRcKWjTD15U';
@@ -11,6 +14,9 @@ import { SeeAllButton } from 'components/Button/Button.jsx';
 
 function onHandlCklik() {
   console.log(3);
+}
+function onOtherCategoriesClick() {
+  console.log(30);
 }
 
 export function PreviewCategories() {
@@ -28,7 +34,7 @@ export function PreviewCategories() {
     instance.get('/recipes/main-page').then(function (response) {
       setItems(response.data);
     });
-  }, [instance]);
+  }, []);
 
   return (
     <>
@@ -52,13 +58,22 @@ export function PreviewCategories() {
                         );
                       })
                       .slice(0, 4)}
-                    <SeeAllButton onClick={onHandlCklik} children="See all" />
+                    <SeeAllButton
+                      button
+                      onClick={onHandlCklik}
+                      children={'See all'}
+                    />
                   </Sections>
                 </ul>
               );
             })
             .slice(0, 4)
         : null}
+      <OtherCategoriesButton
+        button
+        onClick={onOtherCategoriesClick}
+        children={'Other categories'}
+      />
     </>
   );
 }
