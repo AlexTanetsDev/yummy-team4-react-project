@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Hero = styled.h1`
+  margin-top: 70px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
@@ -8,6 +9,8 @@ export const Hero = styled.h1`
   line-height: 1;
   text-align: center;
   letter-spacing: -0.005em;
+  background: url(kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-5abcc32f2ee473.png);
+
   color: #22252a;
 `;
 
@@ -16,6 +19,11 @@ export const Span = styled.span`
 `;
 
 export const HeroInfo = styled.h3`
+margin-bottom: 44px;
+margin-top: 14px;
+width: 248px;
+margin-right: auto;
+margin-left: auto;
 font - family: 'Poppins';
 font-style: normal;
 font-weight: 400;
@@ -44,6 +52,7 @@ export const Text = styled.p`
 `;
 
 export const Arrow = styled.p`
+  margin-top: 7px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;

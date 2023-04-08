@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import vegetablesDish from '../../images/mobileMainPage/unsplash.webp';
 
 import {
   Hero,
   Span,
   HeroInfo,
-  // BreakfastButton,
+  BreakfastButton,
   Text,
   Arrow,
 } from './ChooseYourBreakfast.styled';
 
-export const ChoseYourBreakfast = onClick => {
+export const ChoseYourBreakfast = () => {
   const location = useLocation();
 
   return (
@@ -22,16 +23,31 @@ export const ChoseYourBreakfast = onClick => {
         "What to cook?" is not only a recipe app, it is, in fact, your cookbook.
         You can add your own recipes to save them for the future.
       </HeroInfo>
-      {/* <img alt={} src={}/> */}
-      {/* <BreakfastButton onClick={onClick}> */}
-      <Text>
-        <Span>Delicious and healthy</Span> way to enjoy a variety of fresh
-        ingredients in one satisfying meal
-      </Text>
-      <Link to={`/categories/breakfast`} state={{ from: location }}>
-        <Arrow>See recipes</Arrow>
-      </Link>
-      {/* </BreakfastButton> */}
+      <div
+        style={{
+          position: 'relative',
+        }}
+      >
+        <img alt={'Breakfast'} src={vegetablesDish} />
+        <Link to={`/categories/breakfast`} state={{ from: location }}>
+          <BreakfastButton
+            tipe="button"
+            style={{
+              position: 'absolute',
+              top: '113px',
+              right: '7px',
+              border: 'transparent',
+            }}
+          >
+            <Text>
+              <Span>Delicious and healthy</Span> way to enjoy a variety of fresh
+              ingredients in one satisfying meal
+            </Text>
+
+            <Arrow>See recipes</Arrow>
+          </BreakfastButton>
+        </Link>
+      </div>
     </div>
   );
 };

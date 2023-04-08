@@ -34,8 +34,9 @@ export function PreviewCategories() {
     instance.get('/recipes/main-page').then(function (response) {
       setItems(response.data);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  console.log(items);
   return (
     <>
       {items.length > 0
