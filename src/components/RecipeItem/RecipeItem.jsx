@@ -1,7 +1,7 @@
 import {
   StyledRecipeItem,
-  ImageWrapper,
   InfoWrapper,
+  ImageWrapper,
   Image,
   Title,
 } from './RecipeItem.styled';

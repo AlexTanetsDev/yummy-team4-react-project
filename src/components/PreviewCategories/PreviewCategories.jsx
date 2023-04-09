@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { Sections } from 'components/Sections/Sections';
+import { Sections } from 'components/MainPageCategorySection/Sections';
 import {
   SeeAllButton,
   OtherCategoriesButton,
@@ -66,13 +66,13 @@ export function PreviewCategories() {
             .map(item => (
               <ul key={item.category}>
                 <Sections title={item.category} children>
-                  {item.recipes
-                    .map(({ preview, title }) => (
-                      <ul>
+                  <ul>
+                    {item.recipes
+                      .map(({ preview, title }) => (
                         <RecipeItem preview={preview} title={title} />
-                      </ul>
-                    ))
-                    .slice(0, viewportWidth)}
+                      ))
+                      .slice(0, viewportWidth)}
+                  </ul>
                   <SeeAllButton button children={'See all'} />
                 </Sections>
               </ul>
