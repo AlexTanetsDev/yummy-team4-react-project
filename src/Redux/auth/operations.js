@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+// import { useSelector } from 'react-redux';
+// import { selectVerificationToken } from './selectors';
 
 axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com';
 
@@ -27,7 +29,24 @@ export const register = createAsyncThunk(
   }
 );
 
-export const signin = createAsyncThunk(
+// export const verifyEmail = createAsyncThunk(
+//   'auth/verify',
+//   async (_, thunkAPI) => {
+//     try {
+//       const verificationToken = useSelector(selectVerificationToken);
+//       const response = await axios.get(`/verify/${verificationToken}`);
+//       setAuthHeader(response.data.token);
+//       const result = response.data;
+//       console.log(result);
+//       return result;
+//     } catch (error) {
+//       console.log(error.response.data.message);
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+export const signIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {

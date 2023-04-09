@@ -1,11 +1,31 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
+
+  @media screen and (min-width: 768px) {
+    width: 800px;
+  }
+`;
+
+export const Form = styled.div`
   // display: flex;
   // flex-direction: column;
   max-width: 320px;
   padding: 16px;
   margin: 0 auto;
+
+  margin: 0 auto;
+  padding: 0 16px;
+  max-width: ${p => p.theme.breakPoints[0]};
+
+  @media screen and (min-width: 768px) {
+    padding: 0 32px;
+    max-width: ${p => p.theme.breakPoints[1]};
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 0 100px;
+    max-width: ${p => p.theme.breakPoints[2]};
+  }
 `;
 
 export const Input = styled.input`
