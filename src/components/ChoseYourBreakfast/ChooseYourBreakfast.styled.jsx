@@ -13,7 +13,7 @@ export const MainPageHero = styled.div`
   /* width: 100%; */
   
     width: 100%;
-    height: 841px;
+    height: 777px;
     background-repeat: no-repeat;
     background-image: url('${unsplash_mob}'), url('${blatt_mob}'),
       url('${blatt_l_mob}'), url('${bg_mob}');

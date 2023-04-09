@@ -13,10 +13,6 @@ import {
   Arrow,
 } from './ChooseYourBreakfast.styled';
 
-function handlSubmit() {
-  console.log('Submit');
-}
-
 export const ChoseYourBreakfast = () => {
   const location = useLocation();
 
@@ -42,7 +38,7 @@ export const ChoseYourBreakfast = () => {
             </Arrow>
           </BreakfastButton>
         </Link>
-        <Search onSubmit={handlSubmit} />
+        <Search />
       </MainPageHero>
     </div>
   );

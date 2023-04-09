@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { SearchMainPageBlack } from './Search.styled';
 import { SerchInput } from './Search.styled';
 
-export function Search({ onSubmit }) {
+export function Search(onSubmit) {
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
 
@@ -17,7 +17,6 @@ export function Search({ onSubmit }) {
     if (searchQuery.trim() === '') {
       return;
     }
-
     onSubmit(searchQuery);
     eve.target.reset();
   };
@@ -32,14 +31,12 @@ export function Search({ onSubmit }) {
           placeholder="Beef"
           onChange={handleInputChange}
         />
-        {searchQuery && (
-          <SearchMainPageBlack
-            to={`/categories/${searchQuery}`}
-            state={{ from: location }}
-          >
-            Search
-          </SearchMainPageBlack>
-        )}
+        <SearchMainPageBlack
+          to={searchQuery ? `/categories/${searchQuery}` : ``}
+          state={{ from: location }}
+        >
+          Search
+        </SearchMainPageBlack>
       </form>
     </>
   );
