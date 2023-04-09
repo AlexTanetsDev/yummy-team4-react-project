@@ -3,6 +3,7 @@ import { register } from 'Redux/auth/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 import { StyledWrapper, ModalWrapper, Button, InputField, Title, ImageReg, BottomBgImage  } from './RegisterForm.styled';
+import { Link } from 'components/RegisterPageWrapper/RegisterPageWrapper.styled';
 
 const initialValues = {
 	name: '',
@@ -47,6 +48,7 @@ export const RegisterForm = () => {
 			  </Form>
 		  </Formik>
 			</ModalWrapper>
+						<Link to="/signin">Sign in</Link>
 		</StyledWrapper>
   );
 };

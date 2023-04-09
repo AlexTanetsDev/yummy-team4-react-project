@@ -11,7 +11,8 @@ export const SearchBtnBlack = styled.button`
   line-height: 21px;
   border: ${p => p.theme.border.blackBtnBorder};
   border-radius: 24px 44px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     padding: 16px 52px;
@@ -28,7 +29,8 @@ export const SearchBtnBlack = styled.button`
     background-color: ${p => p.theme.colors.firstAccentColor};
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
-		}
+  }
+
 `;
 
 export const SearchBtnGreen = styled.button`
@@ -41,7 +43,8 @@ export const SearchBtnGreen = styled.button`
   line-height: 21px;
   border: ${p => p.theme.border.greenBtnBorder};
   border-radius: 24px 44px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     padding: 16px 52px;
@@ -55,28 +58,30 @@ export const SearchBtnGreen = styled.button`
 
   &:hover,
   &:focus {
-     background-color: ${p => p.theme.colors.secondAccentColor};
-     border: ${p => p.theme.border.blackBtnBorder};
-     outline: none;
-		 }
+    background-color: ${p => p.theme.colors.secondAccentColor};
+    border: ${p => p.theme.border.blackBtnBorder};
+    outline: none;
+  }
+
 `;
 
 export const SingInBtn = styled(NavLink)`
-	display:block;
+  display: block;
   padding: 10px 24px;
-  width: 95px;
+  width: 99px;
   background-color: transparent;
   color: ${p => p.theme.colors.mainBgColor};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
-  border: 2px solid #FAFAFA;
+  border: 2px solid #fafafa;
   border-radius: 24px 44px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     padding: 19px 44px;
-    width: 141px;
+    width: 145px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 24px;
   }
@@ -89,7 +94,8 @@ export const SingInBtn = styled(NavLink)`
     color: ${p => p.theme.colors.firstAccentColor};
     border: 2px solid #8baa36;
     outline: none;
-		}
+  }
+
 `;
 
 export const SingInBtnGreen = styled.button`
@@ -114,13 +120,13 @@ export const SingInBtnGreen = styled.button`
 
   &:hover,
   &:focus {
-     color: ${p => p.theme.colors.secondAccentColor};
-     outline: none;
-		 }
+    color: ${p => p.theme.colors.secondAccentColor};
+    outline: none;
+  }
 `;
 
 export const RegistrationBtn = styled(NavLink)`
-  display:block;
+  display: block;
   padding: 11px 24px;
   width: 132px;
   background-color: ${p => p.theme.colors.firstAccentColor};
@@ -128,9 +134,11 @@ export const RegistrationBtn = styled(NavLink)`
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
+	text-align: center;
   border: ${p => p.theme.border.greenBtnBorder};
   border-radius: 24px 44px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     padding: 20px 44px;
@@ -141,10 +149,10 @@ export const RegistrationBtn = styled(NavLink)`
 
   &:hover,
   &:focus {
-     background-color: ${p => p.theme.colors.secondAccentColor};
-     border: ${p => p.theme.border.blackBtnBorder};
-     outline: none;
-		 }
+    background-color: ${p => p.theme.colors.secondAccentColor};
+    border: ${p => p.theme.border.blackBtnBorder};
+    outline: none;
+  }
 `;
 
 export const OtherCategoriesBtn = styled.button`
@@ -157,7 +165,8 @@ export const OtherCategoriesBtn = styled.button`
   line-height: 21px;
   border: 2px solid #8baa36;
   border-radius: 24px 44px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     padding: 16px 52px;
@@ -171,7 +180,7 @@ export const OtherCategoriesBtn = styled.button`
     background-color: ${p => p.theme.colors.firstAccentColor};
     color: ${p => p.theme.colors.mainBgColor};
     outline: none;
-		}
+  }
 `;
 
 export const SubscribeBtnGreen = styled.button`
@@ -199,9 +208,9 @@ export const SubscribeBtnGreen = styled.button`
 
   &:hover,
   &:focus {
-     color: ${p => p.theme.colors.secondAccentColor};
-     outline: none;
-		 }
+    color: ${p => p.theme.colors.secondAccentColor};
+    outline: none;
+  }
 `;
 
 export const SubscribeBtnBlack = styled.button`
@@ -213,7 +222,7 @@ export const SubscribeBtnBlack = styled.button`
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 16px;
   border-radius: 6px;
-  border: 1px solid #1E1F28;
+  border: 1px solid #1e1f28;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
@@ -229,9 +238,9 @@ export const SubscribeBtnBlack = styled.button`
 
   &:hover,
   &:focus {
-     color: ${p => p.theme.colors.firstAccentColor};
-     outline: none;
-		 }
+    color: ${p => p.theme.colors.firstAccentColor};
+    outline: none;
+  }
 `;
 
 export const SaveChangesBtn = styled.button`
@@ -255,9 +264,9 @@ export const SaveChangesBtn = styled.button`
 
   &:hover,
   &:focus {
-     color: ${p => p.theme.colors.secondAccentColor};
-     outline: none;
-	}
+    color: ${p => p.theme.colors.secondAccentColor};
+    outline: none;
+  }
 `;
 
 export const SeeAllBtn = styled.button`
@@ -270,14 +279,15 @@ export const SeeAllBtn = styled.button`
   line-height: 18px;
   border-radius: 6px;
   border: ${p => p.theme.border.greenBtnBorder};
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-     background-color: ${p => p.theme.colors.secondAccentColor};
-     border: ${p => p.theme.border.blackBtnBorder};
-     outline: none;
-	}
+    background-color: ${p => p.theme.colors.secondAccentColor};
+    border: ${p => p.theme.border.blackBtnBorder};
+    outline: none;
+  }
 `;
 
 export const LogOutBtn = styled.button`
@@ -290,7 +300,8 @@ export const LogOutBtn = styled.button`
   line-height: 18px;
   border-radius: 6px;
   border: ${p => p.theme.border.greenBtnBorder};
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     padding: 19px 68px;
@@ -301,23 +312,24 @@ export const LogOutBtn = styled.button`
 
   &:hover,
   &:focus {
-     background-color: ${p => p.theme.colors.secondAccentColor};
-     border: ${p => p.theme.border.blackBtnBorder};
-     outline: none;
-	}
+    background-color: ${p => p.theme.colors.secondAccentColor};
+    border: ${p => p.theme.border.blackBtnBorder};
+    outline: none;
+  }
 `;
 
 export const CancelBtn = styled.button`
   padding: 14px 44px;
   width: 137px;
-  background-color: #D9D9D9;
-  color: #23262A;
+  background-color: #d9d9d9;
+  color: #23262a;
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 18px;
   border-radius: 6px;
-  border: 1px solid #D9D9D9;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #d9d9d9;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     padding: 19px 68px;
@@ -328,10 +340,10 @@ export const CancelBtn = styled.button`
 
   &:hover,
   &:focus {
-     background-color: transparent;
-     border: 1px solid #23262A;
-     outline: none;
-	}
+    background-color: transparent;
+    border: 1px solid #23262a;
+    outline: none;
+  }
 `;
 
 export const AddBtn = styled.button`
@@ -344,7 +356,8 @@ export const AddBtn = styled.button`
   line-height: 24px;
   border: ${p => p.theme.border.blackBtnBorder};
   border-radius: 24px 44px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     padding: 13px 64px;
@@ -356,20 +369,22 @@ export const AddBtn = styled.button`
     background-color: ${p => p.theme.colors.firstAccentColor};
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
-	}
+  }
 `;
 
 export const AddToFavoriteBtn = styled.button`
-  padding: 8px 18px;
+  padding: 8px 16px;
   width: 150px;
   background-color: transparent;
   color: ${p => p.theme.colors.secondAccentColor};
   font-family: 'Poppins';
+  font-weight: 400;
   font-size: ${p => p.theme.fontSizes.s}px;
   line-height: 15px;
   border: 2px solid #8baa36;
   border-radius: 24px 44px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     padding: 15px 44px;
@@ -378,7 +393,7 @@ export const AddToFavoriteBtn = styled.button`
     line-height: 24px;
   }
   @media (min-width: 1440px) {
-    padding: 15px 44px;
+    padding: 15px 42px;
     width: 270px;
   }
 
@@ -387,7 +402,7 @@ export const AddToFavoriteBtn = styled.button`
     background-color: ${p => p.theme.colors.firstAccentColor};
     color: ${p => p.theme.colors.mainBgColor};
     outline: none;
-	}
+  }
 `;
 
 export const SeeRecipeBtnBlack = styled.button`
@@ -407,7 +422,8 @@ export const SeeRecipeBtnBlack = styled.button`
     line-height: 21px;
     border: ${p => p.theme.border.blackBtnBorder};
     border-radius: 24px 44px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      border 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   @media (min-width: 1440px) {
     bottom: 40px;
@@ -423,7 +439,7 @@ export const SeeRecipeBtnBlack = styled.button`
     background-color: ${p => p.theme.colors.firstAccentColor};
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
-	}
+  }
 `;
 
 export const SeeRecipeBtnGreen = styled.button`
@@ -436,7 +452,8 @@ export const SeeRecipeBtnGreen = styled.button`
   line-height: 15px;
   border: ${p => p.theme.border.greenBtnBorder};
   border-radius: 24px 44px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     padding: 11px 32px;
@@ -456,7 +473,7 @@ export const SeeRecipeBtnGreen = styled.button`
     background-color: ${p => p.theme.colors.secondAccentColor};
     border: ${p => p.theme.border.blackBtnBorder};
     outline: none;
-	}
+  }
 `;
 
 export const FavoritesDeleteBtn = styled.button`
@@ -496,7 +513,7 @@ export const FavoritesDeleteBtn = styled.button`
   &:hover,
   &:focus {
     background-color: ${p => p.theme.colors.firstAccentColor};
-    border: ${p => p.theme.border.myRecipesBtnBorder};
+    border: ${p => p.theme.border.greenBtnBorder};
     color: ${p => p.theme.colors.mainBgColor};
     outline: none;
 `;
@@ -511,7 +528,7 @@ export const MyRecipesDeleteBtn = styled.button`
   background-color: ${p => p.theme.colors.firstAccentColor};
   color: ${p => p.theme.colors.mainBgColor};
   font-size: ${p => p.theme.fontSizes.l}px;
-  border: ${p => p.theme.border.myRecipesBtnBorder};
+  border: ${p => p.theme.border.greenBtnBorder};
   border-radius: 4px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), ;
 
