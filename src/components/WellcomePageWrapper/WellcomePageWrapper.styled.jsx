@@ -1,10 +1,21 @@
 import styled from 'styled-components';
+import { startPageBgMob, startPageBgTab, startPageBg } from '../../images';
 
 export const StyledWrapper = styled.div`
 	width: 100%;
 	height: 100vh;
-	background-color: #13420c;
-	/* background-image: url('../../images/startPageBackground.jpeg'); */
+	
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	background-image: url(${startPageBgMob}) ;
+	/* background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 58.58%, rgba(0, 0, 0, 0.345172) 78.98%, rgba(0, 0, 0, 0) 100%), url(mgg-vitchakorn-Ul4sgxQMmHU-unsplash.jpg); */
+	@media (min-width: 768px) {
+		background-image: url(${startPageBgTab}) ;
+  }	
+	@media (min-width: 1440px) {
+		background-image: url(${startPageBg}) ;
+  }
 `;
 
 export const Logo = styled.div`
@@ -15,6 +26,7 @@ export const Logo = styled.div`
   margin-bottom: 28px;
   border-radius: 12px;
   background-color: ${p => p.theme.colors.firstAccentColor};
+
 
   @media (min-width: 768px) {
 		width: 68px;
@@ -55,6 +67,7 @@ export const Text = styled.p`
 
 export const ButtonWrapper = styled.div`
 	display: flex;
+	width: 100%;
 	justify-content: center;
 	gap: 12px;
 	@media (min-width: 768px) {

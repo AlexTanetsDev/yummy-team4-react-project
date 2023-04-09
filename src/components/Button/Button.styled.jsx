@@ -64,7 +64,7 @@ export const SearchBtnGreen = styled.button`
 export const SingInBtn = styled(NavLink)`
 	display:block;
   padding: 10px 24px;
-  width: 95px;
+  width: 99px;
   background-color: transparent;
   color: ${p => p.theme.colors.mainBgColor};
   font-family: 'Poppins';
@@ -76,7 +76,7 @@ export const SingInBtn = styled(NavLink)`
 
   @media (min-width: 768px) {
     padding: 19px 44px;
-    width: 141px;
+    width: 145px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 24px;
   }
@@ -128,6 +128,7 @@ export const RegistrationBtn = styled(NavLink)`
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
+	text-align: center;
   border: ${p => p.theme.border.greenBtnBorder};
   border-radius: 24px 44px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
