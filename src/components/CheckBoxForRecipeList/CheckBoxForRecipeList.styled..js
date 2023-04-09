@@ -9,9 +9,20 @@ export const CheckBox = styled.span`
 
   border: 1px solid rgba(126, 126, 126, 0.5);
   border-radius: 4px;
+
+  @media (min-width: 768px) {
+    width: 35px;
+    height: 35px;
+    border: 2px solid rgba(126, 126, 126, 0.5);
+  }
 `;
 
 export const Pick = styled.img`
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
+
+  @media (min-width: 768px) {
+    width: 17px;
+    height: 17px;
+  }
 `;

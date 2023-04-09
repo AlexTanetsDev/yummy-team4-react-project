@@ -1,8 +1,8 @@
 import React from 'react';
-import { Formik, Form, FieldArray, Field } from 'formik';
-import { useState } from 'react';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
+import { OwnRecipeApi } from '../../apiService';
 import { RecipeDescriptionFields } from '../../components/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngridientsFields } from '../../components/RecipeIngridientsFields/RecipeIngridientsFields';
 import { RecipePreparationFields } from '../../components/RecipePreparationFields/RecipePreparationFields';
@@ -12,9 +12,9 @@ import { AddButton } from '../Button/Button';
 const validationSchema = Yup.object({
   title: Yup.string().required('Required'),
   description: Yup.string().required('Required'),
-  preparationDescription: Yup.string().required('Required'),
+  preparation: Yup.string().required('Required'),
   category: Yup.string().required('Required'),
-  preparationTime: Yup.string().required('Required'),
+  time: Yup.string().required('Required'),
   photo: Yup.string().required('Required'),
   ingredients: Yup.array().of(
     Yup.object().shape({
@@ -53,49 +53,67 @@ const ingredients = [
   'fish',
 ];
 
-const times = Array.from(Array(17), (_, i) => (i + 2) * 10);
-
-const units = ['kg', 'g', 'pcs', 'l'];
-
 const initialValues = {
+  photo: '',
   title: '',
   description: '',
-  preparationDescription: '',
   category: '',
-  preparationTime: '',
-  photo: '',
+  time: '',
   ingredients: [{ name: '', quantity: '', unit: '' }],
+  preparation: '',
 };
 
 export const AddRecipeForm = () => {
-  const [preparation, setPreparation] = useState('');
+  //   const [preparation, setPreparation] = useState('');
+  // const [submitting, setSubmitting] = useState(false);
 
-  const handlePreparationChange = e => {
-    const inputText = e.target.value.trim();
-    let firstLine = true;
+  //   const handlePreparationChange = e => {
+  //     const inputText = e.target.value.trim();
+  //     let firstLine = true;
 
-    if (firstLine) {
-      setPreparation(inputText);
-    }
+  //     if (firstLine) {
+  //       setPreparation(inputText);
+  //     }
 
-    if (e.key === 'Enter' && inputText !== '') {
-      firstLine = false;
-      const inputValueArr = inputText.split(/\r?\n/);
-      const lastInputItem = inputValueArr[inputValueArr.length - 1];
+  //     if (e.key === 'Enter' && inputText !== '') {
+  //       firstLine = false;
+  //       const inputValueArr = inputText.split(/\r?\n/);
 
-      setPreparation(inputValueArr);
-    }
+  //       setPreparation(inputValueArr);
+  //     }
+  //   };
+
+  const onSubmit = async (values, { setSubmitting, resetForm }, event) => {
+    setSubmitting(true);
+    const preparationArr = values.preparation.split(/\r?\n/);
+    const formData = new FormData();
+
+    formData.append('photo', values.photo);
+    formData.append('title', values.title);
+    formData.append('description', values.description);
+    formData.append('category', values.category);
+    formData.append('time', values.time);
+    formData.append('ingredients', values.ingredients);
+    preparationArr.map(item => {
+      if (item !== '') {
+        formData.append('instructions', item);
+      }
+    });
+
+    await OwnRecipeApi.FetchAddRecipe(formData);
+    resetForm();
+    setSubmitting(false);
   };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={values => console.log(values)}
+      onSubmit={onSubmit}
     >
       {formik => (
         <FormContainer>
-          <Form>
+          <Form >
             <RecipeDescriptionFields formik={formik} categories={categories} />
             <RecipeIngridientsFields
               formik={formik}
@@ -103,9 +121,13 @@ export const AddRecipeForm = () => {
             />
             <RecipePreparationFields
               formik={formik}
-              handleChange={handlePreparationChange}
+              //   handleChange={handlePreparationChange}
             />
-            <AddButton onClick={() => console.log('I am black search button')}>
+            <AddButton
+              type="submit"
+              onClick={formik.handleSubmit}
+              disabled={formik.isSubmitting}
+            >
               Add
             </AddButton>
           </Form>

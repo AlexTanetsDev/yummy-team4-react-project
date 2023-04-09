@@ -16,7 +16,7 @@ import {
   InstructionsText,
   TimeWrapper,
   TimeText,
-} from './FavoritesItem.styled';
+} from './FavoriteItem.styled';
 
 export const FavoritesItem = ({
   id,
@@ -28,8 +28,8 @@ export const FavoritesItem = ({
   onClick,
   onDelete,
 }) => {
-  const recipeId = id;
-  console.log(recipeId);
+  // const recipeId = id;
+  // console.log(recipeId);
 
   return (
     <>
@@ -45,7 +45,7 @@ export const FavoritesItem = ({
             <InstructionsText>{instructions}</InstructionsText>
           </TextWrapper>
           <TimeWrapper>
-            <TimeText>{time}</TimeText>
+            <TimeText>{time} min</TimeText>
           </TimeWrapper>
         </InfoWrapper>
         <SeeRecipeButtonBlack onClick={onClick} children="See recipe" />

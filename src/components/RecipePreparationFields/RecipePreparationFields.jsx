@@ -1,54 +1,31 @@
-import React, { useState } from 'react';
-import { Formik, Form, FieldArray, Field } from 'formik';
+import React from 'react';
 
 import {
   PreparationContainer,
+  InputContainer,
   Title,
   InputRecipe,
+  Error,
 } from './RecipePreparationFields.styled';
 
-export const RecipePreparationFields = ({ formik, handleChange }) => {
-  const [allPreparation, setAllPreparation] = useState([]);
-  const [preparation, setPreparation] = useState('');
-
-  const handlePreparationKeyDown = e => {
-    //     const inputText = e.target.value.trim();
-    //     if (e.key === 'Enter' && inputText !== '') {
-    //       setPreparation(prevState => [...prevState, inputText]);
-    //       e.target.value = '';
-    //     }
-  };
-
-  const handlePreparationChange = e => {
-    const inputText = e.target.value.trim();
-
-    if (e.key === 'Enter' && inputText !== '') {
-      //   setAllPreparation(prevState => [...prevState, preparation]);
-      // e.target.value = '';
-      // setPreparation('');
-    }
-
-    // setPreparation(inputText);
-  };
-
-  // console.log('allPreparation', allPreparation);
-  // console.log('preparation', preparation);
-
+export const RecipePreparationFields = ({ formik }) => {
   return (
     <PreparationContainer>
       <Title>Recipe Preparation</Title>
-      <label htmlFor="preparationDescription"></label>
-      <InputRecipe
-        id="preparationDescription"
-        placeholder="Enter recipe"
-        maxLength="300"
-        {...formik.getFieldProps('preparationDescription')}
-        onKeyDown={handleChange}
-      />
-      {formik.touched.preparationDescription &&
-      formik.errors.preparationDescription ? (
-        <div>{formik.errors.preparationDescription}</div>
-      ) : null}
+      <InputContainer>
+        <label htmlFor="preparationDescription"></label>
+        <InputRecipe
+          id="preparationDescription"
+          placeholder="Enter recipe"
+          maxLength="300"
+          {...formik.getFieldProps('preparation')}
+        //   onKeyDown={handleChange}
+        />
+        {formik.touched.preparation &&
+        formik.errors.preparation ? (
+          <Error />
+        ) : null}
+      </InputContainer>
     </PreparationContainer>
   );
 };

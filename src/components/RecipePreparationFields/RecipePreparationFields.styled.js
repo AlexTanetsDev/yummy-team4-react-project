@@ -10,6 +10,18 @@ export const PreparationContainer = styled.div`
   }
 `;
 
+export const InputContainer = styled.div`
+  position: relative;
+
+  width: 100%;
+  height: 154px;
+
+  @media screen and (min-width: 768px) {
+    width: 505px;
+    height: 244px;
+  }
+`;
+
 export const Title = styled.h2`
   display: inline-block;
   font-family: 'Poppins';
@@ -26,11 +38,7 @@ export const InputRecipe = styled.textarea`
   border-radius: 6px;
 
   width: 100%;
-  height: 154px;
-  resize: none;
-
-  border: none;
-  outline: none;
+  height: 100%;
   padding: 10px 16px;
 
   font-size: 14px;
@@ -38,19 +46,32 @@ export const InputRecipe = styled.textarea`
   letter-spacing: -0.02em;
   color: #000000;
 
+  border: none;
+  outline: none;
+  resize: none;
+
   &:placeholder {
     opacity: 0.5;
   }
 
   &:invalid {
-    border: 1px solid gba(231, 74, 59, 1);
+    border: 2px solid #e74a3b;
   }
 
   @media screen and (min-width: 768px) {
-    width: 505px;
-    height: 244px;
-
     font-size: 18px;
     line-height: 27px;
   }
+`;
+
+export const Error = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border: 2px solid #e74a3b;
+  border-radius: 6px;
+  pointer-events: none;
 `;

@@ -69,8 +69,6 @@ export const App = () => {
           }
         />
 
-        {/* <Route index element={<AddRecipePage />} /> */}
-
         <Route
           path="/signin"
           element={
@@ -83,7 +81,11 @@ export const App = () => {
             <PrivateRoute redirectTo="/signin" component={<MainPage />} />
           }
         />
+
+        <Route path="/favorite" element={<FavoritePage />} />
+        <Route path="/add" element={<AddRecipePage />} />
         <Route path="/shopping-list" element={<ShoppingListPage />} />
+        <Route path="/recepie/:id" element={<RecipePage />} />
       </Route>
     </Routes>
   );
