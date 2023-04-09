@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'Redux/auth/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
-import { StyledWrapper, ModalWrapper, Button, InputField, Title, ImageReg  } from './RegisterForm.styled';
+import { StyledWrapper, ModalWrapper, Button, InputField, Title, ImageReg, BottomBgImage  } from './RegisterForm.styled';
 
 const initialValues = {
 	name: '',
@@ -26,24 +26,23 @@ export const RegisterForm = () => {
 
 	return (
 		<StyledWrapper>
-			<ImageReg src='../../images/mb-reg-img.png' alt='Image registration'/>
+			<ImageReg/>
+			<BottomBgImage/>
 			<ModalWrapper>
 				<Title>
 				Registration
 				</Title>	
 			<Formik initialValues={initialValues} validationSchema={registerSchema} onSubmit={handleSubmit}>
         <Form autoComplete='off'>
-	
 					<Field type="text" as={InputField} name="name" placeholder="name" />
-					<ErrorMessage name="name" component="div"/>
-					
-
+					<ErrorMessage name="name" component="div" />
+						
 					<Field name="email" as={InputField} type="text" placeholder="email"/>
 					<ErrorMessage name="email" component="div" />
-
+						
 					<Field type="password" as={InputField} name="password" placeholder="password"/>
 					<ErrorMessage name="password" component="div"/>
-				
+
           <Button type="submit">Sign up</Button>
 			  </Form>
 		  </Formik>

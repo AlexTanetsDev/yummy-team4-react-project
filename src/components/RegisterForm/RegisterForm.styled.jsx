@@ -6,18 +6,32 @@ export const StyledWrapper = styled.div`
 	background-color: ${p => p.theme.colors.lightBgColor};
 `;
 
-export const ImageReg = styled.img`
+export const ImageReg = styled.div`
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 87px;
 	width: 285px;
 	height: 250px;
+	/* background-color: #757373; */
+	background-image: url('../../images/mb-reg-img.png');
+	background-size: contain;
+`;
+
+export const BottomBgImage = styled.div`
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	transform: translate(-50%, -100%);
+	width: 375px;
+	height: 490px;
+	background-color: #757373;
+	background-image: url('../../images/mb-reg-bottom.jpg');
+	background-size: contain;
 `;
 
 export const ModalWrapper = styled.div`
   position: absolute;
-	position: absolute;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
