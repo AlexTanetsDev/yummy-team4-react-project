@@ -4,15 +4,14 @@ import salad from './salad.jpeg';
 import vegetablesBasket from './vegetables-basket.png';
 import vegetablesDish from './vegetables-dish.png';
 import vegetables from './vegetables.jpeg';
-import recipeHeroMob from './recipeHeroMob.jpg';
-import recipeHeroTablet from './recipeHero-tablet.jpg';
-import recipeHeroDesktop from './recipeHero-desktop.jpg';
-import pick from './pick.png';
 import mainRegImgMob from './mainRegImgMob.png';
 import bottomRegImgMob from './bottomRegImgMob.jpg';
 import startPageBgMob from './startPageBgMob.jpg';
-import startPageBgTab from './startPageBgTab.png';
 import startPageBg from './startPageBg.jpg';
+import startPageBgTab from './startPageBgTab.png';
+import chevronUp from './chevron-up.svg';
+import photoIcon from './addRecipePhoto.svg';
+
 
 export {
   basilLeaves,
@@ -21,13 +20,11 @@ export {
   vegetablesBasket,
   vegetablesDish,
   vegetables,
-  recipeHeroMob,
-  recipeHeroTablet,
-  recipeHeroDesktop,
-  pick,
-  mainRegImgMob,
-  bottomRegImgMob,
-  startPageBgMob,
-  startPageBgTab,
-  startPageBg,
+  chevronUp,
+  photoIcon,
+	mainRegImgMob,
+	bottomRegImgMob,
+	startPageBgMob,
+	startPageBgTab,
+	startPageBg,
 };

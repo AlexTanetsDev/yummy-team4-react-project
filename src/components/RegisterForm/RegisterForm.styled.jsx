@@ -1,10 +1,18 @@
 import styled from "styled-components";
+import { mainRegImgMob } from '../../images';
+import{bottomRegImgMob} from '../../images';
 
 export const StyledWrapper = styled.div`
   width: 100%;
 	height: 100vh;
 	background-color: ${p => p.theme.colors.lightBgColor};
 `;
+
+export const ContentWrapper=styled.div`
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+`
 
 export const ImageReg = styled.div`
 	display: block;
@@ -14,7 +22,7 @@ export const ImageReg = styled.div`
 	width: 285px;
 	height: 250px;
 	/* background-color: #757373; */
-	background-image: url('../../images/mb-reg-img.png');
+	background-image: url(${mainRegImgMob});
 	background-size: contain;
 `;
 
@@ -25,9 +33,8 @@ export const BottomBgImage = styled.div`
 	transform: translate(-50%, -100%);
 	width: 375px;
 	height: 490px;
-	background-color: #757373;
-	background-image: url('../../images/mb-reg-bottom.jpg');
-	background-size: contain;
+	background-image: url(${bottomRegImgMob});
+	/* background-size: contain; */
 `;
 
 export const ModalWrapper = styled.div`
