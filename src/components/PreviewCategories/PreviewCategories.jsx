@@ -6,6 +6,7 @@ import {
   SeeAllButton,
   OtherCategoriesButton,
 } from 'components/Button/Button.jsx';
+import { RecipeItem } from 'components/RecipeItem/RecipeItem';
 
 // axios.defaults.headers.common['Authorization'] =
 //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5MDY4MTYsImV4cCI6MTY4MDk4OTYxNn0.cOeYg8Y4WvI_KfS6fYlFDxSniwl6yVjnNRcKWjTD15U';
@@ -66,12 +67,9 @@ export function PreviewCategories() {
               <ul key={item.category}>
                 <Sections title={item.category} children>
                   {item.recipes
-                    .map(recipe => (
+                    .map(({ preview, title }) => (
                       <ul>
-                        <li>
-                          <img src={recipe.preview} alt={recipe.title} />
-                        </li>
-                        <li>{recipe.title}</li>
+                        <RecipeItem preview={preview} title={title} />
                       </ul>
                     ))
                     .slice(0, viewportWidth)}

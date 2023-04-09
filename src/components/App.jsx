@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
@@ -36,10 +35,12 @@ const MainPage = lazy(() =>
   }))
 );
 
-const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage').then(module => ({
+const ShoppingListPage = lazy(() =>
+  import('../pages/ShoppingListPage').then(module => ({
     ...module,
-    default: module.ShoppingListPage,
-  })));
+    default: module.ShoppingList,
+  }))
+);
 
 export const App = () => {
   const dispatch = useDispatch();
