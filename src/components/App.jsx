@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
@@ -11,12 +10,13 @@ import { SharedLayout } from './SharedLayout';
 import AddRecipePage from '../pages/AddRecipesPage';
 import { refreshUser } from 'Redux/auth/operations';
 
+import { RecipePage } from 'pages/RecipePage';
+
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
-
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<WellcomPage />} />
+        <Route index element={<RecipePage />} />
         <Route
           path="/register"
           element={
@@ -53,7 +53,6 @@ export const App = () => {
           }
         />
         <Route path="/shopping-list" element={<ShoppingListPage />} />
-
       </Route>
     </Routes>
   );
