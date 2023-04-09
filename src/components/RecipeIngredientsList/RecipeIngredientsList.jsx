@@ -7,14 +7,12 @@ import {
   IngredientItem,
   IngredientName,
   IngredientMeasure,
-  CheckBox,
   MeasureCheckBoxWrapper,
-  Pick,
   IngredientPhoto,
   IngredientWrapper,
-  CheckBoxCustom,
 } from './RecipeIngredientsList.styled';
-import { pick, vegetablesBasket } from 'images';
+import { CheckBoxCustom } from 'components/CheckBoxForRecipeList/CheckBoxForRecipeList';
+import { vegetablesBasket } from 'images';
 
 export const RecipeIngredientsList = () => {
   return (
@@ -27,16 +25,13 @@ export const RecipeIngredientsList = () => {
         </Wrapper>
       </TableTitlesBox>
       <IngredietntsList>
-        <IngredientItem onClick={e => console.log(e.target)}>
+        <IngredientItem>
           <IngredientWrapper>
             <IngredientPhoto src={vegetablesBasket} alt="" />
             <IngredientName>Salmon</IngredientName>
           </IngredientWrapper>
           <MeasureCheckBoxWrapper>
             <IngredientMeasure>2 chopped</IngredientMeasure>
-            {/* <CheckBox>
-              <Pick src={pick} alt="" />
-            </CheckBox> */}
             <CheckBoxCustom />
           </MeasureCheckBoxWrapper>
         </IngredientItem>

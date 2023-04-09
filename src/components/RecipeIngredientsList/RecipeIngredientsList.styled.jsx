@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import styled from 'styled-components';
-import { pick, vegetablesBasket } from 'images';
 
 export const IngredientsSection = styled.main`
   padding: 32px 16px 50px;
@@ -92,29 +90,3 @@ export const IngredientMeasure = styled.span`
   line-height: 15px;
   color: ${p => p.theme.colors.mainBgColor};
 `;
-
-export const CheckBox = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 18px;
-  height: 18px;
-
-  border: 1px solid rgba(126, 126, 126, 0.5);
-  border-radius: 4px;
-`;
-
-export const Pick = styled.img`
-  width: 9px;
-  height: 9px;
-`;
-
-export const CheckBoxCustom = () => {
-  const [checked, setChecked] = useState(false);
-
-  return (
-    <CheckBox onClick={() => setChecked(!checked)}>
-      {checked && <Pick src={pick} />}
-    </CheckBox>
-  );
-};
