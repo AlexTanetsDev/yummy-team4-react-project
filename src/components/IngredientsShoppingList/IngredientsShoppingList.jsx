@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { IngridientsShoppingListItem } from './IngridientsShoppingListItem';
-// import { useEffect, useState, Suspense } from 'react';
 
-export const IngridientsShoppingList = ({ ingridients }) => {
+export const IngridientsShoppingList = ({ ingridients, handleDelete }) => {
   return (
     <>
       <table>
@@ -15,7 +14,11 @@ export const IngridientsShoppingList = ({ ingridients }) => {
         </thead>
         <tbody>
           {ingridients.map(item => (
-            <IngridientsShoppingListItem item={item} />
+            <IngridientsShoppingListItem
+              key={item._id}
+              item={item}
+              handleDelete={handleDelete}
+            />
           ))}
         </tbody>
       </table>

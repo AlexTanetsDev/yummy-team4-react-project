@@ -1,20 +1,30 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { IngridientsShoppingList } from '../components/IngredientsShoppingList/IngredientsShoppingList';
-import api, { baseUrl } from 'apiService/ShoppingListApi';
+import {
+  deleteShoppingListItem,
+  fetchShoppingList,
+} from 'apiService/ShoppingListApi';
 
-export const ShoppingList = () => {
+export default function ShoppingList() {
   const [ingridients, setIngridients] = useState([]);
   useEffect(() => {
-    api.FetchShoppingList(baseUrl).then(resp => setIngridients(resp.results));
+    fetchShoppingList().then(resp => setIngridients(resp.data));
   }, []);
+
+  const handleDelete = id => {
+    deleteShoppingListItem(id).then(resp =>
+      setIngridients(ingridients.filter(item => item._id !== id))
+    );
+  };
 
   return (
     <div>
       <h1>Shopping List</h1>
-      <IngridientsShoppingList ingridients={ingridients} />
+      <IngridientsShoppingList
+        handleDelete={handleDelete}
+        ingridients={ingridients}
+      />
     </div>
   );
-};
-
-export default ShoppingList;
+}
