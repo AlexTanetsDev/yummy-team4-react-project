@@ -70,33 +70,27 @@ export function PreviewCategories() {
     <>
       {items.length > 0
         ? items
-            .map(item => {
-              const { category, recipes } = item;
-              return (
-                <ul key={category}>
-                  <Sections title={category} children>
-                    {recipes
-                      .map(recipe => {
-                        const { preview, title } = recipe;
-                        return (
-                          <ul>
-                            <li>
-                              <img src={preview} alt="" />
-                            </li>
-                            <li>{title}</li>
-                          </ul>
-                        );
-                      })
-                      .slice(0, viewportWidth)}
-                    <SeeAllButton
-                      button
-                      onClick={onHandlCklik}
-                      children={'See all'}
-                    />
-                  </Sections>
-                </ul>
-              );
-            })
+            .map(item => (
+              <ul key={item.category}>
+                <Sections title={item.category} children>
+                  {item.recipes
+                    .map(recipe => (
+                      <ul>
+                        <li>
+                          <img src={recipe.preview} alt="" />
+                        </li>
+                        <li>{recipe.title}</li>
+                      </ul>
+                    ))
+                    .slice(0, viewportWidth)}
+                  <SeeAllButton
+                    button
+                    onClick={onHandlCklik}
+                    children={'See all'}
+                  />
+                </Sections>
+              </ul>
+            ))
             .slice(0, 4)
         : null}
       <OtherCategoriesButton
