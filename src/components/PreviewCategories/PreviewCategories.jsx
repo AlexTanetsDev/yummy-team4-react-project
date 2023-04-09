@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-// import { useAuth } from '../../hooks';
 import axios from 'axios';
 import { Sections } from 'components/Sections/Sections';
 import {
@@ -70,7 +69,7 @@ export function PreviewCategories() {
                     .map(recipe => (
                       <ul>
                         <li>
-                          <img src={recipe.preview} alt="" />
+                          <img src={recipe.preview} alt={recipe.title} />
                         </li>
                         <li>{recipe.title}</li>
                       </ul>

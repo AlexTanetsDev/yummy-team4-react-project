@@ -8,10 +8,9 @@ import desktop_bg from '../../images/mainPagePhoto/desktop_bg_1440.png';
 import tablet_bg from '../../images/mainPagePhoto/tablet_bg.png';
 
 export const MainPageHero = styled.div`
-  /* width: 375px; //****** */
   position: relative;
-  /* width: 100%; */
-  
+  margin: 0 auto;
+  max-width: ${p => p.theme.breakPoints[0]};
     width: 100%;
     height: 777px;
     background-repeat: no-repeat;
@@ -22,6 +21,7 @@ export const MainPageHero = styled.div`
     // background-size: 320px, 375px, 60px, 280px;
   }
   @media screen and (min-width: 768px) {
+    max-width: ${p => p.theme.breakPoints[1]};
     width: 100%;
     height: 640px;
     background-repeat: no-repeat;
@@ -30,6 +30,7 @@ export const MainPageHero = styled.div`
     background-position: center center;
   }
   @media screen and (min-width: 1440px) {
+    max-width: ${p => p.theme.breakPoints[2]};
     width: 1240px;
     position: relative;
     height: 688px;
@@ -52,8 +53,9 @@ export const HeroTitle = styled.h1`
   color: ${p => p.theme.colors.secondAccentColor};
 
   @media (min-width: 768px) {
-    padding-top: 132px;
-    pad
+    padding-top: 204px;
+    margin-left: 32px;
+    text-align: left;
     font-size: 72px;
   }
   @media (min-width: 1440px) {
@@ -82,7 +84,10 @@ color: ${p => p.theme.colors.itemTextColor};
 
  @media (min-width: 768px) {
   margin-bottom: 32px;  
+  margin-top: 24px;
+  margin-left: 38px;
   width: 362px;
+  text-align: left;
   }
   @media (min-width: 1440px) {
  margin-bottom: 50px;  
@@ -100,8 +105,29 @@ export const BreakfastButton = styled.button`
   border-radius: 8px;
   margin-bottom: 115px;
   margin-right: 34px;
-  margin-left: 88px;
+  margin-left: 116px;
   border: transparent;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+    font-size: ${p => p.theme.fontSizes.xl}px;
+    line-height: 1.5;
+  }
+`;
+
+export const InputWraper = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+  }
+  // @media (min-width: 1440px) {
+  //   margin-bottom: 50px;
+  //   width: 465px;
+  //   font-size: ${p => p.theme.fontSizes.xxl}px;
+  //   line-height: 1.33;
+  // }
 `;
 
 export const Text = styled.p`

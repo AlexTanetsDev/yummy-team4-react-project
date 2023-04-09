@@ -7,8 +7,8 @@ import { Container } from 'components/Container/Container';
 export const Main = () => {
   return (
     <div>
+      <ChoseYourBreakfast />
       <Container children>
-        <ChoseYourBreakfast />
         <PreviewCategories />
       </Container>
     </div>

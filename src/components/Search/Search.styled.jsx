@@ -8,12 +8,21 @@ export const SerchInput = styled.input`
   width: 295px;
   position: relative;
   background-color: ${p => p.theme.colors.mainBgColor};
-  color: #bdbdbd;
+  color: ${p => p.theme.colors.mainTitleText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
   border: 1px solid #f0f0f0;
   border-radius: 24px 44px;
+  @media (min-width: 768px) {
+    padding: 16px 52px;
+    width: 362px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
+    line-height: 24px;
+  }
+  @media (min-width: 1440px) {
+    padding: 22px 52px;
+  }
 `;
 
 export const SearchMainPageBlack = styled(NavLink)`
@@ -32,6 +41,7 @@ export const SearchMainPageBlack = styled(NavLink)`
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
+    right: 375px;
     padding: 16px 52px;
     width: 161px;
     font-size: ${p => p.theme.fontSizes.xl}px;
