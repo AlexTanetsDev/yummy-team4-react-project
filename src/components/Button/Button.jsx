@@ -123,7 +123,7 @@ export const CancelButton = ({ type = 'button', onClick, children }) => {
   );
 };
 
-export const AddButton = ({ type = 'button', onClick, children }) => {
+export const AddButton = ({ type = 'submit', onClick, children }) => {
   return (
     <AddBtn type={type} onClick={onClick}>
       {children}
