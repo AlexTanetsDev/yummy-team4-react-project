@@ -30,6 +30,7 @@ export const SearchBtnBlack = styled.button`
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
   }
+
 `;
 
 export const SearchBtnGreen = styled.button`
@@ -61,6 +62,7 @@ export const SearchBtnGreen = styled.button`
     border: ${p => p.theme.border.blackBtnBorder};
     outline: none;
   }
+
 `;
 
 export const SingInBtn = styled(NavLink)`
@@ -93,6 +95,7 @@ export const SingInBtn = styled(NavLink)`
     border: 2px solid #8baa36;
     outline: none;
   }
+
 `;
 
 export const SingInBtnGreen = styled.button`
@@ -369,11 +372,12 @@ export const AddBtn = styled.button`
 `;
 
 export const AddToFavoriteBtn = styled.button`
-  padding: 8px 18px;
+  padding: 8px 16px;
   width: 150px;
   background-color: transparent;
   color: ${p => p.theme.colors.secondAccentColor};
   font-family: 'Poppins';
+  font-weight: 400;
   font-size: ${p => p.theme.fontSizes.s}px;
   line-height: 15px;
   border: 2px solid #8baa36;
@@ -388,7 +392,7 @@ export const AddToFavoriteBtn = styled.button`
     line-height: 24px;
   }
   @media (min-width: 1440px) {
-    padding: 15px 44px;
+    padding: 15px 42px;
     width: 270px;
   }
 
