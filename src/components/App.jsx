@@ -9,15 +9,20 @@ import { PrivateRoute } from './PrivateRout';
 import { SharedLayout } from './SharedLayout';
 import { refreshUser } from 'Redux/auth/operations';
 
-// const RegisterPage = lazy(() => import('../pages/RegisterPage'));
-// const SigninPage = lazy(() => import('../pages/SinginPage'));
-// const WellcomPage = lazy(() => import('../pages/WelcomePage'));
-const MainPage = lazy(() => import('../pages/MainPage'));
+
+
+
+const MyRecipesPage = lazy(() => import('../pages/MyRecipesPage'));
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
-const SigninPage = lazy(() => import('../pages/SinginPage'));
 const WellcomPage = lazy(() => import('../pages/WelcomePage'));
-const MyRecipesPage = lazy(() => import('../pages/MyRecipesPage'));
+const MainPage = lazy(() => import('../pages/MainPage'));
+const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
+const SigninPage = lazy(() => import('../pages/SinginPage'));
+const FavoritePage = lazy(() => import('../pages/FavoriteRecipesPage/index'));
+const AddRecipePage = lazy(() => import('../pages/AddRecipesPage'));
+const RecipePage = lazy(() => import('../pages/RecipePage'));
+
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -38,6 +43,8 @@ export const App = () => {
             <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
           }
         />
+
+
         <Route
           path="/signin"
           element={
@@ -50,7 +57,13 @@ export const App = () => {
             <PrivateRoute redirectTo="/signin" component={<MainPage />} />
           }
         />
+
         <Route path="/my" element={<MyRecipesPage />} />
+        <Route path="/favorite" element={<FavoritePage />} />
+        <Route path="/add" element={<AddRecipePage />} />
+        <Route path="/shopping-list" element={<ShoppingListPage />} />
+        <Route path="/recepie/:id" element={<RecipePage />} />
+        
       </Route>
     </Routes>
   );

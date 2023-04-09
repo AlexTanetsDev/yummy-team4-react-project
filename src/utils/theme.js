@@ -3,6 +3,7 @@ export const theme = {
   colors: {
     mainBgColor: '#FAFAFA',
     darkBgColor: '#1E1F28',
+    lightBgColor: 'ECECEC',
     firstAccentColor: '#8BAA36',
     secondAccentColor: '#22252A',
     thirdAccentColor: '#2A2C36',
@@ -25,10 +26,9 @@ export const theme = {
     xxxxl: 44,
   },
   border: {
-    greenBtnBorder: '1px solid #8baa36',
+    greenBtnBorder: '1px solid #8BAA36',
     blackBtnBorder: '1px solid #22252a',
     grayBorder: '1px solid #E0E0E0',
     favoriteBtnBorder: '1px solid #EBF3D4',
-    myRecipesBtnBorder: '1px solid #8BAA36',
   },
 };

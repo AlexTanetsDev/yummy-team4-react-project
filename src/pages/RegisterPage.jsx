@@ -1,11 +1,9 @@
-import { RegisterForm } from "components/RegisterForm/RegisterForm";
-import { NavLink } from "react-router-dom";
+import { RegisterPageWrapper } from "components/RegisterPageWrapper/RegisterPageWrapper";
 
 export default function Register() {
 	return (
 		<>
-			<RegisterForm/>
-			<NavLink to="/signin">Sign in</NavLink>
+			<RegisterPageWrapper/>
 		</>
 	)
 };

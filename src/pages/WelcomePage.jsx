@@ -1,9 +1,9 @@
-import { RegistrationButton, SingInButton } from "components/Button/Button"
+import { WellcomPageWrapper } from "components/WellcomePageWrapper/WellcomePageWrapper";
+
 export default function Wellcom() {
 	return (
 		<>
-			<RegistrationButton/>
-			<SingInButton/>
+			<WellcomPageWrapper />
 		</>
-	)
+	);
 }

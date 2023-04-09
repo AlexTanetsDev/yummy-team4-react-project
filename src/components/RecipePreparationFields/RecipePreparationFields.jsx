@@ -1,40 +1,31 @@
-import React, { useState } from 'react';
-import { Formik, Form, FieldArray, Field } from 'formik';
+import React from 'react';
 
 import {
   PreparationContainer,
+  InputContainer,
   Title,
   InputRecipe,
+  Error,
 } from './RecipePreparationFields.styled';
 
 export const RecipePreparationFields = ({ formik }) => {
-  const [preparation, setPreparation] = useState([]);
-
-  const handlePreparationChange = e => {
-    const inputText = e.target.value.trim();
-
-    if (e.key === 'Enter' && inputText !== '') {
-      setPreparation(prevState => [...prevState, inputText]);
-      e.target.value = '';
-      console.log(preparation);
-    }
-  };
-
   return (
     <PreparationContainer>
       <Title>Recipe Preparation</Title>
-      <label htmlFor="preparationDescription"></label>
-      <InputRecipe
-        id="preparationDescription"
-        placeholder="Enter recipe"
-        maxLength="300"
-        {...formik.getFieldProps('preparationDescription')}
-        onKeyDown={handlePreparationChange}
-      />
-      {formik.touched.preparationDescription &&
-      formik.errors.preparationDescription ? (
-        <div>{formik.errors.preparationDescription}</div>
-      ) : null}
+      <InputContainer>
+        <label htmlFor="preparationDescription"></label>
+        <InputRecipe
+          id="preparationDescription"
+          placeholder="Enter recipe"
+          maxLength="300"
+          {...formik.getFieldProps('preparation')}
+        //   onKeyDown={handleChange}
+        />
+        {formik.touched.preparation &&
+        formik.errors.preparation ? (
+          <Error />
+        ) : null}
+      </InputContainer>
     </PreparationContainer>
   );
 };
