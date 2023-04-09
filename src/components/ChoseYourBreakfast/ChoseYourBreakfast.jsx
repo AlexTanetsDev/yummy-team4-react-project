@@ -46,7 +46,7 @@ export const ChoseYourBreakfast = () => {
             </Text>
 
             <Arrow>
-              See recipes <BsArrowRight />
+              See recipes <BsArrowRight style={{ marginLeft: '7px' }}/>
             </Arrow>
           </BreakfastButton>
         </Link>

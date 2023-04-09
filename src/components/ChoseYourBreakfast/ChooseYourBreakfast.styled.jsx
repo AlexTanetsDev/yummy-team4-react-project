@@ -9,7 +9,7 @@ export const Hero = styled.h1`
   line-height: 1;
   text-align: center;
   letter-spacing: -0.005em;
-  background: url(kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-5abcc32f2ee473.png);
+  // background: url(kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-5abcc32f2ee473.png);
 
   color: #22252a;
 `;
