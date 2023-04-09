@@ -31,9 +31,9 @@ export const MainPageHero = styled.div`
   }
   @media screen and (min-width: 1440px) {
     max-width: ${p => p.theme.breakPoints[2]};
-    width: 1240px;
+    width: 1440px;
     position: relative;
-    height: 688px;
+    height: 800px;
     background-repeat: no-repeat;
     background-image: url('${desktop_bg}');
     background-size: cover;
@@ -59,6 +59,8 @@ export const HeroTitle = styled.h1`
     font-size: 72px;
   }
   @media (min-width: 1440px) {
+    padding-top: 226px;
+    margin-left: 100px;
     font-size: 100px;
   }
 `;
@@ -82,7 +84,7 @@ text-align: center;
 letter-spacing: -0.02em;
 color: ${p => p.theme.colors.itemTextColor};
 
- @media (min-width: 768px) {
+  @media (min-width: 768px) {
   margin-bottom: 32px;  
   margin-top: 24px;
   margin-left: 38px;
@@ -90,8 +92,10 @@ color: ${p => p.theme.colors.itemTextColor};
   text-align: left;
   }
   @media (min-width: 1440px) {
- margin-bottom: 50px;  
+  margin-bottom: 50px;  
   width: 465px;
+  margin-top: 14px;
+  margin-left: 107px;
     font-size: ${p => p.theme.fontSizes.xxl}px;
     line-height: 1.33;
   }
@@ -110,8 +114,11 @@ export const BreakfastButton = styled.button`
 
   @media (min-width: 768px) {
     margin-bottom: 0;
-    font-size: ${p => p.theme.fontSizes.xl}px;
-    line-height: 1.5;
+    width: 260px;
+  }
+  @media (min-width: 1440px) {
+    width: 295px;
+    margin-right: 122px;
   }
 `;
 
@@ -122,12 +129,9 @@ export const InputWraper = styled.div`
     align-items: center;
     justify-content: space-around;
   }
-  // @media (min-width: 1440px) {
-  //   margin-bottom: 50px;
-  //   width: 465px;
-  //   font-size: ${p => p.theme.fontSizes.xxl}px;
-  //   line-height: 1.33;
-  // }
+  @media (min-width: 1440px) {
+    justify-content: space-between;
+  }
 `;
 
 export const Text = styled.p`
@@ -137,7 +141,16 @@ export const Text = styled.p`
   font-size: 12px;
   line-height: 1.2;
   letter-spacing: -0.24px;
+  text-align: left;
   color: #3e4462;
+  @media (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.l}px;
+    line-height: 1.5;
+  }
+  @media (min-width: 1440px) {
+    font-size: ${p => p.theme.fontSizes.l}px;
+    line-height: 1.42;
+  }
 `;
 
 export const Arrow = styled.p`
@@ -145,12 +158,18 @@ export const Arrow = styled.p`
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
-  font-size: 10px;
-  line-height: 1, 2;
+  font-size: ${p => p.theme.fontSizes.s}px;
+  line-height: 1.2;
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: flex-end;
   letter-spacing: 0.2px;
   color: #3e4462;
+  @media (min-width: 768px) {
+    margin-bottom: 7px;
+  }
+  @media (min-width: 1440px) {
+    margin-bottom: 11px;
+  }
 `;

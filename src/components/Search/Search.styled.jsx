@@ -22,6 +22,8 @@ export const SerchInput = styled.input`
   }
   @media (min-width: 1440px) {
     padding: 22px 52px;
+    width: 510px;
+    margin-left: 100px;
   }
 `;
 
@@ -49,6 +51,7 @@ export const SearchMainPageBlack = styled(NavLink)`
   }
   @media (min-width: 1440px) {
     padding: 22px 52px;
+    right: 830px;
   }
 
   &:hover,
