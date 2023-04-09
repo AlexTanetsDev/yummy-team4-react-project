@@ -9,43 +9,17 @@ import { PrivateRoute } from './PrivateRout';
 import { SharedLayout } from './SharedLayout';
 import { refreshUser } from 'Redux/auth/operations';
 
-const RegisterPage = lazy(() =>
-  import('../pages/RegisterPage').then(module => ({
-    ...module,
-    default: module.RegisterPage,
-  }))
-);
-const SigninPage = lazy(() =>
-  import('../pages/SinginPage').then(module => ({
-    ...module,
-    default: module.SigninPage,
-  }))
-);
-const WellcomPage = lazy(() =>
-  import('../pages/WelcomePage').then(module => ({
-    ...module,
-    default: module.WellcomPage,
-  }))
-);
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 const MainPage = lazy(() =>
   import('../pages/MainPage').then(module => ({
     ...module,
     default: module.MainPage,
   }))
 );
-
-const ShoppingListPage = lazy(() =>
-  import('../pages/ShoppingListPage').then(module => ({
-    ...module,
-    default: module.ShoppingList,
-  }))
-);
-
-// const RegisterPage = lazy(() => import('../pages/RegisterPage'));
-// const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 // const MainPage = lazy(() => import('../pages/MainPage'));
-// const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
-// const SigninPage = lazy(() => import('../pages/SinginPage'));
+const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
+const SigninPage = lazy(() => import('../pages/SinginPage'));
 const FavoritePage = lazy(() => import('../pages/FavoriteRecipesPage/index'));
 const AddRecipePage = lazy(() => import('../pages/AddRecipesPage'));
 const RecipePage = lazy(() => import('../pages/RecipePage'));
