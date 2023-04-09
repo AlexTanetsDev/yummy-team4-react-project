@@ -9,8 +9,6 @@ import closeIcon from './images/closeIcon.png';
 import minus from './images/minus.png';
 import plus from './images/plus.png';
 import photoIcon from './images/photoIcon.png';
-import logoWhite from './images/logo-white.png';
-import logoGreen from './images/logo-green.png';
 
 export {
   basilLeaves,
@@ -24,6 +22,4 @@ export {
   minus,
   plus,
   photoIcon,
-  logoWhite,
-  logoGreen,
 };
