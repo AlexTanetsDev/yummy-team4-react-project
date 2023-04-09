@@ -6,6 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
 import { store, persistor } from './redux/store';
 
+import './GlobalStyles'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
