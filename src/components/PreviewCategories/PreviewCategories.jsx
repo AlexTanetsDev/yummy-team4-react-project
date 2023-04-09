@@ -12,13 +12,6 @@ import {
 //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5MDY4MTYsImV4cCI6MTY4MDk4OTYxNn0.cOeYg8Y4WvI_KfS6fYlFDxSniwl6yVjnNRcKWjTD15U';
 // 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5NDE3OTksImV4cCI6MTY4MTAyNDU5OX0.R7puNattOS6LksGKc-OmhrSfN95oCp2yHJ1YPfb97D8',
 
-function onHandlCklik() {
-  console.log(3);
-}
-function onOtherCategoriesClick() {
-  console.log(30);
-}
-
 export function PreviewCategories() {
   const [items, setItems] = useState('');
   const [viewportWidth, setViewportWidth] = useState(() => {
@@ -83,21 +76,13 @@ export function PreviewCategories() {
                       </ul>
                     ))
                     .slice(0, viewportWidth)}
-                  <SeeAllButton
-                    button
-                    onClick={onHandlCklik}
-                    children={'See all'}
-                  />
+                  <SeeAllButton button children={'See all'} />
                 </Sections>
               </ul>
             ))
             .slice(0, 4)
         : null}
-      <OtherCategoriesButton
-        button
-        onClick={onOtherCategoriesClick}
-        children={'Other categories'}
-      />
+      <OtherCategoriesButton button children={'Other categories'} />
     </>
   );
 }
