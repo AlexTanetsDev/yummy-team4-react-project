@@ -7,18 +7,32 @@ import {
   InputRecipe,
 } from './RecipePreparationFields.styled';
 
-export const RecipePreparationFields = ({ formik }) => {
-  const [preparation, setPreparation] = useState([]);
+export const RecipePreparationFields = ({ formik, handleChange }) => {
+  const [allPreparation, setAllPreparation] = useState([]);
+  const [preparation, setPreparation] = useState('');
+
+  const handlePreparationKeyDown = e => {
+    //     const inputText = e.target.value.trim();
+    //     if (e.key === 'Enter' && inputText !== '') {
+    //       setPreparation(prevState => [...prevState, inputText]);
+    //       e.target.value = '';
+    //     }
+  };
 
   const handlePreparationChange = e => {
     const inputText = e.target.value.trim();
 
     if (e.key === 'Enter' && inputText !== '') {
-      setPreparation(prevState => [...prevState, inputText]);
-      e.target.value = '';
-      console.log(preparation);
+      //   setAllPreparation(prevState => [...prevState, preparation]);
+      // e.target.value = '';
+      // setPreparation('');
     }
+
+    // setPreparation(inputText);
   };
+
+  // console.log('allPreparation', allPreparation);
+  // console.log('preparation', preparation);
 
   return (
     <PreparationContainer>
@@ -29,7 +43,7 @@ export const RecipePreparationFields = ({ formik }) => {
         placeholder="Enter recipe"
         maxLength="300"
         {...formik.getFieldProps('preparationDescription')}
-        onKeyDown={handlePreparationChange}
+        onKeyDown={handleChange}
       />
       {formik.touched.preparationDescription &&
       formik.errors.preparationDescription ? (
