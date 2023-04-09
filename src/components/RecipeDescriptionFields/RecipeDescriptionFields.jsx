@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Formik, Form, FieldArray, Field } from 'formik';
+import { Field } from 'formik';
 
 import photoIcon from '../../images/addRecipePhoto.svg';
 import {
   DescriptionContainer,
   FieldContainer,
-  PhotoContainer,
   InputFieldsContainer,
   InputTitle,
   LabelTitle,
-  InputDescription,
+//   InputDescription,
   InputCategory,
   FieldSelectContainer,
   OptionCategory,
@@ -20,13 +19,19 @@ import {
   InputIconContainer,
   FileLabel,
   InputFile,
+  Error,
+  ErrorPhoto,
 } from './RecipeDescriptionFields.styled';
 
-const FileInput = ({ field, form: { setFieldValue }, ...props }) => {
+const FileInput = ({
+  field,
+  form: { setFieldValue, isSubmitting, touched, errors, submitForm },
+  ...props
+}) => {
   const [previewUrl, setPreviewUrl] = useState('');
 
   const handleFileChange = e => {
-    const file = e.target.files[0];
+	  const file = e.target.files[0];
 
     if (file) {
       const reader = new FileReader();
@@ -35,6 +40,8 @@ const FileInput = ({ field, form: { setFieldValue }, ...props }) => {
         setPreviewUrl(reader.result);
       };
       setFieldValue(field.name, file);
+    } else {
+      setPreviewUrl('');
     }
   };
 
@@ -42,6 +49,7 @@ const FileInput = ({ field, form: { setFieldValue }, ...props }) => {
     <FileInputContainer>
       <RreviewImageContainer>
         {previewUrl && <Image src={previewUrl} alt="Preview repice photo" />}
+        {touched.photo && errors.photo ? <ErrorPhoto /> : null}
       </RreviewImageContainer>
       <InputIconContainer>
         <Image src={photoIcon} alt="Preview" />
@@ -61,18 +69,19 @@ const FileInput = ({ field, form: { setFieldValue }, ...props }) => {
 
 export const RecipeDescriptionFields = ({ formik, categories }) => {
   const times = Array.from(Array(24), (_, i) => (i + 1) * 5);
-  // 	const [previewUrl, setPreviewUrl] = useState('');
 
-  //   const onSubmit = (values, { setSubmitting }) => {
-  //     const formData = new FormData();
-  //     formData.append('name', values.name);
-  //     formData.append('email', values.email);
-  //     formData.append('image', values.image);
+  //   const handleFileChange = e => {
+  //   const file = e.target.files[0];
 
-  // axios.post('/api/save-form-data', formData).then(() => {
-  //   setSubmitting(false);
-  // });
-  //   };
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onloadend = () => {
+  //       formik.setPreviewUrl(reader.result);
+  //     };
+  //     formik.setFieldValue(formik.field.name, file);
+  //   }
+  // };
 
   return (
     <DescriptionContainer>
@@ -81,12 +90,8 @@ export const RecipeDescriptionFields = ({ formik, categories }) => {
         name="photo"
         type="file"
         component={FileInput}
-        //   onChange={event => {
-        // handleFileChange();
-        //   console.log('onChange Field', event.currentTarget.files[0]);
-        //   formik.setFieldValue('photo', event.currentTarget.files[0]);
-        //   }}
-        className="form-control"
+        //   onChange={handleFileChange}
+        // formik={formik}
       />
 
       <InputFieldsContainer>
@@ -100,8 +105,9 @@ export const RecipeDescriptionFields = ({ formik, categories }) => {
             required
             {...formik.getFieldProps('title')}
           />
-          {formik.touched.name && formik.errors.name ? (
-            <div>{formik.errors.name}</div>
+          {formik.touched.title && formik.errors.title ? (
+            // <div>{formik.errors.name}</div>
+            <Error />
           ) : null}
         </FieldContainer>
 
@@ -116,7 +122,7 @@ export const RecipeDescriptionFields = ({ formik, categories }) => {
             {...formik.getFieldProps('description')}
           />
           {formik.touched.description && formik.errors.description ? (
-            <div>{formik.errors.description}</div>
+            <Error />
           ) : null}
         </FieldContainer>
 
@@ -127,31 +133,27 @@ export const RecipeDescriptionFields = ({ formik, categories }) => {
             onfocus={({ size }) => console.log(size)}
             {...formik.getFieldProps('category')}
           >
-            {/* <option value="">Select a category</option> */}
+            <option value=""></option>
             {categories.map((category, index) => (
               <OptionCategory key={index} value={category}>
                 {category}
               </OptionCategory>
             ))}
           </InputCategory>
-          {formik.touched.category && formik.errors.category ? (
-            <div>{formik.errors.category}</div>
-          ) : null}
+          {formik.touched.category && formik.errors.category ? <Error /> : null}
         </FieldSelectContainer>
 
         <FieldSelectContainer>
-          <LabelCategory htmlFor="cookingTime">Cooking Time</LabelCategory>
-          <InputCategory id="cookingTime" {...formik.getFieldProps('time')}>
-            {/* <option value="">Select a time</option> */}
+          <LabelCategory htmlFor="time">Cooking Time</LabelCategory>
+          <InputCategory id="time" {...formik.getFieldProps('time')}>
+            <option value=""></option>
             {times.map((time, index) => (
               <OptionCategory key={index} value={time}>
                 {time} min
               </OptionCategory>
             ))}
           </InputCategory>
-          {formik.touched.preparationTime && formik.errors.preparationTime ? (
-            <div>{formik.errors.preparationTime}</div>
-          ) : null}
+          {formik.touched.time && formik.errors.time ? <Error /> : null}
         </FieldSelectContainer>
       </InputFieldsContainer>
     </DescriptionContainer>

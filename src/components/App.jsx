@@ -7,7 +7,6 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRout';
 
 import { SharedLayout } from './SharedLayout';
-import AddRecipePage from '../pages/AddRecipesPage';
 import { refreshUser } from 'Redux/auth/operations';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -15,7 +14,7 @@ const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
-
+const AddRecipePage = lazy(() => import('../pages/AddRecipesPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -37,8 +36,6 @@ export const App = () => {
           }
         />
 
-        {/* <Route index element={<AddRecipePage />} /> */}
-
         <Route
           path="/signin"
           element={
@@ -51,8 +48,10 @@ export const App = () => {
             <PrivateRoute redirectTo="/signin" component={<MainPage />} />
           }
         />
-        <Route path="/shopping-list" element={<ShoppingListPage />} />
 
+        <Route path="/add" element={<AddRecipePage />} />
+
+        <Route path="/shopping-list" element={<ShoppingListPage />} />
       </Route>
     </Routes>
   );

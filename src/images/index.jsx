@@ -4,11 +4,8 @@ import salad from './images/salad.jpeg';
 import vegetablesBasket from './images/vegetables-basket.png';
 import vegetablesDish from './images/vegetables-dish.png';
 import vegetables from './images/vegetables.jpeg';
-import chevronDown from './images/chevron-down.png';
-import closeIcon from './images/closeIcon.png';
-import minus from './images/minus.png';
-import plus from './images/plus.png';
-import photoIcon from './images/photoIcon.png';
+import chevronUp from './chevron-up.svg';
+import photoIcon from './addRecipePhoto.svg';
 
 export {
   basilLeaves,
@@ -17,9 +14,6 @@ export {
   vegetablesBasket,
   vegetablesDish,
   vegetables,
-  chevronDown,
-  closeIcon,
-  minus,
-  plus,
+  chevronUp,
   photoIcon,
 };
