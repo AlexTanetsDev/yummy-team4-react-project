@@ -29,8 +29,8 @@ export const SearchBtnBlack = styled.button`
     background-color: ${p => p.theme.colors.firstAccentColor};
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
+  }
 
-		}
 `;
 
 export const SearchBtnGreen = styled.button`
@@ -58,15 +58,15 @@ export const SearchBtnGreen = styled.button`
 
   &:hover,
   &:focus {
+    background-color: ${p => p.theme.colors.secondAccentColor};
+    border: ${p => p.theme.border.blackBtnBorder};
+    outline: none;
+  }
 
-     background-color: ${p => p.theme.colors.secondAccentColor};
-     border: ${p => p.theme.border.blackBtnBorder};
-     outline: none;
-		 }
 `;
 
 export const SingInBtn = styled(NavLink)`
-	display:block;
+  display: block;
   padding: 10px 24px;
   width: 95px;
   background-color: transparent;
@@ -94,8 +94,8 @@ export const SingInBtn = styled(NavLink)`
     color: ${p => p.theme.colors.firstAccentColor};
     border: 2px solid #8baa36;
     outline: none;
+  }
 
-		}
 `;
 
 export const SingInBtnGreen = styled.button`
@@ -120,14 +120,13 @@ export const SingInBtnGreen = styled.button`
 
   &:hover,
   &:focus {
-
-     color: ${p => p.theme.colors.secondAccentColor};
-     outline: none;
-		 }
+    color: ${p => p.theme.colors.secondAccentColor};
+    outline: none;
+  }
 `;
 
 export const RegistrationBtn = styled(NavLink)`
-  display:block;
+  display: block;
   padding: 11px 24px;
   width: 132px;
   background-color: ${p => p.theme.colors.firstAccentColor};
@@ -149,10 +148,10 @@ export const RegistrationBtn = styled(NavLink)`
 
   &:hover,
   &:focus {
-     background-color: ${p => p.theme.colors.secondAccentColor};
-     border: ${p => p.theme.border.blackBtnBorder};
-     outline: none;
-		 }
+    background-color: ${p => p.theme.colors.secondAccentColor};
+    border: ${p => p.theme.border.blackBtnBorder};
+    outline: none;
+  }
 `;
 
 export const OtherCategoriesBtn = styled.button`
@@ -180,7 +179,7 @@ export const OtherCategoriesBtn = styled.button`
     background-color: ${p => p.theme.colors.firstAccentColor};
     color: ${p => p.theme.colors.mainBgColor};
     outline: none;
-		}
+  }
 `;
 
 export const SubscribeBtnGreen = styled.button`
@@ -208,9 +207,9 @@ export const SubscribeBtnGreen = styled.button`
 
   &:hover,
   &:focus {
-     color: ${p => p.theme.colors.secondAccentColor};
-     outline: none;
-		 }
+    color: ${p => p.theme.colors.secondAccentColor};
+    outline: none;
+  }
 `;
 
 export const SubscribeBtnBlack = styled.button`
@@ -238,9 +237,9 @@ export const SubscribeBtnBlack = styled.button`
 
   &:hover,
   &:focus {
-     color: ${p => p.theme.colors.firstAccentColor};
-     outline: none;
-		 }
+    color: ${p => p.theme.colors.firstAccentColor};
+    outline: none;
+  }
 `;
 
 export const SaveChangesBtn = styled.button`
@@ -264,9 +263,9 @@ export const SaveChangesBtn = styled.button`
 
   &:hover,
   &:focus {
-     color: ${p => p.theme.colors.secondAccentColor};
-     outline: none;
-	}
+    color: ${p => p.theme.colors.secondAccentColor};
+    outline: none;
+  }
 `;
 
 export const SeeAllBtn = styled.button`
@@ -284,10 +283,10 @@ export const SeeAllBtn = styled.button`
 
   &:hover,
   &:focus {
-     background-color: ${p => p.theme.colors.secondAccentColor};
-     border: ${p => p.theme.border.blackBtnBorder};
-     outline: none;
-	}
+    background-color: ${p => p.theme.colors.secondAccentColor};
+    border: ${p => p.theme.border.blackBtnBorder};
+    outline: none;
+  }
 `;
 
 export const LogOutBtn = styled.button`
@@ -312,10 +311,10 @@ export const LogOutBtn = styled.button`
 
   &:hover,
   &:focus {
-     background-color: ${p => p.theme.colors.secondAccentColor};
-     border: ${p => p.theme.border.blackBtnBorder};
-     outline: none;
-	}
+    background-color: ${p => p.theme.colors.secondAccentColor};
+    border: ${p => p.theme.border.blackBtnBorder};
+    outline: none;
+  }
 `;
 
 export const CancelBtn = styled.button`
@@ -340,10 +339,10 @@ export const CancelBtn = styled.button`
 
   &:hover,
   &:focus {
-     background-color: transparent;
-     border: 1px solid #23262A;
-     outline: none;
-	}
+    background-color: transparent;
+    border: 1px solid #23262a;
+    outline: none;
+  }
 `;
 
 export const AddBtn = styled.button`
@@ -369,7 +368,7 @@ export const AddBtn = styled.button`
     background-color: ${p => p.theme.colors.firstAccentColor};
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
-	}
+  }
 `;
 
 export const AddToFavoriteBtn = styled.button`
@@ -402,7 +401,7 @@ export const AddToFavoriteBtn = styled.button`
     background-color: ${p => p.theme.colors.firstAccentColor};
     color: ${p => p.theme.colors.mainBgColor};
     outline: none;
-	}
+  }
 `;
 
 export const SeeRecipeBtnBlack = styled.button`
@@ -439,7 +438,7 @@ export const SeeRecipeBtnBlack = styled.button`
     background-color: ${p => p.theme.colors.firstAccentColor};
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
-	}
+  }
 `;
 
 export const SeeRecipeBtnGreen = styled.button`
@@ -473,7 +472,7 @@ export const SeeRecipeBtnGreen = styled.button`
     background-color: ${p => p.theme.colors.secondAccentColor};
     border: ${p => p.theme.border.blackBtnBorder};
     outline: none;
-	}
+  }
 `;
 
 export const FavoritesDeleteBtn = styled.button`
@@ -513,7 +512,7 @@ export const FavoritesDeleteBtn = styled.button`
   &:hover,
   &:focus {
     background-color: ${p => p.theme.colors.firstAccentColor};
-    border: ${p => p.theme.border.myRecipesBtnBorder};
+    border: ${p => p.theme.border.greenBtnBorder};
     color: ${p => p.theme.colors.mainBgColor};
     outline: none;
 `;
@@ -528,7 +527,7 @@ export const MyRecipesDeleteBtn = styled.button`
   background-color: ${p => p.theme.colors.firstAccentColor};
   color: ${p => p.theme.colors.mainBgColor};
   font-size: ${p => p.theme.fontSizes.l}px;
-  border: ${p => p.theme.border.myRecipesBtnBorder};
+  border: ${p => p.theme.border.greenBtnBorder};
   border-radius: 4px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), ;
 
