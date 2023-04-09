@@ -19,6 +19,8 @@
 //   AddToFavoriteButton,
 //   SeeRecipeButtonBlack,
 //   SeeRecipeButtonGreen,
+//   FavoritesDeleteButton,
+//   MyRecipesDeleteButton,
 // } from 'components/Button/Button.jsx';
 
 // 2) После добавление в свой компонент с 2 пропсами onClick(коллбэк) children(текст кнопки):
@@ -89,6 +91,14 @@
 //       <SeeRecipeButtonGreen
 //         onClick={() => console.log('I am green see recipe button')}
 //         children="See recipe"
+//       />
+//       <FavoritesDeleteButton
+//         onClick={() => console.log('I am favorites delete button')}
+//         children={<Icon />}
+//       />
+//       <MyRecipesDeleteButton
+//         onClick={() => console.log('I am my recipes delete button')}
+//         children={<Icon />}
 //       />
 //     </>
 //   );
