@@ -1,11 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { SearchMainPageBlack } from './Search.styled';
+import { SerchInput } from './Search.styled';
 
-import { SearchButtonBlack } from '../Button/Button';
+export function Search({ onSubmit }) {
+  const [searchQuery, setSearchQuery] = useState('');
+  const location = useLocation();
 
-export const Search = onClick => {
+  const handleInputChange = eve => {
+    setSearchQuery(eve.currentTarget.value.toLowerCase());
+  };
+
+  const handleSubmit = eve => {
+    eve.preventDefault();
+
+    if (searchQuery.trim() === '') {
+      return;
+    }
+
+    onSubmit(searchQuery);
+    eve.target.reset();
+  };
+
   return (
-    <div>
-      <SearchButtonBlack onClick={onClick} children="Search" />
-    </div>
+    <>
+      <form onSubmit={handleSubmit}>
+        <SerchInput
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Beef"
+          onChange={handleInputChange}
+        />
+        {searchQuery && (
+          <SearchMainPageBlack
+            to={`/categories/${searchQuery}`}
+            state={{ from: location }}
+          >
+            Search
+          </SearchMainPageBlack>
+        )}
+      </form>
+    </>
   );
-};
+}
