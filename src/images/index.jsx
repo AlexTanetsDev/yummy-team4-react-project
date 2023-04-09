@@ -1,14 +1,21 @@
-import basilLeaves from './images/basil-leaves.png';
-import saladSalmon from './images/salad-salmon.jpeg';
-import salad from './images/salad.jpeg';
-import vegetablesBasket from './images/vegetables-basket.png';
-import vegetablesDish from './images/vegetables-dish.png';
-import vegetables from './images/vegetables.jpeg';
-import chevronDown from './images/chevron-down.png';
-import closeIcon from './images/closeIcon.png';
-import minus from './images/minus.png';
-import plus from './images/plus.png';
-import photoIcon from './images/photoIcon.png';
+import basilLeaves from './basil-leaves.png';
+import saladSalmon from './salad-salmon.jpeg';
+import salad from './salad.jpeg';
+import vegetablesBasket from './vegetables-basket.png';
+import vegetablesDish from './vegetables-dish.png';
+import vegetables from './vegetables.jpeg';
+// import chevronDown from './chevron-down.png';
+// import closeIcon from './closeIcon.png';
+// import minus from './minus.png';
+// import plus from './plus.png';
+// import photoIcon from './photoIcon.png';
+import mainRegImgMob from './mainRegImgMob.png';
+import bottomRegImgMob from './bottomRegImgMob.jpg';
+import startPageBgMob from './startPageBgMob.jpg';
+import startPageBg from './startPageBg.jpg';
+import startPageBgTab from './startPageBgTab.png';
+
+
 
 export {
   basilLeaves,
@@ -17,9 +24,14 @@ export {
   vegetablesBasket,
   vegetablesDish,
   vegetables,
-  chevronDown,
-  closeIcon,
-  minus,
-  plus,
-  photoIcon,
+  // chevronDown,
+  // closeIcon,
+  // minus,
+  // plus,
+	// photoIcon,
+	mainRegImgMob,
+	bottomRegImgMob,
+	startPageBgMob,
+	startPageBgTab,
+	startPageBg,
 };
