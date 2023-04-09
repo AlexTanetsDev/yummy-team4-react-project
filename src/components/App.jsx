@@ -40,14 +40,15 @@ const ShoppingListPage = lazy(() =>
     default: module.ShoppingList,
   }))
 );
+
 // const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 // const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 // const MainPage = lazy(() => import('../pages/MainPage'));
 // const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 // const SigninPage = lazy(() => import('../pages/SinginPage'));
-// const FavoritePage = lazy(() => import('../pages/FavoriteRecipesPage/index'));
-// const AddRecipePage = lazy(() => import('../pages/AddRecipesPage'));
-// const RecipePage = lazy(() => import('../pages/RecipePage'));
+const FavoritePage = lazy(() => import('../pages/FavoriteRecipesPage/index'));
+const AddRecipePage = lazy(() => import('../pages/AddRecipesPage'));
+const RecipePage = lazy(() => import('../pages/RecipePage'));
 
 export const App = () => {
   const dispatch = useDispatch();
