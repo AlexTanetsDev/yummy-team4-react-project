@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { IngridientsShoppingListItem } from './IngridientsShoppingListItem';
+import { tableHeader } from './IngredientsShoppingList.styled';
 
 export const IngridientsShoppingList = ({ ingridients, handleDelete }) => {
   return (

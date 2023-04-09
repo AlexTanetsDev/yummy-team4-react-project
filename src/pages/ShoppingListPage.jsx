@@ -5,6 +5,7 @@ import {
   deleteShoppingListItem,
   fetchShoppingList,
 } from 'apiService/ShoppingListApi';
+import { Container } from 'components/Container/Container';
 
 export default function ShoppingList() {
   const [ingridients, setIngridients] = useState([]);
@@ -19,12 +20,12 @@ export default function ShoppingList() {
   };
 
   return (
-    <div>
+    <Container>
       <h1>Shopping List</h1>
       <IngridientsShoppingList
         handleDelete={handleDelete}
         ingridients={ingridients}
       />
-    </div>
+    </Container>
   );
 }
