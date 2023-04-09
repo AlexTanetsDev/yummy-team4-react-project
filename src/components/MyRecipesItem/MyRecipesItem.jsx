@@ -1,19 +1,53 @@
-import React from 'react';
-import Pagination from '../Paginator/Paginator';
+import { FiTrash2 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+
 import {
-  MainPageTitle,
-  MyRecipesList,
-  MyRecipesItem,
+  SeeRecipeButtonGreen,
+  MyRecipesDeleteButton,
+} from 'components/Button/Button';
+
+import {
+  StyledMyRecipesItem,
+  ImageWrapper,
+  InfoWrapper,
+  Image,
+  Title,
+  TextWrapper,
+  DescriptionText,
+  InstructionsText,
+  TimeWrapper,
+  TimeText,
 } from './MyRecipesItem.styled';
 
-export default function myRecipes() {
+export const MyRecipesItem = ({
+  id,
+  title,
+  description,
+  instructions,
+  time,
+  preview,
+}) => {
   return (
-    <div>
-      <MainPageTitle>My recipes</MainPageTitle>
-      <MyRecipesList>
-        <MyRecipesItem></MyRecipesItem>
-      </MyRecipesList>
-      <Pagination></Pagination>
-    </div>
+    <>
+      <StyledMyRecipesItem>
+        <MyRecipesDeleteButton children={<FiTrash2 />} />
+        <ImageWrapper>
+          <Image src={preview} alt={title} />
+        </ImageWrapper>
+        <InfoWrapper>
+          <Title>{title}</Title>
+          <TextWrapper>
+            <DescriptionText>{description}</DescriptionText>
+            <InstructionsText>{instructions}</InstructionsText>
+          </TextWrapper>
+          <TimeWrapper>
+            <TimeText>{time}</TimeText>
+          </TimeWrapper>
+        </InfoWrapper>
+        <Link to={`/recipes/${id}`}>
+          <SeeRecipeButtonGreen children="See recipe" />
+        </Link>
+      </StyledMyRecipesItem>
+    </>
   );
-}
+};
