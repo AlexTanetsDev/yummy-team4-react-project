@@ -8,6 +8,11 @@ import recipeHeroMob from './recipeHeroMob.jpg';
 import recipeHeroTablet from './recipeHero-tablet.jpg';
 import recipeHeroDesktop from './recipeHero-desktop.jpg';
 import pick from './pick.png';
+import mainRegImgMob from './mainRegImgMob.png';
+import bottomRegImgMob from './bottomRegImgMob.jpg';
+import startPageBgMob from './startPageBgMob.jpg';
+import startPageBgTab from './startPageBgTab.png';
+import startPageBg from './startPageBg.jpg';
 
 export {
   basilLeaves,
@@ -20,4 +25,9 @@ export {
   recipeHeroTablet,
   recipeHeroDesktop,
   pick,
+  mainRegImgMob,
+  bottomRegImgMob,
+  startPageBgMob,
+  startPageBgTab,
+  startPageBg,
 };
