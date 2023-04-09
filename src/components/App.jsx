@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
@@ -16,7 +15,7 @@ const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
-
+const FavoritePage = lazy(() => import('../pages/FavoriteRecipesPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -52,8 +51,8 @@ export const App = () => {
             <PrivateRoute redirectTo="/signin" component={<MainPage />} />
           }
         />
+        <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/shopping-list" element={<ShoppingListPage />} />
-
       </Route>
     </Routes>
   );
