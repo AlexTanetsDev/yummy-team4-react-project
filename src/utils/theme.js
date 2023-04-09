@@ -26,10 +26,9 @@ export const theme = {
     xxxxl: 44,
   },
   border: {
-    greenBtnBorder: '1px solid #8baa36',
+    greenBtnBorder: '1px solid #8BAA36',
     blackBtnBorder: '1px solid #22252a',
     grayBorder: '1px solid #E0E0E0',
     favoriteBtnBorder: '1px solid #EBF3D4',
-    myRecipesBtnBorder: '1px solid #8BAA36',
   },
 };
