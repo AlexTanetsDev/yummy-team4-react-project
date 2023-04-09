@@ -54,6 +54,7 @@ export const InputTitle = styled.input`
   line-height: 12px;
   color: #000000;
   outline: none;
+  background-color: rgb(250, 250, 250);
 
   &:invalid {
     border-bottom: 1px solid rgba(224, 224, 224, 1);
@@ -97,13 +98,14 @@ export const InputDescription = styled.textarea`
 `;
 
 export const FieldSelectContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
 
   // margin-bottom: 24px;
   padding-bottom: 18px;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
-  
+
   // @media screen and (min-width: 768px) {
   //   margin-bottom: 32px;
   // }
@@ -126,14 +128,17 @@ export const InputCategory = styled.select`
   -moz-appearance: none;
   appearance: none;
 
-  background: url(${Icon}) no-repeat 90% 50%;
-  background-size: 14px;
+  background: url(${Icon}) no-repeat 94% 50%;
   background-size: 14px;
 
-  padding-right: 13px;
+  width: 136px;
+  padding-right: 26px;
+  padding-left: 18px;
   font-size: 12px;
   line-height: 12px;
   color: #000000;
+  // text-align: right;
+
   outline: none;
   border: none;
   box-sizing: border-box;
@@ -171,6 +176,8 @@ export const FileInputContainer = styled.div`
 `;
 
 export const RreviewImageContainer = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -213,3 +220,27 @@ export const InputFile = styled.input`
   opacity: 0;
   z-index: -10;
 `;
+
+export const Error = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 10;
+  background-color: #e74a3b;
+`;
+
+export const ErrorPhoto = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border: 2px solid #e74a3b;
+  border-radius: 8px;
+  pointer-events: none;
+`;
+

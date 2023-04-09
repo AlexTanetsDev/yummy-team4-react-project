@@ -82,7 +82,11 @@ export const IngridientFields = styled.div`
   align-items: center;
 `;
 
-export const Datalist = styled.select`
+export const IngridientNameContainer = styled.div`
+  position: relative;
+`;
+
+export const InputIngridientName = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -103,6 +107,7 @@ export const Datalist = styled.select`
   // background-size: 14px;
   // background-size: 14px;
   background-color: rgba(217, 217, 217, 1);
+  border-radius: 6px;
 
   @media screen and (min-width: 768px) {
     width: 398px;
@@ -110,27 +115,6 @@ export const Datalist = styled.select`
 
     font-size: 18px;
     line-height: 27px;
-  }
-`;
-
-export const InputIngridientName = styled.input`
-  background-color: rgba(217, 217, 217, 1);
-  border-radius: 6px;
-
-  width: 193px;
-  height: 53px;
-
-  border: none;
-  outline: none;
-  padding-left: 14px;
-
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.02em;
-  color: #000000;
-
-  &:invalid {
-    border: 1px solid gba(231, 74, 59, 1);
   }
 `;
 
@@ -201,25 +185,9 @@ export const ContainerMeasure = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-
-  // padding-left: 32px;
-
-  // position: relative;
-  // width: 18px;
-  // height: 18px;
-
-  // color: rgba(51, 51, 51, 1);
-  // background-color: transparent;
-
-  // margin: 0;
-  // padding: 0;
-  // font-size: 24px;
-  // line-height: 24px;
-  // cursor: pointer;
 `;
 
 export const InputMeasure = styled.select`
-  // background-color: transparent;
   padding-left: 32px;
 
   width: 100%;
@@ -238,6 +206,8 @@ export const InputMeasure = styled.select`
   background: url(${Icon}) no-repeat 80% 50%;
   background-size: 14px;
   background-size: 14px;
+
+  border-radius: 6px;
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -288,4 +258,16 @@ export const DeleteButton = styled.button`
   font-size: 24px;
   line-height: 24px;
   cursor: pointer;
+`;
+
+export const Error = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border: 2px solid #e74a3b;
+  border-radius: 6px;
+  pointer-events: none;
 `;

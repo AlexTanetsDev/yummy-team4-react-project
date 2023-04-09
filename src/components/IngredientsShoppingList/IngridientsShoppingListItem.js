@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-export const IngridientsShoppingListItem = ({ ingridient }) => {
+export const IngridientsShoppingListItem = ({ item, handleDelete }) => {
   return (
     <>
       <tr>
-        <th>{ingridient.thumb}</th>
-        <th>{ingridient.title}</th>
-        <th>{ingridient.quantity}</th>
-        <th><button></button></th>
+        <th>
+          <img src={item.thumb} alt={item.title} />
+        </th>
+        <th>{item.title}</th>
+        <th>{item.quantity}</th>
+        <th>
+          <button type="button" onClick={() => handleDelete(item._id)}>
+            X
+          </button>
+        </th>
       </tr>
     </>
   );
