@@ -31,7 +31,7 @@ export const RecipeIngredientsList = () => {
             <IngredientName>Salmon</IngredientName>
           </IngredientWrapper>
           <MeasureCheckBoxWrapper>
-            <IngredientMeasure>2 chopped</IngredientMeasure>
+            <IngredientMeasure>400 g</IngredientMeasure>
             <CheckBoxCustom />
           </MeasureCheckBoxWrapper>
         </IngredientItem>
