@@ -1,0 +1,21 @@
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  margin-left: 14px;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 18px;
+  }
+}
+
+.icon:hover {
+  opacity: 1;
+}
