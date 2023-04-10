@@ -8,7 +8,7 @@ import { BsSearch } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx"
 import {IoMdClose} from "react-icons/io"
 import {StyledLink, StyledHeader, StyledNav, StyledNavBurger, StyledBurger, StyledThemeBtn, MobileMenu, 
-    ThemeModalDiv, userHeaderInfo, Avatar, UserName, StyledThemeHeaderDiv, StyledThemeHeader} from "../Header/Header.styled"
+    ThemeModalDiv, Avatar, UserName, StyledThemeHeaderDiv, StyledThemeHeader, StyledLinkBurger} from "../Header/Header.styled"
 import { useState } from 'react';
 import {useSelector} from "react-redux"
 
@@ -34,9 +34,7 @@ export const Header = () => {
             <Link to="/">
             <img src={Logo} alt="логотип"/>        
             </Link>
-            
-            
-            
+                      
         <StyledNav>
             <StyledLink to="/catagories">Categories</StyledLink>
             <StyledLink to="/add">Add recipes</StyledLink>
@@ -46,10 +44,13 @@ export const Header = () => {
              <StyledLink to="/search"><BsSearch/></StyledLink>
             </StyledNav>
 
-           <Avatar to="/">
-            <img src="http://res.cloudinary.com/dkkt8rmcn/image/upload/c_fill,g_faces,h_250,…" alt="avatar" />  
+        {!nav ? "" :  <>
+        <Avatar to="/">
+            <img src= "avatar.jpg" alt="avatar" />  
             </Avatar>
-            <UserName> User</UserName>
+            <UserName> User </UserName>
+        </>
+        }
             
                <StyledThemeHeaderDiv>
                     <StyledThemeHeader onClick={handleTheme}> 
@@ -62,12 +63,12 @@ export const Header = () => {
             {nav ? "" : 
            <MobileMenu>
             <StyledNavBurger>
-            <StyledLink to="/catagories">Categories</StyledLink>
-            <StyledLink to="/add">Add recipes</StyledLink>
-            <StyledLink to="/my">My recipes</StyledLink>
-            <StyledLink to="/fovorites">Favorites</StyledLink>
-            <StyledLink to="/shopping-list">Shopping list</StyledLink>
-             <StyledLink to="/search"><BsSearch/> Search</StyledLink>                        
+            <StyledLinkBurger to="/catagories">Categories</StyledLinkBurger>
+            <StyledLinkBurger to="/add">Add recipes</StyledLinkBurger>
+            <StyledLinkBurger to="/my">My recipes</StyledLinkBurger>
+            <StyledLinkBurger to="/fovorites">Favorites</StyledLinkBurger>
+            <StyledLinkBurger to="/shopping-list">Shopping list</StyledLinkBurger>
+             <StyledLinkBurger to="/search"><BsSearch/> Search</StyledLinkBurger>                        
                     </StyledNavBurger>
                     <ThemeModalDiv >
                     <StyledThemeBtn onClick={handleTheme}> 
@@ -75,16 +76,13 @@ export const Header = () => {
                  </StyledThemeBtn>
                     </ThemeModalDiv>     
            </MobileMenu>
-                            
+                        
             
             }
             
  
         </StyledHeader>     
-           
-
-        
-        
+         
     )
 }
 
