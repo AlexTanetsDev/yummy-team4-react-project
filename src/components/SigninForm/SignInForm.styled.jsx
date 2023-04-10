@@ -127,6 +127,22 @@ export const InputField = styled.input`
   };
 `;
 
+export const IconWrap = styled.div`
+ position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  margin-left: 14px;
+  opacity: 0.8;
+	color: #fff;
+	width: 24px;
+	height: 24px;
+	&:hover {
+  opacity: 1;
+}
+`;
+
 export const Button = styled.button`
 	display: block;
 	margin-top: 28px;

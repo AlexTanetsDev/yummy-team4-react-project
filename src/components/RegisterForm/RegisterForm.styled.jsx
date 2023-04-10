@@ -113,7 +113,6 @@ export const InputField = styled.input`
 	padding-left: 40px;
 	color: ${p => p.theme.colors.mainBgColor};
 	background-color: ${p => p.theme.colors.thirdAccentColor};
-	border:solid 1px ${p => p.theme.colors.mainBgColor};
 	border-radius: 6px;
 	opacity: 0.8;
 	&:hover {
@@ -125,6 +124,22 @@ export const InputField = styled.input`
 		width: 400px;
 	  height: 59px;
   };
+`;
+
+export const IconWrap = styled.div`
+ position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  margin-left: 14px;
+  opacity: 0.8;
+	color: #fff;
+	width: 24px;
+	height: 24px;
+	&:hover {
+  opacity: 1;
+}
 `;
 
 export const UserLogoInput = styled.div`
