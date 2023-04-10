@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
+export const RecipePreparationWrapper = styled.section`
+  padding-bottom: 100px;
+  @media (min-width: 768px) {
+    padding-bottom: 200px;
+  }
+
+  @media (min-width: 1440px) {
+    display: flex;
+    gap: 50px;
+  }
+`;
+
 export const PreparationTitle = styled.h2`
   font-weight: 600;
   font-size: 24px;
@@ -16,11 +28,20 @@ export const PreparationList = styled.ul`
   flex-direction: column;
   gap: 17px;
 
-  margin-bottom: 40px;
+  padding-bottom: 40px;
+
+  @media (min-width: 768px) {
+    padding-bottom: 53px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-bottom: 0;
+  }
 `;
 
 export const PreparationListItem = styled.li`
-  display: flex;
+  display: grid;
+  grid-template-columns: 21px 1fr;
   align-items: center;
 
   gap: 14px;
@@ -40,13 +61,31 @@ export const Point = styled.span`
   font-size: ${p => p.theme.fontSizes.m}px;
   line-height: 18px;
   color: ${p => p.theme.colors.whiteText};
+
+  @media (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.l}px;
+    line-height: 21px;
+  }
 `;
 
 export const PreparationText = styled.p`
   font-weight: 400;
   font-size: ${p => p.theme.fontSizes.m}px;
   line-height: 1.1;
-  max-width: 309px;
   letter-spacing: -0.02em;
   color: rgba(0, 0, 0, 0.8);
+
+  @media (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.l}px;
+    line-height: 1.3;
+  }
+`;
+
+export const RecipeImage = styled.img`
+  border-radius: 8px;
+
+  @media (min-width: 768px) {
+    width: 433px;
+    height: 332px;
+  }
 `;

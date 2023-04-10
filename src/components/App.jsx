@@ -61,7 +61,7 @@ export const App = () => {
         <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/add" element={<AddRecipePage />} />
         <Route path="/shopping-list" element={<ShoppingListPage />} />
-        <Route path="/recepie/:id" element={<RecipePage />} />
+        <Route path="/recipe/:id" element={<RecipePage />} />
         <Route path="/categories/:categoryName" element={<CategoriesPage />} />
       </Route>
     </Routes>
