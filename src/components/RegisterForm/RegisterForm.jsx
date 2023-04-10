@@ -2,7 +2,13 @@ import { useDispatch } from 'react-redux';
 import { register } from 'Redux/auth/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
-import { StyledWrapper, ModalWrapper, Button, InputField, Title, ImageReg, BottomBgImage, Link } from './RegisterForm.styled';
+import { StyledWrapper, ModalWrapper, Button, InputField, Title, ImageReg, BottomBgImage, Link, InputWrapper } from './RegisterForm.styled';
+import { ReactComponent as UserIcon } from '../../images/user.svg';
+import { ReactComponent as MailIcon } from '../../images/mail.svg';
+import { ReactComponent as LoockIcon } from '../../images/lock.svg';
+import "../../styles/styles.css";
+
+
 
 const initialValues = {
 	name: '',
@@ -33,14 +39,21 @@ export const RegisterForm = () => {
 				Registration
 				</Title>	
 			<Formik initialValues={initialValues} validationSchema={registerSchema} onSubmit={handleSubmit}>
-        <Form autoComplete='off'>
-					<Field type="text" as={InputField} name="name" placeholder="name" />
+					<Form autoComplete='off'>
+						<InputWrapper>
+							<Field type="text" as={InputField} name="name" placeholder="name" />
+							<UserIcon className='icon icon-user' />
+						</InputWrapper>
 					<ErrorMessage name="name" component="div" />
-						
-					<Field name="email" as={InputField} type="text" placeholder="email"/>
+						<InputWrapper>
+						<Field name="email" as={InputField} type="text" placeholder="email" />
+							<MailIcon className='icon icon-user' />
+						</InputWrapper>
 					<ErrorMessage name="email" component="div" />
-						
-					<Field type="password" as={InputField} name="password" placeholder="password"/>
+						<InputWrapper>
+						<Field type="password" as={InputField} name="password" placeholder="password" />
+							<LoockIcon className='icon icon-user' />
+						</InputWrapper>
 					<ErrorMessage name="password" component="div"/>
 
           <Button type="submit">Sign up</Button>

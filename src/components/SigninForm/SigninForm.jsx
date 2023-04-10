@@ -3,7 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
-import { StyledWrapper, ImageReg, BottomBgImage, ModalWrapper, Title, Button, Link, InputField } from './SignInForm.styled';
+import { StyledWrapper, ImageReg, BottomBgImage, ModalWrapper, Title, Button, Link, InputField, InputWrapper } from './SignInForm.styled';
+import { ReactComponent as MailIcon } from '../../images/mail.svg';
+import { ReactComponent as LoockIcon } from '../../images/lock.svg';
+import "../../styles/styles.css";
+
  
 const initialValues = {
 		email: '',
@@ -32,10 +36,16 @@ export const SignInForm = () => {
 			</Title>
 		<Formik initialValues={initialValues} validationSchema={signInSchema} onSubmit={handleSubmit}>
 			<Form>
-      <Field name="email" as={InputField} type="text"/>
+      <InputWrapper>
+						<Field name="email" as={InputField} type="text" placeholder="email" />
+							<MailIcon className='icon icon-user' />
+						</InputWrapper>
 			<ErrorMessage name="email" component="div"/>
 
-      <Field name="password" as={InputField} type="password"/>
+      <InputWrapper>
+						<Field type="password" as={InputField} name="password" placeholder="password" />
+							<LoockIcon className='icon icon-user' />
+						</InputWrapper>
 			<ErrorMessage name="password" component="div"/>
       <Button type="submit">Sign in</Button>
     </Form>
