@@ -29,6 +29,8 @@ import leftSpinachMobile from './leftSpinachMobile.png';
 import rightSpinachDesktop from './rightSpinachDesktop.png';
 import rightSpinachTablet from './rightSpinachTablet.png';
 import rightSpinachMobile from './rightSpinachMobile.png';
+import { ReactComponent as userIcon } from './user.svg';
+
 
 export {
   leftSpinachDesktop,
@@ -62,4 +64,5 @@ export {
   squareGreen,
   squareDark,
   circleDark,
+  userIcon,
 };

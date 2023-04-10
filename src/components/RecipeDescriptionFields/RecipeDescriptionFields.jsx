@@ -8,7 +8,7 @@ import {
   InputFieldsContainer,
   InputTitle,
   LabelTitle,
-  //   InputDescription,
+    InputDescription,
   InputCategory,
   FieldSelectContainer,
   OptionCategory,
@@ -113,7 +113,7 @@ export const RecipeDescriptionFields = ({ formik, categories }) => {
             id="description"
             type="text"
             minLength="5"
-            maxLength="80"
+            maxLength="100"
             required
             {...formik.getFieldProps('description')}
           />
