@@ -1,9 +1,11 @@
+import OwnRecipeApi from './OwnRecipeApi';
+import IngredientsApi from './IngredientsApi';
+import CategoryApi from './CategoryApi';
 import {
   getAllFavorite,
   addFavoriteById,
   deleteFavoriteById,
 } from './favoriteApi';
-import OwnRecipeApi from './AddOwnRecipeApi';
 import { getRecipeById } from './getRecipeById';
 import { getCategoryList, getRecipesByCategory } from './getCategory';
 
@@ -15,4 +17,6 @@ export {
   getRecipeById,
   getCategoryList,
   getRecipesByCategory,
+  IngredientsApi,
+  CategoryApi,
 };
