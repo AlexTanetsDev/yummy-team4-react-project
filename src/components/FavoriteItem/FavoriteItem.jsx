@@ -39,7 +39,7 @@ export const FavoriteItem = ({
       {isMobile ? (
         <StyledFavoriteItem>
           <FavoritesDeleteButton onClick={onDelete} children={<FiTrash2 />} />
-          <NavLink to="/">
+          <NavLink to={`/recipes/id/${id}`}>
             <ImageWrapper>
               <Image src={preview} alt={title} />
             </ImageWrapper>
@@ -54,10 +54,6 @@ export const FavoriteItem = ({
               <TimeText>{time} min</TimeText>
             </TimeWrapper>
           </InfoWrapper>
-          <SeeRecipeButtonBlack
-            to={`/recipes/id/${id}`}
-            children="See recipe"
-          />
         </StyledFavoriteItem>
       ) : (
         <StyledFavoriteItem>
