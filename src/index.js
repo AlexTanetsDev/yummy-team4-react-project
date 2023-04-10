@@ -5,10 +5,7 @@ import { store, persistor } from 'Redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
 
-
-
 import { App } from 'components/App';
-import './components/GlobalStyles';
 
 import { ThemeProvider } from 'styled-components';
 import { theme } from './utils/theme';
