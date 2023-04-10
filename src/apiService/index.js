@@ -14,7 +14,6 @@ export {
   deleteFavoriteById,
   OwnRecipeApi,
   getRecipeById,
-  OwnRecipeApi, 
-  IngredientsApi, 
-  CategoryApi
+  IngredientsApi,
+  CategoryApi,
 };
