@@ -1,8 +1,12 @@
 import axios from 'axios';
 
-export const getAllFavorite = async () => {
+
+axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com/api';
+
+export const getAllFavorite = async (page, limit) => {
   try {
-    const { data } = await axios.get(`/api/favorite`);
+    const { data } = await axios.get(`/favorite?page=${page}&limit=${limit}`);
+
     return data;
   } catch (error) {
     console.error(error);

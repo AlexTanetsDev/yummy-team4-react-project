@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-export const StyledFavoritesList = styled.ul`
+export const StyledFavoriteList = styled.ul`
   //
-
-  @media screen and (min-width: 768px) {
-    //
-  }
-  @media screen and (min-width: 1440px) {
-    //
-  }
 `;

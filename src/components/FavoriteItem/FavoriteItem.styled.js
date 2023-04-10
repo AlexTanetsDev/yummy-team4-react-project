@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 // import { NavLink } from 'react-router-dom';
 
-export const StyledFavoritesItem = styled.li`
+export const StyledFavoriteItem = styled.li`
   position: relative;
   display: flex;
   padding: ${p => p.theme.space(3.5)};

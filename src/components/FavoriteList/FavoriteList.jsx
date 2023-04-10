@@ -1,5 +1,5 @@
-import { StyledFavoritesList } from './FavoriteList.styled';
+import { StyledFavoriteList } from './FavoriteList.styled';
 
-export const FavoritesList = ({ children }) => {
-  return <StyledFavoritesList>{children}</StyledFavoritesList>;
+export const FavoriteList = ({ children }) => {
+  return <StyledFavoriteList>{children}</StyledFavoriteList>;
 };
