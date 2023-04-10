@@ -1,3 +1,6 @@
+import { useMediaQuery } from 'react-responsive';
+import { NavLink } from 'react-router-dom';
+
 import { FiTrash2 } from 'react-icons/fi';
 
 import {
@@ -6,7 +9,7 @@ import {
 } from 'components/Button/Button';
 
 import {
-  StyledFavoritesItem,
+  StyledFavoriteItem,
   ImageWrapper,
   InfoWrapper,
   Image,
@@ -18,38 +21,62 @@ import {
   TimeText,
 } from './FavoriteItem.styled';
 
-export const FavoritesItem = ({
+export const FavoriteItem = ({
   id,
   title,
   description,
   instructions,
   time,
   preview,
-  onClick,
   onDelete,
 }) => {
-  // const recipeId = id;
-  // console.log(recipeId);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   return (
     <>
-      <StyledFavoritesItem>
-        <FavoritesDeleteButton onClick={onDelete} children={<FiTrash2 />} />
-        <ImageWrapper>
-          <Image src={preview} alt={title} />
-        </ImageWrapper>
-        <InfoWrapper>
-          <Title>{title}</Title>
-          <TextWrapper>
-            <DescriptionText>{description}</DescriptionText>
-            <InstructionsText>{instructions}</InstructionsText>
-          </TextWrapper>
-          <TimeWrapper>
-            <TimeText>{time} min</TimeText>
-          </TimeWrapper>
-        </InfoWrapper>
-        <SeeRecipeButtonBlack onClick={onClick} children="See recipe" />
-      </StyledFavoritesItem>
+      {isMobile ? (
+        <StyledFavoriteItem>
+          <FavoritesDeleteButton onClick={onDelete} children={<FiTrash2 />} />
+          <NavLink to={`/recipes/id/${id}`}>
+            <ImageWrapper>
+              <Image src={preview} alt={title} />
+            </ImageWrapper>
+          </NavLink>
+          <InfoWrapper>
+            <Title>{title}</Title>
+            <TextWrapper>
+              <DescriptionText>{description}</DescriptionText>
+              <InstructionsText>{instructions}</InstructionsText>
+            </TextWrapper>
+            <TimeWrapper>
+              <TimeText>{time} min</TimeText>
+            </TimeWrapper>
+          </InfoWrapper>
+        </StyledFavoriteItem>
+      ) : (
+        <StyledFavoriteItem>
+          <FavoritesDeleteButton onClick={onDelete} children={<FiTrash2 />} />
+          <ImageWrapper>
+            <Image src={preview} alt={title} />
+          </ImageWrapper>
+          <InfoWrapper>
+            <Title>{title}</Title>
+            <TextWrapper>
+              <DescriptionText>{description}</DescriptionText>
+              <InstructionsText>{instructions}</InstructionsText>
+            </TextWrapper>
+            <TimeWrapper>
+              <TimeText>{time} min</TimeText>
+            </TimeWrapper>
+          </InfoWrapper>
+          <SeeRecipeButtonBlack
+            to={`/recipes/id/${id}`}
+            children="See recipe"
+          />
+        </StyledFavoriteItem>
+      )}
     </>
   );
 };
