@@ -28,7 +28,7 @@ export const ChoseYourBreakfast = () => {
           cookbook. You can add your own recipes to save them for the future.
         </HeroInfo>
         <InputWraper>
-          <Link to={`/categories/breakfast`} state={{ from: location }}>
+          <Link to={`/categories/Breakfast`} state={{ from: location }}>
             <BreakfastButton tipe="button">
               <Text>
                 <Span>Delicious and healthy</Span> way to enjoy a variety of

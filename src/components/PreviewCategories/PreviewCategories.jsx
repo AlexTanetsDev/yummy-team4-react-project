@@ -68,8 +68,8 @@ export function PreviewCategories() {
                 <Sections title={item.category} children>
                   <ul>
                     {item.recipes
-                      .map(({ preview, title }) => (
-                        <RecipeItem preview={preview} title={title} />
+                      .map(({ _id, preview, title }) => (
+                        <RecipeItem id={_id} preview={preview} title={title} />
                       ))
                       .slice(0, viewportWidth)}
                   </ul>
