@@ -1,7 +1,7 @@
-import { ReactComponent as Facebook } from '../../../../assets/images/icons/facebook.svg';
-import { ReactComponent as Youtube } from '../../../../assets/images/icons/youtube.svg';
-import { ReactComponent as Twitter } from '../../../../assets/images/icons/twitter.svg';
-import { ReactComponent as Instagram } from '../../../../assets/images/icons/instagram.svg';
+import { ReactComponent as Facebook } from '../../../images/icons/facebook.svg';
+import { ReactComponent as Youtube } from '../../../images/icons/youtube.svg';
+import { ReactComponent as Twitter } from '../../../images/icons/twitter.svg';
+import { ReactComponent as Instagram } from '../../../images/icons/instagram.svg';
 
 import { SocLinkList } from './SocNetworks.styled';
 

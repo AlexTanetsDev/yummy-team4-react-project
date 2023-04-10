@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import footerLeavesMob1x from '../../../assets/images/elements/leaves/leaves_small_mob@1x.png';
-import footerLeavesMob2x from '../../../assets/images/elements/leaves/leaves_small_mob@2x.png';
-import footerLeavesTab1x from '../../../assets/images/elements/leaves/leaves_small_tablet@1x.png';
-import footerLeavesTab2x from '../../../assets/images/elements/leaves/leaves_small_tablet@2x.png';
-import footerLeavesDesk1x from '../../../assets/images/elements/leaves/leaves_small_desktop@1x.png';
-import footerLeavesDesk2x from '../../../assets/images/elements/leaves/leaves_small_desktop@2x.png';
+import footerLeavesMob1x from '../../images/elements/leaves/leaves_small_mob@1x.png';
+import footerLeavesMob2x from '../../images/elements/leaves/leaves_small_mob@2x.png';
+import footerLeavesTab1x from '../../images/elements/leaves/leaves_small_tablet@1x.png';
+import footerLeavesTab2x from '../../images/elements/leaves/leaves_small_tablet@2x.png';
+import footerLeavesDesk1x from '../../images/elements/leaves/leaves_small_desktop@1x.png';
+import footerLeavesDesk2x from '../../images/elements/leaves/leaves_small_desktop@2x.png';
 
 export const FooterStyled = styled.footer`
   background-color: ${p => p.theme.colors.footerBg};

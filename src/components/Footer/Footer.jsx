@@ -4,7 +4,6 @@ import LogoFooter from './LogoFooter';
 import FooterInfo from './FooterInfo';
 import NavFooter from './NavFooter';
 import SubscribeForm from './SubscribeForm';
-
 import SocNetworks from './SocNetworks';
 
 import {
