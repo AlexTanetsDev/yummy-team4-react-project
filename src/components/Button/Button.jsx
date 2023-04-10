@@ -15,6 +15,8 @@ import {
   AddToFavoriteBtn,
   SeeRecipeBtnBlack,
   SeeRecipeBtnGreen,
+  FavoritesDeleteBtn,
+  MyRecipesDeleteBtn,
 } from './Button.styled';
 
 export const SearchButtonBlack = ({ type = 'button', onClick, children }) => {
@@ -34,9 +36,7 @@ export const SearchButtonGreen = ({ type = 'button', onClick, children }) => {
 };
 
 export const SingInButton = () => {
-	return (
-	<SingInBtn to="/signin">Sign in</SingInBtn>
-  );
+  return <SingInBtn to="/signin">Sign in</SingInBtn>;
 };
 
 export const SingInButtonGreen = ({ type = 'button', onClick, children }) => {
@@ -48,9 +48,7 @@ export const SingInButtonGreen = ({ type = 'button', onClick, children }) => {
 };
 
 export const RegistrationButton = () => {
-	return (
-		<RegistrationBtn to="/register">Register</RegistrationBtn>
-  );
+  return <RegistrationBtn to="/register">Register</RegistrationBtn>;
 };
 
 export const OtherCategoriesButton = ({
@@ -137,16 +135,8 @@ export const AddToFavoriteButton = ({ type = 'button', onClick, children }) => {
   );
 };
 
-export const SeeRecipeButtonBlack = ({
-  type = 'button',
-  onClick,
-  children,
-}) => {
-  return (
-    <SeeRecipeBtnBlack type={type} onClick={onClick}>
-      {children}
-    </SeeRecipeBtnBlack>
-  );
+export const SeeRecipeButtonBlack = ({ to, children }) => {
+  return <SeeRecipeBtnBlack to={to}>{children}</SeeRecipeBtnBlack>;
 };
 
 export const SeeRecipeButtonGreen = ({
@@ -158,5 +148,29 @@ export const SeeRecipeButtonGreen = ({
     <SeeRecipeBtnGreen type={type} onClick={onClick}>
       {children}
     </SeeRecipeBtnGreen>
+  );
+};
+
+export const FavoritesDeleteButton = ({
+  type = 'button',
+  onClick,
+  children,
+}) => {
+  return (
+    <FavoritesDeleteBtn type={type} onClick={onClick}>
+      {children}
+    </FavoritesDeleteBtn>
+  );
+};
+
+export const MyRecipesDeleteButton = ({
+  type = 'button',
+  onClick,
+  children,
+}) => {
+  return (
+    <MyRecipesDeleteBtn type={type} onClick={onClick}>
+      {children}
+    </MyRecipesDeleteBtn>
   );
 };

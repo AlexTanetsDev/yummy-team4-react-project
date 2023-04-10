@@ -1,41 +1,47 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
-import { signin } from '../../Redux/auth/operations';
+import { signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
+import { StyledWrapper, ImageReg, BottomBgImage, ModalWrapper, Title, Button, Link, InputField } from './SignInForm.styled';
  
 const initialValues = {
 		email: '',
 		password: '',
 };
 	
-const signinSchema = object({
+const signInSchema = object({
 	email: string().email().required(),
 	password: string().min(6).required(),
 });
  
-export const SigninForm = () => {
+export const SignInForm = () => {
 	const dispatch = useDispatch();
 	const handleSubmit = (values, { resetForm }) => {
-		dispatch(signin(values));
+		dispatch(signIn(values));
 		resetForm();
 	}
      
-  return (
-		<Formik initialValues={initialValues} validationSchema={signinSchema} onSubmit={handleSubmit}>
+	return (
+		<StyledWrapper>
+			<ImageReg />
+			<BottomBgImage />
+			<ModalWrapper>
+			<Title>
+				Sign In
+			</Title>
+		<Formik initialValues={initialValues} validationSchema={signInSchema} onSubmit={handleSubmit}>
 			<Form>
-				<label htmlFor="text">
-					Email Address
-				</label>
-      <Field name="email" type="text"/>
+      <Field name="email" as={InputField} type="text"/>
 			<ErrorMessage name="email" component="div"/>
-				<label htmlFor="password">
-					Password
-				</label>
-      <Field name="password" type="password"/>
+
+      <Field name="password" as={InputField} type="password"/>
 			<ErrorMessage name="password" component="div"/>
-      <button type="submit">Sign in</button>
+      <Button type="submit">Sign in</Button>
     </Form>
-		</Formik>
+				</Formik>
+				<Link to="/register">Registration</Link>
+				</ModalWrapper>
+			</StyledWrapper>
   );
 };
