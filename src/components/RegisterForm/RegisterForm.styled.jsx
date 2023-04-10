@@ -54,10 +54,13 @@ export const BottomBgImage = styled.div`
 	@media (min-width: 768px) {
 		height: 606px;
 		background-image: url(${bottomRegImgTab});
-
   };
 	@media (min-width: 1440px) {
 		height: 325px;
+		background-image: url(${bottomRegImg});
+  };
+	@media (min-width: 1440px) and (min-height:770px) {
+		height: 425px;
 		background-image: url(${bottomRegImg});
   };
 `;

@@ -60,6 +60,11 @@ export const BottomBgImage = styled.div`
 		height: 325px;
 		background-image: url(${bottomRegImg});
   };
+
+	@media (min-width: 1440px) and (min-height:770px) {
+		height: 425px;
+		background-image: url(${bottomRegImg});
+  };
 `;
 
 export const ModalWrapper = styled.div`
