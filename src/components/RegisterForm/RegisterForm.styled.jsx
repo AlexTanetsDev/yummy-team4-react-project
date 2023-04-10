@@ -101,20 +101,41 @@ export const Title = styled.h1`
     font-size: ${p => p.theme.fontSizes.xxxl}px;  }	
 `;
 
+export const InputWrapper = styled.div`
+	position: relative;
+`;
+
 export const InputField = styled.input`
 	display: block;
 	margin-bottom: 12px;
 	width: 279px;
 	height: 45px;
+	padding-left: 40px;
 	color: ${p => p.theme.colors.mainBgColor};
 	background-color: ${p => p.theme.colors.thirdAccentColor};
 	border:solid 1px ${p => p.theme.colors.mainBgColor};
 	border-radius: 6px;
+	opacity: 0.8;
+	&:hover {
+  opacity: 1;
+	};
 	@media (min-width: 768px) {
 		margin-bottom: 24px;
+		padding-left: 50px;
 		width: 400px;
 	  height: 59px;
-  }	
+  };
+`;
+
+export const UserLogoInput = styled.div`
+ position: absolute;
+ top:0;
+ transform: translateY(-50%);
+ width: 24px;
+ height: 24px;
+ margin-left: 18px;
+ fill: red;
+ stroke: red;
 `;
 
 export const Button = styled.button`
