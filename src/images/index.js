@@ -17,6 +17,7 @@ import startPageBg from './startPageBg.jpg';
 import mainRegImgMob from './mainRegImgMob.png';
 import mainRegImg from './mainRegImg.png';
 import mainRegImgTab from './mainRegImgTab.png';
+import startPegeLogo from './startPegeLogo.png';
 
 export {
   basilLeaves,
@@ -35,6 +36,7 @@ export {
   startPageBgMob,
   startPageBgTab,
   startPageBg,
+  startPegeLogo,
   mainRegImgMob,
   mainRegImg,
   mainRegImgTab,

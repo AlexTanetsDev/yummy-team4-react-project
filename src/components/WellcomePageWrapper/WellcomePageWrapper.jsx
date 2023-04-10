@@ -1,11 +1,14 @@
-import { ContentWrapper, StyledWrapper, ButtonWrapper, Title, Text, Logo } from "./WellcomePageWrapper.styled";
+import { ContentWrapper, StyledWrapper, ButtonWrapper, Title, Text, Logo, LogoImage } from "./WellcomePageWrapper.styled";
 import { RegistrationButton, SingInButton } from "components/Button/Button";
+import { startPegeLogo } from "../../images";
 
 export const WellcomPageWrapper = () => {
 	return (
 		<StyledWrapper>
 			<ContentWrapper>
-				<Logo/>
+				<Logo>
+					<LogoImage src={startPegeLogo } />
+				</Logo>
 			<Title>
 				Welcome to the app!
 				</Title>
