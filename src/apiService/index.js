@@ -7,6 +7,7 @@ import {
   deleteFavoriteById,
 } from './favoriteApi';
 import { getRecipeById } from './getRecipeById';
+import { getCategoryList, getRecipesByCategory } from './getCategory';
 
 export {
   getAllFavorite,
@@ -14,6 +15,8 @@ export {
   deleteFavoriteById,
   OwnRecipeApi,
   getRecipeById,
+  getCategoryList,
+  getRecipesByCategory,
   IngredientsApi,
   CategoryApi,
 };
