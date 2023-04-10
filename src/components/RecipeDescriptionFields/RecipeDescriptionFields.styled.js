@@ -42,7 +42,7 @@ export const InputTitle = styled.input`
   width: 100%;
   border: none;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
-  padding-left: 140px;
+  padding-left: 160px;
   text-align: right;
   padding-bottom: 18px;
 
@@ -91,10 +91,25 @@ export const InputDescription = styled.textarea`
   padding-bottom: 18px;
 
   font-size: 12px;
-  line-height: 12px;
+  line-height: 14px;
   color: #000000;
   outline: none;
+  background-color: rgb(250, 250, 250);
   resize: none;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  overflow: hidden;
+  // max-width: 100%;
+  // display: -webkit-box;
+  // -webkit-line-clamp: 3;
+  // -webkit-box-orient: vertical;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 export const FieldSelectContainer = styled.div`
@@ -151,12 +166,19 @@ export const InputCategory = styled.select`
 
 export const OptionCategory = styled.option`
   color: rgba(0, 0, 0, 0.5);
-  // background-color: rgb(230, 230, 230);
+  background: #ffffff;
+  box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
+  border-radius: 6px;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 21px;
   }
+
+  &:checked {
+    color: #8baa36;
+  }
+
 `;
 
 export const FileInputContainer = styled.div`
@@ -167,10 +189,11 @@ export const FileInputContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-top: 32px;
+  // margin-top: 32px;
   margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
+    margin-bottom: 0px;
     margin-right: 32px;
   }
 `;
