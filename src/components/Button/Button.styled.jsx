@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const SearchBtnBlack = styled.button`
   padding: 14px 32px;
@@ -30,7 +30,6 @@ export const SearchBtnBlack = styled.button`
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
   }
-
 `;
 
 export const SearchBtnGreen = styled.button`
@@ -62,7 +61,6 @@ export const SearchBtnGreen = styled.button`
     border: ${p => p.theme.border.blackBtnBorder};
     outline: none;
   }
-
 `;
 
 export const SingInBtn = styled(NavLink)`
@@ -95,7 +93,6 @@ export const SingInBtn = styled(NavLink)`
     border: 2px solid #8baa36;
     outline: none;
   }
-
 `;
 
 export const SingInBtnGreen = styled.button`
@@ -134,7 +131,7 @@ export const RegistrationBtn = styled(NavLink)`
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
-	text-align: center;
+  text-align: center;
   border: ${p => p.theme.border.greenBtnBorder};
   border-radius: 24px 44px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -405,14 +402,16 @@ export const AddToFavoriteBtn = styled.button`
   }
 `;
 
-export const SeeRecipeBtnBlack = styled.button`
+export const SeeRecipeBtnBlack = styled(NavLink)`
   display: none;
 
   @media (min-width: 768px) {
     position: absolute;
     bottom: 28px;
     right: 24px;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 138px;
     height: 45px;
     background-color: ${p => p.theme.colors.secondAccentColor};

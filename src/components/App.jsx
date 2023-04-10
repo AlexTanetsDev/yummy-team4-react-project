@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { lazy, useEffect } from 'react';
 
+import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRout';
 
-import { SharedLayout } from './SharedLayout';
 import { refreshUser } from 'Redux/auth/operations';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -16,7 +16,6 @@ const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
 const FavoritePage = lazy(() => import('../pages/FavoriteRecipesPage'));
 const AddRecipePage = lazy(() => import('../pages/AddRecipesPage'));
-
 
 export const App = () => {
   const dispatch = useDispatch();
