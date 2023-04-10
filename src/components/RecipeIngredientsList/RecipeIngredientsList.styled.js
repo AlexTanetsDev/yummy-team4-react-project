@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-export const IngredientsSection = styled.main`
-  padding: 32px 16px 50px;
+export const IngredientsSection = styled.section`
+  padding: 32px 0px 50px;
 
   @media (min-width: 768px) {
-    padding: 50px 32px 96px;
+    padding: 50px 0px 96px;
   }
 
   @media (min-width: 1440px) {
-    padding: 50px 100px 100px;
+    padding: 50px 0px 100px;
   }
 `;
 

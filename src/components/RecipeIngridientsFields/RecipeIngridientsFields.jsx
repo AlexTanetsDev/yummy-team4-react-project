@@ -71,13 +71,13 @@ export const RecipeIngridientsFields = ({ formik, ingredients }) => {
                 <IngridientContainer>
                   <IngridientFields>
                     <IngridientNameContainer>
-                      <label htmlFor={`ingredients.${index}.name`}></label>
+                      <Label htmlFor={`ingredients.${index}.name`}></Label>
                       <Field
                         as={InputIngridientName}
                         name={`ingredients.${index}.name`}
                         id={`ingredients.${index}.name`}
                       >
-                        <Option value="">Select ingredient</Option>
+                        {/* <Option value="">Select ingredient</Option> */}
                         {ingredients.map((ingredient, index) => (
                           <Option key={index} value={ingredient._id}>
                             {ingredient.ttl}
