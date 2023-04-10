@@ -9,9 +9,6 @@ import {
 } from 'components/Button/Button.jsx';
 import { RecipeItem } from 'components/RecipeItem/RecipeItem';
 import { RecipesContainer } from './PreviewCategories.styled';
-// axios.defaults.headers.common['Authorization'] =
-//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5MDY4MTYsImV4cCI6MTY4MDk4OTYxNn0.cOeYg8Y4WvI_KfS6fYlFDxSniwl6yVjnNRcKWjTD15U';
-// 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5NDE3OTksImV4cCI6MTY4MTAyNDU5OX0.R7puNattOS6LksGKc-OmhrSfN95oCp2yHJ1YPfb97D8',
 
 export function PreviewCategories() {
   const [items, setItems] = useState('');
@@ -65,7 +62,7 @@ export function PreviewCategories() {
       {items.length > 0
         ? items
             .map(item => (
-              <RecipesContainer key={item.category}>
+              <RecipesContainer>
                 <Sections title={item.category} children>
                   <RecipesContainer>
                     {item.recipes
