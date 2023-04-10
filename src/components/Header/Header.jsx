@@ -1,36 +1,42 @@
 // import { NavLink } from "react-router-dom"
 import Logo from "../Header/Logo.svg";
+import Dark from "../Header/Switch-dark.svg";
+import Light from "../Header/Switch-light.svg";
+
 import { Link } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx"
 import {IoMdClose} from "react-icons/io"
-import {StyledLink, StyledHeader, StyledNav, StyledNavBurger, StyledBurger} from "../Header/Header.styled"
+import {StyledLink, StyledHeader, StyledNav, StyledNavBurger, StyledBurger, StyledThemeBtn, MobileMenu, 
+    ThemeModalDiv, userHeaderInfo, Avatar, UserName, StyledThemeHeaderDiv, StyledThemeHeader} from "../Header/Header.styled"
 import { useState } from 'react';
+import {useSelector} from "react-redux"
 
-
-{/* <StyledNavBurger show={showContainer}>
-            <StyledLink to="/catagories">Categories</StyledLink>
-            <StyledLink to="/add">Add recipes</StyledLink>
-            <StyledLink to="/my">My recipes</StyledLink>
-            <StyledLink to="/fovorites">Favorites</StyledLink>
-            <StyledLink to="/shopping-list">Shopping list</StyledLink>
-             <StyledLink to="/search"><BsSearch/> Search</StyledLink>
-            </StyledNavBurger> */}
 
 export const Header = () => {
     //  const { isLoggedIn, user } = useAuth();
-   
+    const user = useSelector(state => state.user);
+    console.log(user)
+    
     const [nav, setNav] = useState(false);
+    const [theme, setTheme] = useState(true);
 
-     const handleButtonClick = () => {
+     const handleTheme = () => {
+    setTheme(!theme);
+  }; 
+    
+    const handleButtonClick = () => {
     setNav(!nav);
   };
     //   console.log(state); 
     return (
         <StyledHeader>
             <Link to="/">
-            <img src={Logo} alt="логотип" />        
- </Link>
+            <img src={Logo} alt="логотип"/>        
+            </Link>
+            
+            
+            
         <StyledNav>
             <StyledLink to="/catagories">Categories</StyledLink>
             <StyledLink to="/add">Add recipes</StyledLink>
@@ -39,24 +45,41 @@ export const Header = () => {
             <StyledLink to="/shopping-list">Shopping list</StyledLink>
              <StyledLink to="/search"><BsSearch/></StyledLink>
             </StyledNav>
-         
-            
-         
-            
 
-        {/* <UserName>Welcome {isLoggedIn ? user.name : 'stranger'}</UserName>
-         {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
-       
-          
+           <Avatar to="/">
+            <img src="http://res.cloudinary.com/dkkt8rmcn/image/upload/c_fill,g_faces,h_250,…" alt="avatar" />  
+            </Avatar>
+            <UserName> User</UserName>
+            
+               <StyledThemeHeaderDiv>
+                    <StyledThemeHeader onClick={handleTheme}> 
+               {theme ? <img src={Dark} alt="theme" />  : <img src={Light} alt="theme" />}
+                 </StyledThemeHeader>
+                    </StyledThemeHeaderDiv>  
+        
+         
            <StyledBurger onClick={handleButtonClick} >{nav ? <RxHamburgerMenu/> : <IoMdClose/> }</StyledBurger>
-        {nav ? "" : <StyledNavBurger>
+            {nav ? "" : 
+           <MobileMenu>
+            <StyledNavBurger>
             <StyledLink to="/catagories">Categories</StyledLink>
             <StyledLink to="/add">Add recipes</StyledLink>
             <StyledLink to="/my">My recipes</StyledLink>
             <StyledLink to="/fovorites">Favorites</StyledLink>
             <StyledLink to="/shopping-list">Shopping list</StyledLink>
-             <StyledLink to="/search"><BsSearch/> Search</StyledLink>
-             </StyledNavBurger> }
+             <StyledLink to="/search"><BsSearch/> Search</StyledLink>                        
+                    </StyledNavBurger>
+                    <ThemeModalDiv >
+                    <StyledThemeBtn onClick={handleTheme}> 
+               {theme ? <img src={Dark} alt="theme" />  : <img src={Light} alt="theme" />}
+                 </StyledThemeBtn>
+                    </ThemeModalDiv>     
+           </MobileMenu>
+                            
+            
+            }
+            
+ 
         </StyledHeader>     
            
 
@@ -65,17 +88,3 @@ export const Header = () => {
     )
 }
 
-// export const StyledContainer = styled.div`
-//   margin: 0 auto;
-//   padding: 0 16px;
-//   max-width: ${p => p.theme.breakPoints[0]};
-
-//   @media screen and (min-width: 768px) {
-//     padding: 0 32px;
-//     max-width: ${p => p.theme.breakPoints[1]};
-//   }
-//   @media screen and (min-width: 1440px) {
-//     padding: 0 100px;
-//     max-width: ${p => p.theme.breakPoints[2]};
-//   }
-// `;
