@@ -1,9 +1,22 @@
+import OwnRecipeApi from './OwnRecipeApi';
+import IngredientsApi from './IngredientsApi';
+import CategoryApi from './CategoryApi';
 import {
   getAllFavorite,
   addFavoriteById,
   deleteFavoriteById,
 } from './favoriteApi';
-import OwnRecipeApi from './AddOwnRecipeApi'
-  
-export { getAllFavorite, addFavoriteById, deleteFavoriteById, OwnRecipeApi  };
+import { getRecipeById } from './getRecipeById';
+import { getCategoryList, getRecipesByCategory } from './getCategory';
 
+export {
+  getAllFavorite,
+  addFavoriteById,
+  deleteFavoriteById,
+  OwnRecipeApi,
+  getRecipeById,
+  getCategoryList,
+  getRecipesByCategory,
+  IngredientsApi,
+  CategoryApi,
+};

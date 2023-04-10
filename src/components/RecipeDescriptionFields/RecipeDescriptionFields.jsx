@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Field } from 'formik';
 
 import photoIcon from '../../images/addRecipePhoto.svg';
@@ -8,7 +8,7 @@ import {
   InputFieldsContainer,
   InputTitle,
   LabelTitle,
-//   InputDescription,
+  //   InputDescription,
   InputCategory,
   FieldSelectContainer,
   OptionCategory,
@@ -23,15 +23,23 @@ import {
   ErrorPhoto,
 } from './RecipeDescriptionFields.styled';
 
+const times = Array.from(Array(24), (_, i) => (i + 1) * 5);
+
 const FileInput = ({
   field,
-  form: { setFieldValue, isSubmitting, touched, errors, submitForm },
+  form: { setFieldValue, isSubmitting, touched, errors },
   ...props
 }) => {
   const [previewUrl, setPreviewUrl] = useState('');
 
+  useEffect(() => {
+    if (field.value === '') {
+      setPreviewUrl('');
+    }
+  }, [field.value]);
+
   const handleFileChange = e => {
-	  const file = e.target.files[0];
+    const file = e.target.files[0];
 
     if (file) {
       const reader = new FileReader();
@@ -60,6 +68,10 @@ const FileInput = ({
           type="file"
           accept="image/png, image/jpeg"
           onChange={handleFileChange}
+          onSubmit={() => {
+            console.log('onSubmit InputFile');
+            setPreviewUrl('');
+          }}
           {...props}
         />
       </InputIconContainer>
@@ -68,21 +80,6 @@ const FileInput = ({
 };
 
 export const RecipeDescriptionFields = ({ formik, categories }) => {
-  const times = Array.from(Array(24), (_, i) => (i + 1) * 5);
-
-  //   const handleFileChange = e => {
-  //   const file = e.target.files[0];
-
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onloadend = () => {
-  //       formik.setPreviewUrl(reader.result);
-  //     };
-  //     formik.setFieldValue(formik.field.name, file);
-  //   }
-  // };
-
   return (
     <DescriptionContainer>
       <Field
@@ -90,8 +87,10 @@ export const RecipeDescriptionFields = ({ formik, categories }) => {
         name="photo"
         type="file"
         component={FileInput}
-        //   onChange={handleFileChange}
-        // formik={formik}
+        onSubmit={() => {
+          console.log('onSubmit RecipeDescriptionFields');
+          formik.setFieldValue('photo', null);
+        }}
       />
 
       <InputFieldsContainer>
@@ -105,10 +104,7 @@ export const RecipeDescriptionFields = ({ formik, categories }) => {
             required
             {...formik.getFieldProps('title')}
           />
-          {formik.touched.title && formik.errors.title ? (
-            // <div>{formik.errors.name}</div>
-            <Error />
-          ) : null}
+          {formik.touched.title && formik.errors.title ? <Error /> : null}
         </FieldContainer>
 
         <FieldContainer>

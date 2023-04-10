@@ -132,7 +132,7 @@ export const QuantityContainer = styled.div`
   border-radius: 6px;
 
   @media screen and (min-width: 768px) {
-    width: 97px;
+    width: 109px;
     height: 59px;
   }
 `;
@@ -145,6 +145,10 @@ export const ContainerNumberQuantity = styled.div`
   z-index: 2;
 
   width: 32px;
+
+  @media screen and (min-width: 768px) {
+    width: 38px;
+  }
 `;
 
 export const InputQuantity = styled.input`
@@ -188,7 +192,7 @@ export const ContainerMeasure = styled.div`
 `;
 
 export const InputMeasure = styled.select`
-  padding-left: 32px;
+  padding-left: 36px;
 
   width: 100%;
   height: 53px;
@@ -203,7 +207,7 @@ export const InputMeasure = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(${Icon}) no-repeat 80% 50%;
+  background: url(${Icon}) no-repeat 84% 50%;
   background-size: 14px;
   background-size: 14px;
 
@@ -212,6 +216,8 @@ export const InputMeasure = styled.select`
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 27px;
+
+    padding-left: 42px;
   }
 `;
 

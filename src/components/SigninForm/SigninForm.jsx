@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
+import { StyledWrapper, ImageReg, BottomBgImage, ModalWrapper, Title, Button, Link, InputField } from './SignInForm.styled';
  
 const initialValues = {
 		email: '',
@@ -21,21 +22,26 @@ export const SignInForm = () => {
 		resetForm();
 	}
      
-  return (
+	return (
+		<StyledWrapper>
+			<ImageReg />
+			<BottomBgImage />
+			<ModalWrapper>
+			<Title>
+				Sign In
+			</Title>
 		<Formik initialValues={initialValues} validationSchema={signInSchema} onSubmit={handleSubmit}>
 			<Form>
-				<label htmlFor="text">
-					Email Address
-				</label>
-      <Field name="email" type="text"/>
+      <Field name="email" as={InputField} type="text"/>
 			<ErrorMessage name="email" component="div"/>
-				<label htmlFor="password">
-					Password
-				</label>
-      <Field name="password" type="password"/>
+
+      <Field name="password" as={InputField} type="password"/>
 			<ErrorMessage name="password" component="div"/>
-      <button type="submit">Sign in</button>
+      <Button type="submit">Sign in</Button>
     </Form>
-		</Formik>
+				</Formik>
+				<Link to="/register">Registration</Link>
+				</ModalWrapper>
+			</StyledWrapper>
   );
 };
