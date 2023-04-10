@@ -1,33 +1,36 @@
-import { saladSalmon } from 'images';
-import { Container } from 'components/Container/Container';
 import {
+  RecipePreparationWrapper,
   PreparationTitle,
   PreparationList,
   PreparationListItem,
   Point,
   PreparationText,
+  RecipeImage,
 } from './RecipePreparation.styled';
-export const RecepiePreparation = () => {
+export const RecepiePreparation = ({ image, instructions }) => {
+  let pointNumber = 0;
+
   return (
-    <Container>
-      <PreparationTitle>Recipe Preparation</PreparationTitle>
-      <PreparationList>
-        <PreparationListItem>
-          <Point>1</Point>
-          <PreparationText>
-            Season the salmon, then rub with oil.
-          </PreparationText>
-        </PreparationListItem>
-        <PreparationListItem>
-          <Point>2</Point>
-          <PreparationText>
-            Season the salmon, then rub with oil. Season the salmon, then rub
-            with oil Season the salmon, then rub with oil Season the salmon,
-            then rub with oil
-          </PreparationText>
-        </PreparationListItem>
-      </PreparationList>
-      <img src={saladSalmon} alt="" />
-    </Container>
+    <RecipePreparationWrapper>
+      <div>
+        <PreparationTitle>Recipe Preparation</PreparationTitle>
+        <PreparationList>
+          {instructions?.map(item => {
+            if (item === '\r') {
+              return null;
+            }
+
+            pointNumber += 1;
+            return (
+              <PreparationListItem key={pointNumber}>
+                <Point>{pointNumber}</Point>
+                <PreparationText>{item}</PreparationText>
+              </PreparationListItem>
+            );
+          })}
+        </PreparationList>
+      </div>
+      <RecipeImage src={image} alt="Recipe photo" />
+    </RecipePreparationWrapper>
   );
 };
