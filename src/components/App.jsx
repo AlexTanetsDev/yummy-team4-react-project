@@ -69,7 +69,6 @@ export const App = () => {
         <Route path="/my" element={<MyRecipesPage />} />
 
         <Route path="/categories/:categoryName" element={<CategoriesPage />} />
-
       </Route>
     </Routes>
   );
