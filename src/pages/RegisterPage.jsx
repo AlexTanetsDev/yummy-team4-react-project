@@ -1,10 +1,11 @@
-import { Container } from "components/Container/Container";
-import { RegisterPageWrapper } from "components/RegisterPageWrapper/RegisterPageWrapper";
+// import { RegisterPageWrapper } from "components/RegisterPageWrapper/RegisterPageWrapper";
+import { RegisterForm } from "components/RegisterForm/RegisterForm";
 
 export default function Register() {
 	return (
-		<Container>
-			<RegisterPageWrapper/>
-		</Container>
+		<>
+			{/* <RegisterPageWrapper /> */}
+			<RegisterForm/>
+		</>
 	)
 };

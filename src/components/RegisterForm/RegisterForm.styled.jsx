@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { mainRegImgMob } from '../../images';
-import{bottomRegImgMob} from '../../images';
+import { NavLink } from "react-router-dom";
+import { mainRegImgMob, mainRegImgTab, mainRegImg, bottomRegImgMob, bottomRegImgTab, bottomRegImg} from '../../images';
 
 export const StyledWrapper = styled.div`
   width: 100%;
@@ -8,22 +8,37 @@ export const StyledWrapper = styled.div`
 	background-color: ${p => p.theme.colors.lightBgColor};
 `;
 
-export const ContentWrapper=styled.div`
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-`
-
 export const ImageReg = styled.div`
+	position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 87px;
 	width: 285px;
 	height: 250px;
-	/* background-color: #757373; */
+	z-index: 9;
 	background-image: url(${mainRegImgMob});
-	background-size: contain;
+	@media (min-width: 768px) {
+		top: 19%;
+  	left: 50%;
+		transform: translate(-50%, -50%);
+		margin-top: 87px;
+		width: 409px;
+		height: 359px;
+		background-image: url(${mainRegImgTab});
+  }	
+	@media (min-width: 1440px) {
+		top: 35%;
+  	left: 50%;
+		transform: translate(-110%, -50%);
+		width: 532px;
+		height: 468px;
+		background-image: url(${mainRegImg});
+		background-size: contain;
+  }
 `;
 
 export const BottomBgImage = styled.div`
@@ -31,18 +46,27 @@ export const BottomBgImage = styled.div`
 	left: 50%;
 	top: 100%;
 	transform: translate(-50%, -100%);
-	width: 375px;
+	width: 100vw;
 	height: 490px;
 	background-image: url(${bottomRegImgMob});
-	/* background-size: contain; */
+	background-repeat: no-repeat;
+	background-size: cover;
+	@media (min-width: 768px) {
+		height: 606px;
+		background-image: url(${bottomRegImgTab});
+
+  };
+	@media (min-width: 1440px) {
+		height: 325px;
+		background-image: url(${bottomRegImg});
+  };
 `;
 
 export const ModalWrapper = styled.div`
   position: absolute;
-  top: 60%;
+  top: 480px;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  width: 335px;
+  transform: translate(-50%, -50%);
   height: 350px;
 	padding-top: 32px;
 	padding-bottom: 40px;
@@ -51,18 +75,34 @@ export const ModalWrapper = styled.div`
   background-color: ${p => p.theme.colors.thirdAccentColor};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
+	@media (min-width: 768px) {
+	top: 67%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	height: 484px;
+	padding-top: 44px;
+	padding-bottom: 44px;
+	padding-left: 50px;
+	padding-right: 50px;
+  };
+	@media (min-width: 1440px) {
+	top: 48%;
+  left: 50%;
+  transform: translate(10%, -50%);
+  };
 `;
 
 export const Title = styled.h1`
   margin-bottom: 18px;
 	font-weight: 600;
-	color: ${p => p.theme.colors.mainBgColor}
+	color: ${p => p.theme.colors.mainBgColor};
+	@media (min-width: 768px) {
+		margin-bottom: 32px;
+    font-size: ${p => p.theme.fontSizes.xxxl}px;  }	
 `;
 
 export const InputField = styled.input`
 	display: block;
-	margin-right: auto;
-	margin-left: auto;
 	margin-bottom: 12px;
 	width: 279px;
 	height: 45px;
@@ -70,14 +110,15 @@ export const InputField = styled.input`
 	background-color: ${p => p.theme.colors.thirdAccentColor};
 	border:solid 1px ${p => p.theme.colors.mainBgColor};
 	border-radius: 6px;
+	@media (min-width: 768px) {
+		margin-bottom: 24px;
+		width: 400px;
+	  height: 59px;
+  }	
 `;
-
-
 
 export const Button = styled.button`
 	display: block;
-	margin-right: auto;
-	margin-left: auto;
 	margin-top: 28px;
 	width: 279px;
 	height: 45px;
@@ -85,5 +126,26 @@ export const Button = styled.button`
 	border-radius: 6px;
 	border-color:transparent;
 	background-color: ${p => p.theme.colors.firstAccentColor};
+	@media (min-width: 768px) {
+	 margin-top: 50px;
+	  width: 400px;
+	  height: 59px;
+  }	
+	@media (min-width: 1440px) {
+	 margin-top: 50px;
+	  width: 400px;
+	  height: 59px;
+  }
+`;
+
+export const Link = styled(NavLink)`
+	position: absolute;
+	top: 380px;
+	left: 50%;
+  transform: translate(-50%, -50%);
+	color: ${p => p.theme.colors.mainBgColor};
+	@media (min-width: 768px) {
+		top: 515px;
+	}
 `;
 
