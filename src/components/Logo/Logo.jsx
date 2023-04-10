@@ -1,5 +1,4 @@
-import LogoWhite from '../../images/logo-white.png';
-import LogoGreen from '../../images/logo-green.png';
+import { logoWhite, logoGreen } from 'images';
 
 import {
   LogoHeaderWrapper,
@@ -14,7 +13,7 @@ export const LogoHeader = () => {
   return (
     <LogoHeaderWrapper>
       <LogoHeaderLink to="/">
-        <LogoHeaderImg src={LogoWhite} alt="logo-header" />
+        <LogoHeaderImg src={logoWhite} alt="logo-header" />
       </LogoHeaderLink>
     </LogoHeaderWrapper>
   );
@@ -24,7 +23,7 @@ export const LogoFooter = () => {
   return (
     <LogoFooterWrapper>
       <LogoFooterLink to="/">
-        <LogoFooterImg src={LogoGreen} alt="logo-footer" />
+        <LogoFooterImg src={logoGreen} alt="logo-footer" />
       </LogoFooterLink>
     </LogoFooterWrapper>
   );
