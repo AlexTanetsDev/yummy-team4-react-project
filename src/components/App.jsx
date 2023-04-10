@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
@@ -15,7 +14,9 @@ const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
+const FavoritePage = lazy(() => import('../pages/FavoriteRecipesPage/index'));
 const AddRecipePage = lazy(() => import('../pages/AddRecipesPage'));
+const RecipePage = lazy(() => import('../pages/RecipePage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -50,9 +51,10 @@ export const App = () => {
           }
         />
 
+        <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/add" element={<AddRecipePage />} />
-
         <Route path="/shopping-list" element={<ShoppingListPage />} />
+        <Route path="/recepie/:id" element={<RecipePage />} />
       </Route>
     </Routes>
   );

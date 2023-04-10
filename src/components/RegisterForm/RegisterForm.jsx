@@ -2,8 +2,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'Redux/auth/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
-import { StyledWrapper, ModalWrapper, Button, InputField, Title, ImageReg, BottomBgImage  } from './RegisterForm.styled';
-import { Link } from 'components/RegisterPageWrapper/RegisterPageWrapper.styled';
+import { StyledWrapper, ModalWrapper, Button, InputField, Title, ImageReg, BottomBgImage, Link } from './RegisterForm.styled';
 
 const initialValues = {
 	name: '',
@@ -46,9 +45,9 @@ export const RegisterForm = () => {
 
           <Button type="submit">Sign up</Button>
 			  </Form>
-		  </Formik>
+				</Formik>
+				<Link to="/signin">Sign in</Link>
 			</ModalWrapper>
-						<Link to="/signin">Sign in</Link>
-		</StyledWrapper>
+			</StyledWrapper>
   );
 };
