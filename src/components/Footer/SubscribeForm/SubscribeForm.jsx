@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import { toast } from 'react-toastify';
 import { subscripbeValidationSchema } from 'helpers/subscripbeValidationSchema';
 import { useAuth } from 'hooks';
-import { subscribeUser } from '../../../services/subscribe-API.js';
+import { subscribeUser } from '../../../apiService/subscribe-API.js';
 import {
   FormStyled,
   InputWrapper,
