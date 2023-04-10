@@ -4,7 +4,8 @@ import {
   ItemWrapper,
   ImgTitleWrapper,
   Quantity,
-  
+  Button,
+  Img,
 } from './IngridientsShoppingListItem.styled';
 
 export const IngridientsShoppingListItem = ({ item, handleDelete }) => {
@@ -13,14 +14,14 @@ export const IngridientsShoppingListItem = ({ item, handleDelete }) => {
       <li>
         <ItemWrapper>
           <ImgTitleWrapper>
-            <img src={item.thumb} alt={item.title} width="93px" height="97px" />
+            <Img src={item.thumb} alt={item.title} width="93px" height="97px" />
             <div>{item.title}</div>
           </ImgTitleWrapper>
           <Quantity>{item.quantity}</Quantity>
           <div>
-            <button type="button" onClick={() => handleDelete(item._id)}>
+            <Button type="button" onClick={() => handleDelete(item._id)}>
               X
-            </button>
+            </Button>
           </div>
         </ItemWrapper>
       </li>

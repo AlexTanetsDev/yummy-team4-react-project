@@ -43,3 +43,13 @@ export const Quantity = styled.div`
   line-height: 27px;
   color: #fafafa;
 `;
+
+export const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  padding: 8px 16px;
+`;
+
+export const Img = styled.img`
+  border-radius: 8px;
+`;
