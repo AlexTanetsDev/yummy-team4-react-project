@@ -12,7 +12,7 @@ import {
 export const LogoHeader = () => {
   return (
     <LogoHeaderWrapper>
-      <LogoHeaderLink to="/">
+      <LogoHeaderLink to="/main">
         <LogoHeaderImg src={logoWhite} alt="logo-header" />
       </LogoHeaderLink>
     </LogoHeaderWrapper>
@@ -22,7 +22,7 @@ export const LogoHeader = () => {
 export const LogoFooter = () => {
   return (
     <LogoFooterWrapper>
-      <LogoFooterLink to="/">
+      <LogoFooterLink to="/main">
         <LogoFooterImg src={logoGreen} alt="logo-footer" />
       </LogoFooterLink>
     </LogoFooterWrapper>

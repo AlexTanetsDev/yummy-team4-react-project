@@ -54,4 +54,15 @@ export const theme = {
   transitions: {
     main: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
   },
+  radii: {
+    btnStandart: '6px',
+    btnIcon: '4px',
+    logo: '12px',
+    image: '8px',
+    switch: '50px',
+    pagination: '26px',
+    modal: '24px',
+    circle: '50%',
+    form: '30px',
+  },
 };

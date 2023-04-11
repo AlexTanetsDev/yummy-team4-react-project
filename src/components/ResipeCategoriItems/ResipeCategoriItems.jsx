@@ -13,7 +13,7 @@ const ResipeCategoriItems = ({ recipes }) => {
         {recipes.length !== 0 &&
           recipes.map(({ _id: id, title, thumb }) => (
             <RecipeItem key={id}>
-              <Link to={`/recepie/${id}`}>
+              <Link to={`/recipe/${id}`}>
                 <ImgRecipe src={thumb} alt={title} />
                 <TitleRecipe>{title}</TitleRecipe>
               </Link>

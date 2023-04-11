@@ -11,7 +11,7 @@ export const RecipeItem = ({ id, title, preview }) => {
   return (
     <>
       <Recipe key={id}>
-        <Link to={`/recepie/${id}`}>
+        <Link to={`/recipe/${id}`}>
           <ImgRecipe src={preview} alt={title} />
           <TitleRecipe>{title}</TitleRecipe>
         </Link>

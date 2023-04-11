@@ -331,7 +331,7 @@ export const MyRecipesPage = () => {
                 totalPages={Math.ceil(totalItemsCount / 4)}
               />
               <AlertMessage>
-                Please add the recipe to your favorites...
+                Please add the recipe to your my recipes...
               </AlertMessage>
             </>
           )}

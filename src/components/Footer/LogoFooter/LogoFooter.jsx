@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Logo from 'react-icons';
 import { LogoWrapper, Title } from './LogoFooter.styled';
+import { LogoFooter } from 'components/Logo/Logo';
 
-const LogoFooter = () => {
+const FooterLogo = () => {
   return (
     <LogoWrapper>
-      <Logo inv="true" footer="true" />
+      <LogoFooter inv="true" footer="true" />
       <Title>So Yummy</Title>
     </LogoWrapper>
   );
 };
 
-export default LogoFooter;
+export default FooterLogo;

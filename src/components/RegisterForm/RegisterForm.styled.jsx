@@ -145,6 +145,15 @@ export const IconWrap = styled.div`
 }
 `;
 
+export const StateInputIcon = styled.img`
+	position: absolute;
+	top: 35%;
+  left: 94%;
+  transform: translate(-50%);
+	width: 20px;
+	height: 20px;
+`;
+
 export const UserLogoInput = styled.div`
  position: absolute;
  top:0;

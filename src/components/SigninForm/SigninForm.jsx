@@ -5,9 +5,10 @@ import { signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
 import { FiMail } from "react-icons/fi";
 import { FiLock } from "react-icons/fi";
-import { StyledWrapper, ImageReg, BottomBgImage, ModalWrapper, Title, Button, Link, IconWrap, InputWrapper } from './SignInForm.styled';
+import { StyledWrapper, ImageReg,  BottomBgImage, StateInputIcon, ModalWrapper, Title, Button, Link, IconWrap, InputWrapper } from './SignInForm.styled';
 import "../../styles/styles.css";
 import { FormError } from 'components/FormError/FormError';
+import { errorIcon, warningIcon, succesIcon } from 'images';
 
  
 const initialValues = {
@@ -44,6 +45,7 @@ export const SignInForm = () => {
 									<IconWrap>
 										<FiMail color={`${errors.email && touched.email ? "red" : "white"}`} size={24} />
 									</IconWrap>
+									{(errors.email && touched.email) && <StateInputIcon src={errorIcon }/>}
 									<FormError name="email" component="div" />
 								</InputWrapper>
 								<InputWrapper>
@@ -51,6 +53,12 @@ export const SignInForm = () => {
 									<IconWrap>
 										<FiLock color={`${errors.password && touched.password ? "red" : "white"}`} size={24} />
 									</IconWrap>
+									{(0 < values.password.length && values.password.length < 8) && !touched.password && (<StateInputIcon src={warningIcon} />)}
+									{(0 < values.password.length && values.password.length < 8) && !touched.password && <p className='sing-up__inp_war-mess'>Your password is little secure</p>}
+									{(8 <= values.password.length ) && !touched.password && (<StateInputIcon src={succesIcon} />)}
+									{(8 <= values.password.length) && !touched.password && <p className='sing-up__inp_suc-mess'>Password is secure</p>}
+									{(errors.password && touched.password) && <StateInputIcon src={errorIcon }/>}
+									{(errors.password && touched.password) && <StateInputIcon src={errorIcon }/>}
 									<FormError name="password" component="div" />
 								</InputWrapper>
 								<Button type="submit">Sign in</Button>
