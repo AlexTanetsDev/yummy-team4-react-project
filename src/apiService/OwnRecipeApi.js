@@ -9,8 +9,12 @@ async function AddRecipe(recipe) {
   return response.data;
 }
 
-async function FetchRecipes() {
-  const response = await axios.get('/api/ownRecipes');
+async function FetchRecipes(page = 1, limit = 4) {
+  const params = {
+    page: page,
+    limit: limit,
+  };
+  const response = await axios.get('/ownRecipes', { params });
   return response.data;
 }
 

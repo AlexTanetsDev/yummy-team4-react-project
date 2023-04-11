@@ -250,8 +250,8 @@ export const MyRecipesPage = () => {
     const renderMyRecipesPage = async () => {
       try {
         setIsLoading(true);
-        // const data = await OwnRecipeApi.FetchRecipes();
-        const data = rec;
+        const data = await OwnRecipeApi.FetchRecipes(currentPage, 4);
+        //const data = rec;
         setTotalItemsCount(rec.length);
         setRecipes(data);
       } catch (error) {
@@ -276,10 +276,12 @@ export const MyRecipesPage = () => {
     }
   };
 
-  const currentPageRecipes = recipes.slice(
-    (currentPage - 1) * 4,
-    currentPage * 4
-  );
+  // const currentPageRecipes = recipes.slice(
+  //   (currentPage - 1) * 4,
+  //   currentPage * 4
+  // );
+
+  const currentPageRecipes = OwnRecipeApi.FetchRecipes(currentPage, 4);
   // console.log(currentPage);
   // console.log(currentPageRecipes);
 
