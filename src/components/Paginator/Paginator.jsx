@@ -1,44 +1,42 @@
-// import React, { useState, useEffect } from 'react';
+import React from 'react';
+// import Pagination from '@mui/material/Pagination';
+// import Stack from '@mui/material/Stack';
 
-// export default function myRecipesPagination({ count }) {
-//   const [totalPages, setTotalPages] = useState(0);
-//   const [currentPage, setCurrentPage] = useState(1);
+export default function RecipesPagination({
+  totalItemsCount,
+  currentPage,
+  totalPages,
+  paginate,
+}) {
+  function handlePrevClick() {
+    if (currentPage > 1) {
+      const page = currentPage - 1;
+      paginate(page);
+    }
+  }
 
-//   useEffect(() => {
-//     const pageSize = 5;
-//     const total = Math.ceil(count / pageSize);
-//     setTotalPages(total);
-//   }, [count]);
+  function handleNextClick() {
+    if (currentPage < totalPages) {
+      const page = currentPage + 1;
+      paginate(page);
+      console.log('--nextClick', ' currentPage', page);
+      if (totalItemsCount === 0) {
+        return null;
+      }
+    }
+  }
 
-//   function handlePrevClick() {
-//     if (currentPage > 1) {
-//       const page = currentPage - 1;
-//       setCurrentPage(page);
-//     }
-//   }
-
-//   function handleNextClick() {
-//     if (currentPage < totalPages) {
-//       const page = currentPage + 1;
-//       setCurrentPage(page);
-//     }
-//   }
-
-//   if (count === 0) {
-//     return null;
-//   }
-
-//   return (
-//     <div>
-//       <p>
-//         Page {currentPage} of {totalPages}
-//       </p>
-//       <button disabled={currentPage === 1} onClick={handlePrevClick}>
-//         Prev
-//       </button>
-//       <button disabled={currentPage === totalPages} onClick={handleNextClick}>
-//         Next
-//       </button>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <button disabled={currentPage === 1} onClick={handlePrevClick}>
+        Prev
+      </button>
+      <button disabled={currentPage === totalPages} onClick={handleNextClick}>
+        Next
+      </button>
+    </div>
+    // <Stack spacing={2}>
+    //   <Pagination count={totalPages} color="#EBF3D4" page={currentPage} />
+    // </Stack>
+  );
+}
