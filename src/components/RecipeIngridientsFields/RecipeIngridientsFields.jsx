@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Formik, Form, FieldArray, Field } from 'formik';
-import { FiMinus, FiPlus, FiX, FiChevronDown } from 'react-icons/fi';
+import React from 'react';
+import { FieldArray, Field } from 'formik';
+import { FiMinus, FiPlus, FiX } from 'react-icons/fi';
 
 import {
   IngridientsContainer,
@@ -11,7 +11,7 @@ import {
   MultButtonIcon,
   IngridientContainer,
   IngridientFields,
-  Datalist,
+  IngridientNameContainer,
   InputIngridientName,
   QuantityContainer,
   InputQuantity,
@@ -22,6 +22,7 @@ import {
   DeleteButton,
   ContainerMeasure,
   Label,
+  Error,
 } from './RecipeIngridientsFields.styled';
 
 export const RecipeIngridientsFields = ({ formik, ingredients }) => {
@@ -55,7 +56,7 @@ export const RecipeIngridientsFields = ({ formik, ingredients }) => {
                   <MultButton
                     type="button"
                     onClick={() =>
-                      arrayHelpers.push({ name: '', quantity: '', unit: 'kg' })
+                      arrayHelpers.push({ name: '', quantity: '', unit: 'tbs' })
                     }
                   >
                     <MultButtonIcon>
@@ -69,31 +70,30 @@ export const RecipeIngridientsFields = ({ formik, ingredients }) => {
               <div key={index}>
                 <IngridientContainer>
                   <IngridientFields>
-                    <label htmlFor={`ingredients.${index}.name`}></label>
-                    {/* <Field
-                      as={InputIngridientName}
-                      id={`ingredients.${index}.name`}
-                      name={`ingredients.${index}.name`}
-                      placeholder="Iingredient"
-                      list="ingredients"
-                    ></Field> */}
-                    <Field
-                      as={Datalist}
-                      // id="ingredients"
-                      name={`ingredients.${index}.name`}
-                      id={`ingredients.${index}.name`}
-                    >
-                      <Option value=""></Option>
-                      {ingredients.map((ingredient, index) => (
-                        <Option key={index} value={ingredient}>
-                          {ingredient}
-                        </Option>
-                      ))}
-                    </Field>
-                    {/* <select
-                      id={`ingredients.${index}.name`}
-                      {...formik.getFieldProps('ingredients')}
-                    > </select> */}
+                    <IngridientNameContainer>
+                      <Label htmlFor={`ingredients.${index}.name`}></Label>
+                      <Field
+                        as={InputIngridientName}
+                        name={`ingredients.${index}.name`}
+                        id={`ingredients.${index}.name`}
+                      >
+                        {/* <Option value="">Select ingredient</Option> */}
+                        {ingredients.map((ingredient, index) => (
+                          <Option key={index} value={ingredient._id}>
+                            {ingredient.ttl}
+                          </Option>
+                        ))}
+                      </Field>
+                      {formik.touched.ingredients &&
+                      formik.touched.ingredients[index] &&
+                      formik.touched.ingredients[index].name &&
+                      formik.errors.ingredients &&
+                      formik.errors.ingredients[index] &&
+                      formik.errors.ingredients[index].name ? (
+                        <Error />
+                      ) : null}
+                    </IngridientNameContainer>
+
                     <QuantityContainer>
                       <ContainerNumberQuantity>
                         <label
@@ -117,15 +117,24 @@ export const RecipeIngridientsFields = ({ formik, ingredients }) => {
                           id={`ingredients.${index}.unit`}
                           name={`ingredients.${index}.unit`}
                         >
-                          <Option value="tbs">tbs</Option>
+                          <Option defaultValue="tbs">tbs</Option>
                           <Option value="tsp">tsp</Option>
                           <Option value="kg">kg</Option>
                           <Option value="g">g</Option>
                           {/* <OptionMeasure value="l">l</OptionMeasure>
-                          <OptionMeasure value="ml">ml</OptionMeasure>
-                          <OptionMeasure value="tbsp">tbsp</OptionMeasure> */}
+                          <OptionMeasure value="ml">ml</OptionMeasure> */}
                         </Field>
                       </ContainerMeasure>
+                      {formik.touched.ingredients &&
+                      formik.touched.ingredients[index] &&
+                      formik.touched.ingredients[index].quantity &&
+                      formik.touched.ingredients[index].unit &&
+                      formik.errors.ingredients &&
+                      formik.errors.ingredients[index] &&
+                      (formik.errors.ingredients[index].quantity ||
+                        formik.errors.ingredients[index].unit) ? (
+                        <Error />
+                      ) : null}
                     </QuantityContainer>
                   </IngridientFields>
                   <DeleteBtnContainer>

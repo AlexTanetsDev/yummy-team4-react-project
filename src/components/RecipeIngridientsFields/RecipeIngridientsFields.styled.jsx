@@ -35,6 +35,7 @@ export const MultButtonContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  margin-left: 8px;
 
   width: 92px;
   height: 28px;
@@ -80,15 +81,34 @@ export const IngridientContainer = styled.div`
 export const IngridientFields = styled.div`
   display: flex;
   align-items: center;
+
+  flex-wrap: wrap;
 `;
 
-export const Datalist = styled.select`
+export const IngridientNameContainer = styled.div`
+  position: relative;
+  width: 193px;
+  height: 53px;
+
+  @media screen and (max-width: 372px) {
+    margin-bottom: 8px;
+    // width: 193px;
+    // height: 53px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 398px;
+    height: 59px;
+  }
+`;
+
+export const InputIngridientName = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 
-  width: 193px;
-  height: 53px;
+  width: 100%;
+  height: 100%;
   padding-left: 16px;
 
   border: none;
@@ -103,34 +123,14 @@ export const Datalist = styled.select`
   // background-size: 14px;
   // background-size: 14px;
   background-color: rgba(217, 217, 217, 1);
+  border-radius: 6px;
 
   @media screen and (min-width: 768px) {
-    width: 398px;
-    height: 59px;
+    // width: 398px;
+    // height: 59px;
 
     font-size: 18px;
     line-height: 27px;
-  }
-`;
-
-export const InputIngridientName = styled.input`
-  background-color: rgba(217, 217, 217, 1);
-  border-radius: 6px;
-
-  width: 193px;
-  height: 53px;
-
-  border: none;
-  outline: none;
-  padding-left: 14px;
-
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.02em;
-  color: #000000;
-
-  &:invalid {
-    border: 1px solid gba(231, 74, 59, 1);
   }
 `;
 
@@ -148,7 +148,7 @@ export const QuantityContainer = styled.div`
   border-radius: 6px;
 
   @media screen and (min-width: 768px) {
-    width: 97px;
+    width: 109px;
     height: 59px;
   }
 `;
@@ -161,6 +161,10 @@ export const ContainerNumberQuantity = styled.div`
   z-index: 2;
 
   width: 32px;
+
+  @media screen and (min-width: 768px) {
+    width: 38px;
+  }
 `;
 
 export const InputQuantity = styled.input`
@@ -201,26 +205,10 @@ export const ContainerMeasure = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-
-  // padding-left: 32px;
-
-  // position: relative;
-  // width: 18px;
-  // height: 18px;
-
-  // color: rgba(51, 51, 51, 1);
-  // background-color: transparent;
-
-  // margin: 0;
-  // padding: 0;
-  // font-size: 24px;
-  // line-height: 24px;
-  // cursor: pointer;
 `;
 
 export const InputMeasure = styled.select`
-  // background-color: transparent;
-  padding-left: 32px;
+  padding-left: 36px;
 
   width: 100%;
   height: 53px;
@@ -235,13 +223,17 @@ export const InputMeasure = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(${Icon}) no-repeat 80% 50%;
+  background: url(${Icon}) no-repeat 84% 50%;
   background-size: 14px;
   background-size: 14px;
+
+  border-radius: 6px;
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 27px;
+
+    padding-left: 42px;
   }
 `;
 
@@ -267,12 +259,14 @@ export const Label = styled.label`
 export const Option = styled.option`
   color: rgba(0, 0, 0, 0.5);
   background-color: #ffffff;
-  border: none;
-  outline: none;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 21px;
+  }
+
+  &:checked {
+    color: #8baa36;
   }
 `;
 
@@ -288,4 +282,16 @@ export const DeleteButton = styled.button`
   font-size: 24px;
   line-height: 24px;
   cursor: pointer;
+`;
+
+export const Error = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border: 2px solid #e74a3b;
+  border-radius: 6px;
+  pointer-events: none;
 `;
