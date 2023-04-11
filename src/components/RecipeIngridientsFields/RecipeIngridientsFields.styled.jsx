@@ -35,6 +35,7 @@ export const MultButtonContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  margin-left: 8px;
 
   width: 92px;
   height: 28px;
@@ -80,10 +81,25 @@ export const IngridientContainer = styled.div`
 export const IngridientFields = styled.div`
   display: flex;
   align-items: center;
+
+  flex-wrap: wrap;
 `;
 
 export const IngridientNameContainer = styled.div`
   position: relative;
+  width: 193px;
+  height: 53px;
+
+  @media screen and (max-width: 372px) {
+    margin-bottom: 8px;
+    // width: 193px;
+    // height: 53px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 398px;
+    height: 59px;
+  }
 `;
 
 export const InputIngridientName = styled.select`
@@ -91,8 +107,8 @@ export const InputIngridientName = styled.select`
   -moz-appearance: none;
   appearance: none;
 
-  width: 193px;
-  height: 53px;
+  width: 100%;
+  height: 100%;
   padding-left: 16px;
 
   border: none;
@@ -110,8 +126,8 @@ export const InputIngridientName = styled.select`
   border-radius: 6px;
 
   @media screen and (min-width: 768px) {
-    width: 398px;
-    height: 59px;
+    // width: 398px;
+    // height: 59px;
 
     font-size: 18px;
     line-height: 27px;
@@ -243,12 +259,14 @@ export const Label = styled.label`
 export const Option = styled.option`
   color: rgba(0, 0, 0, 0.5);
   background-color: #ffffff;
-  border: none;
-  outline: none;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 21px;
+  }
+
+  &:checked {
+    color: #8baa36;
   }
 `;
 

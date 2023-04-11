@@ -36,9 +36,7 @@ export const SearchButtonGreen = ({ type = 'button', onClick, children }) => {
 };
 
 export const SingInButton = () => {
-	return (
-	<SingInBtn to="/signin">Sign in</SingInBtn>
-  );
+  return <SingInBtn to="/signin">Sign in</SingInBtn>;
 };
 
 export const SingInButtonGreen = ({ type = 'button', onClick, children }) => {
@@ -50,9 +48,7 @@ export const SingInButtonGreen = ({ type = 'button', onClick, children }) => {
 };
 
 export const RegistrationButton = () => {
-	return (
-		<RegistrationBtn to="/register">Register</RegistrationBtn>
-  );
+  return <RegistrationBtn to="/register">Register</RegistrationBtn>;
 };
 
 export const OtherCategoriesButton = ({
@@ -139,16 +135,8 @@ export const AddToFavoriteButton = ({ type = 'button', onClick, children }) => {
   );
 };
 
-export const SeeRecipeButtonBlack = ({
-  type = 'button',
-  onClick,
-  children,
-}) => {
-  return (
-    <SeeRecipeBtnBlack type={type} onClick={onClick}>
-      {children}
-    </SeeRecipeBtnBlack>
-  );
+export const SeeRecipeButtonBlack = ({ to, children }) => {
+  return <SeeRecipeBtnBlack to={to}>{children}</SeeRecipeBtnBlack>;
 };
 
 export const SeeRecipeButtonGreen = ({

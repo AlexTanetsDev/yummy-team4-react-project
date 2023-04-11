@@ -21,8 +21,28 @@ import startPegeLogo from './startPegeLogo.png';
 import errorIcon from './error-icon.png';
 import succesIcon from './succes-icon.png';
 import warningIcon from './warning-icon.png';
+import logoWhite from './logo-white.png';
+import logoGreen from './logo-green.png';
+import squareGreen from './squareGreen.png';
+import squareDark from './squareDark.png';
+import circleDark from './circleDark.png';
+import leftSpinachDesktop from './leftSpinachDesktop.png';
+import leftSpinachTablet from './leftSpinachTablet.png';
+import leftSpinachMobile from './leftSpinachMobile.png';
+import rightSpinachDesktop from './rightSpinachDesktop.png';
+import rightSpinachTablet from './rightSpinachTablet.png';
+import rightSpinachMobile from './rightSpinachMobile.png';
+import { ReactComponent as userIcon } from './user.svg';
+
+
 
 export {
+  leftSpinachDesktop,
+  leftSpinachTablet,
+  leftSpinachMobile,
+  rightSpinachDesktop,
+  rightSpinachTablet,
+  rightSpinachMobile,
   basilLeaves,
   saladSalmon,
   salad,
@@ -46,4 +66,10 @@ export {
   errorIcon,
   succesIcon,
   warningIcon,
+  logoWhite,
+  logoGreen,
+  squareGreen,
+  squareDark,
+  circleDark,
+  userIcon,
 };

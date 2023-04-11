@@ -6,6 +6,7 @@ import {
   fetchShoppingList,
 } from 'apiService/ShoppingListApi';
 import { Container } from 'components/Container/Container';
+import { ShoppingListTitle } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
 
 export default function ShoppingList() {
   const [ingridients, setIngridients] = useState([]);
@@ -21,7 +22,8 @@ export default function ShoppingList() {
 
   return (
     <Container>
-      <h1>Shopping List</h1>
+      <ShoppingListTitle>Shopping List</ShoppingListTitle>
+
       <IngridientsShoppingList
         handleDelete={handleDelete}
         ingridients={ingridients}

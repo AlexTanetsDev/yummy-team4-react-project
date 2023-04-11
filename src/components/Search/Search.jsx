@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { SearchMainPageBlack } from './Search.styled';
-import { SerchInput } from './Search.styled';
+//import { useLocation } from 'react-router-dom';
+import { SearchMainPageBlack, SerchInput } from './Search.styled';
 
-export function Search(onSubmit) {
+
+import PropTypes from 'prop-types';
+
+export function Search({ onSubmit }) {
   const [searchQuery, setSearchQuery] = useState('');
-  const location = useLocation();
+
+  //const location = useLocation();
+
 
   const handleInputChange = eve => {
     setSearchQuery(eve.currentTarget.value.toLowerCase());
@@ -15,29 +19,36 @@ export function Search(onSubmit) {
     eve.preventDefault();
 
     if (searchQuery.trim() === '') {
+      console.log('Fill form');
       return;
     }
+
     onSubmit(searchQuery);
     eve.target.reset();
   };
 
   return (
-    <>
+    <div>
       <form onSubmit={handleSubmit}>
         <SerchInput
           type="text"
           autoComplete="off"
-          autoFocus
           placeholder="Beef"
           onChange={handleInputChange}
         />
+
         <SearchMainPageBlack
-          to={searchQuery ? `/categories/${searchQuery}` : ``}
-          state={{ from: location }}
+          to={searchQuery ? `/search/${searchQuery}` : ``}
+          state={{ query: searchQuery }}
         >
           Search
         </SearchMainPageBlack>
+
       </form>
-    </>
+    </div>
   );
 }
+
+Search.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com/api/';
-
 async function AddRecipe(recipe) {
-  const response = await axios.post('/ownRecipes', recipe, {
+  const response = await axios.post('/api/ownRecipes', recipe, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -12,12 +10,12 @@ async function AddRecipe(recipe) {
 }
 
 async function FetchRecipes() {
-  const response = await axios.get('/ownRecipes');
+  const response = await axios.get('/api/ownRecipes');
   return response.data;
 }
 
 async function DeleteRecipe({ recipeId }) {
-  const response = await axios.delete('/ownRecipes', {
+  const response = await axios.delete('/api/ownRecipes', {
     params: { recipeId },
   });
   return response.data;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { Sections } from 'components/MainPageCategorySection/Sections';
 import {
@@ -7,10 +8,7 @@ import {
   OtherCategoriesButton,
 } from 'components/Button/Button.jsx';
 import { RecipeItem } from 'components/RecipeItem/RecipeItem';
-
-// axios.defaults.headers.common['Authorization'] =
-//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5MDY4MTYsImV4cCI6MTY4MDk4OTYxNn0.cOeYg8Y4WvI_KfS6fYlFDxSniwl6yVjnNRcKWjTD15U';
-// 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJjOGU1NmY3M2E0YmE5ZDlhNzk4MTYiLCJpYXQiOjE2ODA5NDE3OTksImV4cCI6MTY4MTAyNDU5OX0.R7puNattOS6LksGKc-OmhrSfN95oCp2yHJ1YPfb97D8',
+import { RecipesContainer } from './PreviewCategories.styled';
 
 export function PreviewCategories() {
   const [items, setItems] = useState('');
@@ -25,7 +23,7 @@ export function PreviewCategories() {
       return 1;
     }
   });
-
+  const location = useLocation();
   const token = useSelector(state => state.auth.token);
 
   const instance = axios.create({
@@ -64,22 +62,29 @@ export function PreviewCategories() {
       {items.length > 0
         ? items
             .map(item => (
-              <ul key={item.category}>
+              <RecipesContainer>
                 <Sections title={item.category} children>
-                  <ul>
+                  <RecipesContainer>
                     {item.recipes
-                      .map(({ preview, title }) => (
-                        <RecipeItem preview={preview} title={title} />
+                      .map(({ _id, preview, title }) => (
+                        <RecipeItem id={_id} preview={preview} title={title} />
                       ))
                       .slice(0, viewportWidth)}
-                  </ul>
-                  <SeeAllButton button children={'See all'} />
+                  </RecipesContainer>
+                  <Link
+                    to={`/categories/${item.category}`}
+                    state={{ from: location }}
+                  >
+                    <SeeAllButton children={'See all'} />
+                  </Link>
                 </Sections>
-              </ul>
+              </RecipesContainer>
             ))
             .slice(0, 4)
         : null}
-      <OtherCategoriesButton button children={'Other categories'} />
+      <Link to={`/categories/Beef`} state={{ from: location }}>
+        {items && <OtherCategoriesButton children={'Other categories'} />}
+      </Link>
     </>
   );
 }
