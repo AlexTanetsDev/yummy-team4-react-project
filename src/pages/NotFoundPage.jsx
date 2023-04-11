@@ -1,9 +1,16 @@
-const NotFoundPage = () => {
+import React from 'react';
+import NotFound from '../components/NotFound/NotFound';
+import { Container } from 'components/Container/Container';
+
+
+export const NotFoundPage = () => {
   return (
-    <>
-      <h1>Not Found</h1>
-    </>
+    <Container>
+              <NotFound />
+      </Container>
+ 
+  
+
   );
 };
 
-export default NotFoundPage;
