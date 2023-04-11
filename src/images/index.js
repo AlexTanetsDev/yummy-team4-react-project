@@ -18,7 +18,9 @@ import mainRegImgMob from './mainRegImgMob.png';
 import mainRegImg from './mainRegImg.png';
 import mainRegImgTab from './mainRegImgTab.png';
 import startPegeLogo from './startPegeLogo.png';
-import { ReactComponent as userIcon } from './user.svg';
+import errorIcon from './error-icon.png';
+import succesIcon from './succes-icon.png';
+import warningIcon from './warning-icon.png';
 
 export {
   basilLeaves,
@@ -41,5 +43,7 @@ export {
   mainRegImgMob,
   mainRegImg,
   mainRegImgTab,
-  userIcon,
+  errorIcon,
+  succesIcon,
+  warningIcon,
 };
