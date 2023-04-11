@@ -60,6 +60,11 @@ export const BottomBgImage = styled.div`
 		height: 325px;
 		background-image: url(${bottomRegImg});
   };
+
+	@media (min-width: 1440px) and (min-height:770px) {
+		height: 425px;
+		background-image: url(${bottomRegImg});
+  };
 `;
 
 export const ModalWrapper = styled.div`
@@ -125,6 +130,22 @@ export const InputField = styled.input`
 		width: 400px;
 	  height: 59px;
   };
+`;
+
+export const IconWrap = styled.div`
+ position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  margin-left: 14px;
+  opacity: 0.8;
+	color: #fff;
+	width: 24px;
+	height: 24px;
+	&:hover {
+  opacity: 1;
+}
 `;
 
 export const Button = styled.button`

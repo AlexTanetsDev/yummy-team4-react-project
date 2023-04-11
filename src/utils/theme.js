@@ -13,6 +13,9 @@ export const theme = {
     lightGreenText: '#EBF3D4',
     itemTitleColor: '#3E4462',
     itemTextColor: '#23262A',
+    errorColor: '#E74A3B',
+    warningColor: '#F6C23E',
+    successColor: '#3CBC81',
   },
   space: value => `${4 * value}px`,
   fontSizes: {
