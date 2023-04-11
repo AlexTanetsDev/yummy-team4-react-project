@@ -14,6 +14,7 @@ export const LogoHeaderWrapper = styled.div`
     top: ${p => p.theme.space(4.5)};
     left: ${p => p.theme.space(25)};
   }
+  z-index:1
 `;
 
 export const LogoHeaderLink = styled(NavLink)`

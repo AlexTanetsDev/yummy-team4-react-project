@@ -1,16 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
-import { SharedLayout } from './SharedLayout';
-import { lazy } from 'react';
-const RegisterPage = lazy(() => import('../pages/RegisterPage'));
-const SigninPage = lazy(() => import('../pages/SinginPage'));
-const WellcomPage = lazy(() => import('../pages/WelcomePage'))
-const AddRecipesPage =  lazy(() => import('../pages/AddRecipesPage'))
-
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { RestrictedRoute } from './RestrictedRoute';
-import { PrivateRoute } from './PrivateRout';
 
+import { lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import {useAuth} from "../hooks/index"
 import { refreshUser } from 'Redux/auth/operations';
+
+
+const AddRecipesPage = lazy(() => import('../pages/AddRecipesPage'));
+
+// import { RestrictedRoute } from './RestrictedRoute';
+// import { PrivateRoute } from './PrivateRout';
+
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const WellcomPage = lazy(() => import('../pages/WelcomePage'));

@@ -1,22 +1,23 @@
 // import { NavLink } from "react-router-dom"
-import Logo from "../Header/Logo.svg";
+// import Logo from "../Header/Logo.svg";
 import Dark from "../Header/Switch-dark.svg";
 import Light from "../Header/Switch-light.svg";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx"
 import {IoMdClose} from "react-icons/io"
 import {StyledLink, StyledHeader, StyledNav, StyledNavBurger, StyledBurger, StyledThemeBtn, MobileMenu, 
-    ThemeModalDiv, Avatar, UserName, StyledThemeHeaderDiv, StyledThemeHeader, StyledLinkBurger} from "../Header/Header.styled"
+    ThemeModalDiv, Avatar, UserName,  StyledThemeHeader, StyledLinkBurger, Headerblock} from "../Header/Header.styled"
 import { useState } from 'react';
 import {useSelector} from "react-redux"
-
+import { LogoHeader } from "../Logo/Logo"
+import {useAuth} from "../../hooks/useAuth"
 
 export const Header = () => {
-    //  const { isLoggedIn, user } = useAuth();
-    const user = useSelector(state => state.user);
-    console.log(user)
+     const { isLogin, user } = useAuth();
+    const User = useSelector(state => state.user);
+    console.log(User);
     
     const [nav, setNav] = useState(false);
     const [theme, setTheme] = useState(true);
@@ -31,10 +32,10 @@ export const Header = () => {
     //   console.log(state); 
     return (
         <StyledHeader>
-            <Link to="/">
+            {/* <Link to="/">
             <img src={Logo} alt="логотип"/>        
-            </Link>
-                      
+            </Link> */}
+            <LogoHeader/>          
         <StyledNav>
             <StyledLink to="/catagories">Categories</StyledLink>
             <StyledLink to="/add">Add recipes</StyledLink>
@@ -44,23 +45,22 @@ export const Header = () => {
              <StyledLink to="/search"><BsSearch/></StyledLink>
             </StyledNav>
 
-        {!nav ? "" :  <>
+
+            <Headerblock>
+    {!nav ? "" :  <>
         <Avatar to="/">
-            <img src= "avatar.jpg" alt="avatar" />  
+            <img src= {User.avatarURL} alt="avatar" />  
             </Avatar>
-            <UserName> User </UserName>
+            <UserName> {User.name} </UserName>
         </>
         }
-            
-               <StyledThemeHeaderDiv>
-                    <StyledThemeHeader onClick={handleTheme}> 
+         <StyledThemeHeader onClick={handleTheme}> 
                {theme ? <img src={Dark} alt="theme" />  : <img src={Light} alt="theme" />}
-                 </StyledThemeHeader>
-                    </StyledThemeHeaderDiv>  
-        
-         
-           <StyledBurger onClick={handleButtonClick} >{nav ? <RxHamburgerMenu/> : <IoMdClose/> }</StyledBurger>
-            {nav ? "" : 
+        </StyledThemeHeader>
+            <StyledBurger onClick={handleButtonClick} >{nav ? <RxHamburgerMenu/> : <IoMdClose/> }</StyledBurger>
+          
+</Headerblock>
+                {nav ? "" : 
            <MobileMenu>
             <StyledNavBurger>
             <StyledLinkBurger to="/catagories">Categories</StyledLinkBurger>
