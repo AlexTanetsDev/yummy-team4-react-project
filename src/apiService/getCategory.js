@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com/api';
-
 export const getRecipesByCategory = async (category, token) => {
   try {
-    const respons = await axios.get(`/recipes/category/${category}`, {
+    const respons = await axios.get(`/api/recipes/category/${category}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return respons.data;
@@ -15,7 +13,7 @@ export const getRecipesByCategory = async (category, token) => {
 
 export const getCategoryList = async token => {
   try {
-    const respons = await axios.get(`/category-list`, {
+    const respons = await axios.get(`/api/category-list`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return respons.data;
