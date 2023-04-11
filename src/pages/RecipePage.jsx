@@ -33,7 +33,7 @@ const RecipePage = () => {
         favorites={recipe?.favorites}
       />
       <Container>
-        <RecipeIngredientsList />
+        <RecipeIngredientsList ingredients={recipe?.ingredients} />
         <RecepiePreparation
           image={recipe?.thumb}
           instructions={recipe?.instructions}

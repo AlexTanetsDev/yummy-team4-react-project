@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-
-axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com/api';
-
 export const getAllFavorite = async (page, limit) => {
   try {
-    const { data } = await axios.get(`/favorite?page=${page}&limit=${limit}`);
+    const { data } = await axios.get(
+      `/api/favorite?page=${page}&limit=${limit}`
+    );
 
     return data;
   } catch (error) {
@@ -15,7 +14,7 @@ export const getAllFavorite = async (page, limit) => {
 
 export const addFavoriteById = async id => {
   try {
-    const { data } = await axios.patch(`/favorite/${id}`);
+    const { data } = await axios.patch(`/api/favorite/${id}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -24,7 +23,7 @@ export const addFavoriteById = async id => {
 
 export const deleteFavoriteById = async id => {
   try {
-    const { data } = await axios.delete(`/favorite/${id}`);
+    const { data } = await axios.delete(`/api/favorite/${id}`);
     return data;
   } catch (error) {
     console.log(error);
