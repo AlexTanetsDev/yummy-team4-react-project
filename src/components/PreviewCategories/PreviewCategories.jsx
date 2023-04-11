@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+
+import { nanoid } from 'nanoid';
+
 import { getMainPageRecipes } from '../../apiService';
-// import axios from 'axios';
+
 import { Sections } from 'components/MainPageCategorySection/Sections';
 import {
   SeeAllButton,
@@ -27,31 +30,17 @@ export function PreviewCategories() {
   const location = useLocation();
   const token = useSelector(state => state.auth.token);
 
-  // const instance = axios.create({
-  //   baseURL: 'https://yummy-team4-nodejs-project.onrender.com/api',
-  //   headers: {
-  //     Authorization: `Bearer ${token}`,
-  //   },
-  // });
-
   useEffect(() => {
-    // instance.get('/recipes/main-page').then(function (response) {
     getMainPageRecipes(token)
       .then(res => setItems(res.data))
       .catch(error => console.error(error));
   }, [token]);
 
-  //   instance.get('/recipes/main-page').then(function (response) {
-  //     setItems(response.data);
-  //   });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
   useEffect(() => {
     const handleWindowResize = () => {
       const width = window.innerWidth;
 
-      if (width >= 1240) {
+      if (width >= 1440) {
         setViewportWidth(4);
       } else if (width >= 768 && width < 1440) {
         setViewportWidth(2);
@@ -69,23 +58,26 @@ export function PreviewCategories() {
       {items.length > 0
         ? items
             .map(item => (
-              <RecipesContainer>
-                <Sections title={item.category} children>
-                  <RecipesContainer>
-                    {item.recipes
-                      .map(({ _id, preview, title }) => (
-                        <RecipeItem id={_id} preview={preview} title={title} />
-                      ))
-                      .slice(0, viewportWidth)}
-                  </RecipesContainer>
-                  <Link
-                    to={`/categories/${item.category}`}
-                    state={{ from: location }}
-                  >
-                    <SeeAllButton children={'See all'} />
-                  </Link>
-                </Sections>
-              </RecipesContainer>
+              <Sections key={nanoid()} title={item.category}>
+                <RecipesContainer>
+                  {item.recipes
+                    .map(({ _id, preview, title }) => (
+                      <RecipeItem
+                        id={_id}
+                        preview={preview}
+                        title={title}
+                        key={_id}
+                      />
+                    ))
+                    .slice(0, viewportWidth)}
+                </RecipesContainer>
+                <Link
+                  to={`/categories/${item.category}`}
+                  state={{ from: location }}
+                >
+                  <SeeAllButton children={'See all'} />
+                </Link>
+              </Sections>
             ))
             .slice(0, 4)
         : null}
