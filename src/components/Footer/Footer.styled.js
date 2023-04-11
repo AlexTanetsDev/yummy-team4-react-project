@@ -53,27 +53,24 @@ export const BottomWrapper = styled.div`
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-   
   }
   @media screen and (min-width: 768px) {
     padding: 32px 0;
-    
+
     background-size: 290px 313px;
-    @media (min-device-pixel-ratio: 2),
+    /* @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       b
-    }
+    } */
   }
   @media screen and (min-width: 1440px) {
-   
     background-size: 438px 474px;
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-    
     }
   }
   p {
