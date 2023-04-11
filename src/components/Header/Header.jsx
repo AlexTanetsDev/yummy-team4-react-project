@@ -10,11 +10,13 @@ import {IoMdClose} from "react-icons/io"
 import {StyledLink, StyledHeader, StyledNav, StyledNavBurger, StyledBurger, StyledThemeBtn, MobileMenu, 
     ThemeModalDiv, Avatar, UserName,  StyledThemeHeader, StyledLinkBurger, Headerblock} from "../Header/Header.styled"
 import { useState } from 'react';
-import {useSelector} from "react-redux"
-import { LogoHeader } from "../Logo/Logo"
-import {useAuth} from "../../hooks/useAuth"
-import {Modal } from "../Modal/Modal"
+import { useSelector } from "react-redux";
+import { LogoHeader } from "../Logo/Logo";
+import { useAuth } from "../../hooks/useAuth";
+import { Modal } from "../Modal/Modal";
+
 export const Header = () => {
+    
      const { isLogin, user } = useAuth();
     const User = useSelector(state => state.user);
     console.log(User);
