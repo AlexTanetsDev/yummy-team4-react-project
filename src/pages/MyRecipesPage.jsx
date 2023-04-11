@@ -5,11 +5,10 @@ import { Container } from 'components/Container/Container';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { MyRecipesList } from 'components/MyRecipesList/MyResipesList';
 import { MyRecipesItem } from 'components/MyRecipesItem/MyRecipesItem';
-// import { AlertMessage } from 'components/AlertMessage/AlertMessage';
+import { AlertMessage } from '../components/AlertMessage/AlertMessage';
 import RecipesPagination from 'components/Paginator/Paginator';
 
 import { OwnRecipeApi } from '../apiService';
-import { ErrorMessage } from 'formik';
 const rec = [
   {
     _id: '1',
@@ -244,16 +243,21 @@ export const MyRecipesPage = () => {
   const [recipes, setRecipes] = useState([]);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const renderMyRecipesPage = async () => {
       try {
+        setIsLoading(true);
         // const data = await OwnRecipeApi.FetchRecipes();
         const data = rec;
         setTotalItemsCount(rec.length);
         setRecipes(data);
       } catch (error) {
-        ErrorMessage({ error });
+        setError({ error });
+      } finally {
+        setIsLoading(false);
       }
     };
     renderMyRecipesPage();
@@ -266,7 +270,9 @@ export const MyRecipesPage = () => {
 
       setRecipes(data);
     } catch (error) {
-      ErrorMessage({ error });
+      setError({ error });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -274,8 +280,8 @@ export const MyRecipesPage = () => {
     (currentPage - 1) * 4,
     currentPage * 4
   );
-  console.log(currentPage);
-  console.log(currentPageRecipes);
+  // console.log(currentPage);
+  // console.log(currentPageRecipes);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
@@ -283,31 +289,52 @@ export const MyRecipesPage = () => {
     <>
       <Sections>
         <Container>
-          <SectionTitle title="My recipes" />
-          <MyRecipesList>
-            {currentPageRecipes.map(
-              ({ _id, title, description, instructions, time, preview }) => (
-                <MyRecipesItem
-                  key={_id}
-                  title={title}
-                  description={description}
-                  instructions={instructions}
-                  time={time}
-                  preview={preview}
-                  id={_id}
-                  onDelete={() => {
-                    deleteMyRecipe(_id);
-                  }}
-                />
-              )
-            )}
-          </MyRecipesList>
-          <RecipesPagination
-            totalItemsCount={rec.length}
-            paginate={paginate}
-            currentPage={currentPage}
-            totalPages={Math.ceil(totalItemsCount / 4)}
-          />
+          {error && (
+            <AlertMessage>
+              Oops, something went wrong. Please try again later...
+            </AlertMessage>
+          )}
+          {isLoading ? (
+            <AlertMessage>Please wait...</AlertMessage>
+          ) : (
+            <>
+              <SectionTitle title="My recipes" />
+              <MyRecipesList>
+                {currentPageRecipes.map(
+                  ({
+                    _id,
+                    title,
+                    description,
+                    instructions,
+                    time,
+                    preview,
+                  }) => (
+                    <MyRecipesItem
+                      key={_id}
+                      title={title}
+                      description={description}
+                      instructions={instructions}
+                      time={time}
+                      preview={preview}
+                      id={_id}
+                      onDelete={() => {
+                        deleteMyRecipe(_id);
+                      }}
+                    />
+                  )
+                )}
+              </MyRecipesList>
+              <RecipesPagination
+                totalItemsCount={rec.length}
+                paginate={paginate}
+                currentPage={currentPage}
+                totalPages={Math.ceil(totalItemsCount / 4)}
+              />
+              <AlertMessage>
+                Please add the recipe to your favorites...
+              </AlertMessage>
+            </>
+          )}
         </Container>
       </Sections>
     </>
