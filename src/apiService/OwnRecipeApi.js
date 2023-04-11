@@ -14,7 +14,7 @@ async function FetchRecipes(page = 1, limit = 4) {
     page: page,
     limit: limit,
   };
-  const response = await axios.get('/ownRecipes', { params });
+  const response = await axios.get('/api/ownRecipes', { params });
   return response.data;
 }
 

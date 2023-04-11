@@ -6,7 +6,7 @@ import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { MyRecipesList } from 'components/MyRecipesList/MyResipesList';
 import { MyRecipesItem } from 'components/MyRecipesItem/MyRecipesItem';
 import { AlertMessage } from '../components/AlertMessage/AlertMessage';
-// import RecipesPagination from 'components/Paginator/Paginator';
+import RecipesPagination from 'components/Paginator/Paginator';
 
 import { OwnRecipeApi } from '../apiService';
 // const rec = [
@@ -252,6 +252,7 @@ export const MyRecipesPage = () => {
         setIsLoading(true);
         const { data, total } = await OwnRecipeApi.FetchRecipes(currentPage, 4);
         //const data = rec;
+        console.log('!!!!!!!!!!', typeof total, total);
         setTotalItemsCount(total);
         setRecipes(data);
       } catch (error) {
@@ -281,11 +282,11 @@ export const MyRecipesPage = () => {
   //   currentPage * 4
   // );
 
-  const currentPageRecipes = OwnRecipeApi.FetchRecipes(currentPage, 4);
+  // const currentPageRecipes = OwnRecipeApi.FetchRecipes(currentPage, 4);
   // console.log(currentPage);
   // console.log(currentPageRecipes);
 
-  // const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -302,7 +303,7 @@ export const MyRecipesPage = () => {
             <>
               <SectionTitle title="My recipes" />
               <MyRecipesList>
-                {currentPageRecipes.map(
+                {recipes.map(
                   ({
                     _id,
                     title,
@@ -326,15 +327,13 @@ export const MyRecipesPage = () => {
                   )
                 )}
               </MyRecipesList>
-              {/* <RecipesPagination
-                totalItemsCount={total}
+
+              <RecipesPagination
+                totalItemsCount={totalItemsCount}
                 paginate={paginate}
                 currentPage={currentPage}
                 totalPages={Math.ceil(totalItemsCount / 4)}
-              /> */}
-              {/* <AlertMessage>
-                Please add the recipe to your my recipes...
-              </AlertMessage> */}
+              />
             </>
           )}
         </Container>
