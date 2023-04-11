@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { PopularApi } from '../../apiService';
+
 import {
   ContainerPopular,
   Title,
@@ -9,33 +12,42 @@ import {
   TitleRecipe,
   Image,
   Description,
-  SocialContainer,
-  Social,
+  ContainerEmpty,
 } from './PopularRecipe.styled';
 
-export const PopularRecipe = ({ popular }) => {
+export const PopularRecipe = () => {
+  const [popular, setPopular] = useState([]);
+
+  useEffect(() => {
+    PopularApi.fetchPopularList().then(resp => setPopular(resp));
+  }, []);
+
   return (
     <ContainerPopular>
-      <SocialContainer>
-        <Title>Folow us</Title>
-        <Social />
-      </SocialContainer>
-      <Title>Popular recipe</Title>
-      <PopularList>
-        {popular.map(({ id, preview, title, description }) => (
-          <PopularItem key={id}>
-            <RecipeLink to={`/recipe/${id}`}>
-              <ImageWrapper>
-                <Image src={preview} alt={title} />
-              </ImageWrapper>
-              <InfoWrapper>
-                <TitleRecipe>{title}</TitleRecipe>
-                <Description>{description}</Description>
-              </InfoWrapper>
-            </RecipeLink>
-          </PopularItem>
-        ))}
-      </PopularList>
+      {popular.length > 0 ? (
+        <>
+          <Title>Popular recipe</Title>
+          <PopularList>
+            {popular.map(({ id, preview, title, description }) => (
+              <PopularItem key={id}>
+                <RecipeLink to={`/recipe/${id}`}>
+                  <ImageWrapper>
+                    <Image src={preview} alt={title} />
+                  </ImageWrapper>
+                  <InfoWrapper>
+                    <TitleRecipe>{title}</TitleRecipe>
+                    <Description>{description}</Description>
+                  </InfoWrapper>
+                </RecipeLink>
+              </PopularItem>
+            ))}
+          </PopularList>
+        </>
+      ) : (
+        <ContainerEmpty>
+          <Title>No popular recipe...</Title>
+        </ContainerEmpty>
+      )}
     </ContainerPopular>
   );
 };

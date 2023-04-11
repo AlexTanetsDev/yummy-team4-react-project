@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { IngredientsApi } from '../../apiService';
 import { FieldArray, Field } from 'formik';
 import { FiMinus, FiPlus, FiX } from 'react-icons/fi';
 
@@ -25,7 +26,13 @@ import {
   Error,
 } from './RecipeIngridientsFields.styled';
 
-export const RecipeIngridientsFields = ({ formik, ingredients }) => {
+export const RecipeIngridientsFields = ({ formik }) => {
+  const [ingredients, setIngredients] = useState([]);
+
+  useEffect(() => {
+    IngredientsApi.fetchIngredientsList().then(resp => setIngredients(resp));
+  }, []);
+
   return (
     <IngridientsContainer>
       <FieldArray
@@ -77,7 +84,7 @@ export const RecipeIngridientsFields = ({ formik, ingredients }) => {
                         name={`ingredients.${index}.name`}
                         id={`ingredients.${index}.name`}
                       >
-                        {/* <Option value="">Select ingredient</Option> */}
+                        <Option value="">Select ingredient</Option>
                         {ingredients.map((ingredient, index) => (
                           <Option key={index} value={ingredient._id}>
                             {ingredient.ttl}

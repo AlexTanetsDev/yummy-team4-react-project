@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CategoryApi } from '../../apiService';
 import { Field } from 'formik';
 
 import photoIcon from '../../images/addRecipePhoto.svg';
@@ -8,7 +9,7 @@ import {
   InputFieldsContainer,
   InputTitle,
   LabelTitle,
-    InputDescription,
+  InputDescription,
   InputCategory,
   FieldSelectContainer,
   OptionCategory,
@@ -79,7 +80,13 @@ const FileInput = ({
   );
 };
 
-export const RecipeDescriptionFields = ({ formik, categories }) => {
+export const RecipeDescriptionFields = ({ formik }) => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    CategoryApi.fetchCategoryList().then(resp => setCategories(resp));
+  }, []);
+
   return (
     <DescriptionContainer>
       <Field
