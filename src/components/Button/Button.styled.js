@@ -518,6 +518,9 @@ export const FavoritesDeleteBtn = styled.button`
 `;
 
 export const MyRecipesDeleteBtn = styled.button`
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -532,12 +535,16 @@ export const MyRecipesDeleteBtn = styled.button`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), ;
 
   @media (min-width: 768px) {
+     top: 28px;
+    right: 24px;
     padding: 8px;
     width: 38px;
     height: 38px;
     font-size: 22px;
   }
   @media (min-width: 1440px) {
+      top: 40px;
+    right: 40px;
     padding: 10px;
     width: 44px;
     height: 44px;
