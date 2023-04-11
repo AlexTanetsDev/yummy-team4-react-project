@@ -1,26 +1,18 @@
 import PropTypes from 'prop-types';
 import { IngridientsShoppingListItem } from './IngridientsShoppingListItem';
-import { Header, ProductsWrapper } from './IngredientsShoppingList.styled';
+import { Header, ProductsWrapper,NumberIRemoveWrapper } from './IngredientsShoppingList.styled';
 
 export const IngridientsShoppingList = ({ ingridients, handleDelete }) => {
   return (
     <>
       <Header>
-        <li>
-          <ProductsWrapper>
-            <span>Products</span>
-          </ProductsWrapper>
-        </li>
-        <li>
-          <div>
-            <span>Number</span>
-          </div>
-        </li>
-        <li>
-          <div>
-            <span>Remove</span>
-          </div>
-        </li>
+        <div>
+          <span>Products</span>
+        </div>
+        <NumberIRemoveWrapper>
+          <span>Number</span>
+          <span>Remove</span>
+        </NumberIRemoveWrapper>
       </Header>
 
       <ul>

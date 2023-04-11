@@ -1,25 +1,60 @@
 import styled from 'styled-components';
 
-export const Header = styled.ul`
+export const Header = styled.div`
   display: flex;
-  gap:142px;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  padding: 10px;
   background: #8baa36;
   border-radius: 8px;
-  width: 1240px;
-  margin-top: 70px;
-  margin-bottom:60px; 
-  padding: 40px 21px;
-
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 27px;
+  font-size: 12px;
+  line-height: 18px;
   letter-spacing: 0.03em;
+  /* identical to box height, or 150% */
+
   color: #fafafa;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 27px;
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+  @media screen and (min-width: 1440px) {
+    max-width: 1240px;
+    margin-top: 70px;
+    margin-bottom: 5px;
+    color: #fafafa;
+    padding: 20px 40px;
+  }
 `;
 
+export const NumberIRemoveWrapper = styled.div`
+  display: flex;
+  gap: 25px;
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 140px;
+  }
+`;
 
-export const ProductsWrapper = styled.div`
-margin-right:600px; 
-`
+export const ShoppingListTitle = styled.h2`
+  display: 'flex';
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 28px;
+  margin: 50px 10px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    line-height: 32px;
+    margin: 70px 30px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 44px;
+    line-height: 44px;
+  }
+`;
