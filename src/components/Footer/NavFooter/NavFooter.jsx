@@ -1,4 +1,4 @@
-import { scrollToTop } from 'helpers';
+import { scrollToTop } from 'helpers/scrollToTop';
 import { NavLinkStyled, NavWraper } from './NavFooter.styled';
 
 const NavFooter = () => {

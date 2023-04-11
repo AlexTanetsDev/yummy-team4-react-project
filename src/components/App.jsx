@@ -13,12 +13,6 @@ const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
-// const MainPage = lazy(() =>
-//   import('../pages/MainPage').then(module => ({
-//     ...module,
-//     default: module.MainPage,
-//   }))
-// );
 const CategoriesPage = lazy(() => import('../pages/CategoriesPage'));
 const AddRecipePage = lazy(() =>
   import('../pages/AddRecipesPage/AddRecipesPage')
@@ -29,6 +23,11 @@ const MyRecipesPage = lazy(() => import('../pages/MyRecipesPage'));
 const SearchPage = lazy(() => import('../pages/SearchPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+
+
+
+
+
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -68,8 +67,10 @@ export const App = () => {
         <Route path="/recipe/:recipeId" element={<RecipePage />} />
         <Route path="/my" element={<MyRecipesPage />} />
         <Route path="/search" element={<SearchPage />} />
+         <Route path='/search/:query' element={<SearchPage/>} />
         <Route path="/shopping-list" element={<ShoppingListPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/categories/:categoryName" element={<CategoriesPage />} />
+        <Route path="*" element={<NotFoundPage />} />        
       </Route>
     </Routes>
   );

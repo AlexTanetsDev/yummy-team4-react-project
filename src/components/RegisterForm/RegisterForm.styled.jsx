@@ -54,10 +54,13 @@ export const BottomBgImage = styled.div`
 	@media (min-width: 768px) {
 		height: 606px;
 		background-image: url(${bottomRegImgTab});
-
   };
 	@media (min-width: 1440px) {
 		height: 325px;
+		background-image: url(${bottomRegImg});
+  };
+	@media (min-width: 1440px) and (min-height:770px) {
+		height: 425px;
 		background-image: url(${bottomRegImg});
   };
 `;
@@ -113,7 +116,6 @@ export const InputField = styled.input`
 	padding-left: 40px;
 	color: ${p => p.theme.colors.mainBgColor};
 	background-color: ${p => p.theme.colors.thirdAccentColor};
-	border:solid 1px ${p => p.theme.colors.mainBgColor};
 	border-radius: 6px;
 	opacity: 0.8;
 	&:hover {
@@ -125,6 +127,22 @@ export const InputField = styled.input`
 		width: 400px;
 	  height: 59px;
   };
+`;
+
+export const IconWrap = styled.div`
+ position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  margin-left: 14px;
+  opacity: 0.8;
+	color: #fff;
+	width: 24px;
+	height: 24px;
+	&:hover {
+  opacity: 1;
+}
 `;
 
 export const UserLogoInput = styled.div`

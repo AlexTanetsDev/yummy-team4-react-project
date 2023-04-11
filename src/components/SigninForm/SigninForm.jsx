@@ -1,12 +1,13 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
-import { StyledWrapper, ImageReg, BottomBgImage, ModalWrapper, Title, Button, Link, InputField, InputWrapper } from './SignInForm.styled';
-import { ReactComponent as MailIcon } from '../../images/mail.svg';
-import { ReactComponent as LoockIcon } from '../../images/lock.svg';
+import { FiMail } from "react-icons/fi";
+import { FiLock } from "react-icons/fi";
+import { StyledWrapper, ImageReg, BottomBgImage, ModalWrapper, Title, Button, Link, IconWrap, InputWrapper } from './SignInForm.styled';
 import "../../styles/styles.css";
+import { FormError } from 'components/FormError/FormError';
 
  
 const initialValues = {
@@ -34,21 +35,27 @@ export const SignInForm = () => {
 			<Title>
 				Sign In
 			</Title>
-		<Formik initialValues={initialValues} validationSchema={signInSchema} onSubmit={handleSubmit}>
-			<Form>
-      <InputWrapper>
-						<Field name="email" as={InputField} type="text" placeholder="email" />
-							<MailIcon className='icon icon-user' />
-						</InputWrapper>
-			<ErrorMessage name="email" component="div"/>
-
-      <InputWrapper>
-						<Field type="password" as={InputField} name="password" placeholder="password" />
-							<LoockIcon className='icon icon-user' />
-						</InputWrapper>
-			<ErrorMessage name="password" component="div"/>
-      <Button type="submit">Sign in</Button>
-    </Form>
+			<Formik initialValues={initialValues} validationSchema={signInSchema} onSubmit={handleSubmit}>
+					{
+						({ values, errors, touched, isSubmitting, handleChange }) => (
+							<Form>
+								<InputWrapper>
+									<Field className={`sign-up__inp ${errors.email && touched.email ? "sign-up__inp_error" : ""}`} name="email" type="text" placeholder="email" values={values.email} />
+									<IconWrap>
+										<FiMail color={`${errors.email && touched.email ? "red" : "white"}`} size={24} />
+									</IconWrap>
+									<FormError name="email" component="div" />
+								</InputWrapper>
+								<InputWrapper>
+									<Field className={`sign-up__inp ${errors.password && touched.password ? "sign-up__inp_error" : ""}`} type="password" name="password" placeholder="password" />
+									<IconWrap>
+										<FiLock color={`${errors.password && touched.password ? "red" : "white"}`} size={24} />
+									</IconWrap>
+									<FormError name="password" component="div" />
+								</InputWrapper>
+								<Button type="submit">Sign in</Button>
+							</Form>
+						)}
 				</Formik>
 				<Link to="/register">Registration</Link>
 				</ModalWrapper>

@@ -1,8 +1,7 @@
 import React from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
-import { Link, useLocation } from 'react-router-dom';
 import { Search } from 'components/Search/Search';
-
 import {
   MainPageHero,
   HeroTitle,
@@ -15,7 +14,16 @@ import {
 } from './ChooseYourBreakfast.styled';
 
 export const ChoseYourBreakfast = () => {
+  const navigate = useNavigate();
   const location = useLocation();
+
+  const formSubmitHandler = data => {
+    if (data) {
+      const replaced = data.trim();
+      navigate(`/search?query=${replaced}`);
+    }
+    return;
+  };
 
   return (
     <div>
@@ -28,7 +36,7 @@ export const ChoseYourBreakfast = () => {
           cookbook. You can add your own recipes to save them for the future.
         </HeroInfo>
         <InputWraper>
-          <Link to={`/categories/breakfast`} state={{ from: location }}>
+          <Link to={`/categories/Breakfast`} state={{ from: location }}>
             <BreakfastButton tipe="button">
               <Text>
                 <Span>Delicious and healthy</Span> way to enjoy a variety of
@@ -39,7 +47,7 @@ export const ChoseYourBreakfast = () => {
               </Arrow>
             </BreakfastButton>
           </Link>
-          <Search />
+          <Search onSubmit={formSubmitHandler} />
         </InputWraper>
       </MainPageHero>
     </div>
