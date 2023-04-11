@@ -1,6 +1,9 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from 'Redux/auth/selectors';
+
 import {
   BackgroundDecorHeader,
   BackgroundDecorFooter,
@@ -10,17 +13,32 @@ import {
 import Footer from 'components/Footer/Footer';
 
 export const SharedLayout = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   return (
     <>
-      {/* <Header /> */}
-      <main>
-        <BackgroundDecorHeader />
-        <Suspense>
-          <Outlet />
-        </Suspense>
-        <BackgroundDecorFooter />
-      </main>
-      <Footer />
+      {!isLoggedIn ? (
+        <>
+          <main>
+            <Suspense>
+              <Outlet />
+            </Suspense>
+          </main>
+        </>
+      ) : (
+        <>
+          {/* <Header /> */}
+          <main>
+            <BackgroundDecorHeader />
+            <Suspense>
+              <Outlet />
+            </Suspense>
+            <BackgroundDecorFooter />
+          </main>
+            <Footer /> 
+        </>
+      )}
+
     </>
   );
 };
