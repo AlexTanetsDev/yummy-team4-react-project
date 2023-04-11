@@ -5,12 +5,11 @@ import { Container } from 'components/Container/Container';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecipesList/SearchedRecipesList';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const SearchPage = () => {
-  const location = useLocation();
   const [recipes, setRecipes] = useState([]);
-  const query = location.state !== null ? location.state.query : '';
+  const {query} = useParams();
   
   useEffect(() => {
     if(query === '') {

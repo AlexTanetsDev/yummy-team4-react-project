@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const RecipesList = styled.ul`
@@ -7,7 +8,7 @@ export const RecipesList = styled.ul`
   column-gap: 14px;
 `;
 
-export const SearchedRecipesItem = styled.li`
+export const SearchedRecipesItem = styled(NavLink)`
   position: relative;
   width: 100%;
   height: 323px;
