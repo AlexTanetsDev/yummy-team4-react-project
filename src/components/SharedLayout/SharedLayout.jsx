@@ -7,7 +7,7 @@ import {
 } from 'components/BackgroundDecor/BackgroundDecor';
 
 // import { Header } from './Header/Header';
-// import { Footer } from './Footer/Footer';
+import Footer from 'components/Footer/Footer';
 
 export const SharedLayout = () => {
   return (
@@ -20,7 +20,7 @@ export const SharedLayout = () => {
         </Suspense>
         <BackgroundDecorFooter />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
