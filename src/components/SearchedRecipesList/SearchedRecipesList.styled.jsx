@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const RecipesList = styled.ul`
   display: flex;
@@ -7,7 +8,7 @@ export const RecipesList = styled.ul`
   column-gap: 14px;
 `;
 
-export const SearchedRecipesItem = styled.li`
+export const SearchedRecipesItem = styled(NavLink)`
   position: relative;
   width: 100%;
   height: 323px;
