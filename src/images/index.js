@@ -18,8 +18,27 @@ import mainRegImgMob from './mainRegImgMob.png';
 import mainRegImg from './mainRegImg.png';
 import mainRegImgTab from './mainRegImgTab.png';
 import startPegeLogo from './startPegeLogo.png';
+import logoWhite from './logo-white.png';
+import logoGreen from './logo-green.png';
+import squareGreen from './squareGreen.png';
+import squareDark from './squareDark.png';
+import circleDark from './circleDark.png';
+import leftSpinachDesktop from './leftSpinachDesktop.png';
+import leftSpinachTablet from './leftSpinachTablet.png';
+import leftSpinachMobile from './leftSpinachMobile.png';
+import rightSpinachDesktop from './rightSpinachDesktop.png';
+import rightSpinachTablet from './rightSpinachTablet.png';
+import rightSpinachMobile from './rightSpinachMobile.png';
+import { ReactComponent as userIcon } from './user.svg';
+
 
 export {
+  leftSpinachDesktop,
+  leftSpinachTablet,
+  leftSpinachMobile,
+  rightSpinachDesktop,
+  rightSpinachTablet,
+  rightSpinachMobile,
   basilLeaves,
   saladSalmon,
   salad,
@@ -40,4 +59,10 @@ export {
   mainRegImgMob,
   mainRegImg,
   mainRegImgTab,
+  logoWhite,
+  logoGreen,
+  squareGreen,
+  squareDark,
+  circleDark,
+  userIcon,
 };

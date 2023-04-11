@@ -89,47 +89,60 @@ const initialValues = {
 export const AddRecipeForm = ({ ingredients, categories }) => {
   const navigate = useNavigate();
 
-  //   const [preparation, setPreparation] = useState('');
-  // const [submitting, setSubmitting] = useState(false);
+  // const onSubmit = async (values, { setSubmitting, resetForm }, event) => {
+  //   setSubmitting(true);
+  //   const preparationArr = values.preparation.split(/\r?\n/);
+  //   const formData = new FormData();
 
-  //   const handlePreparationChange = e => {
-  //     const inputText = e.target.value.trim();
-  //     let firstLine = true;
-
-  //     if (firstLine) {
-  //       setPreparation(inputText);
+  //   formData.append('photo', values.photo);
+  //   formData.append('title', values.title);
+  //   formData.append('description', values.description);
+  //   formData.append('category', values.category);
+  //   formData.append('time', values.time);
+  //   values.ingredients.map(ingredient => {
+  //     const newIngredient = {
+  //       id: ingredient.name,
+  //       measure: `${ingredient.quantity} ${ingredient.unit}`,
+  //     };
+  //     formData.append('ingredients', newIngredient);
+  //   });
+  //   preparationArr.map(item => {
+  //     if (item !== '') {
+  //       formData.append('instructions', item);
   //     }
+  //   });
 
-  //     if (e.key === 'Enter' && inputText !== '') {
-  //       firstLine = false;
-  //       const inputValueArr = inputText.split(/\r?\n/);
-
-  //       setPreparation(inputValueArr);
-  //     }
-  //   };
+  //   await OwnRecipeApi.AddRecipe(formData);
+  //   resetForm();
+  //   setSubmitting(false);
+  //   navigate('/main');
+  // };
 
   const onSubmit = async (values, { setSubmitting, resetForm }, event) => {
     setSubmitting(true);
-    const preparationArr = values.preparation.split(/\r?\n/);
     const formData = new FormData();
+    const preparationArr = values.preparation.split(/\r?\n/);
 
-    formData.append('photo', values.photo);
+    let index = 0;
+    preparationArr.forEach((item, i) => {
+      if (item !== '') {
+        formData.append(`instructions[${index}]`, item.trim());
+        index += 1;
+      }
+    });
+
+    values.ingredients.forEach((ingredient, i) => {
+      const measure = `${ingredient.quantity} ${ingredient.unit}`;
+
+      formData.append(`ingredients[${i}][id]`, ingredient.name);
+      formData.append(`ingredients[${i}][measure]`, measure);
+    });
+
+    formData.append('recipeImage', values.photo);
     formData.append('title', values.title);
     formData.append('description', values.description);
     formData.append('category', values.category);
     formData.append('time', values.time);
-    values.ingredients.map(ingredient => {
-      const newIngredient = {
-        id: ingredient.name,
-        measure: `${ingredient.quantity} ${ingredient.unit}`,
-      };
-      formData.append('ingredients', newIngredient);
-    });
-    preparationArr.map(item => {
-      if (item !== '') {
-        formData.append('instructions', item);
-      }
-    });
 
     await OwnRecipeApi.AddRecipe(formData);
     resetForm();

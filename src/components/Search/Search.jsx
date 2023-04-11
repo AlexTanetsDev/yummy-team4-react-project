@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+//import { useLocation } from 'react-router-dom';
 import { SearchMainPageBlack } from './Search.styled';
 import { SerchInput } from './Search.styled';
 
 export function Search(onSubmit) {
   const [searchQuery, setSearchQuery] = useState('');
-  const location = useLocation();
+  //const location = useLocation();
 
   const handleInputChange = eve => {
     setSearchQuery(eve.currentTarget.value.toLowerCase());
