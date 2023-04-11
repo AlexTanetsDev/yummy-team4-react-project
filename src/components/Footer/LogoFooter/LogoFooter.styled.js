@@ -21,7 +21,7 @@ export const Title = styled.p`
   font-size: 18px;
   line-height: ${p => p.theme.lineHeights.subheader};
   letter-spacing: 0.015em;
-  color: ${p => p.theme.colors.titleFooter};
+  color: ${p => p.theme.colors.mainBgColor};
   @media screen and (min-width: 768px) {
     font-size: 28px;
   }

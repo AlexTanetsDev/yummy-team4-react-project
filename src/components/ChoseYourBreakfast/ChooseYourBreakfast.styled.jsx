@@ -14,6 +14,7 @@ export const MainPageHero = styled.div`
     width: 100%;
     height: 777px;
     background-repeat: no-repeat;
+    background-color:${p => p.theme.colors.mainBgColor};
     background-image: url('${unsplash_mob}'), url('${blatt_mob}'),
       url('${blatt_l_mob}'), url('${bg_mob}');
     background-position: top 322px center, top 70px right 0px, top 20px left 0px,

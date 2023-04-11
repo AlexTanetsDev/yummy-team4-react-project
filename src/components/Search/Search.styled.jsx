@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
 export const SerchInput = styled.input`
   border-radius: 24px 44px;
@@ -27,7 +26,7 @@ export const SerchInput = styled.input`
   }
 `;
 
-export const SearchMainPageBlack = styled(NavLink)`
+export const SearchMainPageBlack = styled.button`
   position: absolute;
   right: 24px;
   padding: 14px 32px;

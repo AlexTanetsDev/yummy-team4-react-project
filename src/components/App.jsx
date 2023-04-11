@@ -11,13 +11,7 @@ import { refreshUser } from 'Redux/auth/operations';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const WellcomPage = lazy(() => import('../pages/WelcomePage'));
-const MainPage = lazy(() =>
-  import('../pages/MainPage').then(module => ({
-    ...module,
-    default: module.MainPage,
-  }))
-);
-// const MainPage = lazy(() => import('../pages/MainPage'));
+const MainPage = lazy(() => import('../pages/MainPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
 const FavoritePage = lazy(() => import('../pages/FavoriteRecipesPage/index'));
