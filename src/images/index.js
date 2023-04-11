@@ -18,6 +18,9 @@ import mainRegImgMob from './mainRegImgMob.png';
 import mainRegImg from './mainRegImg.png';
 import mainRegImgTab from './mainRegImgTab.png';
 import startPegeLogo from './startPegeLogo.png';
+import errorIcon from './error-icon.png';
+import succesIcon from './succes-icon.png';
+import warningIcon from './warning-icon.png';
 import logoWhite from './logo-white.png';
 import logoGreen from './logo-green.png';
 import squareGreen from './squareGreen.png';
@@ -30,6 +33,7 @@ import rightSpinachDesktop from './rightSpinachDesktop.png';
 import rightSpinachTablet from './rightSpinachTablet.png';
 import rightSpinachMobile from './rightSpinachMobile.png';
 import { ReactComponent as userIcon } from './user.svg';
+
 
 
 export {
@@ -59,6 +63,9 @@ export {
   mainRegImgMob,
   mainRegImg,
   mainRegImgTab,
+  errorIcon,
+  succesIcon,
+  warningIcon,
   logoWhite,
   logoGreen,
   squareGreen,

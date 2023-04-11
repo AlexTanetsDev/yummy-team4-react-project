@@ -5,9 +5,12 @@ import { object, string } from 'yup';
 import { AiOutlineUser } from "react-icons/ai";
 import { FiMail } from "react-icons/fi";
 import { FiLock } from "react-icons/fi";
-import { StyledWrapper, ModalWrapper, Button, Title, ImageReg, BottomBgImage, Link, InputWrapper, IconWrap } from './RegisterForm.styled';
+import { StyledWrapper, ModalWrapper, Button, Title, ImageReg, BottomBgImage, Link, InputWrapper, IconWrap, StateInputIcon } from './RegisterForm.styled';
 import "../../styles/styles.css";
 import { FormError } from 'components/FormError/FormError';
+import { errorIcon } from 'images';
+// import { succesIcon } from 'images';
+// import { warningIcon } from 'images';
 
 
 
@@ -48,6 +51,7 @@ export const RegisterForm = () => {
 									<IconWrap>
 										<AiOutlineUser color={`${errors.name && touched.name ? "red":"white"}`} size={24} />
 									</IconWrap>
+									{(errors.name && touched.name) && <StateInputIcon src={errorIcon }/>}
 									<FormError name="name" component="div" />
 								</InputWrapper>
 								<InputWrapper>
@@ -55,6 +59,7 @@ export const RegisterForm = () => {
 									<IconWrap>
 										<FiMail color={`${errors.email && touched.email ? "red":"white"}`} size={24} />
 									</IconWrap>
+									{(errors.email && touched.email) && <StateInputIcon src={errorIcon }/>}
 									<FormError name="email" component="div" />
 								</InputWrapper>
 								<InputWrapper>
@@ -62,6 +67,7 @@ export const RegisterForm = () => {
 									<IconWrap>
 										<FiLock color={`${errors.password && touched.password ? "red":"white"}`} size={24} />
 									</IconWrap>
+									{(errors.password && touched.password) && <StateInputIcon src={errorIcon }/>}
 									<FormError name="password" component="div" />
 								</InputWrapper>
 								
