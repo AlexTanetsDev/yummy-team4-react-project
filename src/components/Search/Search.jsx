@@ -32,8 +32,8 @@ export function Search(onSubmit) {
           onChange={handleInputChange}
         />
         <SearchMainPageBlack
-          to={searchQuery ? `/categories/${searchQuery}` : ``}
-          state={{ from: location }}
+          to={searchQuery ? `/search/${searchQuery}` : ``}
+          state={{ query: searchQuery }}
         >
           Search
         </SearchMainPageBlack>

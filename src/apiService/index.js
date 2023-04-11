@@ -8,6 +8,8 @@ import {
 } from './favoriteApi';
 import { getRecipeById } from './getRecipeById';
 import { getCategoryList, getRecipesByCategory } from './getCategory';
+import { getSearchedRecipes } from './search.js'
+
 
 export {
   getAllFavorite,
@@ -19,4 +21,5 @@ export {
   getRecipesByCategory,
   IngredientsApi,
   CategoryApi,
+  getSearchedRecipes
 };
