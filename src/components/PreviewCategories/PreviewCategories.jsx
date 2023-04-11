@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import axios from 'axios';
+import { getMainPageRecipes } from '../../apiService';
+// import axios from 'axios';
 import { Sections } from 'components/MainPageCategorySection/Sections';
 import {
   SeeAllButton,
@@ -26,19 +27,25 @@ export function PreviewCategories() {
   const location = useLocation();
   const token = useSelector(state => state.auth.token);
 
-  const instance = axios.create({
-    baseURL: 'https://yummy-team4-nodejs-project.onrender.com/api',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  // const instance = axios.create({
+  //   baseURL: 'https://yummy-team4-nodejs-project.onrender.com/api',
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // });
 
   useEffect(() => {
-    instance.get('/recipes/main-page').then(function (response) {
-      setItems(response.data);
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    // instance.get('/recipes/main-page').then(function (response) {
+    getMainPageRecipes(token)
+      .then(res => setItems(res.data))
+      .catch(error => console.error(error));
+  }, [token]);
+
+  //   instance.get('/recipes/main-page').then(function (response) {
+  //     setItems(response.data);
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   useEffect(() => {
     const handleWindowResize = () => {
