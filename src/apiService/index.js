@@ -1,6 +1,7 @@
 import OwnRecipeApi from './OwnRecipeApi';
 import IngredientsApi from './IngredientsApi';
 import CategoryApi from './CategoryApi';
+import PopularApi from './popularApi';
 import {
   getAllFavorite,
   addFavoriteById,
@@ -8,6 +9,8 @@ import {
 } from './favoriteApi';
 import { getRecipeById } from './getRecipeById';
 import { getCategoryList, getRecipesByCategory } from './getCategory';
+import { getSearchedRecipes } from './search.js'
+
 
 export {
   getAllFavorite,
@@ -19,4 +22,6 @@ export {
   getRecipesByCategory,
   IngredientsApi,
   CategoryApi,
+  getSearchedRecipes,
+  PopularApi,
 };

@@ -1,44 +1,44 @@
-// import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { PaginationBtn, PaginationWrapper } from './Paginator.styled';
 
-// export default function myRecipesPagination({ count }) {
-//   const [totalPages, setTotalPages] = useState(0);
-//   const [currentPage, setCurrentPage] = useState(1);
+// import Pagination from '@mui/material/Pagination';
+// import Stack from '@mui/material/Stack';
 
-//   useEffect(() => {
-//     const pageSize = 5;
-//     const total = Math.ceil(count / pageSize);
-//     setTotalPages(total);
-//   }, [count]);
+export default function RecipesPagination({
+  totalItemsCount,
+  currentPage,
+  totalPages,
+  paginate,
+}) {
+  function handlePrevClick() {
+    if (currentPage > 1) {
+      const page = currentPage - 1;
+      paginate(page);
+    }
+  }
 
-//   function handlePrevClick() {
-//     if (currentPage > 1) {
-//       const page = currentPage - 1;
-//       setCurrentPage(page);
-//     }
-//   }
+  function handleNextClick() {
+    if (currentPage < totalPages) {
+      const page = currentPage + 1;
+      paginate(page);
+      // console.log('--nextClick', ' currentPage', page);
+      if (totalItemsCount === 0) {
+        return null;
+      }
+    }
+  }
 
-//   function handleNextClick() {
-//     if (currentPage < totalPages) {
-//       const page = currentPage + 1;
-//       setCurrentPage(page);
-//     }
-//   }
-
-//   if (count === 0) {
-//     return null;
-//   }
-
-//   return (
-//     <div>
-//       <p>
-//         Page {currentPage} of {totalPages}
-//       </p>
-//       <button disabled={currentPage === 1} onClick={handlePrevClick}>
-//         Prev
-//       </button>
-//       <button disabled={currentPage === totalPages} onClick={handleNextClick}>
-//         Next
-//       </button>
-//     </div>
-//   );
-// }
+  return (
+    <PaginationWrapper>
+      <PaginationBtn disabled={currentPage === 1} onClick={handlePrevClick}>
+        Prev
+      </PaginationBtn>
+      <PaginationBtn
+        disabled={currentPage === totalPages}
+        onClick={handleNextClick}
+      >
+        Next
+      </PaginationBtn>
+    </PaginationWrapper>
+  );
+}

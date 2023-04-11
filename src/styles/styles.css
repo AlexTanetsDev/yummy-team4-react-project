@@ -1,0 +1,52 @@
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  margin-left: 14px;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 18px;
+  }
+}
+
+.icon:hover {
+  opacity: 1;
+}
+
+.sign-up__inp {
+  display: block;
+  margin-bottom: 12px;
+  width: 279px;
+  height: 45px;
+  padding-left: 40px;
+  color: #fafafa;
+  background-color: #2a2c36;
+  border-radius: 6px;
+  opacity: 0.8;
+  border: solid 1px #fafafa;
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .sign-up__inp {
+    margin-bottom: 24px;
+    padding-left: 50px;
+    width: 400px;
+    height: 59px;
+  }
+}
+
+.sign-up__inp:hover {
+  opacity: 1;
+}
+
+.sign-up__inp_error {
+  border: solid 1px #e74a3b;
+}

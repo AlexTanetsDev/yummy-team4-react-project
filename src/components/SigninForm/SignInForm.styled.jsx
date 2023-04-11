@@ -60,6 +60,11 @@ export const BottomBgImage = styled.div`
 		height: 325px;
 		background-image: url(${bottomRegImg});
   };
+
+	@media (min-width: 1440px) and (min-height:770px) {
+		height: 425px;
+		background-image: url(${bottomRegImg});
+  };
 `;
 
 export const ModalWrapper = styled.div`
@@ -101,20 +106,46 @@ export const Title = styled.h1`
     font-size: ${p => p.theme.fontSizes.xxxl}px;  }	
 `;
 
+export const InputWrapper = styled.div`
+	position: relative;
+`;
+
 export const InputField = styled.input`
 	display: block;
 	margin-bottom: 12px;
 	width: 279px;
 	height: 45px;
+	padding-left: 40px;
 	color: ${p => p.theme.colors.mainBgColor};
 	background-color: ${p => p.theme.colors.thirdAccentColor};
 	border:solid 1px ${p => p.theme.colors.mainBgColor};
 	border-radius: 6px;
+	opacity: 0.8;
+	&:hover {
+  opacity: 1;
+	};
 	@media (min-width: 768px) {
 		margin-bottom: 24px;
+		padding-left: 50px;
 		width: 400px;
 	  height: 59px;
-  }	
+  };
+`;
+
+export const IconWrap = styled.div`
+ position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  margin-left: 14px;
+  opacity: 0.8;
+	color: #fff;
+	width: 24px;
+	height: 24px;
+	&:hover {
+  opacity: 1;
+}
 `;
 
 export const Button = styled.button`
