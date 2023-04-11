@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  padding-top: ${p => p.theme.space(6)};
+  margin-top: ${p => p.theme.space(6)};
 
   @media (min-width: 768px) {
-    padding-top: ${p => p.theme.space(18)};
+    margin-top: ${p => p.theme.space(12.5)};
   }
   @media (min-width: 1440px) {
-    padding-top: ${p => p.theme.space(25)};
+    margin-top: ${p => p.theme.space(25)};
   }
 `;
 
@@ -17,20 +17,19 @@ export const SectionTitle = styled.title`
   font-style: normal;
   font-weight: 600;
   font-size: ${p => p.theme.fontSizes.xxxl}px;
-  line-height: 28px;
+  line-height: 1;
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
   color: ${p => p.theme.colors.mainTitleText};
   margin-bottom: 32px;
 
   @media (min-width: 768px) {
-    font-size: 32px;
-    line-height: 32px;
+    margin-bottom: ${p => p.theme.space(10)};
+    font-size: ${p => p.theme.fontSizes.xxxxl}px;
+    line-height: 1;
   }
 
   @media (min-width: 1440px) {
-    font-size: ${p => p.theme.fontSizes.xxxxl}px;
-    line-height: 44px;
-    margin-bottom: 100px;
+    margin-bottom: ${p => p.theme.space(12.5)};
   }
 `;
