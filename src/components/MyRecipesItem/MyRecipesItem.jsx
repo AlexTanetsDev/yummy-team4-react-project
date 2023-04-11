@@ -31,6 +31,7 @@ export const MyRecipesItem = ({
   return (
     <>
       <StyledMyRecipesItem>
+        <MyRecipesDeleteButton onClick={onDelete} children={<FiTrash2 />} />
         <ImageWrapper>
           <Image src={preview} alt={title} />
         </ImageWrapper>
@@ -44,8 +45,8 @@ export const MyRecipesItem = ({
             <TimeText>{time}</TimeText>
           </TimeWrapper>
         </InfoWrapper>
-        <MyRecipesDeleteButton onClick={onDelete} children={<FiTrash2 />} />
-        <Link to={`/recepie/${id}`}>
+
+        <Link to={`/recipes/id/${id}`}>
           <SeeRecipeButtonGreen children="See recipe" />
         </Link>
       </StyledMyRecipesItem>
