@@ -11,3 +11,13 @@ export async function deleteShoppingListItem(id) {
   const response = await axios.delete(`/api/shopping-list/${id}`);
   return response;
 }
+
+export const addToShoppingList = async () => {
+  const response = await axios.post('api/shopping-list', {
+    title: 'Title',
+    quantity: '2',
+    thumb:
+      'https://res.cloudinary.com/dkkt8rmcn/image/upload/v1680464746/ndlcqobhy7tsrh5fgjoi.jpg',
+  });
+  console.log(response);
+};
