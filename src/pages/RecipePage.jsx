@@ -14,14 +14,14 @@ const RecipePage = () => {
 
   const token = useSelector(selectToken);
 
-  const { id } = useParams();
+  const { recipeId } = useParams();
 
   useEffect(() => {
     (async () => {
-      const recipe = await getRecipeById(id, token);
+      const recipe = await getRecipeById(recipeId, token);
       setRecipe(recipe);
     })();
-  }, [id, token]);
+  }, [recipeId, token]);
 
   return (
     <>
@@ -29,7 +29,7 @@ const RecipePage = () => {
         descr={recipe?.description}
         title={recipe?.title}
         time={recipe?.time}
-        id={id}
+        id={recipeId}
         favorites={recipe?.favorites}
       />
       <Container>

@@ -44,10 +44,11 @@ export const MyRecipesItem = ({
             <TimeText>{time}</TimeText>
           </TimeWrapper>
         </InfoWrapper>
-        <MyRecipesDeleteButton onClick={onDelete} children={<FiTrash2 />} />
-        <Link to={`/recepie/${id}`}>
+
+        <Link to={`/recipe/${id}`}>
           <SeeRecipeButtonGreen children="See recipe" />
         </Link>
+        <MyRecipesDeleteButton onClick={onDelete} children={<FiTrash2 />} />
       </StyledMyRecipesItem>
     </>
   );

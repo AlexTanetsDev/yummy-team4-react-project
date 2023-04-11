@@ -153,8 +153,13 @@ export const RegistrationBtn = styled(NavLink)`
 `;
 
 export const OtherCategoriesBtn = styled.button`
-  padding: 10px 32px;
+  padding: 14px 32px;
   width: 195px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 100px;
   background-color: transparent;
   color: ${p => p.theme.colors.secondAccentColor};
   font-family: 'Poppins';
@@ -166,8 +171,17 @@ export const OtherCategoriesBtn = styled.button`
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
-    padding: 16px 52px;
-    width: 239px;
+    padding: 20px 52px;
+    margin-top: 32px;
+    margin-bottom: 100px;
+    width: 243px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
+    line-height: 24px;
+  }
+  @media (min-width: 768px) {
+    margin-top: 14px;
+    margin-bottom: 118px;
+    width: 243px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 24px;
   }
@@ -268,7 +282,9 @@ export const SaveChangesBtn = styled.button`
 
 export const SeeAllBtn = styled.button`
   padding: 9px 24px;
-  width: 94px;
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
   background-color: ${p => p.theme.colors.firstAccentColor};
   color: ${p => p.theme.colors.mainBgColor};
   font-family: 'Poppins';
@@ -518,6 +534,9 @@ export const FavoritesDeleteBtn = styled.button`
 `;
 
 export const MyRecipesDeleteBtn = styled.button`
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -532,12 +551,16 @@ export const MyRecipesDeleteBtn = styled.button`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), ;
 
   @media (min-width: 768px) {
+     top: 28px;
+    right: 24px;
     padding: 8px;
     width: 38px;
     height: 38px;
     font-size: 22px;
   }
   @media (min-width: 1440px) {
+      top: 40px;
+    right: 40px;
     padding: 10px;
     width: 44px;
     height: 44px;

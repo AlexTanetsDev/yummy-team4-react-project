@@ -1,22 +1,21 @@
-import {
-  StyledRecipeItem,
-  InfoWrapper,
-  ImageWrapper,
-  Image,
-  Title,
-} from './RecipeItem.styled';
+// import StyledRecipeItem,
+// InfoWrapper,
+// ImageWrapper,
+// Image,
+// Title,
+// './RecipeItem.styled';
+import { Link } from 'react-router-dom';
+import { ImgRecipe, Recipe, TitleRecipe } from './RecipeItem.styled';
 
-export const RecipeItem = ({ title, preview }) => {
+export const RecipeItem = ({ id, title, preview }) => {
   return (
     <>
-      <StyledRecipeItem>
-        <ImageWrapper>
-          <Image src={preview} alt={title} />
-        </ImageWrapper>
-        <InfoWrapper>
-          <Title>{title}</Title>
-        </InfoWrapper>
-      </StyledRecipeItem>
+      <Recipe key={id}>
+        <Link to={`/recipe/${id}`}>
+          <ImgRecipe src={preview} alt={title} />
+          <TitleRecipe>{title}</TitleRecipe>
+        </Link>
+      </Recipe>
     </>
   );
 };

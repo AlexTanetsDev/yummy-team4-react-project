@@ -11,15 +11,16 @@ export const MainPageHero = styled.div`
   position: relative;
   margin: 0 auto;
   max-width: ${p => p.theme.breakPoints[0]};
-    width: 100%;
-    height: 777px;
-    background-repeat: no-repeat;
-    background-image: url('${unsplash_mob}'), url('${blatt_mob}'),
-      url('${blatt_l_mob}'), url('${bg_mob}');
-    background-position: top 322px center, top 70px right 0px, top 20px left 0px,
-      top 150px right -20px;
-    // background-size: 320px, 375px, 60px, 280px;
-  }
+  width: 100%;
+  height: 777px;
+  background-repeat: no-repeat;
+  background-color: ${p => p.theme.colors.mainBgColor};
+  background-image: url('${unsplash_mob}'), url('${blatt_mob}'),
+    url('${blatt_l_mob}'), url('${bg_mob}');
+  background-position: top 322px center, top 70px right 0px, top 20px left 0px,
+    top 150px right -20px;
+  // background-size: 320px, 375px, 60px, 280px;
+
   @media screen and (min-width: 768px) {
     max-width: ${p => p.theme.breakPoints[1]};
     width: 100%;
@@ -70,36 +71,35 @@ export const Span = styled.span`
 `;
 
 export const HeroInfo = styled.h3`
-margin-bottom: 157px;
-margin-top: 14px;
-width: 248px;
-margin-right: auto;
-margin-left: auto;
-font - family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: ${p => p.theme.fontSizes.l}px;
-line-height: 1.29;
-text-align: center;
-letter-spacing: -0.02em;
-color: ${p => p.theme.colors.itemTextColor};
+  margin-bottom: 157px;
+  margin-top: 14px;
+  width: 248px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: ${p => p.theme.fontSizes.l}px;
+  line-height: 1.29;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: ${p => p.theme.colors.itemTextColor};
 
   @media (min-width: 768px) {
-  margin-bottom: 32px;  
-  margin-top: 24px;
-  margin-left: 38px;
-  width: 362px;
-  text-align: left;
+    margin-bottom: 32px;
+    margin-top: 24px;
+    margin-left: 38px;
+    width: 362px;
+    text-align: left;
   }
   @media (min-width: 1440px) {
-  margin-bottom: 50px;  
-  width: 465px;
-  margin-top: 14px;
-  margin-left: 107px;
+    margin-bottom: 50px;
+    width: 465px;
+    margin-top: 14px;
+    margin-left: 107px;
     font-size: ${p => p.theme.fontSizes.xxl}px;
     line-height: 1.33;
   }
-
 `;
 
 export const BreakfastButton = styled.button`
