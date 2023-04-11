@@ -8,9 +8,9 @@ import { FavoriteList } from 'components/FavoriteList/FavoriteList';
 import { FavoriteItem } from 'components/FavoriteItem/FavoriteItem';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 
-import { getAllFavorite, deleteFavoriteById } from '../../apiService';
+import { getAllFavorite, deleteFavoriteById } from '../apiService';
 
-export const FavoriteRecipesPage = () => {
+const FavoritePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [recipes, setRecipes] = useState([]);
   const [error, setError] = useState(null);
@@ -109,4 +109,4 @@ export const FavoriteRecipesPage = () => {
   );
 };
 
-export default FavoriteRecipesPage;
+export default FavoritePage;
