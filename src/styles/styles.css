@@ -50,3 +50,27 @@
 .sign-up__inp_error {
   border: solid 1px #e74a3b;
 }
+
+.sign-up__inp_war {
+  border: solid 1px #f6c23e;
+}
+
+.sign-up__inp_suc {
+  border: solid 1px #3cbc81;
+}
+
+.sing-up__inp_war-mess {
+  position: absolute;
+  top: 60px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #f6c23e;
+}
+
+.sing-up__inp_suc-mess {
+  position: absolute;
+  top: 60px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #3cbc81;
+}
