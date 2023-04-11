@@ -1,21 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { RxCross1 } from 'react-icons/rx';
+import {
+  QuantityWrapper,
+  ImgTitleWrapper,
+  Quantity,
+  Button,
+  Img,
+  Item,
+} from './IngridientsShoppingListItem.styled';
+
 export const IngridientsShoppingListItem = ({ item, handleDelete }) => {
   return (
-    <>
-      <tr>
-        <th>
-          <img src={item.thumb} alt={item.title} />
-        </th>
-        <th>{item.title}</th>
-        <th>{item.quantity}</th>
-        <th>
-          <button type="button" onClick={() => handleDelete(item._id)}>
-            X
-          </button>
-        </th>
-      </tr>
-    </>
+    <Item>
+      <ImgTitleWrapper>
+        <Img src={item.thumb} alt={item.title} />
+        <div>{item.title}</div>
+      </ImgTitleWrapper>
+      <QuantityWrapper>
+        <Quantity>{item.quantity}</Quantity>
+        <Button type="button" onClick={() => handleDelete(item._id)}>
+          <RxCross1 size={15} />
+        </Button>
+      </QuantityWrapper>
+    </Item>
   );
 };
 
