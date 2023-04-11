@@ -33,5 +33,25 @@ export const theme = {
     blackBtnBorder: '1px solid #22252a',
     grayBorder: '1px solid #E0E0E0',
     favoriteBtnBorder: '1px solid #EBF3D4',
+    btnStandart: '2px solid #FAFAFA',
+  },
+  fontWeights: [400, 500, 600, 700],
+  lineHeights: {
+    subheader: '1',
+    content: '1.33',
+    extraContent: '1.29',
+    btnText: '1.12',
+    description: '1.25',
+    time: '1.43',
+    headerLinks: '1.6',
+    userLink: '1.7',
+    searchSelect: '1.5',
+  },
+  letterSpacings: {
+    subheader: '-0.24px',
+    content: '-0.02em',
+  },
+  transitions: {
+    main: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
   },
 };

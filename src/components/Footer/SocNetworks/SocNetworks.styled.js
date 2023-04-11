@@ -9,10 +9,10 @@ export const SocLinkList = styled.ul`
     gap: 18px;
   }
   svg {
-    fill: ${p => p.theme.colors.footerSMlinks};
+    fill: ${p => p.theme.colors.firstAccentColor};
     transition: ${p => p.theme.transitions.main};
     :hover {
-      fill: ${p => p.theme.colors.footerSMlinksHover};
+      fill: ${p => p.theme.colors.mainBgColor};
     }
   }
 `;
