@@ -45,7 +45,7 @@ export const MyRecipesItem = ({
           </TimeWrapper>
         </InfoWrapper>
 
-        <Link to={`/recipes/id/${id}`}>
+        <Link to={`/recipe/${id}`}>
           <SeeRecipeButtonGreen children="See recipe" />
         </Link>
         <MyRecipesDeleteButton onClick={onDelete} children={<FiTrash2 />} />

@@ -35,10 +35,9 @@ export const SharedLayout = () => {
             </Suspense>
             <BackgroundDecorFooter />
           </main>
-            <Footer /> 
+          <Footer />
         </>
       )}
-
     </>
   );
 };

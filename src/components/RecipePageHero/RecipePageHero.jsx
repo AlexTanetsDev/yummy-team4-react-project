@@ -16,7 +16,7 @@ import {
   ClockIcon,
 } from './RecipePageHero.styled';
 
-export const RecipeHero = ({ descr, title, time, id, favorites }) => {
+export const RecipeHero = ({ descr, title, time, recipeId, favorites }) => {
   const [isOwner, setIsOwner] = useState(false);
   const user = useSelector(selectUser);
 
@@ -33,7 +33,7 @@ export const RecipeHero = ({ descr, title, time, id, favorites }) => {
   };
 
   const handleAddToFavorite = async () => {
-    const resp = await addFavoriteById(id);
+    const resp = await addFavoriteById(recipeId);
     if (resp) {
       setIsOwner(true);
       notify();
