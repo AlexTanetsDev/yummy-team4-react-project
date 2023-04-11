@@ -23,6 +23,7 @@ const RecipePage = lazy(() => import('../pages/RecipePage'));
 const MyRecipesPage = lazy(() => import('../pages/MyRecipesPage'));
 
 const CategoriesPage = lazy(() => import('../pages/CategoriesPage'));
+const SearchPage = lazy(() => import('../pages/SearchPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -63,6 +64,8 @@ export const App = () => {
         <Route path="/recepie/:id" element={<RecipePage />} />
         <Route path="/my" element={<MyRecipesPage />} />
         <Route path="/categories/:categoryName" element={<CategoriesPage />} />
+        <Route path='/search/:query' element={<SearchPage/>} />
+        <Route path='/search' element={<SearchPage/>} />
       </Route>
     </Routes>
   );

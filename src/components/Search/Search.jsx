@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+//import { useLocation } from 'react-router-dom';
 import { SearchMainPageBlack, SerchInput } from './Search.styled';
+
 
 import PropTypes from 'prop-types';
 
 export function Search({ onSubmit }) {
   const [searchQuery, setSearchQuery] = useState('');
+
+  //const location = useLocation();
+
 
   const handleInputChange = eve => {
     setSearchQuery(eve.currentTarget.value.toLowerCase());
@@ -31,7 +36,14 @@ export function Search({ onSubmit }) {
           placeholder="Beef"
           onChange={handleInputChange}
         />
-        <SearchMainPageBlack type="submit">Search</SearchMainPageBlack>
+
+        <SearchMainPageBlack
+          to={searchQuery ? `/search/${searchQuery}` : ``}
+          state={{ query: searchQuery }}
+        >
+          Search
+        </SearchMainPageBlack>
+
       </form>
     </div>
   );
