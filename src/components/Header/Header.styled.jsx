@@ -2,16 +2,16 @@ import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 
 export const StyledHeader = styled.header`
-position:absolute;
+/* position:absolute; */
  display:flex;
-  align-items:center;
- width: 100%;
+ align-items:center;
+ width: 100;
  height: 70px;
 background-color:#EBF3D4;
 `
 
 export const Headerblock = styled.div`
- position: absolute;
+ /* position: absolute; */
   top: ${p => p.theme.space(4.5)};
   right: ${p => p.theme.space(4)};
 
@@ -24,7 +24,7 @@ export const Headerblock = styled.div`
      right: ${p => p.theme.space(25)};
   }
 display:flex;
-justify-content:center;
+/* justify-content:space-between; */
 align-items:center;
 margin-left:auto;
 /* z-index:1; */
@@ -40,19 +40,6 @@ display:none;
     margin-left: 330px}
 `
 
-export const MobileMenu = styled.div`
-
-@media screen and (max-width: 1440px) {
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-width: 100%;
-max-height: 100%;
-color:#EBF3D4;
- };
- display:none;
-  
-`
 
 export const StyledLink = styled(NavLink)`
 font-family: 'Poppins';
@@ -68,28 +55,9 @@ justify-content:center;
 align-items:center;
 `
 
-export const StyledLinkBurger = styled(NavLink)`
-width: 114px;
-height: 18px;
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 18px;
-letter-spacing: -0.02em;
-color: #22252A;
-`
 
-export const StyledNavBurger = styled.nav`
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-gap:32px;
-margin-top: 185px;
-margin-right:auto; 
-margin-left:auto; 
-`
+
+
 
 export const StyledBurger = styled.button`
 
@@ -109,21 +77,9 @@ display: none
    }
 `
 
-export const StyledThemeBtn = styled.button`
-border-style: none;
-   background-color: transparent; 
 
-     margin-top:auto;
-   margin-bottom:50px;
-   width: 60px;
-   height: 30px;
-`
 
-export const ThemeModalDiv = styled.div`
-     margin-top:100px;
-   width: 60px;
-   height: 30px;
-  `
+
 
 export const Avatar = styled(Link)`
   width:44px;
