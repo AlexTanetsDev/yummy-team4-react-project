@@ -43,7 +43,8 @@ export const BottomWrapper = styled.div`
   padding-top: 26px;
   padding-bottom: 28px;
   text-align: center;
-  background-color: ${p => p.theme.colors.mainBgColor};
+  background-color: transparent;
+  /* ${p => p.theme.colors.mainBgColor} */
 
   background-repeat: no-repeat;
   background-position: 100% 100%;
