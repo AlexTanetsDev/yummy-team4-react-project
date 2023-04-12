@@ -20,29 +20,6 @@
   opacity: 1;
 }
 
-.sign-up__inp {
-  display: block;
-  margin-bottom: 12px;
-  width: 279px;
-  height: 45px;
-  padding-left: 40px;
-  color: #fafafa;
-  background-color: #2a2c36;
-  border-radius: 6px;
-  opacity: 0.8;
-  border: solid 1px #fafafa;
-  outline: none;
-}
-
-@media (min-width: 768px) {
-  .sign-up__inp {
-    margin-bottom: 24px;
-    padding-left: 50px;
-    width: 400px;
-    height: 59px;
-  }
-}
-
 .sign-up__inp:hover {
   opacity: 1;
 }
@@ -61,16 +38,66 @@
 
 .sing-up__inp_war-mess {
   position: absolute;
-  top: 60px;
-  font-size: 14px;
+  top: 40px;
+  font-size: 10px;
   line-height: 21px;
   color: #f6c23e;
 }
 
+@media (min-width: 768px) {
+  .sing-up__inp_war-mess {
+    top: 60px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1440px) and (max-height: 940px) {
+  .sing-up__inp_war-mess {
+    top: 40px;
+    font-size: 10px;
+  }
+}
+
 .sing-up__inp_suc-mess {
   position: absolute;
-  top: 60px;
-  font-size: 14px;
+  top: 41px;
+  font-size: 10px;
   line-height: 21px;
   color: #3cbc81;
+}
+
+@media (min-width: 768px) {
+  .sing-up__inp_suc-mess {
+    top: 60px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1440px) and (max-height: 940px) {
+  .sing-up__inp_suc-mess {
+    top: 40px;
+    font-size: 10px;
+  }
+}
+
+.sing-up__inp_error-mess {
+  position: absolute;
+  top: 40px;
+  font-size: 10px;
+  line-height: 21px;
+  color: #e74a3b;
+}
+
+@media (min-width: 768px) {
+  .sing-up__inp_error-mess {
+    top: 60px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1440px) and (max-height: 940px) {
+  .sing-up__inp_error-mess {
+    top: 4px;
+    font-size: 10px;
+  }
 }
