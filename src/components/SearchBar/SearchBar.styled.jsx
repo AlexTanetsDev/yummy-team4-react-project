@@ -43,11 +43,12 @@ export const Input = styled.input`
   padding: 20px 38px;
   font-family: 'Poppins';
   font-size: 12px;
-  color: #3E4462;
-  line-height: 21px;    
+  color: #3e4462;
+  line-height: 21px;
   border: ${p => p.theme.border.grayBorder};
   border-radius: 24px 44px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
@@ -57,17 +58,18 @@ export const Input = styled.input`
 
   @media (min-width: 768px) {
     font-weight: 400;
-    font-size: 14px;  
+    font-size: 14px;
   }
-  @media (min-width: 1440px) { 
+  @media (min-width: 1440px) {
     font-size: 16px;
     line-height: 24px;
+  }
 `;
-
 
 export const SearchTypeSelector = styled.div`
   margin-bottom: 42px;
-  display: inline-block;
+  display: flex;
+  align-items: center;
 `;
 
 export const SelectLabel = styled.label`
@@ -78,47 +80,16 @@ export const SelectLabel = styled.label`
   font-size: 12px;
   line-height: 16px;
   color: #001833;
+  letter-spacing: -0.24px;
 
   @media (min-width: 768px) {
     font-size: 14px;
     line-height: 18px;
+    margin-right: 18px;
   }
   @media (min-width: 1440px) {
     font-size: 18px;
     line-height: 24px;
+    margin-right: 18px;
   }
-`;
-
-export const SelectForm = styled.select`
-  background: #d9d9d9;
-  width: 146px;
-  height: 49px;
-  padding: 14px;
-  font-size: 12px;
-  border: none;
-  border-radius: 5px;
-  outline: 0;
-
-  @media (min-width: 768px) {
-    font-size: 14px;
-    width: 175px;
-  }
-  @media (min-width: 1440px) {
-    width: 198px;
-    font-size: 14px;
-  }
-`;
-export const SelectOption = styled.option`
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-      height: 80px;
-      padding: 14px;
-      font-size: 12px;
-      line-height: 18px;
-      margin-bottom: 10px;
-      background-color: #fff;
-      color: #333;
 `;
