@@ -15,6 +15,7 @@
     "formik": "^2.2.9",
     "jump.js": "^1.0.2",
     "modern-normalize": "^1.1.0",
+    "nanoid": "^4.0.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.8.0",
