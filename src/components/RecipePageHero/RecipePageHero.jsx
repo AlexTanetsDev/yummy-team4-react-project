@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { AddToFavoriteButton } from 'components/Button/Button';
-import { addFavoriteById } from 'apiService';
+import { addFavoriteById, deleteFavoriteById } from 'apiService';
 import { selectUser } from 'Redux/auth/selectors';
 
 import {
@@ -34,14 +34,28 @@ export const RecipeHero = ({ descr, title, time, id, favorites }) => {
     }
   };
 
+  const handleRemoveFromFavorites = async () => {
+    const resp = await deleteFavoriteById(id);
+
+    if (resp) {
+      setIsOwner(false);
+      toast.error('Deleted from favorites');
+    }
+  };
+
   return (
     <HeroSection>
       <HeroSectionTitle>{title}</HeroSectionTitle>
       <HeroSectionText>{descr}</HeroSectionText>
-      {!isOwner && (
+      {!isOwner ? (
         <AddToFavoriteButton
           onClick={handleAddToFavorite}
           children={'Add to favorite recipes'}
+        />
+      ) : (
+        <AddToFavoriteButton
+          onClick={handleRemoveFromFavorites}
+          children={'Delete from favorite recipes'}
         />
       )}
       <HeroSectionRecipeTimeBox>
