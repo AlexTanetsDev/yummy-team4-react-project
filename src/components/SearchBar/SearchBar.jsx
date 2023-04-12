@@ -23,7 +23,7 @@ const SearchBar = ({ handleSubmit, handleOptionClick, isOpen, setIsOpen, selecte
             id="searchText"
             required
           />
-          <SearchButton type="submit" children="submit" />
+          <SearchButton type="submit" children="Search" />
         </InputWrapper>
         
         <SearchTypeSelector>
