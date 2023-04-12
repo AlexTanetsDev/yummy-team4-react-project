@@ -4,15 +4,15 @@ import { NavLink } from 'react-router-dom';
 export const LogoHeaderWrapper = styled.div`
   position: absolute;
 
-  top: ${p => p.theme.space(4.5)};
+  top: 0;
   left: ${p => p.theme.space(4)};
 
   @media (min-width: 768px) {
-    top: ${p => p.theme.space(4.5)};
+    top: 0;
     left: ${p => p.theme.space(8)};
   }
   @media (min-width: 1440px) {
-    top: ${p => p.theme.space(4.5)};
+    top: 0;
     left: ${p => p.theme.space(25)};
   }
   z-index: 1;

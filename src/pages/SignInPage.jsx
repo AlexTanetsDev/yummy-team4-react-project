@@ -1,11 +1,13 @@
 import { SignInForm } from 'components/SigninForm/SigninForm';
 // import { NavLink } from 'react-router-dom';
 
-export default function SignIn() {
+const SignIn = () => {
   return (
     <>
       <SignInForm />
       {/* <NavLink to="/register">Register</NavLink> */}
     </>
   );
-}
+};
+
+export default SignIn;

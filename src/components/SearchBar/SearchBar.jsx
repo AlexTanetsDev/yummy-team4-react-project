@@ -24,12 +24,16 @@ const SearchBar = ({ handleSubmit }) => {
             id="searchText"
             required
           />
-          <SearchButton type="submit" children="submit" />
+          <SearchButton type="submit" children="Search" />
         </InputWrapper>
-        
+
         <SearchTypeSelector>
           <SelectLabel>Search by:</SelectLabel>
-          <SelectForm id="mySelect" name="searchSelect" defaultValue="ingredient">
+          <SelectForm
+            id="mySelect"
+            name="searchSelect"
+            defaultValue="ingredient"
+          >
             <SelectOption value="title">Title</SelectOption>
             <SelectOption value="ingredient">Ingredients</SelectOption>
           </SelectForm>
