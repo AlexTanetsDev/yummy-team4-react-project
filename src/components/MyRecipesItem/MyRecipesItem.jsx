@@ -41,7 +41,7 @@ export const MyRecipesItem = ({
             <InstructionsText>{instructions}</InstructionsText>
           </TextWrapper>
           <TimeWrapper>
-            <TimeText>{time}</TimeText>
+            <TimeText>{time} min</TimeText>
           </TimeWrapper>
         </InfoWrapper>
 
