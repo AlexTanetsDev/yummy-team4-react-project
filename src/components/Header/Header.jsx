@@ -47,7 +47,7 @@ export const Header = () => {
     <StyledHeader>
       <LogoHeader />
       <StyledNav>
-        <StyledLink to="/categories/beef">Categories</StyledLink>
+        <StyledLink to="/categories/Beef">Categories</StyledLink>
         <StyledLink to="/add">Add recipes</StyledLink>
         <StyledLink to="/my">My recipes</StyledLink>
         <StyledLink to="/fovorites">Favorites</StyledLink>
