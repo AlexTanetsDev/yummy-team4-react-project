@@ -31,8 +31,8 @@ export const NavLinks = styled(NavLink)`
   font-family: 'Poppins';
   text-decoration: none;
   font-style: normal;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 14px;
   color: #bdbdbd;
   position: relative;
   padding: 10px 0px 32px;
@@ -60,6 +60,8 @@ export const NavLinks = styled(NavLink)`
   @media (min-width: 768px) {
     padding: 10px 0px 27px;
     gap: 55px;
+    font-size: 18px;
+    line-height: 18px;
   }
 
   @media (min-width: 1440px) {
