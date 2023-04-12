@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { CategoryApi } from '../../apiService';
 import { Field } from 'formik';
 
+import { CategoryApi } from '../../apiService';
+import { AlertMessage } from '../../components/AlertMessage/AlertMessage';
 import photoIcon from '../../images/addRecipePhoto.svg';
 import {
   DescriptionContainer,
@@ -82,9 +83,21 @@ const FileInput = ({
 
 export const RecipeDescriptionFields = ({ formik }) => {
   const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    CategoryApi.fetchCategoryList().then(resp => setCategories(resp));
+    (async () => {
+      try {
+        setIsLoading(true);
+        const data = await CategoryApi.fetchCategoryList();
+        setCategories(data);
+      } catch (error) {
+        setError({ error });
+      } finally {
+        setIsLoading(false);
+      }
+    })();
   }, []);
 
   return (
@@ -119,7 +132,7 @@ export const RecipeDescriptionFields = ({ formik }) => {
           <InputTitle
             id="description"
             type="text"
-            minLength="5"
+            minLength="3"
             maxLength="100"
             required
             {...formik.getFieldProps('description')}
@@ -137,7 +150,7 @@ export const RecipeDescriptionFields = ({ formik }) => {
             {...formik.getFieldProps('category')}
           >
             <option value=""></option>
-            {categories.map((category, index) => (
+            {!error && categories.map((category, index) => (
               <OptionCategory key={index} value={category}>
                 {category}
               </OptionCategory>

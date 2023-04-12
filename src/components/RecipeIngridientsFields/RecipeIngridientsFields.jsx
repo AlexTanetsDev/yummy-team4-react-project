@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { IngredientsApi } from '../../apiService';
 import { FieldArray, Field } from 'formik';
 import { FiMinus, FiPlus, FiX } from 'react-icons/fi';
 
+import { AlertMessage } from '../../components/AlertMessage/AlertMessage';
+import { IngredientsApi } from '../../apiService';
 import {
   IngridientsContainer,
   Title,
@@ -28,9 +29,21 @@ import {
 
 export const RecipeIngridientsFields = ({ formik }) => {
   const [ingredients, setIngredients] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    IngredientsApi.fetchIngredientsList().then(resp => setIngredients(resp));
+    (async () => {
+      try {
+        setIsLoading(true);
+        const data = await IngredientsApi.fetchIngredientsList();
+        setIngredients(data);
+      } catch (error) {
+        setError({ error });
+      } finally {
+        setIsLoading(false);
+      }
+    })();
   }, []);
 
   return (
@@ -85,11 +98,12 @@ export const RecipeIngridientsFields = ({ formik }) => {
                         id={`ingredients.${index}.name`}
                       >
                         <Option value="">Select ingredient</Option>
-                        {ingredients.map((ingredient, index) => (
-                          <Option key={index} value={ingredient._id}>
-                            {ingredient.ttl}
-                          </Option>
-                        ))}
+                        {!error &&
+                          ingredients.map((ingredient, index) => (
+                            <Option key={index} value={ingredient._id}>
+                              {ingredient.ttl}
+                            </Option>
+                          ))}
                       </Field>
                       {formik.touched.ingredients &&
                       formik.touched.ingredients[index] &&
@@ -124,7 +138,7 @@ export const RecipeIngridientsFields = ({ formik }) => {
                           id={`ingredients.${index}.unit`}
                           name={`ingredients.${index}.unit`}
                         >
-                          <Option defaultValue="tbs">tbs</Option>
+                          <Option value="tbs">tbs</Option>
                           <Option value="tsp">tsp</Option>
                           <Option value="kg">kg</Option>
                           <Option value="g">g</Option>
@@ -135,11 +149,9 @@ export const RecipeIngridientsFields = ({ formik }) => {
                       {formik.touched.ingredients &&
                       formik.touched.ingredients[index] &&
                       formik.touched.ingredients[index].quantity &&
-                      formik.touched.ingredients[index].unit &&
                       formik.errors.ingredients &&
                       formik.errors.ingredients[index] &&
-                      (formik.errors.ingredients[index].quantity ||
-                        formik.errors.ingredients[index].unit) ? (
+                      formik.errors.ingredients[index].quantity ? (
                         <Error />
                       ) : null}
                     </QuantityContainer>
