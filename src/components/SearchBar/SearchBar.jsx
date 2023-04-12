@@ -29,10 +29,6 @@ const SearchBar = ({ handleSubmit, handleOptionClick, isOpen, setIsOpen, selecte
         <SearchTypeSelector>
           <SelectLabel>Search by:</SelectLabel>
           <CustomDropdownMenu handleOptionClick={handleOptionClick} isOpen={isOpen} setIsOpen={setIsOpen} selectedOption={selectedOption} />
-          {/* <SelectForm id="mySelect" name="searchSelect" defaultValue="ingredient">
-            <SelectOption value="title">Title</SelectOption>
-            <SelectOption value="ingredient">Ingredients</SelectOption>
-          </SelectForm> */}
         </SearchTypeSelector>
       </SearchBarForm>
     </SearchBarContainer>

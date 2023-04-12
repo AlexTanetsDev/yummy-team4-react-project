@@ -1,12 +1,15 @@
-import { DropdownButton, DropdownMenu, DropdownItem } from "./CustomDropdownMenu.styled";
+import { tick } from "images";
+import { DropdownButton, DropdownMenu, DropdownItem,  ImageTick} from "./CustomDropdownMenu.styled";
 
 
 export const CustomDropdownMenu = ({handleOptionClick, isOpen, setIsOpen, selectedOption})  =>{
     return (
       <div>
-        <DropdownButton type="button" onClick={() => setIsOpen(!isOpen)}>
+        <DropdownButton type="button" onClick={() => setIsOpen(!isOpen)} >
         {selectedOption}
+        <ImageTick src={tick} alt="tick" />
         </DropdownButton>
+        
         <DropdownMenu isOpen={isOpen}>
         <DropdownItem onClick={() => handleOptionClick('Title')}>
           Title
