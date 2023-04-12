@@ -37,10 +37,7 @@ export function Search({ onSubmit }) {
           onChange={handleInputChange}
         />
 
-        <SearchMainPageBlack
-          to={searchQuery ? `/search/${searchQuery}` : ``}
-          state={{ query: searchQuery }}
-        >
+        <SearchMainPageBlack>
           Search
         </SearchMainPageBlack>
 
