@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { CategoryLists, NavLinks } from './CategoryList.styled';
 
-const CategoryList = ({ categories, handleCategoryClick }) => {
+const CategoryList = ({ categories }) => {
   let ref = useRef();
   useEffect(() => {
     const el = ref.current;
@@ -24,12 +24,7 @@ const CategoryList = ({ categories, handleCategoryClick }) => {
         {categories.length !== 0 &&
           categories.map(category => (
             <li key={category}>
-              <NavLinks
-                to={`/categories/${category}`}
-                onClick={() => handleCategoryClick(category)}
-              >
-                {category}
-              </NavLinks>
+              <NavLinks to={`/categories/${category}`}>{category}</NavLinks>
             </li>
           ))}
       </CategoryLists>

@@ -8,7 +8,7 @@ import {
 import { Container } from 'components/Container/Container';
 import { ShoppingListTitle } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
 
-export default function ShoppingList() {
+const ShoppingList = () => {
   const [ingridients, setIngridients] = useState([]);
   useEffect(() => {
     fetchShoppingList().then(resp => setIngridients(resp.data));
@@ -30,4 +30,6 @@ export default function ShoppingList() {
       />
     </Container>
   );
-}
+};
+
+export default ShoppingList;

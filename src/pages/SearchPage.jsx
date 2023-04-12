@@ -5,12 +5,13 @@ import { Container } from 'components/Container/Container';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecipesList/SearchedRecipesList';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const SearchPage = () => {
-  const location = useLocation();
   const [recipes, setRecipes] = useState([]);
-  const query = location.state !== null ? location.state.query : '';
+  const {query} = useParams();
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('Ingredient');
   
   useEffect(() => {
     if(query === '') {
@@ -27,18 +28,22 @@ const SearchPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const searchBarValue = e.target.searchBar.value;
-    const searchSelectValue = e.target.searchSelect.value;
 
-    const recipesData = await getSearchedRecipes(searchSelectValue, searchBarValue);
+    const recipesData = await getSearchedRecipes(selectedOption, searchBarValue);
     setRecipes(recipesData);
   }
 
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    setIsOpen(false);
+  };
+
   return (
     <>
-     <Sections>
-     <Container>
-     <SectionTitle title="Search" />
-      <SearchBar handleSubmit={handleSubmit} />
+      <Sections>
+      <Container>
+      <SectionTitle title="Search" />
+      <SearchBar handleSubmit={handleSubmit} handleOptionClick={handleOptionClick} isOpen={isOpen} setIsOpen={setIsOpen} selectedOption={selectedOption} />
       <SearchedRecipesList recipes={recipes}/>
       </Container>
       </Sections>

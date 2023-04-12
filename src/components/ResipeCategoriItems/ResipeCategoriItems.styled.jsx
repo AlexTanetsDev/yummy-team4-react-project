@@ -10,14 +10,14 @@ export const RecipesContainer = styled.ul`
     align-items: center;
     justify-content: center;
     width: 704px;
-    gap: ${p => p.theme.space(7.5)};
+    gap: ${p => p.theme.space(8)};
     margin-top: 50px;
   }
 
   @media (min-width: 1440px) {
     width: 1242px;
     margin-top: ${p => p.theme.space(12.5)};
-    gap: 50px 14px;
+    gap: 100px 14px;
   }
 `;
 

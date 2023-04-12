@@ -3,6 +3,7 @@ import { getRecipeById } from 'apiService';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectToken } from 'Redux/auth/selectors';
+import { Toaster } from 'react-hot-toast';
 
 import { RecipeHero } from 'components/RecipePageHero/RecipePageHero';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
@@ -25,6 +26,9 @@ const RecipePage = () => {
 
   return (
     <>
+      <div>
+        <Toaster position="top-right" reverseOrder={false} />
+      </div>
       <RecipeHero
         descr={recipe?.description}
         title={recipe?.title}

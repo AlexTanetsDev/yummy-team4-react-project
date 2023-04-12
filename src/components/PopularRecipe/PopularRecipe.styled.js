@@ -112,21 +112,7 @@ export const Image = styled.img`
   border-radius: ${p => p.theme.space(2)};
 `;
 
-export const InfoWrapper = styled.div`
-  // flex-grow: 1;
-  // width: 100%;
-  // margin-left: ${p => p.theme.space(3.5)};
-  // width: ${p => p.theme.space(43.25)};
-
-  // @media screen and (min-width: 768px) {
-  //   margin-left: ${p => p.theme.space(6)};
-  //   width: ${p => p.theme.space(74.5)};
-  // }
-  // @media screen and (min-width: 1440px) {
-  //   margin-left: ${p => p.theme.space(10)};
-  //   width: ${p => p.theme.space(169.75)};
-  // }
-`;
+export const InfoWrapper = styled.div``;
 
 export const TitleRecipe = styled.h3`
   display: block;
@@ -159,4 +145,3 @@ export const ContainerEmpty = styled.div`
   align-items: center;
   padding: 10px;
 `;
-

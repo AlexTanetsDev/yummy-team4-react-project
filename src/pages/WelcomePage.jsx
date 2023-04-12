@@ -1,9 +1,11 @@
-import { WellcomPageWrapper } from "components/WellcomePageWrapper/WellcomePageWrapper";
+import { WellcomPageWrapper } from 'components/WellcomePageWrapper/WellcomePageWrapper';
 
-export default function Wellcom() {
-	return (
-		<>
-			<WellcomPageWrapper />
-		</>
-	);
-}
+const Welcome = () => {
+  return (
+    <>
+      <WellcomPageWrapper />
+    </>
+  );
+};
+
+export default Welcome;
