@@ -12,6 +12,6 @@ line-height: 21px;
  }
  @media (max-width: 1440px) and (max-height: 940px) {
     top: 40px;
-    font-size: 12px;
+    font-size: 10px;
   }
 `;

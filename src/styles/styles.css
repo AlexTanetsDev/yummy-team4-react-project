@@ -54,7 +54,7 @@
 @media (max-width: 1440px) and (max-height: 940px) {
   .sing-up__inp_war-mess {
     top: 40px;
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -76,7 +76,7 @@
 @media (max-width: 1440px) and (max-height: 940px) {
   .sing-up__inp_suc-mess {
     top: 40px;
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -97,7 +97,7 @@
 
 @media (max-width: 1440px) and (max-height: 940px) {
   .sing-up__inp_error-mess {
-    top: 40px;
-    font-size: 12px;
+    top: 4px;
+    font-size: 10px;
   }
 }
