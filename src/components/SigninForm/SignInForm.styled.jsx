@@ -29,7 +29,23 @@ export const ImageReg = styled.div`
 		width: 409px;
 		height: 359px;
 		background-image: url(${mainRegImgTab});
-  }	
+  };
+	
+	@media (max-width: 1440px) and (max-height: 940px) {
+	position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 87px;
+	width: 285px;
+	height: 250px;
+	z-index: 9;
+	background-image: url(${mainRegImgMob});
+  };
+	
 	@media (min-width: 1440px) {
 		top: 35%;
   	left: 50%;
@@ -51,17 +67,18 @@ export const BottomBgImage = styled.div`
 	background-image: url(${bottomRegImgMob});
 	background-repeat: no-repeat;
 	background-size: cover;
-	@media (min-width: 768px) {
+	@media (min-width: 768px){
 		height: 606px;
 		background-image: url(${bottomRegImgTab});
 
   };
+
 	@media (min-width: 1440px) {
 		height: 325px;
 		background-image: url(${bottomRegImg});
   };
 
-	@media (min-width: 1440px) and (min-height:770px) {
+	@media (min-width: 1440px) and (min-height:771px) {
 		height: 425px;
 		background-image: url(${bottomRegImg});
   };
@@ -72,7 +89,7 @@ export const ModalWrapper = styled.div`
   top: 480px;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 350px;
+  height: 315px;
 	padding-top: 32px;
 	padding-bottom: 40px;
 	padding-left: 28px;
@@ -90,6 +107,22 @@ export const ModalWrapper = styled.div`
 	padding-left: 50px;
 	padding-right: 50px;
   };
+
+  @media (max-width: 1440px) and (max-height: 940px) {
+  	position: absolute;
+    top: 480px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 315px;
+  	padding-top: 32px;
+  	padding-bottom: 40px;
+  	padding-left: 28px;
+  	padding-right: 28px;
+    background-color: ${p => p.theme.colors.thirdAccentColor};
+    box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+  };
+
 	@media (min-width: 1440px) {
 	top: 48%;
   left: 50%;
@@ -98,12 +131,19 @@ export const ModalWrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 18px;
+  margin-bottom: 40px;
+	font-size: 24px;
 	font-weight: 600;
 	color: ${p => p.theme.colors.mainBgColor};
 	@media (min-width: 768px) {
 		margin-bottom: 32px;
-    font-size: ${p => p.theme.fontSizes.xxxl}px;  }	
+    font-size: ${p => p.theme.fontSizes.xxxl}px;
+	@media (max-width: 1440px) and (max-height: 940px) {
+		margin-bottom: 18px;
+	  font-weight: 600;
+	  font-size: 24px;
+	}	
+		}	
 `;
 
 export const InputWrapper = styled.div`
@@ -124,12 +164,28 @@ export const InputField = styled.input`
 	&:hover {
   opacity: 1;
 	};
+
 	@media (min-width: 768px) {
 		margin-bottom: 24px;
 		padding-left: 50px;
 		width: 400px;
 	  height: 59px;
   };
+
+  @media (max-width: 1440px) and (max-height: 940px) {
+	margin-bottom: 12px;
+	width: 279px;
+	height: 45px;
+	padding-left: 40px;
+	color: ${p => p.theme.colors.mainBgColor};
+	background-color: ${p => p.theme.colors.thirdAccentColor};
+	border:solid 1px ${p => p.theme.colors.mainBgColor};
+	border-radius: 6px;
+	opacity: 0.8;
+	&:hover {
+  opacity: 1;
+	};
+	};
 `;
 
 export const IconWrap = styled.div`
@@ -141,11 +197,26 @@ export const IconWrap = styled.div`
   margin-left: 14px;
   opacity: 0.8;
 	color: #fff;
-	width: 24px;
-	height: 24px;
 	&:hover {
   opacity: 1;
-}
+};
+
+@media (min-width: 768px) {
+	width: 24px;
+	height: 24px;
+  };
+`;
+
+export const InputIcon = styled.img`
+	display: block;
+	width: 18px;
+  height: 18px;
+;
+
+@media (min-width: 768px) {
+	width: 24px;
+	height: 24px;
+  };
 `;
 
 export const StateInputIcon = styled.img`
@@ -171,21 +242,29 @@ export const Button = styled.button`
 	  width: 400px;
 	  height: 59px;
   }	
-	@media (min-width: 1440px) {
-	 margin-top: 50px;
-	  width: 400px;
-	  height: 59px;
-  }
+
+ @media (max-width: 1440px) and (max-height: 940px) {
+	margin-top: 28px;
+	width: 279px;
+	height: 45px;
+	color: ${p => p.theme.colors.mainBgColor};
+	border-radius: 6px;
+	border-color:transparent;
+	background-color: ${p => p.theme.colors.firstAccentColor};
+ };
 `;
 
 export const Link = styled(NavLink)`
 	position: absolute;
-	top: 380px;
+	top: 345px;
 	left: 50%;
   transform: translate(-50%, -50%);
 	color: ${p => p.theme.colors.mainBgColor};
 	@media (min-width: 768px) {
 		top: 455px;
 	}
+	@media (max-width: 1440px) and (max-height: 940px) {
+		top: 345px;
+	};
 `;
 
