@@ -8,9 +8,9 @@ import {
   StyledThemeBtn,
   Content,
   StyledBurger,
-} from '../Modal/ModalStyled';
-import Dark from '../Header/Switch-dark.svg';
-import Light from '../Header/Switch-light.svg';
+} from './ModalStyled';
+import Dark from '../../images/Switch-dark.svg';
+import Light from '../../images/Switch-light.svg';
 import { BsSearch } from 'react-icons/bs';
 import { useState } from 'react';
 import { LogoHeader } from 'components/Logo/Logo';

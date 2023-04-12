@@ -19,9 +19,11 @@ export const RecipeIngredientsList = ({ ingredients }) => {
   const shoppingList = [];
   useEffect(() => {
     return () => {
-      addToShoppingList();
+      if (shoppingList.length > 0) {
+        addToShoppingList();
+      }
     };
-  }, []);
+  }, [shoppingList.length]);
 
   return (
     <IngredientsSection>

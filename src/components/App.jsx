@@ -1,19 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
-import { SharedLayout } from './SharedLayout/SharedLayout';
-
-import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import {useAuth} from "../hooks/index"
+import { useAuth } from 'hooks';
+import { lazy, useEffect } from 'react';
+
 import { refreshUser } from 'Redux/auth/operations';
 
+import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRout';
+import { NotFoundPage } from '../pages/NotFoundPage';
 
-
-const AddRecipesPage = lazy(() => import('../pages/AddRecipesPage'));
-
-
-// const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const WellcomPage = lazy(() => import('../pages/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SinginPage'));
@@ -28,11 +24,6 @@ const MyRecipesPage = lazy(() => import('../pages/MyRecipesPage'));
 const SearchPage = lazy(() => import('../pages/SearchPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 // const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
-
-
-
-
-
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -51,53 +42,32 @@ export const App = () => {
         <Route
           path="/register"
           element={
-            // <RestrictedRoute redirectTo="/main" component={
-              <RegisterPage />
-            // } />
+            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
           }
         />
         <Route
           path="/signin"
           element={
-            // <RestrictedRoute redirectTo="/main" component={
-                < SigninPage />
-            // } />
+            <RestrictedRoute redirectTo="/main" component={<SigninPage />} />
           }
         />
         <Route
           path="/main"
           element={
-            // <PrivateRoute redirectTo="/signin" component={
-              <MainPage />
-            // } />
+            <PrivateRoute redirectTo="/signin" component={<MainPage />} />
           }
         />
-
-        <Route path="/favorite" element={<FavoritePage />} />
-        <Route path="/add" element={<AddRecipePage />} />
-        <Route path="/shopping-list" element={<ShoppingListPage />} />
-        <Route path="/recepie/:id" element={<RecipePage />} />
-
-        <Route path="/my" element={<MyRecipesPage />} />
-
         <Route path="/categories/:categoryName" element={<CategoriesPage />} />
-
+        <Route path="/add" element={<AddRecipePage />} />
+        <Route path="/favorite" element={<FavoritePage />} />
+        <Route path="/recipe/:recipeId" element={<RecipePage />} />
+        <Route path="/my" element={<MyRecipesPage />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/search/:query" element={<SearchPage />} />
+        <Route path="/shopping-list" element={<ShoppingListPage />} />
+        <Route path="/404" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
-      {/* <Route path="/categories" element={
-        <CategoriesPage />
-      } /> */}
-      <Route path="/add" element={
-        <AddRecipesPage />
-      } />
-            {/* <Route path="/my" element={
-        <MyRecipiesPage/>
-      } />
-            <Route path="/favorites" element={
-        <FavorriteRecipesPage />
-      } />
-            <Route path="/shopping-list" element={
-        <ShoppingListPage />
-              } /> */}
     </Routes>
   );
 };
