@@ -165,7 +165,7 @@ export const IngredientMeasure = styled.span`
 
   @media (min-width: 768px) {
     min-width: 68px;
-    height: 35px;
+    min-height: 35px;
 
     display: flex;
     align-items: center;

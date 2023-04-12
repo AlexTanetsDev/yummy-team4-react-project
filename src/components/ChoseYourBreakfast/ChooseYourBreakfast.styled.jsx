@@ -9,7 +9,7 @@ import tablet_bg from '../../images/mainPagePhoto/tablet_bg.png';
 
 export const MainPageHero = styled.div`
   position: relative;
-  margin: 0 auto;
+  margin: -64px auto 0;
   max-width: ${p => p.theme.breakPoints[0]};
   width: 100%;
   height: 777px;
