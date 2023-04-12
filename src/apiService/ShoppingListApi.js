@@ -12,12 +12,15 @@ export async function deleteShoppingListItem(id) {
   return response;
 }
 
-export const addToShoppingList = async () => {
-  const response = await axios.post('api/shopping-list', {
-    title: 'Title',
-    quantity: '2',
-    thumb:
-      'https://res.cloudinary.com/dkkt8rmcn/image/upload/v1680464746/ndlcqobhy7tsrh5fgjoi.jpg',
-  });
+export const addToShoppingList = async list => {
+  const response = await axios.post(
+    'api/shopping-list',
+    { products: list },
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }
+  );
   console.log(response);
 };

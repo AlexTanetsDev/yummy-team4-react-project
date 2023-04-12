@@ -20,10 +20,10 @@ export const RecipeIngredientsList = ({ ingredients }) => {
   useEffect(() => {
     return () => {
       if (shoppingList.length > 0) {
-        addToShoppingList();
+        addToShoppingList(shoppingList);
       }
     };
-  }, [shoppingList.length]);
+  }, [shoppingList, shoppingList.length]);
 
   return (
     <IngredientsSection>

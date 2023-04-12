@@ -30,8 +30,7 @@ import { Modal } from '../Modal/Modal';
 
 export const Header = () => {
   const { isLogin, user } = useAuth();
-  const User = useSelector(state => state.user);
-  console.log(User);
+  const User = useSelector(state => state.auth.user);
   const [modalActive, setModalActive] = useState(false);
   const [nav, setNav] = useState(false);
   const [theme, setTheme] = useState(true);
@@ -60,9 +59,9 @@ export const Header = () => {
 
       <Headerblock>
         <Avatar to="/">
-          <img src={user.avatarURL} alt="avatar" />
+          <img src={User?.avatarURL} alt="avatar" />
         </Avatar>
-        <UserName> User</UserName>
+        <UserName>{User?.name}</UserName>
 
         <StyledThemeHeader onClick={handleTheme}>
           {theme ? (
