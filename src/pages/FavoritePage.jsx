@@ -22,7 +22,7 @@ const FavoritePage = () => {
       try {
         setIsLoading(true);
 
-        const data = await getAllFavorite(1, 4);
+        const { data } = await getAllFavorite(1, 4);
 
         // const totalCountPage = Math.ceil(data.length / 4);
         // if (totalCountPage > 1) {
@@ -44,7 +44,7 @@ const FavoritePage = () => {
   const handleDelete = async id => {
     try {
       await deleteFavoriteById(id);
-      const data = await getAllFavorite();
+      const { data } = await getAllFavorite();
       setRecipes(data);
     } catch (error) {
       setError({ error });
