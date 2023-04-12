@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -15,8 +14,9 @@ import {
   HeroSectionRecipeTime,
   ClockIcon,
 } from './RecipePageHero.styled';
+import { toast } from 'react-hot-toast';
 
-export const RecipeHero = ({ descr, title, time, recipeId, favorites }) => {
+export const RecipeHero = ({ descr, title, time, id, favorites }) => {
   const [isOwner, setIsOwner] = useState(false);
   const user = useSelector(selectUser);
 
@@ -26,23 +26,16 @@ export const RecipeHero = ({ descr, title, time, recipeId, favorites }) => {
     }
   }, [favorites, user.id]);
 
-  const notify = () => {
-    toast.success('Success!', {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
-
   const handleAddToFavorite = async () => {
-    const resp = await addFavoriteById(recipeId);
+    const resp = await addFavoriteById(id);
     if (resp) {
       setIsOwner(true);
-      notify();
+      toast.success('Added to favorite sucsess!');
     }
   };
 
   return (
     <HeroSection>
-      <ToastContainer />
       <HeroSectionTitle>{title}</HeroSectionTitle>
       <HeroSectionText>{descr}</HeroSectionText>
       {!isOwner && (

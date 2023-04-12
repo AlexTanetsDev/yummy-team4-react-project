@@ -4,13 +4,14 @@ import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'Redux/auth/selectors';
 
+import { Header } from '../Header/Header';
 import {
   BackgroundDecorHeader,
   BackgroundDecorFooter,
 } from 'components/BackgroundDecor/BackgroundDecor';
+import { Footer } from 'components/Footer/Footer';
 
-import { Header } from '../Header/Header';
-import Footer from '../Footer';
+import { Main } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -28,13 +29,13 @@ export const SharedLayout = () => {
       ) : (
         <>
           <Header />
-          <main>
+          <Main>
             <BackgroundDecorHeader />
             <Suspense>
               <Outlet />
             </Suspense>
             <BackgroundDecorFooter />
-          </main>
+          </Main>
           <Footer />
         </>
       )}

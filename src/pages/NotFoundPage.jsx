@@ -2,15 +2,12 @@ import React from 'react';
 import NotFound from '../components/NotFound/NotFound';
 import { Container } from 'components/Container/Container';
 
-
-export const NotFoundPage = () => {
+const NotFoundPage = () => {
   return (
     <Container>
-              <NotFound />
-      </Container>
- 
-  
-
+      <NotFound />
+    </Container>
   );
 };
 
+export default NotFoundPage;

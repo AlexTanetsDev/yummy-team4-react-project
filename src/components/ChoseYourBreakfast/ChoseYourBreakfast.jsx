@@ -20,7 +20,7 @@ export const ChoseYourBreakfast = () => {
   const formSubmitHandler = data => {
     if (data) {
       const replaced = data.trim();
-      navigate(`/search?query=${replaced}`);
+      navigate(`/search/${replaced}`);
     }
     return;
   };
