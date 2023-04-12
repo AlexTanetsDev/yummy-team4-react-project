@@ -15,7 +15,7 @@ import {
   WrapperForDesktop,
 } from './Footer.styled';
 
-const Footer = () => {
+export const Footer = () => {
   const isMobile = useMedia('(max-width: 767px)');
   return (
     <>
@@ -44,5 +44,3 @@ const Footer = () => {
     </>
   );
 };
-
-export default Footer;

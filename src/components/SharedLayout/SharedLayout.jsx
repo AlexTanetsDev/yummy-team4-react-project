@@ -10,7 +10,7 @@ import {
 } from 'components/BackgroundDecor/BackgroundDecor';
 
 import { Header } from '../Header/Header';
-import Footer from '../Footer';
+import { Footer } from 'components/Footer/Footer';
 
 export const SharedLayout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
