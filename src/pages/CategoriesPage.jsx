@@ -8,13 +8,15 @@ import { NavCategory } from 'components/CategoryList/CategoryList.styled';
 import ResipeCategoriItems from 'components/ResipeCategoriItems/ResipeCategoriItems';
 import { useParams } from 'react-router-dom';
 import { getCategoryList, getRecipesByCategory } from 'apiService';
+// import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 
 const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
   const { categoryName = 'Beef' } = useParams();
   const [recipes, setRecipes] = useState([]);
   const token = useSelector(selectToken);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState(null);
 
   useEffect(() => {
     getCategoryList(token)
@@ -23,29 +25,30 @@ const CategoriesPage = () => {
   }, [token]);
 
   useEffect(() => {
-    if (categoryName) {
-      getRecipesByCategory(categoryName, token)
-        .then(res => setRecipes(res))
-        .catch(error => console.error(error));
-    } else {
-      setSelectedCategory('Beef');
-      getRecipesByCategory(selectedCategory, token)
-        .then(res => setRecipes(res))
-        .catch(error => console.error(error));
-    }
-  }, [categoryName, selectedCategory, token]);
-
-  const handleCategoryClick = category => {
-    setSelectedCategory(category);
-  };
+    getRecipesByCategory(categoryName, token)
+      .then(res => {
+        setRecipes(res);
+      })
+      .catch(error => console.error(error));
+  }, [categoryName, token]);
 
   return (
     <Container>
+      {/* {error && (
+        <AlertMessage>
+          Oops, something went wrong. Please try again later...
+        </AlertMessage>
+      )} */}
+
       <Sections title="Categories">
         <NavCategory>
-          <CategoryList categories={categories} onClick={handleCategoryClick} />
+          <CategoryList categories={categories} />
         </NavCategory>
+        {/* {isLoading ? (
+          <AlertMessage>Please wait...</AlertMessage>
+        ) : ( */}
         <ResipeCategoriItems recipes={recipes} />
+        {/* )} */}
       </Sections>
     </Container>
   );
