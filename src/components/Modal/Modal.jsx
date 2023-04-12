@@ -41,7 +41,7 @@ export const Modal = ({ active, setActive }) => {
 
       <Content className="modal_content" onClick={evt => evt.stopPropagation()}>
         <StyledNavBurger>
-          <StyledLinkBurger to="/catagories">Categories</StyledLinkBurger>
+          <StyledLinkBurger to="/categories/beef">Categories</StyledLinkBurger>
           <StyledLinkBurger to="/add">Add recipes</StyledLinkBurger>
           <StyledLinkBurger to="/my">My recipes</StyledLinkBurger>
           <StyledLinkBurger to="/fovorites">Favorites</StyledLinkBurger>
