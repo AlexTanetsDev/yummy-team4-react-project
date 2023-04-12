@@ -2,16 +2,21 @@ import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
+  z-index: 1;
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  width: 100;
-  height: 70px;
+  margin-top: ${p => p.theme.space(4.5)};
+  height: ${p => p.theme.space(11.5)};
   background-color: transparent;
+
+  @media (min-width: 1440px) {
+    margin-top: ${p => p.theme.space(3.5)};
+  }
+`;
+
+export const HeaderWrapper = styled.section`
+  display: flex;
 `;
 
 export const Headerblock = styled.div`

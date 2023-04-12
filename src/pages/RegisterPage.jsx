@@ -1,11 +1,13 @@
 // import { RegisterPageWrapper } from "components/RegisterPageWrapper/RegisterPageWrapper";
-import { RegisterForm } from "components/RegisterForm/RegisterForm";
+import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
-export default function Register() {
-	return (
-		<>
-			{/* <RegisterPageWrapper /> */}
-			<RegisterForm/>
-		</>
-	)
+const Register = () => {
+  return (
+    <>
+      {/* <RegisterPageWrapper /> */}
+      <RegisterForm />
+    </>
+  );
 };
+
+export default Register;
