@@ -164,7 +164,7 @@ export const IngredientMeasure = styled.span`
   color: ${p => p.theme.colors.mainBgColor};
 
   @media (min-width: 768px) {
-    width: 68px;
+    min-width: 68px;
     height: 35px;
 
     display: flex;

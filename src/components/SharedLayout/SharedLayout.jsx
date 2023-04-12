@@ -9,8 +9,8 @@ import {
   BackgroundDecorFooter,
 } from 'components/BackgroundDecor/BackgroundDecor';
 
-// import { Header } from './Header/Header';
-import Footer from 'components/Footer/Footer';
+import { Header } from '../Header/Header';
+import { Footer } from 'components/Footer/Footer';
 
 export const SharedLayout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -27,7 +27,7 @@ export const SharedLayout = () => {
         </>
       ) : (
         <>
-          {/* <Header /> */}
+          <Header />
           <main>
             <BackgroundDecorHeader />
             <Suspense>
