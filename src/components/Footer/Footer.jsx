@@ -1,6 +1,7 @@
 import { useMedia } from 'react-use';
+import { LogoFooter } from 'components/Logo/Logo';
 
-import LogoFooter from './LogoFooter';
+import FooterLogo from './FooterLogo';
 import FooterInfo from './FooterInfo';
 import NavFooter from './NavFooter';
 import SubscribeForm from './SubscribeForm';
@@ -20,10 +21,11 @@ const Footer = () => {
     <>
       <FooterStyled>
         <TopWrapper>
+          <LogoFooter />
           <WrapperForDesktop>
             <LogoNavWrapper isMobile={isMobile}>
               <div>
-                <LogoFooter />
+                <FooterLogo />
                 {!isMobile && <FooterInfo />}
               </div>
               <NavFooter />

@@ -458,8 +458,16 @@ export const SeeRecipeBtnBlack = styled(NavLink)`
 `;
 
 export const SeeRecipeBtnGreen = styled.button`
+  position: absolute;
+  bottom: 28px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 5px 14px;
-  width: 87px;
+  /* width: 87px; */
+  width: 138px;
+  height: 45px;
   background-color: ${p => p.theme.colors.firstAccentColor};
   color: ${p => p.theme.colors.mainBgColor};
   font-family: 'Poppins';
@@ -537,7 +545,7 @@ export const MyRecipesDeleteBtn = styled.button`
   position: absolute;
   bottom: 14px;
   right: 14px;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   padding: 5px;

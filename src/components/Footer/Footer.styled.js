@@ -5,6 +5,7 @@ export const FooterStyled = styled.footer`
 `;
 
 export const TopWrapper = styled.div`
+  position: relative;
   max-width: ${p => p.theme.breakPoints[0]};
   margin: 0 auto;
   padding-top: 28px;

@@ -86,7 +86,7 @@ const initialValues = {
   preparation: '',
 };
 
-export const AddRecipeForm = ({ ingredients, categories }) => {
+export const AddRecipeForm = () => {
   const navigate = useNavigate();
 
   // const onSubmit = async (values, { setSubmitting, resetForm }, event) => {
@@ -147,7 +147,7 @@ export const AddRecipeForm = ({ ingredients, categories }) => {
     await OwnRecipeApi.AddRecipe(formData);
     resetForm();
     setSubmitting(false);
-    navigate('/main');
+    navigate('/my');
   };
 
   return (
@@ -159,11 +159,8 @@ export const AddRecipeForm = ({ ingredients, categories }) => {
       {formik => (
         <FormContainer>
           <Form>
-            <RecipeDescriptionFields formik={formik} categories={categories} />
-            <RecipeIngridientsFields
-              formik={formik}
-              ingredients={ingredients}
-            />
+            <RecipeDescriptionFields formik={formik} />
+            <RecipeIngridientsFields formik={formik} />
             <RecipePreparationFields formik={formik} />
             <AddButton
               type="submit"

@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { addToShoppingList } from 'apiService/ShoppingListApi';
 import {
   IngredientsSection,
   TableTitlesBox,
@@ -12,9 +14,17 @@ import {
   IngredientWrapper,
 } from './RecipeIngredientsList.styled';
 import { CheckBoxCustom } from 'components/CheckBoxForRecipeList/CheckBoxForRecipeList';
-import { vegetablesBasket } from 'images';
 
-export const RecipeIngredientsList = () => {
+export const RecipeIngredientsList = ({ ingredients }) => {
+  const shoppingList = [];
+  useEffect(() => {
+    return () => {
+      if (shoppingList.length > 0) {
+        addToShoppingList(shoppingList);
+      }
+    };
+  }, [shoppingList, shoppingList.length]);
+
   return (
     <IngredientsSection>
       <TableTitlesBox>
@@ -25,16 +35,20 @@ export const RecipeIngredientsList = () => {
         </Wrapper>
       </TableTitlesBox>
       <IngredietntsList>
-        <IngredientItem>
-          <IngredientWrapper>
-            <IngredientPhoto src={vegetablesBasket} alt="" />
-            <IngredientName>Salmon</IngredientName>
-          </IngredientWrapper>
-          <MeasureCheckBoxWrapper>
-            <IngredientMeasure>400 g</IngredientMeasure>
-            <CheckBoxCustom />
-          </MeasureCheckBoxWrapper>
-        </IngredientItem>
+        {ingredients?.map(item => {
+          return (
+            <IngredientItem key={item.id}>
+              <IngredientWrapper>
+                <IngredientPhoto src={item.image} alt="ingredient image" />
+                <IngredientName>{item.name}</IngredientName>
+              </IngredientWrapper>
+              <MeasureCheckBoxWrapper>
+                <IngredientMeasure>{item.measure}</IngredientMeasure>
+                <CheckBoxCustom list={shoppingList} item={item} />
+              </MeasureCheckBoxWrapper>
+            </IngredientItem>
+          );
+        })}
       </IngredietntsList>
     </IngredientsSection>
   );

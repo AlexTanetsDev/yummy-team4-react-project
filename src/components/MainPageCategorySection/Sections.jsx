@@ -1,8 +1,8 @@
 import { Section, SectionTitle } from './Sections.styled';
 
-export const Sections = ({ title, children }) => {
+export const Sections = ({ id, title, children }) => {
   return (
-    <Section>
+    <Section key={id}>
       {title && <SectionTitle>{title}</SectionTitle>}
       {children}
     </Section>

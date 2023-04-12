@@ -9,8 +9,8 @@ import {
 } from './favoriteApi';
 import { getRecipeById } from './getRecipeById';
 import { getCategoryList, getRecipesByCategory } from './getCategory';
-import { getSearchedRecipes } from './search.js'
-
+import { getSearchedRecipes } from './search.js';
+import { getMainPageRecipes } from './MainPageRecipesApi';
 
 export {
   getAllFavorite,
@@ -24,4 +24,5 @@ export {
   CategoryApi,
   getSearchedRecipes,
   PopularApi,
+  getMainPageRecipes,
 };

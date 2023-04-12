@@ -10,21 +10,22 @@ export const HeroSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 455px;
-  padding: 144px 38px 90px;
+  padding: 0 38px 0;
 
   background-image: url(${recipeHeroMob});
   background-size: 100% 100%;
 
   @media (min-width: 768px) {
     background-image: url(${recipeHeroTablet});
-    padding: 136px 131px 32px;
+    padding: 50px 131px 0;
     height: 495px;
   }
 
   @media (min-width: 1440px) {
     background-image: url(${recipeHeroDesktop});
-    padding: 164px 392px 32px;
+    padding: 50px 392px 0;
     height: 493px;
   }
 `;

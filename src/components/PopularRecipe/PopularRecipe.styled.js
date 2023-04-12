@@ -153,15 +153,10 @@ export const Description = styled.p`
   -webkit-box-orient: vertical;
 `;
 
-export const SocialContainer = styled.div`
-  display: none;
-
-  @media screen and (min-width: 1440px) {
-    display: block;
-    margin-bottom: ${p => p.theme.space(25)};
-  }
+export const ContainerEmpty = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 `;
 
-export const Social = styled.div`
-  height: 20px;
-`;

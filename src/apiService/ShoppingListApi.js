@@ -11,3 +11,16 @@ export async function deleteShoppingListItem(id) {
   const response = await axios.delete(`/api/shopping-list/${id}`);
   return response;
 }
+
+export const addToShoppingList = async list => {
+  const response = await axios.post(
+    'api/shopping-list',
+    { products: list },
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }
+  );
+  console.log(response);
+};
