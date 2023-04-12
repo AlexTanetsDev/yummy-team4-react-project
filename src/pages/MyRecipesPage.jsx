@@ -252,7 +252,7 @@ const MyRecipesPage = () => {
         setIsLoading(true);
         const { data, total } = await OwnRecipeApi.FetchRecipes(currentPage, 4);
         //const data = rec;
-        console.log('!!!!!!!!!!', typeof total, total);
+        // console.log('!!!!!!!!!!', typeof total, total);
         setTotalItemsCount(total);
         setRecipes(data);
       } catch (error) {
@@ -266,7 +266,7 @@ const MyRecipesPage = () => {
 
   const deleteMyRecipe = async id => {
     try {
-      await OwnRecipeApi.DeleteRecipe({ id });
+      await OwnRecipeApi.DeleteRecipe(id);
       const data = await OwnRecipeApi.FetchRecipes();
 
       setRecipes(data);
