@@ -239,7 +239,7 @@ import { OwnRecipeApi } from '../apiService';
 //     author: '642c1a793b784cfcabb33f6b',
 //   },
 // ];
-export const MyRecipesPage = () => {
+const MyRecipesPage = () => {
   const [recipes, setRecipes] = useState([]);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -252,7 +252,7 @@ export const MyRecipesPage = () => {
         setIsLoading(true);
         const { data, total } = await OwnRecipeApi.FetchRecipes(currentPage, 4);
         //const data = rec;
-        console.log('!!!!!!!!!!', typeof total, total);
+        // console.log('!!!!!!!!!!', typeof total, total);
         setTotalItemsCount(total);
         setRecipes(data);
       } catch (error) {
@@ -266,7 +266,7 @@ export const MyRecipesPage = () => {
 
   const deleteMyRecipe = async id => {
     try {
-      await OwnRecipeApi.DeleteRecipe({ id });
+      await OwnRecipeApi.DeleteRecipe(id);
       const data = await OwnRecipeApi.FetchRecipes();
 
       setRecipes(data);

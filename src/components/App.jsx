@@ -10,9 +10,9 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRout';
 
-const WellcomPage = lazy(() => import('../pages/WelcomePage'));
+const WelcomPage = lazy(() => import('../pages/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
-const SigninPage = lazy(() => import('../pages/SinginPage'));
+const SignInPage = lazy(() => import('../pages/SignInPage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
 const CategoriesPage = lazy(() => import('../pages/CategoriesPage'));
 const AddRecipePage = lazy(() =>
@@ -42,7 +42,7 @@ export const App = () => {
         <Route
           index
           element={
-            <RestrictedRoute component={<WellcomPage />} redirectTo="/main" />
+            <RestrictedRoute component={<WelcomPage />} redirectTo="/main" />
           }
         />
         <Route
@@ -54,7 +54,7 @@ export const App = () => {
         <Route
           path="signin"
           element={
-            <RestrictedRoute component={<SigninPage />} redirectTo="/main" />
+            <RestrictedRoute component={<SignInPage />} redirectTo="/main" />
           }
         />
         <Route

@@ -10,6 +10,7 @@ import { IoMdClose } from 'react-icons/io';
 import {
   StyledLink,
   StyledHeader,
+  HeaderWrapper,
   StyledNav,
   StyledNavBurger,
   StyledBurger,
@@ -25,6 +26,7 @@ import {
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { LogoHeader } from '../Logo/Logo';
+import { Container } from 'components/Container/Container';
 import { useAuth } from '../../hooks/useAuth';
 import { Modal } from '../Modal/Modal';
 
@@ -45,41 +47,45 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <LogoHeader />
-      <StyledNav>
-        <StyledLink to="/categories/Beef">Categories</StyledLink>
-        <StyledLink to="/add">Add recipes</StyledLink>
-        <StyledLink to="/my">My recipes</StyledLink>
-        <StyledLink to="/fovorites">Favorites</StyledLink>
-        <StyledLink to="/shopping-list">Shopping list</StyledLink>
-        <StyledLink to="/search">
-          <BsSearch />
-        </StyledLink>
-      </StyledNav>
+      <Container>
+        <HeaderWrapper>
+          <LogoHeader />
+          <StyledNav>
+            <StyledLink to="/categories/Beef">Categories</StyledLink>
+            <StyledLink to="/add">Add recipes</StyledLink>
+            <StyledLink to="/my">My recipes</StyledLink>
+            <StyledLink to="/favorite">Favorites</StyledLink>
+            <StyledLink to="/shopping-list">Shopping list</StyledLink>
+            <StyledLink to="/search">
+              <BsSearch />
+            </StyledLink>
+          </StyledNav>
 
-      <Headerblock>
-        <Avatar to="/">
-          <img src={User?.avatarURL} alt="avatar" />
-        </Avatar>
-        <UserName>{User?.name}</UserName>
+          <Headerblock>
+            <Avatar to="/">
+              <img src={User?.avatarURL} alt="avatar" />
+            </Avatar>
+            <UserName>{User?.name}</UserName>
 
-        <StyledThemeHeader onClick={handleTheme}>
-          {theme ? (
-            <img src={Dark} alt="theme" />
-          ) : (
-            <img src={Light} alt="theme" />
-          )}
-        </StyledThemeHeader>
-        <StyledBurger
-          onClick={() => {
-            setModalActive(true);
-          }}
-        >
-          <RxHamburgerMenu />
-        </StyledBurger>
-      </Headerblock>
+            <StyledThemeHeader onClick={handleTheme}>
+              {theme ? (
+                <img src={Dark} alt="theme" />
+              ) : (
+                <img src={Light} alt="theme" />
+              )}
+            </StyledThemeHeader>
+            <StyledBurger
+              onClick={() => {
+                setModalActive(true);
+              }}
+            >
+              <RxHamburgerMenu />
+            </StyledBurger>
+          </Headerblock>
 
-      <Modal active={modalActive} setActive={setModalActive} />
+          <Modal active={modalActive} setActive={setModalActive} />
+        </HeaderWrapper>
+      </Container>
     </StyledHeader>
   );
 };

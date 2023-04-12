@@ -22,5 +22,8 @@ export const addToShoppingList = async list => {
       },
     }
   );
-  console.log(response);
+
+  if (!response) return;
+
+  return response;
 };

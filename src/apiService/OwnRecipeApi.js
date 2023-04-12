@@ -18,10 +18,8 @@ async function FetchRecipes(page = 1, limit = 4) {
   return response.data;
 }
 
-async function DeleteRecipe({ recipeId }) {
-  const response = await axios.delete('/api/ownRecipes', {
-    params: { recipeId },
-  });
+async function DeleteRecipe(recipeId) {
+  const response = await axios.delete('/api/ownRecipes/' + recipeId);
   return response.data;
 }
 

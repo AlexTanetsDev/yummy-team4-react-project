@@ -25,7 +25,7 @@ const SearchBar = ({ handleSubmit, handleOptionClick, isOpen, setIsOpen, selecte
           />
           <SearchButton type="submit" children="Search" />
         </InputWrapper>
-        
+
         <SearchTypeSelector>
           <SelectLabel>Search by:</SelectLabel>
           <CustomDropdownMenu handleOptionClick={handleOptionClick} isOpen={isOpen} setIsOpen={setIsOpen} selectedOption={selectedOption} />

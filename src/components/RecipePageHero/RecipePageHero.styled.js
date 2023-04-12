@@ -13,6 +13,7 @@ export const HeroSection = styled.section`
   justify-content: center;
   height: 455px;
   padding: 0 38px 0;
+  margin-top: -64px;
 
   background-image: url(${recipeHeroMob});
   background-size: 100% 100%;

@@ -16,11 +16,15 @@ import {
 import { CheckBoxCustom } from 'components/CheckBoxForRecipeList/CheckBoxForRecipeList';
 
 export const RecipeIngredientsList = ({ ingredients }) => {
-  const shoppingList = [];
+  let shoppingList = [];
   useEffect(() => {
     return () => {
       if (shoppingList.length > 0) {
-        addToShoppingList(shoppingList);
+        const res = addToShoppingList(shoppingList);
+        if (res) {
+          const numToSplice = shoppingList.length - 1;
+          shoppingList.splice(0, numToSplice);
+        }
       }
     };
   }, [shoppingList, shoppingList.length]);
