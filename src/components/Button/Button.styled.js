@@ -459,15 +459,13 @@ export const SeeRecipeBtnBlack = styled(NavLink)`
 
 export const SeeRecipeBtnGreen = styled.button`
   position: absolute;
-  bottom: 28px;
-  right: 24px;
+  bottom: 14px;
+  right: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 14px;
-  /* width: 87px; */
-  width: 138px;
-  height: 45px;
+  width: 88px;
+  height: 27px;
   background-color: ${p => p.theme.colors.firstAccentColor};
   color: ${p => p.theme.colors.mainBgColor};
   font-family: 'Poppins';
@@ -480,14 +478,18 @@ export const SeeRecipeBtnGreen = styled.button`
 
   @media (min-width: 768px) {
     padding: 11px 32px;
+    bottom: 28px;
+    right: 24px;
     width: 138px;
-    font-size: ${p => p.theme.fontSizes.l}px;
+    height: 45px;
+    font-size: ${p => p.theme.fontSizes.m}px;
     line-height: 21px;
   }
   @media (min-width: 1440px) {
     padding: 16px 44px;
     width: 172px;
-    font-size: ${p => p.theme.fontSizes.xl}px;
+    height: 59px;
+    font-size: ${p => p.theme.fontSizes.l}px;
     line-height: 24px;
   }
 
@@ -511,7 +513,7 @@ export const FavoritesDeleteBtn = styled.button`
   height: 24px;
   background-color: ${p => p.theme.colors.lightGreenText};
   color: ${p => p.theme.colors.secondAccentColor};
-  font-size: ${p => p.theme.fontSizes.l}px;
+  font-size: ${p => p.theme.fontSizes.xl}px;
   border: ${p => p.theme.border.favoriteBtnBorder};
   border-radius: 4px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), ;
@@ -543,9 +545,9 @@ export const FavoritesDeleteBtn = styled.button`
 
 export const MyRecipesDeleteBtn = styled.button`
   position: absolute;
-  bottom: 14px;
-  right: 14px;
-  /* display: flex; */
+    top: 14px;
+    right: 9px;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 5px;
@@ -558,8 +560,9 @@ export const MyRecipesDeleteBtn = styled.button`
   border-radius: 4px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), ;
 
+
   @media (min-width: 768px) {
-     top: 28px;
+    top: 28px;
     right: 24px;
     padding: 8px;
     width: 38px;
@@ -567,7 +570,7 @@ export const MyRecipesDeleteBtn = styled.button`
     font-size: 22px;
   }
   @media (min-width: 1440px) {
-      top: 40px;
+    top: 40px;
     right: 40px;
     padding: 10px;
     width: 44px;

@@ -17,7 +17,6 @@ import { CheckBoxCustom } from 'components/CheckBoxForRecipeList/CheckBoxForReci
 
 export const RecipeIngredientsList = ({ ingredients }) => {
   let shoppingList = [];
-
   useEffect(() => {
     return () => {
       if (shoppingList.length > 0) {

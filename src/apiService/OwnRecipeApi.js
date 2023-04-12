@@ -26,9 +26,10 @@ async function FetchRecipes(page = 1, limit = 4) {
   }
 }
 
-async function DeleteRecipe({ id }) {
+async function DeleteRecipe(id) {
   try {
     const response = await axios.delete(`/api/ownRecipes/${id}`);
+
   return response.data;
   } catch (error) {
     console.error(error);

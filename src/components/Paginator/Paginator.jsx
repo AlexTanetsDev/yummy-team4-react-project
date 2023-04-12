@@ -2,9 +2,6 @@ import React from 'react';
 import { PaginationBtn, PaginationWrapper } from './Paginator.styled';
 import { AlertMessage } from '../AlertMessage/AlertMessage';
 
-// import Pagination from '@mui/material/Pagination';
-// import Stack from '@mui/material/Stack';
-
 export default function RecipesPagination({
   totalItemsCount,
   currentPage,
@@ -22,13 +19,12 @@ export default function RecipesPagination({
     if (currentPage < totalPages) {
       const page = currentPage + 1;
       paginate(page);
-      // console.log('--nextClick', ' currentPage', page);
       if (totalItemsCount === 0) {
         return null;
       }
     }
   }
-  if (totalItemsCount > 0) {
+  if (totalItemsCount > 0 && totalPages > 1) {
     return (
       <PaginationWrapper>
         <PaginationBtn disabled={currentPage === 1} onClick={handlePrevClick}>
@@ -43,6 +39,9 @@ export default function RecipesPagination({
       </PaginationWrapper>
     );
   } else {
-    return <AlertMessage>Please add the recipe to my recipes...</AlertMessage>;
+    if (totalItemsCount === 0)
+      return (
+        <AlertMessage>Please add the recipe to my recipes...</AlertMessage>
+      );
   }
 }
