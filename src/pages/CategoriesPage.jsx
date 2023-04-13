@@ -9,6 +9,7 @@ import ResipeCategoriItems from 'components/ResipeCategoriItems/ResipeCategoriIt
 import { useParams } from 'react-router-dom';
 import { getCategoryList, getRecipesByCategory } from 'apiService';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
+import { MiniLoader } from 'components/Loader/Loader';
 
 const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
@@ -58,7 +59,7 @@ const CategoriesPage = () => {
           </NavCategory>
 
           {isLoading ? (
-            <AlertMessage>Please wait...</AlertMessage>
+            <MiniLoader />
           ) : (
             <ResipeCategoriItems recipes={recipes} />
           )}
