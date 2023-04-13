@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Sections } from 'components/Sections/Sections';
@@ -60,9 +60,6 @@ const FavoritePage = () => {
 
   return (
     <>
-      <div>
-        <Toaster position="top-right" reverseOrder={false} />
-      </div>
       <Sections>
         <Container>
           {error && (

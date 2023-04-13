@@ -1,9 +1,8 @@
 import { useMedia } from 'react-use';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
-import { toast } from 'react-toastify';
 import { subscripbeValidationSchema } from 'helpers/subscripbeValidationSchema';
 import { useAuth } from 'hooks';
-import { subscribeUser } from '../../../apiService/subscribe-API.js';
 import {
   FormStyled,
   InputWrapper,
@@ -16,20 +15,24 @@ import {
   SubscribeText,
 } from './SubscribeForm.styled';
 
+import { updateSubscription } from 'Redux/auth/operations.js';
+import { selectSubscription } from 'Redux/auth/selectors.js';
+
 const SubscribeForm = () => {
   const isMobile = useMedia('(max-width: 1439px)');
   const { user } = useAuth();
+  const dispatch = useDispatch();
+  const subscribe = useSelector(selectSubscription);
 
   const handleSubmit = async values => {
-    try {
-      await subscribeUser({ email: values.email });
-      toast.success('You have successfully subscribed');
-    } catch (error) {
-      if (error.response.status === 409) {
-        toast.error(`This user have alredy subscribed`);
-      } else {
-        toast.error(`Something went wrong. Try again...`);
-      }
+    if (subscribe === 'unsubscribe') {
+      dispatch(
+        updateSubscription({ email: values.email, subscription: 'subscribe' })
+      );
+    } else {
+      dispatch(
+        updateSubscription({ email: values.email, subscription: 'unsubscribe' })
+      );
     }
   };
 
@@ -96,10 +99,15 @@ const SubscribeForm = () => {
                 <ErrMsg>{props.errors.email}</ErrMsg>
               ) : null}
             </InputWrapper>
-
-            <SubscribeBtn type="submit" disabled={!props.isValid}>
-              Subcribe
-            </SubscribeBtn>
+            {subscribe !== 'subscribe' ? (
+              <SubscribeBtn type="submit" disabled={!props.isValid}>
+                Subcribe
+              </SubscribeBtn>
+            ) : (
+              <SubscribeBtn type="submit" disabled={!props.isValid}>
+                Unsubcribe
+              </SubscribeBtn>
+            )}
           </FormStyled>
         )}
       </Formik>
