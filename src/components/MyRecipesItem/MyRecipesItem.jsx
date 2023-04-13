@@ -38,7 +38,9 @@ export const MyRecipesItem = ({
           <Title>{title}</Title>
           <TextWrapper>
             <DescriptionText>{description}</DescriptionText>
-            <InstructionsText>{instructions}</InstructionsText>
+            {instructions.map(i => (
+              <InstructionsText>{i}</InstructionsText>
+            ))}
           </TextWrapper>
           <TimeWrapper>
             <TimeText>{time} min</TimeText>
