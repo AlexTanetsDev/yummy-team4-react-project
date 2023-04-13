@@ -17,6 +17,7 @@ import {
   HeroSectionRecipeTime,
   ClockIcon,
 } from './RecipePageHero.styled';
+import { MiniLoader } from 'components/Loader/Loader';
 import { toast } from 'react-hot-toast';
 
 export const RecipeHero = ({ descr, title, time, id, favorites }) => {
@@ -48,23 +49,29 @@ export const RecipeHero = ({ descr, title, time, id, favorites }) => {
 
   return (
     <HeroSection>
-      <HeroSectionTitle>{title}</HeroSectionTitle>
-      <HeroSectionText>{descr}</HeroSectionText>
-      {!isOwner ? (
-        <AddToFavoriteButton
-          onClick={handleAddToFavorite}
-          children={'Add to favorite recipes'}
-        />
+      {title !== undefined ? (
+        <>
+          <HeroSectionTitle>{title}</HeroSectionTitle>
+          <HeroSectionText>{descr}</HeroSectionText>
+          {!isOwner ? (
+            <AddToFavoriteButton
+              onClick={handleAddToFavorite}
+              children={'Add to favorite recipes'}
+            />
+          ) : (
+            <RemoveFromFavoriteBtn
+              onClick={handleRemoveFromFavorites}
+              children={'Remove from favorite'}
+            />
+          )}
+          <HeroSectionRecipeTimeBox>
+            <ClockIcon />
+            <HeroSectionRecipeTime>{time} min</HeroSectionRecipeTime>
+          </HeroSectionRecipeTimeBox>
+        </>
       ) : (
-        <RemoveFromFavoriteBtn
-          onClick={handleRemoveFromFavorites}
-          children={'Remove from favorite'}
-        />
+        <MiniLoader />
       )}
-      <HeroSectionRecipeTimeBox>
-        <ClockIcon />
-        <HeroSectionRecipeTime>{time} min</HeroSectionRecipeTime>
-      </HeroSectionRecipeTimeBox>
     </HeroSection>
   );
 };

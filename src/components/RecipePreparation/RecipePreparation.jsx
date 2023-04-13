@@ -7,6 +7,7 @@ import {
   PreparationText,
   RecipeImage,
 } from './RecipePreparation.styled';
+
 export const RecepiePreparation = ({ image, instructions }) => {
   let pointNumber = 0;
 
