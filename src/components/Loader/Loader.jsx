@@ -1,10 +1,10 @@
 import { ThreeDots as Spinner } from 'react-loader-spinner';
 
-import { SectionLoaderOverlay, MainLoaderOverlay } from './Loader.styled';
+import { MiniLoaderOverlay, MainLoaderOverlay } from './Loader.styled';
 
-export const SectionLoader = () => {
+export const MiniLoader = () => {
   return (
-    <SectionLoaderOverlay>
+    <MiniLoaderOverlay>
       <Spinner
         height="150"
         width="150"
@@ -15,7 +15,7 @@ export const SectionLoader = () => {
         wrapperClassName=""
         visible={true}
       />
-    </SectionLoaderOverlay>
+    </MiniLoaderOverlay>
   );
 };
 
