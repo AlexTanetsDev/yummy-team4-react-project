@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 // import { Helmet } from 'react-helmet';
+
 
 import { Sections } from 'components/Sections/Sections';
 import { Container } from 'components/Container/Container';
