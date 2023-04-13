@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SectionLoaderOverlay = styled.div`
+export const MiniLoaderOverlay = styled.div`
   position: fixed;
   display: flex;
   align-items: center;
