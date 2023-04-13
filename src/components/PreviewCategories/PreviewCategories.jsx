@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 import { getMainPageRecipes } from '../../apiService';
-
+import { scrollToTop } from 'helpers/scrollToTop';
 import {
   SeeAllButton,
   OtherCategoriesButton,
@@ -67,6 +67,7 @@ export function PreviewCategories() {
                         preview={preview}
                         title={title}
                         key={_id}
+                        onClick={() => scrollToTop}
                       />
                     ))
                     .slice(0, viewportWidth)}
@@ -74,6 +75,7 @@ export function PreviewCategories() {
                 <Link
                   to={`/categories/${item.category}`}
                   state={{ from: location }}
+                  onClick={scrollToTop()}
                 >
                   <SeeAllButton children={'See all'} />
                 </Link>
