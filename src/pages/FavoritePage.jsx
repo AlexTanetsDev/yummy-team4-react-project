@@ -8,6 +8,7 @@ import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { FavoriteList } from 'components/FavoriteList/FavoriteList';
 import { FavoriteItem } from 'components/FavoriteItem/FavoriteItem';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
+import { MiniLoader } from 'components/Loader/Loader';
 
 import { getAllFavorite, deleteFavoriteById } from '../apiService';
 
@@ -44,6 +45,8 @@ const FavoritePage = () => {
 
   const handleDelete = async id => {
     try {
+      setIsLoading(true);
+
       await deleteFavoriteById(id);
 
       toast.error('Deleted from favorites');
@@ -70,11 +73,11 @@ const FavoritePage = () => {
               Oops, something went wrong. Please try again later...
             </AlertMessage>
           )}
+          <SectionTitle title="Favorites" />
           {isLoading ? (
-            <AlertMessage>Please wait...</AlertMessage>
+            <MiniLoader />
           ) : (
             <>
-              <SectionTitle title="Favorites" />
               {recipes && recipes.length > 0 ? (
                 <FavoriteList>
                   {recipes.map(

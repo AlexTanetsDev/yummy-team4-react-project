@@ -75,11 +75,11 @@ export const LeftSpinachWrapper = styled.div`
   left: 0;
 
   @media (min-width: 768px) {
-    top: -${p => p.theme.space(85.5)};
+    top: -${p => p.theme.space(85)};
     left: 0px;
   }
   @media (min-width: 1440px) {
-    top: -${p => p.theme.space(108.75)};
+    top: -${p => p.theme.space(107)};
     left: 0;
   }
 `;
@@ -101,15 +101,15 @@ export const LeftSpinachImage = styled.img`
 export const RightSpinachWrapper = styled.div`
   z-index: -1;
   position: absolute;
-  top: ${p => p.theme.space(82.25)};
+  top: ${p => p.theme.space(83.25)};
   right: 0;
 
   @media (min-width: 768px) {
-    top: ${p => p.theme.space(47)};
+    top: ${p => p.theme.space(49)};
     right: 0px;
   }
   @media (min-width: 1440px) {
-    top: ${p => p.theme.space(13.5)};
+    top: ${p => p.theme.space(19.5)};
     right: 0;
   }
 `;
