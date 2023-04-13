@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { lazy, useEffect } from 'react';
-import { Toaster } from 'react-hot-toast';
 import { useAuth } from 'hooks';
 
 import { refreshUser } from 'Redux/auth/operations';
