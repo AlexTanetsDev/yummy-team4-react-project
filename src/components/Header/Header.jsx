@@ -1,37 +1,28 @@
-// import { NavLink } from "react-router-dom"
-// import Logo from "../Header/Logo.svg";
-
-// import { Link } from "react-router-dom";
 import Dark from '../../images/Switch-dark.svg';
 import Light from '../../images/Switch-light.svg';
 import { BsSearch } from 'react-icons/bs';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { IoMdClose } from 'react-icons/io';
+
 import {
   StyledLink,
   StyledHeader,
   HeaderWrapper,
   StyledNav,
-  StyledNavBurger,
   StyledBurger,
-  StyledThemeBtn,
-  MobileMenu,
-  ThemeModalDiv,
   Avatar,
   UserName,
   StyledThemeHeader,
-  StyledLinkBurger,
   Headerblock,
 } from '../Header/Header.styled';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { LogoHeader } from '../Logo/Logo';
 import { Container } from 'components/Container/Container';
-import { useAuth } from '../../hooks/useAuth';
+
 import { Modal } from '../Modal/Modal';
 
 export const Header = () => {
-  const { isLogin, user } = useAuth();
+
   const User = useSelector(state => state.auth.user);
   const [modalActive, setModalActive] = useState(false);
   const [nav, setNav] = useState(false);

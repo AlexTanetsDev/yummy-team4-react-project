@@ -41,12 +41,24 @@ export const Modal = ({ active, setActive }) => {
 
       <Content className="modal_content" onClick={evt => evt.stopPropagation()}>
         <StyledNavBurger>
-          <StyledLinkBurger to="/categories/beef">Categories</StyledLinkBurger>
-          <StyledLinkBurger to="/add">Add recipes</StyledLinkBurger>
-          <StyledLinkBurger to="/my">My recipes</StyledLinkBurger>
-          <StyledLinkBurger to="/fovorites">Favorites</StyledLinkBurger>
-          <StyledLinkBurger to="/shopping-list">Shopping list</StyledLinkBurger>
-          <StyledLinkBurger to="/search">
+          <StyledLinkBurger to="/categories/Beef" onClick={() => {
+        setActive(false);
+      }}>Categories</StyledLinkBurger>
+          <StyledLinkBurger to="/add" onClick={() => {
+        setActive(false);
+      }}>Add recipes</StyledLinkBurger>
+          <StyledLinkBurger to="/my" onClick={() => {
+        setActive(false);
+      }}>My recipes</StyledLinkBurger>
+          <StyledLinkBurger to="/fovorites" onClick={() => {
+        setActive(false);
+      }}>Favorites</StyledLinkBurger>
+          <StyledLinkBurger to="/shopping-list" onClick={() => {
+        setActive(false);
+      }}>Shopping list</StyledLinkBurger>
+          <StyledLinkBurger to="/search" onClick={() => {
+        setActive(false);
+      }}>
             <BsSearch /> Search
           </StyledLinkBurger>
         </StyledNavBurger>
