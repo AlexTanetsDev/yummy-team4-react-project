@@ -102,7 +102,7 @@ export const HeroInfo = styled.h3`
   }
 `;
 
-export const BreakfastButton = styled.button`
+export const BreakfastButton = styled.div`
   padding: 8px 8px;
   width: 225px;
   background: #fafafa;
@@ -153,7 +153,7 @@ export const Text = styled.p`
   }
 `;
 
-export const Arrow = styled.p`
+export const Arrow = styled.button`
   margin-top: 7px;
   font-family: 'Poppins';
   font-style: normal;

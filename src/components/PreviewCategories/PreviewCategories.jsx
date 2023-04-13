@@ -6,13 +6,12 @@ import { nanoid } from 'nanoid';
 
 import { getMainPageRecipes } from '../../apiService';
 
-import { Sections } from 'components/MainPageCategorySection/Sections';
 import {
   SeeAllButton,
   OtherCategoriesButton,
 } from 'components/Button/Button.jsx';
 import { RecipeItem } from 'components/RecipeItem/RecipeItem';
-import { RecipesContainer } from './PreviewCategories.styled';
+import { RecipesContainer, Title } from './PreviewCategories.styled';
 
 export function PreviewCategories() {
   const [items, setItems] = useState('');
@@ -58,7 +57,8 @@ export function PreviewCategories() {
       {items.length > 0
         ? items
             .map(item => (
-              <Sections key={nanoid()} title={item.category}>
+              <div key={nanoid()}>
+                <Title>{item.category}</Title>
                 <RecipesContainer>
                   {item.recipes
                     .map(({ _id, preview, title }) => (
@@ -77,7 +77,7 @@ export function PreviewCategories() {
                 >
                   <SeeAllButton children={'See all'} />
                 </Link>
-              </Sections>
+              </div>
             ))
             .slice(0, 4)
         : null}
