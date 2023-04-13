@@ -1,7 +1,7 @@
 import { RecipeLabel, SearchedRecipesItem, RecipesList, RecipePreview, ImageWrapper, ImageBasket, Title} from './SearchedRecipesList.styled';
 import {vegetablesBasket} from '../../images/index';
 
-const SearchedRecipesList = ({ recipes }) => {
+export const SearchedRecipesList = ({ recipes }) => {
   return (
     <RecipesList>
       {
@@ -22,4 +22,3 @@ const SearchedRecipesList = ({ recipes }) => {
   );
 };
 
-export default SearchedRecipesList;

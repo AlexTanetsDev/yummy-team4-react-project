@@ -10,7 +10,7 @@ import {
 import { CustomDropdownMenu } from 'components/CustomDropdownMenu/CustomDropdownMenu';
 import React from 'react';
 
-const SearchBar = ({ handleSubmit, handleOptionClick, isOpen, setIsOpen, selectedOption }) => {
+export const SearchBar = ({ handleSubmit, handleOptionClick, isOpen, setIsOpen, selectedOption }) => {
   return (
     <SearchBarContainer>
       <SearchBarForm id="form" onSubmit={handleSubmit}>
@@ -35,4 +35,4 @@ const SearchBar = ({ handleSubmit, handleOptionClick, isOpen, setIsOpen, selecte
   );
 };
 
-export default SearchBar;
+
