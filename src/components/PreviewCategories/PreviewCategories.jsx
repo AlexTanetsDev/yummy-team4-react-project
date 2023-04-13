@@ -88,7 +88,7 @@ export function PreviewCategories() {
                       preview={preview}
                       title={title}
                       key={_id}
-                      onClick={() => scrollToTop}
+                      onClick={scrollToTop}
                     />
                   ))
                   .slice(0, viewportWidth)}
@@ -96,16 +96,20 @@ export function PreviewCategories() {
               <Link
                 to={`/categories/${item.category}`}
                 state={{ from: location }}
-                onClick={scrollToTop()}
               >
-                <SeeAllButton children={'See all'} />
+                <SeeAllButton children={'See all'} onClick={scrollToTop} />
               </Link>
             </div>
           ))
           .slice(0, 4)
       )}
       <Link to={`/categories/Beef`} state={{ from: location }}>
-        {items && <OtherCategoriesButton children={'Other categories'} />}
+        {items && (
+          <OtherCategoriesButton
+            children={'Other categories'}
+            onClick={scrollToTop}
+          />
+        )}
       </Link>
     </>
   );
