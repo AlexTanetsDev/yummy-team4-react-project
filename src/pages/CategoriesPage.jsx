@@ -2,33 +2,22 @@ import { Sections } from 'components/Sections/Sections';
 import { useEffect, useState } from 'react';
 import { Container } from 'components/Container/Container';
 import { useSelector } from 'react-redux';
-import { selectToken } from 'Redux/auth/selectors';
-import CategoryList from 'components/CategoryList/CategoryList';
+import { selectCategoryList, selectToken } from 'Redux/auth/selectors';
+import { CategoryList } from 'components/CategoryList/CategoryList';
 import { NavCategory } from 'components/CategoryList/CategoryList.styled';
-import ResipeCategoriItems from 'components/ResipeCategoriItems/ResipeCategoriItems';
+import { ResipeCategoriItems } from 'components/ResipeCategoriItems/ResipeCategoriItems';
 import { useParams } from 'react-router-dom';
-import { getCategoryList, getRecipesByCategory } from 'apiService';
+import { getRecipesByCategory } from 'apiService';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
+import { MiniLoader } from 'components/Loader/Loader';
 
 const CategoriesPage = () => {
-  const [categories, setCategories] = useState([]);
   const { categoryName = 'Beef' } = useParams();
   const [recipes, setRecipes] = useState([]);
   const token = useSelector(selectToken);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-
-  useEffect(() => {
-    const renderCategoryList = async () => {
-      try {
-        const data = await getCategoryList(token);
-        setCategories(data);
-      } catch (error) {
-        setError(error);
-      }
-    };
-    renderCategoryList();
-  }, [token]);
+  const categories = useSelector(selectCategoryList);
 
   useEffect(() => {
     const renderRecipeList = async () => {
@@ -58,7 +47,7 @@ const CategoriesPage = () => {
           </NavCategory>
 
           {isLoading ? (
-            <AlertMessage>Please wait...</AlertMessage>
+            <MiniLoader />
           ) : (
             <ResipeCategoriItems recipes={recipes} />
           )}

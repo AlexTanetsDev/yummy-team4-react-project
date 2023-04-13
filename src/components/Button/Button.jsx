@@ -17,6 +17,7 @@ import {
   SeeRecipeBtnGreen,
   FavoritesDeleteBtn,
   MyRecipesDeleteBtn,
+  RemoveFavoriteRecBtn,
 } from './Button.styled';
 
 export const SearchButtonBlack = ({ type = 'button', onClick, children }) => {
@@ -132,6 +133,18 @@ export const AddToFavoriteButton = ({ type = 'button', onClick, children }) => {
     <AddToFavoriteBtn type={type} onClick={onClick}>
       {children}
     </AddToFavoriteBtn>
+  );
+};
+
+export const RemoveFromFavoriteBtn = ({
+  type = 'button',
+  onClick,
+  children,
+}) => {
+  return (
+    <RemoveFavoriteRecBtn type={type} onClick={onClick}>
+      {children}
+    </RemoveFavoriteRecBtn>
   );
 };
 

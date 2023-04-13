@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterStyled = styled.footer`
+  position: relative;
   background-color: ${p => p.theme.colors.secondAccentColor};
 `;
 
@@ -45,7 +46,6 @@ export const BottomWrapper = styled.div`
   padding-bottom: 28px;
   text-align: center;
   background-color: transparent;
-  /* ${p => p.theme.colors.mainBgColor} */
 
   background-repeat: no-repeat;
   background-position: 100% 100%;
@@ -68,12 +68,12 @@ export const BottomWrapper = styled.div`
     } */
   }
   @media screen and (min-width: 1440px) {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-size: 438px 474px;
-    @media (min-device-pixel-ratio: 2),
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-    }
+    height: 114px;
   }
   p {
     font-size: 10px;
