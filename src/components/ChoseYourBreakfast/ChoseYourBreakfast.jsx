@@ -37,11 +37,11 @@ export const ChoseYourBreakfast = () => {
         </HeroInfo>
         <InputWraper>
           <BreakfastButton>
-            <Text>
-              <Span>Delicious and healthy</Span> way to enjoy a variety of fresh
-              ingredients in one satisfying meal
-            </Text>
             <Link to={`/categories/Breakfast`} state={{ from: location }}>
+              <Text>
+                <Span>Delicious and healthy</Span> way to enjoy a variety of
+                fresh ingredients in one satisfying meal
+              </Text>
               <Arrow tipe="button">
                 See recipes <BsArrowRight style={{ marginLeft: '7px' }} />
               </Arrow>

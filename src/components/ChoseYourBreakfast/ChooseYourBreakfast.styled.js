@@ -135,6 +135,8 @@ export const InputWraper = styled.div`
 `;
 
 export const Text = styled.p`
+  display: inline-block;
+  width: 209px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
@@ -144,17 +146,20 @@ export const Text = styled.p`
   text-align: left;
   color: #3e4462;
   @media (min-width: 768px) {
+    width: 236px;
     font-size: ${p => p.theme.fontSizes.l}px;
     line-height: 1.5;
   }
   @media (min-width: 1440px) {
     font-size: ${p => p.theme.fontSizes.l}px;
     line-height: 1.42;
+    width: 266px;
   }
 `;
 
 export const Arrow = styled.button`
-  margin-top: 7px;
+  margin-left: auto;
+  padding-top: 7px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
@@ -166,11 +171,14 @@ export const Arrow = styled.button`
   justify-content: flex-end;
   letter-spacing: 0.2px;
   color: #3e4462;
+  border: transparent;
+  background-color: transparent;
+
   @media (min-width: 768px) {
-    margin-bottom: 7px;
+    padding-bottom: 7px;
   }
   @media (min-width: 1440px) {
-    margin-bottom: 11px;
+    padding-bottom: 11px;
   }
 
   &:hover,
