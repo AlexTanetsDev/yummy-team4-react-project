@@ -4,6 +4,7 @@ import {
   register,
   logOut,
   refreshUser,
+  categoryList,
   // verifyEmail,
 } from './operations';
 
@@ -13,6 +14,7 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: false,
   isRegistering: false,
+  categoryList: [],
 };
 
 const authSlice = createSlice({
@@ -45,6 +47,9 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
+      })
+      .addCase(categoryList.fulfilled, (state, action) => {
+        state.categoryList = action.payload;
       }),
 });
 

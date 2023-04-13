@@ -6,7 +6,7 @@ import {
   TitleRecipe,
 } from './ResipeCategoriItems.styled';
 
-const ResipeCategoriItems = ({ recipes }) => {
+export const ResipeCategoriItems = ({ recipes }) => {
   const titleLength = title => {
     if (title.length >= 40) {
       const shortTitle = title.split(' ').slice(0, 5).join(' ') + '...';
@@ -34,5 +34,3 @@ const ResipeCategoriItems = ({ recipes }) => {
     </>
   );
 };
-
-export default ResipeCategoriItems;
