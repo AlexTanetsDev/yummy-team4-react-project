@@ -5,6 +5,7 @@ import {
   logOut,
   refreshUser,
   updateSubscription,
+  categoryList,
   // verifyEmail,
 } from './operations';
 
@@ -14,6 +15,7 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: false,
   isRegistering: false,
+  categoryList: [],
 };
 
 const authSlice = createSlice({
@@ -49,6 +51,9 @@ const authSlice = createSlice({
       })
       .addCase(updateSubscription.fulfilled, (state, action) => {
         state.user.subscription = action.payload.subscription;
+        })
+      .addCase(categoryList.fulfilled, (state, action) => {
+        state.categoryList = action.payload;
       }),
 });
 
