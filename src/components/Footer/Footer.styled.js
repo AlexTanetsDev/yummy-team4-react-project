@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterStyled = styled.footer`
+  position: relative;
   background-color: ${p => p.theme.colors.secondAccentColor};
 `;
 
