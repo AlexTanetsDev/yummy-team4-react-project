@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { addToShoppingList } from 'apiService/ShoppingListApi';
 import {
   IngredientsSection,
@@ -16,7 +16,8 @@ import {
 import { CheckBoxCustom } from 'components/CheckBoxForRecipeList/CheckBoxForRecipeList';
 
 export const RecipeIngredientsList = ({ ingredients }) => {
-  let shoppingList = [];
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const shoppingList = [];
   useEffect(() => {
     return () => {
       if (shoppingList.length > 0) {

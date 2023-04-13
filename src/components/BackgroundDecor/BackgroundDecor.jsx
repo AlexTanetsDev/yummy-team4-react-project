@@ -6,12 +6,18 @@ import {
   squareGreen,
   squareDark,
   circleDark,
-  leftSpinachDesktop,
-  leftSpinachTablet,
-  leftSpinachMobile,
-  rightSpinachDesktop,
-  rightSpinachTablet,
-  rightSpinachMobile,
+  leftSpinachDesktop1x,
+  leftSpinachDesktop2x,
+  leftSpinachTablet1x,
+  leftSpinachTablet2x,
+  leftSpinachMobile1x,
+  leftSpinachMobile2x,
+  rightSpinachDesktop1x,
+  rightSpinachDesktop2x,
+  rightSpinachTablet1x,
+  rightSpinachTablet2x,
+  rightSpinachMobile1x,
+  rightSpinachMobile2x,
 } from 'images';
 
 import {
@@ -67,48 +73,52 @@ export const BackgroundDecorFooter = () => {
 
   return (
     <>
-      <Container>
-        <LeftSpinachWrapper>
-          {isMobile && !isTablet && !isDesktop && (
-            <LeftSpinachImage
-              src={leftSpinachMobile}
-              alt="left-spinach-decor"
-            />
-          )}
-          {!isMobile && isTablet && !isDesktop && (
-            <LeftSpinachImage
-              src={leftSpinachTablet}
-              alt="left-spinach-decor"
-            />
-          )}
-          {!isMobile && !isTablet && isDesktop && (
-            <LeftSpinachImage
-              src={leftSpinachDesktop}
-              alt="left-spinach-decor"
-            />
-          )}
-        </LeftSpinachWrapper>
-        <RightSpinachWrapper>
-          {isMobile && !isTablet && !isDesktop && (
-            <RightSpinachImage
-              src={rightSpinachMobile}
-              alt="right-spinach-decor"
-            />
-          )}
-          {!isMobile && isTablet && !isDesktop && (
-            <RightSpinachImage
-              src={rightSpinachTablet}
-              alt="right-spinach-decor"
-            />
-          )}
-          {!isMobile && !isTablet && isDesktop && (
-            <RightSpinachImage
-              src={rightSpinachDesktop}
-              alt="right-spinach-decor"
-            />
-          )}
-        </RightSpinachWrapper>
-      </Container>
+      <LeftSpinachWrapper>
+        {isMobile && !isTablet && !isDesktop && (
+          <LeftSpinachImage
+            srcSet={leftSpinachMobile2x}
+            src={leftSpinachMobile1x}
+            alt="left-spinach-decor"
+          />
+        )}
+        {!isMobile && isTablet && !isDesktop && (
+          <LeftSpinachImage
+            srcSet={leftSpinachTablet2x}
+            src={leftSpinachTablet1x}
+            alt="left-spinach-decor"
+          />
+        )}
+        {!isMobile && !isTablet && isDesktop && (
+          <LeftSpinachImage
+            srcSet={leftSpinachDesktop2x}
+            src={leftSpinachDesktop1x}
+            alt="left-spinach-decor"
+          />
+        )}
+      </LeftSpinachWrapper>
+      <RightSpinachWrapper>
+        {isMobile && !isTablet && !isDesktop && (
+          <RightSpinachImage
+            srcSet={rightSpinachMobile2x}
+            src={rightSpinachMobile1x}
+            alt="right-spinach-decor"
+          />
+        )}
+        {!isMobile && isTablet && !isDesktop && (
+          <RightSpinachImage
+            srcSet={rightSpinachTablet2x}
+            src={rightSpinachTablet1x}
+            alt="right-spinach-decor"
+          />
+        )}
+        {!isMobile && !isTablet && isDesktop && (
+          <RightSpinachImage
+            srcSet={rightSpinachDesktop2x}
+            src={rightSpinachDesktop1x}
+            alt="right-spinach-decor"
+          />
+        )}
+      </RightSpinachWrapper>
     </>
   );
 };
