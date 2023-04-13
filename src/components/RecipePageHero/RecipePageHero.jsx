@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { AddToFavoriteButton } from 'components/Button/Button';
+import {
+  AddToFavoriteButton,
+  RemoveFromFavoriteBtn,
+} from 'components/Button/Button';
 import { addFavoriteById, deleteFavoriteById } from 'apiService';
 import { selectUser } from 'Redux/auth/selectors';
 
@@ -53,9 +56,9 @@ export const RecipeHero = ({ descr, title, time, id, favorites }) => {
           children={'Add to favorite recipes'}
         />
       ) : (
-        <AddToFavoriteButton
+        <RemoveFromFavoriteBtn
           onClick={handleRemoveFromFavorites}
-          children={'Delete from favorite recipes'}
+          children={'Remove from favorite'}
         />
       )}
       <HeroSectionRecipeTimeBox>
