@@ -172,4 +172,9 @@ export const Arrow = styled.p`
   @media (min-width: 1440px) {
     margin-bottom: 11px;
   }
+
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.firstAccentColor};
+  }
 `;

@@ -1,10 +1,5 @@
-// import StyledRecipeItem,
-// InfoWrapper,
-// ImageWrapper,
-// Image,
-// Title,
-// './RecipeItem.styled';
 import { Link } from 'react-router-dom';
+import { shortensTitleLength } from 'helpers/shortensTitleLength';
 import { ImgRecipe, Recipe, TitleRecipe } from './RecipeItem.styled';
 
 export const RecipeItem = ({ id, title, preview }) => {
@@ -13,7 +8,7 @@ export const RecipeItem = ({ id, title, preview }) => {
       <Recipe key={id}>
         <Link to={`/recipe/${id}`}>
           <ImgRecipe src={preview} alt={title} />
-          <TitleRecipe>{title}</TitleRecipe>
+          <TitleRecipe>{shortensTitleLength(title)}</TitleRecipe>
         </Link>
       </Recipe>
     </>

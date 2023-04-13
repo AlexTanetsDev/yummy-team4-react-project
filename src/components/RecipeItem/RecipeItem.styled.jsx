@@ -43,7 +43,6 @@ export const TitleRecipe = styled.h2`
   padding: ${p => p.theme.space(4)};
   width: 307px;
   height: 52px;
-  overflow: overlay;
   @media (min-width: 768px) {
     width: 300px;
   }

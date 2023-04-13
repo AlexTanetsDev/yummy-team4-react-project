@@ -6,7 +6,7 @@ export const SerchInput = styled.input`
   padding: 14px 32px;
   width: 295px;
   position: relative;
-  background-color: ${p => p.theme.colors.mainBgColor};
+  background-color: ${p => p.theme.colors.whiteText};
   color: ${p => p.theme.colors.mainTitleText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
@@ -23,6 +23,12 @@ export const SerchInput = styled.input`
     padding: 22px 52px;
     width: 510px;
     margin-left: 100px;
+  }
+
+  &:hover,
+  &:focus {
+    border: ${p => p.theme.border.greenBtnBorder};
+    outline: none;
   }
 `;
 
