@@ -1,6 +1,16 @@
 import React from 'react';
-import { PaginationBtn, PaginationWrapper } from './Paginator.styled';
+import { PaginationWrapper } from './Paginator.styled';
 import { AlertMessage } from '../AlertMessage/AlertMessage';
+import Pagination from '@mui/material/Pagination';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#EBF3D4',
+    },
+  },
+});
 
 export default function RecipesPagination({
   totalItemsCount,
@@ -8,34 +18,18 @@ export default function RecipesPagination({
   totalPages,
   paginate,
 }) {
-  function handlePrevClick() {
-    if (currentPage > 1) {
-      const page = currentPage - 1;
-      paginate(page);
-    }
-  }
-
-  function handleNextClick() {
-    if (currentPage < totalPages) {
-      const page = currentPage + 1;
-      paginate(page);
-      if (totalItemsCount === 0) {
-        return null;
-      }
-    }
-  }
   if (totalItemsCount > 0 && totalPages > 1) {
     return (
       <PaginationWrapper>
-        <PaginationBtn disabled={currentPage === 1} onClick={handlePrevClick}>
-          Prev
-        </PaginationBtn>
-        <PaginationBtn
-          disabled={currentPage === totalPages}
-          onClick={handleNextClick}
-        >
-          Next
-        </PaginationBtn>
+        <ThemeProvider theme={theme}>
+          <Pagination
+            count={totalPages}
+            page={currentPage}
+            theme={theme}
+            color="primary"
+            onChange={(_, num) => paginate(num)}
+          />
+        </ThemeProvider>
       </PaginationWrapper>
     );
   } else {

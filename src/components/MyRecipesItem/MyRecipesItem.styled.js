@@ -117,7 +117,7 @@ export const DescriptionText = styled.p`
 export const InstructionsText = styled.p`
   display: none;
   @media (min-width: 1440px) {
-    display: inline-block;
+    display: flex;
     font-family: 'Poppins';
     font-style: normal;
     font-size: ${p => p.theme.fontSizes.xxl}px;
