@@ -9,6 +9,7 @@ import { selectIsLoggedIn } from 'Redux/auth/selectors';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRout';
+import { MainLoader } from './Loader/Loader';
 
 const WelcomPage = lazy(() => import('../pages/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -35,7 +36,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <span>Refreshing user...</span>
+    <MainLoader />
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
