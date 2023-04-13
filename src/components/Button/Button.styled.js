@@ -418,6 +418,39 @@ export const AddToFavoriteBtn = styled.button`
   }
 `;
 
+export const RemoveFavoriteRecBtn = styled.button`
+  padding: 8px 16px;
+  width: 150px;
+  background-color: ${p => p.theme.colors.firstAccentColor};
+  color: ${p => p.theme.colors.mainBgColor};
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: ${p => p.theme.fontSizes.s}px;
+  line-height: 15px;
+  border: 2px solid #8baa36;
+  border-radius: 24px 44px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (min-width: 768px) {
+    padding: 15px 44px;
+    width: 278px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
+    line-height: 24px;
+  }
+  @media (min-width: 1440px) {
+    padding: 15px 42px;
+    width: 270px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: ${p => p.theme.colors.secondAccentColor};
+    outline: none;
+  }
+`;
+
 export const SeeRecipeBtnBlack = styled(NavLink)`
   display: none;
 
@@ -516,7 +549,9 @@ export const FavoritesDeleteBtn = styled.button`
   font-size: ${p => p.theme.fontSizes.xl}px;
   border: ${p => p.theme.border.favoriteBtnBorder};
   border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), ;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     top: 28px;
@@ -541,12 +576,13 @@ export const FavoritesDeleteBtn = styled.button`
     border: ${p => p.theme.border.greenBtnBorder};
     color: ${p => p.theme.colors.mainBgColor};
     outline: none;
+  }
 `;
 
 export const MyRecipesDeleteBtn = styled.button`
   position: absolute;
-    top: 14px;
-    right: 9px;
+  top: 14px;
+  right: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -558,8 +594,9 @@ export const MyRecipesDeleteBtn = styled.button`
   font-size: ${p => p.theme.fontSizes.l}px;
   border: ${p => p.theme.border.greenBtnBorder};
   border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), ;
-
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
     top: 28px;
@@ -584,4 +621,5 @@ export const MyRecipesDeleteBtn = styled.button`
     border: ${p => p.theme.border.favoriteBtnBorder};
     color: ${p => p.theme.colors.secondAccentColor};
     outline: none;
+  }
 `;
