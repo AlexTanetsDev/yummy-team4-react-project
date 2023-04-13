@@ -90,3 +90,17 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const updateSubscription = createAsyncThunk(
+  'auth/subscription',
+  async (cred, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('/api/subscribe', cred);
+      toast.success('You have successfully subscribed');
+      return data;
+    } catch (error) {
+      toast.error(`Something went wrong. Try again...`);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

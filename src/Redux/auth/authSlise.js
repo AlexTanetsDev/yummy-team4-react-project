@@ -4,6 +4,7 @@ import {
   register,
   logOut,
   refreshUser,
+  updateSubscription,
   categoryList,
   // verifyEmail,
 } from './operations';
@@ -48,6 +49,9 @@ const authSlice = createSlice({
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
       })
+      .addCase(updateSubscription.fulfilled, (state, action) => {
+        state.user.subscription = action.payload.subscription;
+        })
       .addCase(categoryList.fulfilled, (state, action) => {
         state.categoryList = action.payload;
       }),
