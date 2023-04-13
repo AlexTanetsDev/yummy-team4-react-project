@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-//import { useLocation } from 'react-router-dom';
-import { SearchMainPageBlack, SerchInput } from './Search.styled';
+import toast, { Toaster } from 'react-hot-toast';
 
+import { SearchMainPageBlack, SerchInput } from './Search.styled';
 
 import PropTypes from 'prop-types';
 
 export function Search({ onSubmit }) {
   const [searchQuery, setSearchQuery] = useState('');
-
-  //const location = useLocation();
-
 
   const handleInputChange = eve => {
     setSearchQuery(eve.currentTarget.value.toLowerCase());
@@ -19,7 +16,14 @@ export function Search({ onSubmit }) {
     eve.preventDefault();
 
     if (searchQuery.trim() === '') {
-      console.log('Fill form');
+      toast.error('Enter the recipe name or ingredient to search.', {
+        style: {
+          border: '1px solid #eb300d',
+          padding: '16px',
+          color: '#174885',
+        },
+        position: 'top-right',
+      });
       return;
     }
 
@@ -37,10 +41,8 @@ export function Search({ onSubmit }) {
           onChange={handleInputChange}
         />
 
-        <SearchMainPageBlack>
-          Search
-        </SearchMainPageBlack>
-
+        <SearchMainPageBlack>Search</SearchMainPageBlack>
+        <Toaster reverseOrder={true} />
       </form>
     </div>
   );

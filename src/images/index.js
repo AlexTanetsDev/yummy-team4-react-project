@@ -32,6 +32,8 @@ import leftSpinachMobile from './leftSpinachMobile.png';
 import rightSpinachDesktop from './rightSpinachDesktop.png';
 import rightSpinachTablet from './rightSpinachTablet.png';
 import rightSpinachMobile from './rightSpinachMobile.png';
+import tick from './tick.svg';
+
 
 export {
   leftSpinachDesktop,
@@ -67,5 +69,6 @@ export {
   logoGreen,
   squareGreen,
   squareDark,
-  circleDark,
+  circleDark, 
+  tick, 
 };

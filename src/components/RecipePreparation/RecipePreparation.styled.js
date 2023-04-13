@@ -83,6 +83,7 @@ export const PreparationText = styled.p`
 
 export const RecipeImage = styled.img`
   border-radius: 8px;
+  object-fit: cover;
 
   @media (min-width: 768px) {
     width: 433px;

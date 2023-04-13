@@ -12,9 +12,7 @@ import { Container } from 'components/Container/Container';
 
 const RecipePage = () => {
   const [recipe, setRecipe] = useState(null);
-
   const token = useSelector(selectToken);
-
   const { recipeId } = useParams();
 
   useEffect(() => {

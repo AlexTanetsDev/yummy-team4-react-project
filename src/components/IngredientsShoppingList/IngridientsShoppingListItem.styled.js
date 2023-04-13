@@ -75,17 +75,19 @@ export const Quantity = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 37px;
-  height: 23px;
+  min-width: 37px;
+  min-height: 23px;
   background: #8baa36;
   border-radius: 4px;
   font-size: 10px;
   line-height: 15px;
   font-weight: 600;
   color: #fafafa;
+  
+
   @media screen and (min-width: 768px) {
-    width: 70px;
-    height: 35px;
+    min-width: 80px;
+    min-height: 40px;
     font-size: 18px;
     line-height: 27px;
   }
@@ -102,6 +104,7 @@ export const QuantityWrapper = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   gap: 50px;
+  
 
   @media screen and (min-width: 768px) {
     gap: 70px;

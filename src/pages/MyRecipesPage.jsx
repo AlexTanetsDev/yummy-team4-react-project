@@ -267,7 +267,7 @@ const MyRecipesPage = () => {
   const deleteMyRecipe = async id => {
     try {
       await OwnRecipeApi.DeleteRecipe(id);
-      const data = await OwnRecipeApi.FetchRecipes();
+      const {data} = await OwnRecipeApi.FetchRecipes();
 
       setRecipes(data);
     } catch (error) {
