@@ -8,10 +8,15 @@ import {
   StyledHeader,
   HeaderWrapper,
   StyledNav,
+  // StyledNavBurger,
   StyledBurger,
+  // StyledThemeBtn,
+  // MobileMenu,
+  // ThemeModalDiv,
   Avatar,
   UserName,
   StyledThemeHeader,
+  // StyledLinkBurger,
   Headerblock,
 } from '../Header/Header.styled';
 import { useState } from 'react';
@@ -22,7 +27,8 @@ import { Container } from 'components/Container/Container';
 import { Modal } from '../Modal/Modal';
 
 export const Header = () => {
-
+  const { isLogin, user } = useAuth();
+  console.log(User)
   const User = useSelector(state => state.auth.user);
   const [modalActive, setModalActive] = useState(false);
   const [nav, setNav] = useState(false);
@@ -41,8 +47,8 @@ export const Header = () => {
       <Container>
         <HeaderWrapper>
           <LogoHeader />
-          <StyledNav>
-            <StyledLink to="/categories/Beef">Categories</StyledLink>
+          <StyledNav >
+            <StyledLink to="/categories/Beef"  >Categories</StyledLink>
             <StyledLink to="/add">Add recipes</StyledLink>
             <StyledLink to="/my">My recipes</StyledLink>
             <StyledLink to="/favorite">Favorites</StyledLink>
