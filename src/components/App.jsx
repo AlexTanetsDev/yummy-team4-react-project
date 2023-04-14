@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { lazy, useEffect } from 'react';
 import { useAuth } from 'hooks';
 
-import { refreshUser } from 'Redux/auth/operations';
+import { refreshUser, categoryList } from 'Redux/auth/operations';
 import { selectIsLoggedIn } from 'Redux/auth/selectors';
 
 import { SharedLayout } from './SharedLayout/SharedLayout';
@@ -31,8 +31,10 @@ export const App = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    dispatch(refreshUser());
+		dispatch(refreshUser());
+		dispatch(categoryList());
   }, [dispatch]);
+
 
   return isRefreshing ? (
     <MainLoader />
