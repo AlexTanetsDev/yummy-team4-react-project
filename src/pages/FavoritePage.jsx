@@ -69,7 +69,7 @@ const FavoritePage = () => {
             </AlertMessage>
           )}
           <SectionTitle title="Favorites" />
-          {isLoading && totalPage && page ? (
+          {isLoading ? (
             <MiniLoader />
           ) : (
             <>
