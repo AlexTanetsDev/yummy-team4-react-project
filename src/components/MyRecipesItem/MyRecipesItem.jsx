@@ -38,15 +38,12 @@ export const MyRecipesItem = ({
           <Title>{title}</Title>
           <TextWrapper>
             <DescriptionText>{description}</DescriptionText>
-            {instructions.map(i => (
-              <InstructionsText>{i}</InstructionsText>
-            ))}
+            <InstructionsText>{instructions}</InstructionsText>
           </TextWrapper>
           <TimeWrapper>
             <TimeText>{time} min</TimeText>
           </TimeWrapper>
         </InfoWrapper>
-
         <Link to={`/recipe/${id}`}>
           <SeeRecipeButtonGreen children="See recipe" />
         </Link>

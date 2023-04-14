@@ -8,7 +8,7 @@ import { MyRecipesItem } from 'components/MyRecipesItem/MyRecipesItem';
 import { AlertMessage } from '../components/AlertMessage/AlertMessage';
 import { RecipesPagination } from 'components/Paginator/Paginator';
 import { OwnRecipeApi } from '../apiService';
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { MiniLoader } from 'components/Loader/Loader';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -37,9 +37,14 @@ const MyRecipesPage = () => {
 
   const deleteMyRecipe = async id => {
     try {
+      setIsLoading(true);
+      toast.error('Deleted from my recipes');
+
       await OwnRecipeApi.DeleteRecipe(id);
-      toast.error('Deleted from my Recipes');
-      const { data } = await OwnRecipeApi.FetchRecipes();
+
+      const { data, total } = await OwnRecipeApi.FetchRecipes(currentPage, 4);
+
+      setTotalItemsCount(total);
 
       setRecipes(data);
     } catch (error) {
@@ -53,9 +58,6 @@ const MyRecipesPage = () => {
 
   return (
     <>
-      <div>
-        <Toaster position="top-center" reverseOrder={false} />
-      </div>
       <Sections>
         <Container>
           {error && (
@@ -63,43 +65,48 @@ const MyRecipesPage = () => {
               Oops, something went wrong. Please try again later...
             </AlertMessage>
           )}
+          <SectionTitle title="My recipes" />
           {isLoading ? (
             <MiniLoader />
           ) : (
             <>
-              <SectionTitle title="My recipes" />
-              <MyRecipesList>
-                {recipes.map(
-                  ({
-                    _id,
-                    title,
-                    description,
-                    instructions,
-                    time,
-                    preview,
-                  }) => (
-                    <MyRecipesItem
-                      key={_id}
-                      title={title}
-                      description={description}
-                      instructions={instructions}
-                      time={time}
-                      preview={preview}
-                      id={_id}
-                      onDelete={() => {
-                        deleteMyRecipe(_id);
-                      }}
-                    />
-                  )
-                )}
-              </MyRecipesList>
-
-              <RecipesPagination
-                totalItemsCount={totalItemsCount}
-                paginate={paginate}
-                currentPage={currentPage}
-                totalPages={Math.ceil(totalItemsCount / 4)}
-              />
+              {recipes && recipes.length > 0 ? (
+                <>
+                  <MyRecipesList>
+                    {recipes.map(
+                      ({
+                        _id,
+                        title,
+                        description,
+                        instructions,
+                        time,
+                        preview,
+                      }) => (
+                        <MyRecipesItem
+                          key={_id}
+                          title={title}
+                          description={description}
+                          instructions={instructions}
+                          time={time}
+                          preview={preview}
+                          id={_id}
+                          onDelete={() => {
+                            deleteMyRecipe(_id);
+                          }}
+                        />
+                      )
+                    )}
+                  </MyRecipesList>
+                  <RecipesPagination
+                    totalItemsCount={totalItemsCount}
+                    paginate={paginate}
+                    currentPage={currentPage}
+                    totalPages={Math.ceil(totalItemsCount / 4)}
+                  />
+                </>
+              ) : (
+                <AlertMessage>Please add the recipe...</AlertMessage>
+              )}
             </>
           )}
         </Container>
