@@ -40,9 +40,9 @@ export const SingInButton = () => {
   return <SingInBtn to="/signin">Sign in</SingInBtn>;
 };
 
-export const SingInButtonGreen = ({ type = 'button', onClick, children }) => {
+export const SingInButtonGreen = ({ type = 'button', children }) => {
   return (
-    <SingInBtnGreen type={type} onClick={onClick}>
+    <SingInBtnGreen type={type}>
       {children}
     </SingInBtnGreen>
   );
