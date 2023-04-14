@@ -26,7 +26,7 @@ export const Title = styled.p`
   color: ${p => p.theme.colors.mainBgColor};
   @media screen and (min-width: 768px) {
     font-size: 28px;
-    margin-left: 10px;
+    margin-left: 60px;
     margin-top: 10px;
   }
 `;

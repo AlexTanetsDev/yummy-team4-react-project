@@ -22,7 +22,7 @@ export const NavLinkStyled = styled(NavLink)`
   font-size: 14px;
   line-height: ${p => p.theme.lineHeights.extraContent};
   letter-spacing: ${p => p.theme.letterSpacings.content};
-  color: ${p => p.theme.colors.firstAccentColor};
+  color: #fafafa;
   transition: ${p => p.theme.transitions.main};
   &.active {
     color: ${p => p.theme.colors.firstAccentColor};
