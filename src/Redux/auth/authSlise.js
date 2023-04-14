@@ -6,7 +6,6 @@ import {
   refreshUser,
   updateSubscription,
   categoryList,
-  // verifyEmail,
 } from './operations';
 
 const initialState = {
