@@ -11,7 +11,6 @@ export const Header = styled.div`
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.03em;
-  /* identical to box height, or 150% */
 
   color: #fafafa;
 
@@ -56,5 +55,12 @@ export const ShoppingListTitle = styled.h2`
   @media screen and (min-width: 1440px) {
     font-size: 44px;
     line-height: 44px;
+  }
+`;
+
+export const ShppList = styled.ul`
+  margin-bottom: 100px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 200px;
   }
 `;

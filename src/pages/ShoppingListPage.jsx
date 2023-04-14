@@ -7,6 +7,7 @@ import {
 } from 'apiService/ShoppingListApi';
 import { Container } from 'components/Container/Container';
 import { ShoppingListTitle } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
+import { toast } from 'react-hot-toast';
 
 const ShoppingList = () => {
   const [ingridients, setIngridients] = useState([]);
@@ -18,6 +19,7 @@ const ShoppingList = () => {
     deleteShoppingListItem(id).then(resp =>
       setIngridients(ingridients.filter(item => item._id !== id))
     );
+    toast.success('Ingredient removed');
   };
 
   return (

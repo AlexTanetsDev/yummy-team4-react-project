@@ -75,7 +75,6 @@ export const categoryList = createAsyncThunk(
       setAuthHeader(token);
       return response.data;
     } catch (error) {
-      console.log(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
