@@ -75,7 +75,6 @@ export const categoryList = createAsyncThunk(
       setAuthHeader(token);
       return response.data;
     } catch (error) {
-      console.log(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -95,7 +94,6 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
