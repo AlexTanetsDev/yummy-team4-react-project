@@ -96,11 +96,20 @@ export const StyledBurger = styled.button`
   }
 `;
 
-export const Avatar = styled(Link)`
+export const UserProfileWrap = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
+
+export const Avatar = styled.button`
+  display: block;
   width: 44px;
   height: 44px;
+  padding: 0;
   border-radius: 50%;
 `;
+
 export const AvatarImg = styled.img`
   border-radius: 50%;
 `;

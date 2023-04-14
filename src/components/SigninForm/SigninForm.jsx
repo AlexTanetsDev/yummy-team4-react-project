@@ -14,7 +14,6 @@ import {
   StateInputIcon,
   ModalWrapper,
   Title,
-  Button,
   Link,
   IconWrap,
   InputWrapper,

@@ -232,32 +232,6 @@ export const StateInputIcon = styled.img`
   height: 20px;
 `;
 
-export const Button = styled.button`
-  display: block;
-  margin-top: 28px;
-  width: 279px;
-  height: 45px;
-  color: ${p => p.theme.colors.mainBgColor};
-  border-radius: 6px;
-  border-color: transparent;
-  background-color: ${p => p.theme.colors.firstAccentColor};
-  @media (min-width: 768px) {
-    margin-top: 50px;
-    width: 400px;
-    height: 59px;
-  }
-
-  @media (max-width: 1440px) and (max-height: 940px) {
-    margin-top: 28px;
-    width: 279px;
-    height: 45px;
-    color: ${p => p.theme.colors.mainBgColor};
-    border-radius: 6px;
-    border-color: transparent;
-    background-color: ${p => p.theme.colors.firstAccentColor};
-  } ;
-`;
-
 export const Link = styled(NavLink)`
   position: absolute;
   top: 345px;
