@@ -37,11 +37,6 @@ const registerSchema = object({
 export const RegisterForm = () => {
 	const dispatch = useDispatch();
 	
-  // const handleSubmit = (values, { resetForm }) => {
-  //   dispatch(register(values));
-  //   resetForm();
-	// };
-	
 	const handleSubmit = async (values, { resetForm }) => {
 		await dispatch(register(values));
 		dispatch(categoryList());
