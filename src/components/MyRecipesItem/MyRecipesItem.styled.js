@@ -29,7 +29,7 @@ export const StyledMyRecipesItem = styled.li`
 export const ImageWrapper = styled.div`
   width: ${p => p.theme.space(31)};
   height: ${p => p.theme.space(31)};
-  background-color: ${p => p.theme.colors.mainBgColor};
+  background-color: ${p => p.theme.colors.secondAccentColor};
   border-radius: ${p => p.theme.space(2)};
   @media screen and (min-width: 768px) {
     width: ${p => p.theme.space(57)};

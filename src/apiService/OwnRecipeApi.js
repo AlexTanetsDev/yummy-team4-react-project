@@ -15,12 +15,10 @@ async function AddRecipe(recipe) {
 
 async function FetchRecipes(page = 1, limit = 4) {
   try {
-    const params = {
-      page: page,
-      limit: limit,
-    };
-    const response = await axios.get('/api/ownRecipes', { params });
-    return response.data;
+    const { data } = await axios.get(
+      `/api/ownRecipes?page=${page}&limit=${limit}`
+    );
+    return data;
   } catch (error) {
     console.error(error);
   }
@@ -28,9 +26,9 @@ async function FetchRecipes(page = 1, limit = 4) {
 
 async function DeleteRecipe(id) {
   try {
-    const response = await axios.delete(`/api/ownRecipes/${id}`);
+    const { data } = await axios.delete(`/api/ownRecipes/${id}`);
 
-  return response.data;
+    return data;
   } catch (error) {
     console.error(error);
   }
