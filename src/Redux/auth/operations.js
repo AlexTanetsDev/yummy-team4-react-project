@@ -81,6 +81,22 @@ export const categoryList = createAsyncThunk(
   }
 );
 
+export const categoryList = createAsyncThunk(
+  'auth/categoryList',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.get(`/api/category-list`, credentials);
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+      setAuthHeader(token);
+      return response.data;
+    } catch (error) {
+      console.log(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/api/users/logout');
