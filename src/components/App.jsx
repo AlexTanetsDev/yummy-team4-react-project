@@ -31,10 +31,12 @@ export const App = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-		dispatch(refreshUser());
-		dispatch(categoryList());
+    const handleRefreshUser = async () => {
+      await dispatch(refreshUser());
+      dispatch(categoryList());
+    };
+    handleRefreshUser();
   }, [dispatch]);
-
 
   return isRefreshing ? (
     <MainLoader />
