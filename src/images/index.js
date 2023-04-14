@@ -40,6 +40,9 @@ import rightSpinachMobile1x from './rightSpinachMobile-1x.png';
 import rightSpinachMobile2x from './rightSpinachMobile-2x.png';
 import tick from './tick.svg';
 import modal from './modal.png';
+import editIcon from './edit-icon.png';
+import arrowRightIcon from './arrow-right.png';
+
 export {
   leftSpinachDesktop1x,
   leftSpinachDesktop2x,
@@ -83,4 +86,6 @@ export {
   circleDark,
   tick,
   modal,
+  editIcon,
+  arrowRightIcon,
 };

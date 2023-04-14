@@ -10,17 +10,18 @@ import {
   StyledNav,
  SearchIcon,
   StyledBurger,
-
   Avatar,
   UserName,
   StyledThemeHeader,
   AvatarImg,
-  Headerblock,
+	Headerblock,
+	UserProfileWrap,
 } from '../Header/Header.styled';
 
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { LogoHeader } from '../Logo/Logo';
+import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 import { Container } from 'components/Container/Container';
 
 import { Modal } from '../Modal/Modal';
@@ -29,7 +30,8 @@ export const Header = () => {
    const User = useSelector(state => state.auth.user);
   const [modalActive, setModalActive] = useState(false);
   const [nav, setNav] = useState(false);
-  const [theme, setTheme] = useState(false);
+	const [theme, setTheme] = useState(false);
+	const [userModal, SetUserModal] = useState(false);
 
   const handleTheme = () => {
     setTheme(!theme);
@@ -37,9 +39,14 @@ export const Header = () => {
 
   const handleButtonClick = () => {
     setNav(!nav);
-  };
-  const current = window.location.pathname;
-  console.log(current);
+	};
+	
+	const handleUserAvatarClsck = () => {
+		SetUserModal(!userModal);
+ }
+
+  // const current = window.location.pathname;
+  // console.log(current);
 
   return (
     <StyledHeader>
@@ -59,10 +66,13 @@ export const Header = () => {
           </StyledNav>
 
           <Headerblock>
-            <Avatar to="/">
-              <AvatarImg src={User?.avatarURL} alt="avatar" />
-            </Avatar>
-            <UserName>{User.name}</UserName>
+						<UserProfileWrap>
+							<Avatar onClick={handleUserAvatarClsck}>
+              <AvatarImg src={User.avatarURL} alt="avatar" />
+              </Avatar>
+						  <UserName>{User.name}</UserName>
+						{userModal && <UserLogoModal/>}
+						</UserProfileWrap>
 
             <StyledThemeHeader onClick={handleTheme}>
               {theme ? (
