@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const SerchInput = styled.input`
   border-radius: 24px 44px;
-  margin-left: 24px;
   padding: 14px 32px;
   width: 295px;
   position: relative;
@@ -22,7 +21,6 @@ export const SerchInput = styled.input`
   @media (min-width: 1440px) {
     padding: 22px 52px;
     width: 510px;
-    margin-left: 100px;
   }
 
   &:hover,
@@ -34,7 +32,8 @@ export const SerchInput = styled.input`
 
 export const SearchMainPageBlack = styled.button`
   position: absolute;
-  right: 24px;
+  right: auto;
+  left: 240px;
   padding: 14px 32px;
   width: 113px;
   background-color: ${p => p.theme.colors.secondAccentColor};
@@ -48,7 +47,7 @@ export const SearchMainPageBlack = styled.button`
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
-    right: 375px;
+    left: 270px;
     padding: 16px 52px;
     width: 161px;
     font-size: ${p => p.theme.fontSizes.xl}px;
@@ -56,7 +55,7 @@ export const SearchMainPageBlack = styled.button`
   }
   @media (min-width: 1440px) {
     padding: 22px 52px;
-    right: 830px;
+    left: 475px;
   }
 
   &:hover,

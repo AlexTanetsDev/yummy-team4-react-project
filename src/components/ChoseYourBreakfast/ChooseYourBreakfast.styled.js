@@ -4,41 +4,54 @@ import bg_mob from '../../images/mainPagePhoto/bg_mob-min.png';
 import blatt_mob from '../../images/mainPagePhoto/blatt_mob-min.png';
 import blatt_l_mob from '../../images/mainPagePhoto/blatt_l_mob-min.png';
 import unsplash_mob from '../../images/mainPagePhoto/unsplash_mob-min.png';
-import desktop_bg from '../../images/mainPagePhoto/desktop_bg_1440.png';
-import tablet_bg from '../../images/mainPagePhoto/tablet_bg.png';
+
+import {
+  spinach1Tablet,
+  spinach2Tablet,
+  unsplashTablet,
+  bgTablet,
+} from '../../images/mainPagePhoto/tablet';
+
+import {
+  spinach1Desctop,
+  spinach2Desctop,
+  unsplashDesctop,
+  bgDesctop,
+} from '../../images/mainPagePhoto/desctop';
 
 export const MainPageHero = styled.div`
   position: relative;
   margin: -64px auto 0;
-  max-width: ${p => p.theme.breakPoints[0]};
+  // max-width: ${p => p.theme.breakPoints[0]};
   width: 100%;
   height: 777px;
   background-repeat: no-repeat;
   background-color: ${p => p.theme.colors.mainBgColor};
   background-image: url('${unsplash_mob}'), url('${blatt_mob}'),
     url('${blatt_l_mob}'), url('${bg_mob}');
-  background-position: top 322px center, top 70px right 0px, top 20px left 0px,
-    top 150px right -20px;
-  // background-size: 320px, 375px, 60px, 280px;
+  background-position: top 322px right 0px, top 70px right 0px,
+    top 20px left 0px, top 150px right -20px;
+  background-size: 320px, 375px, 60px, 280px;
 
   @media screen and (min-width: 768px) {
-    max-width: ${p => p.theme.breakPoints[1]};
-    width: 100%;
     height: 640px;
     background-repeat: no-repeat;
-    background-image: url('${tablet_bg}');
-    background-size: cover;
-    background-position: center center;
+    background-image: url('${unsplashTablet}'), url('${spinach2Tablet}'),
+      url('${spinach1Tablet}'), url('${bgTablet}');
+    background-position: top 180px right 0px, top 50px right 0px,
+      top 0px left 0px, top 0px right 0px;
+    background-size: 351px, 519px, 65px, 325px;
   }
   @media screen and (min-width: 1440px) {
-    max-width: ${p => p.theme.breakPoints[2]};
-    width: 1440px;
     position: relative;
     height: 800px;
     background-repeat: no-repeat;
-    background-image: url('${desktop_bg}');
+    background-image: url('${unsplashDesctop}'), url('${spinach2Desctop}'),
+      url('${spinach1Desctop}'), url('${bgDesctop}');
     background-size: cover;
-    /* background-position: center center; */
+    background-position: right 135px top 112px, right 0px top -31px,
+      left 0px top 0px, right 0px top 0px;
+    background-size: 539px, 887px, 100px, 645px;
   }
 `;
 
@@ -55,13 +68,13 @@ export const HeroTitle = styled.h1`
 
   @media (min-width: 768px) {
     padding-top: 204px;
-    margin-left: 32px;
+
     text-align: left;
     font-size: 72px;
   }
   @media (min-width: 1440px) {
     padding-top: 226px;
-    margin-left: 100px;
+
     font-size: 100px;
   }
 `;
@@ -88,7 +101,7 @@ export const HeroInfo = styled.h3`
   @media (min-width: 768px) {
     margin-bottom: 32px;
     margin-top: 24px;
-    margin-left: 38px;
+    margin-left: 0;
     width: 362px;
     text-align: left;
   }
@@ -96,7 +109,7 @@ export const HeroInfo = styled.h3`
     margin-bottom: 50px;
     width: 465px;
     margin-top: 14px;
-    margin-left: 107px;
+
     font-size: ${p => p.theme.fontSizes.xxl}px;
     line-height: 1.33;
   }
@@ -108,17 +121,18 @@ export const BreakfastButton = styled.div`
   background: #fafafa;
   border-radius: 8px;
   margin-bottom: 115px;
-  margin-right: 34px;
-  margin-left: 116px;
-  border: transparent;
+  margin-right: -40px;
+  margin-left: auto;
+  border: ${p => p.theme.border.greenBtnBorder};
 
   @media (min-width: 768px) {
     margin-bottom: 0;
+    margin-right: 0px;
     width: 260px;
   }
   @media (min-width: 1440px) {
     width: 295px;
-    margin-right: 122px;
+    margin-right: 22px;
   }
 `;
 
