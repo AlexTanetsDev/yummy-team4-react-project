@@ -94,8 +94,6 @@ export const StyledBurger = styled.button`
     align-items: center;
     border-style: none;
     background-color: transparent;
-    /* width: 32px;
-    height: 32px; */
   }
   @media screen and (min-width: 1440px) {
     display: none;
@@ -114,6 +112,7 @@ export const Avatar = styled.button`
   height: 44px;
   padding: 0;
   border-radius: 50%;
+  border: solid 1px transparent;
 `;
 
 export const AvatarImg = styled.img`
