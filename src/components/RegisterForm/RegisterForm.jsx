@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { register } from 'Redux/auth/operations';
+import { register, categoryList } from 'Redux/auth/operations';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { AiOutlineUser } from 'react-icons/ai';
@@ -35,11 +35,18 @@ const registerSchema = object({
 });
 
 export const RegisterForm = () => {
-  const dispatch = useDispatch();
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(register(values));
-    resetForm();
-  };
+	const dispatch = useDispatch();
+	
+  // const handleSubmit = (values, { resetForm }) => {
+  //   dispatch(register(values));
+  //   resetForm();
+	// };
+	
+	const handleSubmit = async (values, { resetForm }) => {
+		await dispatch(register(values));
+		dispatch(categoryList());
+		resetForm();
+	};
 
   return (
     <StyledWrapper>
