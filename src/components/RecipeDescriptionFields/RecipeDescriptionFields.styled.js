@@ -31,11 +31,8 @@ export const InputFieldsContainer = styled.div`
 
 export const FieldContainer = styled.div`
   position: relative;
-  // margin-bottom: 24px;
+  margin-bottom: 8px;
 
-  // @media screen and (min-width: 768px) {
-  //   margin-bottom: 32px;
-  // }
 `;
 
 export const InputTitle = styled.input`
@@ -117,16 +114,13 @@ export const FieldSelectContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  // margin-bottom: 24px;
-  padding-bottom: 18px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
-
-  // @media screen and (min-width: 768px) {
-  //   margin-bottom: 32px;
-  // }
 `;
 
 export const LabelCategory = styled.label`
+  display: flex;
+  align-items: center;
   font-size: 14px;
   line-height: 21px;
   color: #000000;
@@ -178,7 +172,6 @@ export const OptionCategory = styled.option`
   &:checked {
     color: #8baa36;
   }
-
 `;
 
 export const FileInputContainer = styled.div`
@@ -188,8 +181,6 @@ export const FileInputContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  // margin-top: 32px;
   margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
@@ -251,7 +242,6 @@ export const Error = styled.div`
   right: 0;
   width: 100%;
   height: 2px;
-  z-index: 10;
   background-color: #e74a3b;
 `;
 
@@ -266,4 +256,3 @@ export const ErrorPhoto = styled.div`
   border-radius: 8px;
   pointer-events: none;
 `;
-
