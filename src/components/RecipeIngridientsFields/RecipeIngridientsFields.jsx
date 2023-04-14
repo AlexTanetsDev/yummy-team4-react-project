@@ -89,10 +89,10 @@ const IngredientInputStyles = {
     paddingTop: 8,
     paddingBottom: 8,
     boxShadow: '0 6.5px 7.8px rgba(0, 0, 0, 0.0314074)',
-
-    '@media screen and (min-width: 768px)': {
-      // paddingLeft: 18,
-    },
+  }),
+  placeholder: provided => ({
+    ...provided,
+    opacity: 0.5,
   }),
   dropdownIndicator: (provided, state) => ({
     ...provided,

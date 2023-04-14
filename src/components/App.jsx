@@ -16,9 +16,7 @@ const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const SignInPage = lazy(() => import('../pages/SignInPage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
 const CategoriesPage = lazy(() => import('../pages/CategoriesPage'));
-const AddRecipePage = lazy(() =>
-  import('../pages/AddRecipesPage/AddRecipesPage')
-);
+const AddRecipePage = lazy(() => import('../pages/AddRecipesPage'));
 const FavoritePage = lazy(() => import('../pages/FavoritePage'));
 const RecipePage = lazy(() => import('../pages/RecipePage'));
 const MyRecipesPage = lazy(() => import('../pages/MyRecipesPage'));
