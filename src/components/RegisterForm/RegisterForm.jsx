@@ -88,7 +88,7 @@ export const RegisterForm = () => {
                           }`}
                           type="text"
                           name="name"
-                          placeholder="name"
+                          placeholder="Name"
                           values={values.name}
                         />
                         <IconWrap>
@@ -125,7 +125,7 @@ export const RegisterForm = () => {
                           name="email"
                           type="email"
                           inputmode="email"
-                          placeholder="email"
+                          placeholder="Email"
                           values={values.email}
                         />
                         <IconWrap>
@@ -171,7 +171,7 @@ export const RegisterForm = () => {
                           }`}
                           type="password"
                           name="password"
-                          placeholder="password"
+                          placeholder="Password"
                         />
                         <IconWrap>
                           {window.innerWidth < 768 && (
