@@ -10,12 +10,14 @@ import {
   Avatar,
   UserName,
   AvatarImg,
-  Headerblock,
+	Headerblock,
+	UserProfileWrap,
 } from '../Header/Header.styled';
 
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { LogoHeader } from '../Logo/Logo';
+import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 import { Container } from 'components/Container/Container';
 
 import { Modal } from '../Modal/Modal';
@@ -28,6 +30,13 @@ export const Header = () => {
   // const handleButtonClick = () => {
   //   setNav(!nav);
   // };
+  const [nav, setNav] = useState(false);
+	const [userModal, SetUserModal] = useState(false);
+
+	const handleUserAvatarClsck = () => {
+		SetUserModal(!userModal);
+ }
+
   // const current = window.location.pathname;
   // console.log(current);
 
@@ -53,6 +62,7 @@ export const Header = () => {
               <AvatarImg src={User?.avatarURL} alt="avatar" />
             </Avatar>
             <UserName>{User.name}</UserName>
+
             <StyledBurger
               onClick={() => {
                 setModalActive(true);
