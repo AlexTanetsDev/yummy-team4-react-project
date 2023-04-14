@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ReactComponent as Search } from '../../images/icons/search.svg';
 
 export const StyledHeader = styled.header`
@@ -79,6 +79,12 @@ export const SearchIcon = styled(Search)`
   width: 24px;
 `;
 
+export const SearchIconMobile = styled(Search)`
+  margin-right: 8px;
+  height: 24px;
+  width: 24px;
+`;
+
 export const StyledBurger = styled.button`
   @media screen and (max-width: 1440px) {
     align-items: center;
@@ -116,16 +122,4 @@ export const AvatarImg = styled.img`
 export const UserName = styled.p`
   margin-right: 24px;
   margin-left: 14px;
-`;
-
-export const StyledThemeHeader = styled.button`
-  @media screen and (max-width: 1440px) {
-    display: none;
-  }
-  display: block;
-  margin-left: auto;
-  width: 60px;
-  height: 30px;
-  border-style: none;
-  background-color: transparent;
 `;
