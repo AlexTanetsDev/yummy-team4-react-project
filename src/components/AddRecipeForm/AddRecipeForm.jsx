@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import { TailSpin } from 'react-loader-spinner';
 
-import { OwnRecipeApi, IngredientsApi, CategoryApi } from '../../apiService';
+import { MiniLoader } from 'components/Loader/Loader';
+import { OwnRecipeApi } from '../../apiService';
 import { RecipeDescriptionFields } from '../../components/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngridientsFields } from '../../components/RecipeIngridientsFields/RecipeIngridientsFields';
 import { RecipePreparationFields } from '../../components/RecipePreparationFields/RecipePreparationFields';
 import { AddButton } from '../Button/Button';
-import { Spiner } from '../Spiner/Spiner';
 import { AlertMessage } from '../../components/AlertMessage/AlertMessage';
 import { FormContainer } from './AddRecipeForm.styled';
 
@@ -94,7 +93,7 @@ export const AddRecipeForm = () => {
         </AlertMessage>
       )}
       {isLoading ? (
-        <Spiner wrapperHeight={1200} />
+        <MiniLoader />
       ) : (
         <Formik
           initialValues={initialValues}
