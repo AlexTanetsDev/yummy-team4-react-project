@@ -25,6 +25,7 @@ const MyRecipesPage = lazy(() => import('../pages/MyRecipesPage'));
 const SearchPage = lazy(() => import('../pages/SearchPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+const ErrorPage = lazy(() => import('../pages/ErrorPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -79,7 +80,7 @@ export const App = () => {
             <Route path="shopping-list" element={<ShoppingListPage />} />
           </>
         ) : (
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<ErrorPage />} />
         )}
         <Route path="*" element={<NotFoundPage />} />
       </Route>
