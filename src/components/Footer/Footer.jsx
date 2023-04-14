@@ -6,6 +6,7 @@ import FooterInfo from './FooterInfo';
 import NavFooter from './NavFooter';
 import SubscribeForm from './SubscribeForm';
 import SocNetworks from './SocNetworks';
+import { BackgroundDecorFooter } from 'components/BackgroundDecor/BackgroundDecor';
 
 import {
   TopWrapper,
@@ -34,8 +35,8 @@ export const Footer = () => {
           </WrapperForDesktop>
           <SocNetworks />
         </TopWrapper>
+        <BackgroundDecorFooter />
       </FooterStyled>
-
       <BottomWrapper>
         <p>
           © 2023 All Rights Reserved. <span>Terms of Service</span>

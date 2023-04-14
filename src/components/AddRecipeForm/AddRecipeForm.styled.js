@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const PageContainer = styled.div`
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
 export const FormContainer = styled.div`
   margin-bottom: ${p => p.theme.space(18)};
 

@@ -44,7 +44,6 @@ export const MyRecipesItem = ({
             <TimeText>{time} min</TimeText>
           </TimeWrapper>
         </InfoWrapper>
-
         <Link to={`/recipe/${id}`}>
           <SeeRecipeButtonGreen children="See recipe" />
         </Link>

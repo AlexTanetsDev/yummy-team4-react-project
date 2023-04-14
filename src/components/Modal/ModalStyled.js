@@ -1,32 +1,89 @@
 import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
-import { basilLeaves } from '../../images/index';
+import { NavLink } from 'react-router-dom';
+import { modal, modalMini } from '../../images/index';
 
 export const MobileMenu = styled.div`
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 767px) {
+    position: fixed;
     height: 100vh;
     width: 100vw;
-    position: fixed;
     top: 0;
     left: 0;
+    padding-top: 18px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     transform: scale(0);
+    background-image: url(${modalMini});
+    background-color: #ebf3d4;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: inherit;
+      transform: rotate(100deg);
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1443px) {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0);
+    background-image: url(${modal});
+    background-color: #ebf3d4;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: inherit;
+      transform: rotate(100deg);
+    }
   }
   display: none;
 `;
 
+export const ModalHeader = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 44px;
+`;
+
 export const StyledLinkBurger = styled(NavLink)`
-  width: 114px;
-  height: 18px;
   font-family: 'Poppins';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   line-height: 18px;
   letter-spacing: -0.02em;
   color: #22252a;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 24px;
+  }
+  &:last-of-type {
+    display: flex;
+    align-items: center;
+  }
+
+  &.active {
+    color: #8baa36;
+  }
+
+  &:hover,
+  :focus {
+    color: #8baa36;
+  }
 `;
 
 export const StyledNavBurger = styled.nav`
@@ -36,15 +93,11 @@ export const StyledNavBurger = styled.nav`
   align-items: center;
   gap: 32px;
   margin-top: 185px;
-  margin-right: auto;
-  margin-left: auto;
 `;
 
 export const StyledThemeBtn = styled.button`
   border-style: none;
   background-color: transparent;
-
-  /* margin-top: auto; */
   width: 60px;
   height: 30px;
 `;
@@ -60,31 +113,21 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #ebf3d4;
-  background-image: url(${basilLeaves});
-  background-repeat: no-repeat;
-  background-position: bottom -200px right;
-
-  &::before {
-    content: '';
-    position: absolute;
-    background-image: inherit;
-    transform: rotate(100deg);
-  }
+  background-color: transparent;
 `;
 
 export const StyledBurger = styled.button`
   position: absolute;
-  z-index: 1;
-  top: ${p => p.theme.space(4.5)};
-  right: ${p => p.theme.space(4)};
+  margin-left: auto;
+  top: 0;
+  right: ${p => p.theme.space(6)};
 
   @media (min-width: 768px) {
-    top: ${p => p.theme.space(4.5)};
+    top: 0;
     right: ${p => p.theme.space(8)};
   }
   @media (min-width: 1440px) {
-    top: ${p => p.theme.space(4.5)};
+    top: 0;
     right: ${p => p.theme.space(25)};
   }
 
@@ -97,8 +140,6 @@ export const StyledBurger = styled.button`
     align-items: center;
     border-style: none;
     background-color: transparent;
-    width: 30px;
-    height: 30px;
   }
   @media screen and (min-width: 1440px) {
     display: none;

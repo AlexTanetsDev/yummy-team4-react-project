@@ -19,13 +19,20 @@ export const register = createAsyncThunk(
       const response = await axios.post('api/users/register', credentials);
       setAuthHeader(response.data.token);
       const result = response.data;
-      toast.success(result.message, {
-        duration: 4000,
-      });
       return result;
     } catch (error) {
       toast.error(error.response.data.message, {
         duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
       });
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -40,7 +47,34 @@ export const signIn = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
-      console.log(error.response.data.message);
+      toast.error(error.response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const categoryList = createAsyncThunk(
+  'auth/categoryList',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.get(`/api/category-list`, credentials);
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+      setAuthHeader(token);
+      return response.data;
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -60,7 +94,6 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
@@ -70,6 +103,20 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('api/users/current');
       return res.data;
     } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateSubscription = createAsyncThunk(
+  'auth/subscription',
+  async (cred, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('/api/subscribe', cred);
+      toast.success('You have successfully subscribed');
+      return data;
+    } catch (error) {
+      toast.error(`Something went wrong. Try again...`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

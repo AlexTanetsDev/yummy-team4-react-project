@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getAllFavorite = async (page, limit) => {
+export const getAllFavorite = async (page = 1, limit = 4) => {
   try {
     const { data } = await axios.get(
       `/api/favorite?page=${page}&limit=${limit}`

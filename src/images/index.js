@@ -26,22 +26,37 @@ import logoGreen from './logo-green.png';
 import squareGreen from './squareGreen.png';
 import squareDark from './squareDark.png';
 import circleDark from './circleDark.png';
-import leftSpinachDesktop from './leftSpinachDesktop.png';
-import leftSpinachTablet from './leftSpinachTablet.png';
-import leftSpinachMobile from './leftSpinachMobile.png';
-import rightSpinachDesktop from './rightSpinachDesktop.png';
-import rightSpinachTablet from './rightSpinachTablet.png';
-import rightSpinachMobile from './rightSpinachMobile.png';
+import leftSpinachDesktop1x from './leftSpinachDesktop-1x.png';
+import leftSpinachDesktop2x from './leftSpinachDesktop-2x.png';
+import leftSpinachTablet1x from './leftSpinachTablet-1x.png';
+import leftSpinachTablet2x from './leftSpinachTablet-2x.png';
+import leftSpinachMobile1x from './leftSpinachMobile-1x.png';
+import leftSpinachMobile2x from './leftSpinachMobile-2x.png';
+import rightSpinachDesktop1x from './rightSpinachDesktop-1x.png';
+import rightSpinachDesktop2x from './rightSpinachDesktop-2x.png';
+import rightSpinachTablet1x from './rightSpinachTablet-1x.png';
+import rightSpinachTablet2x from './rightSpinachTablet-2x.png';
+import rightSpinachMobile1x from './rightSpinachMobile-1x.png';
+import rightSpinachMobile2x from './rightSpinachMobile-2x.png';
 import tick from './tick.svg';
-
+import modal from './modal.png';
+import modalMini from './modalMini.png';
+import editIcon from './edit-icon.png';
+import arrowRightIcon from './arrow-right.png';
 
 export {
-  leftSpinachDesktop,
-  leftSpinachTablet,
-  leftSpinachMobile,
-  rightSpinachDesktop,
-  rightSpinachTablet,
-  rightSpinachMobile,
+  leftSpinachDesktop1x,
+  leftSpinachDesktop2x,
+  leftSpinachTablet1x,
+  leftSpinachTablet2x,
+  leftSpinachMobile1x,
+  leftSpinachMobile2x,
+  rightSpinachDesktop1x,
+  rightSpinachDesktop2x,
+  rightSpinachTablet1x,
+  rightSpinachTablet2x,
+  rightSpinachMobile1x,
+  rightSpinachMobile2x,
   basilLeaves,
   saladSalmon,
   salad,
@@ -69,6 +84,10 @@ export {
   logoGreen,
   squareGreen,
   squareDark,
-  circleDark, 
-  tick, 
+  circleDark,
+  tick,
+  modal,
+  modalMini,
+  editIcon,
+  arrowRightIcon,
 };

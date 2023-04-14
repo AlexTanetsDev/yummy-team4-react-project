@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import { IngridientsShoppingListItem } from './IngridientsShoppingListItem';
-import { Header, ProductsWrapper,NumberIRemoveWrapper } from './IngredientsShoppingList.styled';
+import {
+  Header,
+  NumberIRemoveWrapper,
+  ShppList,
+} from './IngredientsShoppingList.styled';
 
 export const IngridientsShoppingList = ({ ingridients, handleDelete }) => {
   return (
@@ -15,7 +19,7 @@ export const IngridientsShoppingList = ({ ingridients, handleDelete }) => {
         </NumberIRemoveWrapper>
       </Header>
 
-      <ul>
+      <ShppList>
         {ingridients.map(item => (
           <IngridientsShoppingListItem
             key={item._id}
@@ -23,28 +27,7 @@ export const IngridientsShoppingList = ({ ingridients, handleDelete }) => {
             handleDelete={handleDelete}
           />
         ))}
-      </ul>
-
-      {/* <>
-        <table>
-          <Header>
-            <tr>
-              <th>Products</th>
-              <th>Number</th>
-              <th>Remove</th>
-            </tr>
-          </Header>
-          <tbody>
-            {ingridients.map(item => (
-              <IngridientsShoppingListItem
-                key={item._id}
-                item={item}
-                handleDelete={handleDelete}
-              />
-            ))}
-          </tbody>
-        </table>
-      </> */}
+      </ShppList>
     </>
   );
 };

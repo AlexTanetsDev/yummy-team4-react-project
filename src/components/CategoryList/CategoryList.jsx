@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { CategoryLists, NavLinks } from './CategoryList.styled';
 
-const CategoryList = ({ categories }) => {
+export const CategoryList = ({ categories }) => {
   let ref = useRef();
   useEffect(() => {
     const el = ref.current;
@@ -31,5 +31,3 @@ const CategoryList = ({ categories }) => {
     </>
   );
 };
-
-export default CategoryList;

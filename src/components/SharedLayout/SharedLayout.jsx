@@ -1,14 +1,12 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'Redux/auth/selectors';
 
 import { Header } from '../Header/Header';
-import {
-  BackgroundDecorHeader,
-  BackgroundDecorFooter,
-} from 'components/BackgroundDecor/BackgroundDecor';
+import { BackgroundDecorHeader } from 'components/BackgroundDecor/BackgroundDecor';
 import { Footer } from 'components/Footer/Footer';
 
 import { Main } from './SharedLayout.styled';
@@ -21,6 +19,9 @@ export const SharedLayout = () => {
       {!isLoggedIn ? (
         <>
           <main>
+            <div>
+              <Toaster position="top-right" reverseOrder={false} />
+            </div>
             <Suspense>
               <Outlet />
             </Suspense>
@@ -28,13 +29,15 @@ export const SharedLayout = () => {
         </>
       ) : (
         <>
+          <div>
+            <Toaster position="top-right" reverseOrder={false} />
+          </div>
           <Header />
           <Main>
             <BackgroundDecorHeader />
             <Suspense>
               <Outlet />
             </Suspense>
-            <BackgroundDecorFooter />
           </Main>
           <Footer />
         </>

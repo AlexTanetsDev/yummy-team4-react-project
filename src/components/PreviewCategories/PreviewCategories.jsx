@@ -5,17 +5,20 @@ import { Link, useLocation } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 import { getMainPageRecipes } from '../../apiService';
-
-import { Sections } from 'components/MainPageCategorySection/Sections';
+import { scrollToTop } from 'helpers/scrollToTop';
+import { MiniLoader } from 'components/Loader/Loader';
+import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import {
   SeeAllButton,
   OtherCategoriesButton,
 } from 'components/Button/Button.jsx';
 import { RecipeItem } from 'components/RecipeItem/RecipeItem';
-import { RecipesContainer } from './PreviewCategories.styled';
+import { RecipesContainer, Title } from './PreviewCategories.styled';
 
 export function PreviewCategories() {
-  const [items, setItems] = useState('');
+  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
   const [viewportWidth, setViewportWidth] = useState(() => {
     const width = window.innerWidth;
 
@@ -31,9 +34,19 @@ export function PreviewCategories() {
   const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
-    getMainPageRecipes(token)
-      .then(res => setItems(res.data))
-      .catch(error => console.error(error));
+    const renderMainPageRecipesList = async () => {
+      try {
+        setIsLoading(true);
+        const res = await getMainPageRecipes(token);
+        setItems(res.data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    renderMainPageRecipesList();
   }, [token]);
 
   useEffect(() => {
@@ -55,34 +68,48 @@ export function PreviewCategories() {
 
   return (
     <>
-      {items.length > 0
-        ? items
-            .map(item => (
-              <Sections key={nanoid()} title={item.category}>
-                <RecipesContainer>
-                  {item.recipes
-                    .map(({ _id, preview, title }) => (
-                      <RecipeItem
-                        id={_id}
-                        preview={preview}
-                        title={title}
-                        key={_id}
-                      />
-                    ))
-                    .slice(0, viewportWidth)}
-                </RecipesContainer>
-                <Link
-                  to={`/categories/${item.category}`}
-                  state={{ from: location }}
-                >
-                  <SeeAllButton children={'See all'} />
-                </Link>
-              </Sections>
-            ))
-            .slice(0, 4)
-        : null}
+      {error && (
+        <AlertMessage>
+          Oops, something went wrong. Please restart the app...
+        </AlertMessage>
+      )}
+      {isLoading ? (
+        <MiniLoader />
+      ) : (
+        items
+          .map(item => (
+            <div key={nanoid()}>
+              <Title>{item.category}</Title>
+              <RecipesContainer>
+                {item.recipes
+                  .map(({ _id, preview, title }) => (
+                    <RecipeItem
+                      id={_id}
+                      preview={preview}
+                      title={title}
+                      key={_id}
+                      onClick={scrollToTop}
+                    />
+                  ))
+                  .slice(0, viewportWidth)}
+              </RecipesContainer>
+              <Link
+                to={`/categories/${item.category}`}
+                state={{ from: location }}
+              >
+                <SeeAllButton children={'See all'} onClick={scrollToTop} />
+              </Link>
+            </div>
+          ))
+          .slice(0, 4)
+      )}
       <Link to={`/categories/Beef`} state={{ from: location }}>
-        {items && <OtherCategoriesButton children={'Other categories'} />}
+        {items && (
+          <OtherCategoriesButton
+            children={'Other categories'}
+            onClick={scrollToTop}
+          />
+        )}
       </Link>
     </>
   );

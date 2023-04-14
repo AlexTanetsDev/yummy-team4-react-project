@@ -4,15 +4,16 @@ import {
   register,
   logOut,
   refreshUser,
-  // verifyEmail,
+  updateSubscription,
+  categoryList,
 } from './operations';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: null, email: null, avatarURL: '' },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
-  isRegistering: false,
+  categoryList: [],
 };
 
 const authSlice = createSlice({
@@ -20,10 +21,10 @@ const authSlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
-      .addCase(register.fulfilled, state => {
-        // state.user = action.payload.user;
-        // state.token = action.payload.token;
-        state.isRegistering = true;
+      .addCase(register.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
       })
       .addCase(signIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
@@ -31,7 +32,7 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(logOut.fulfilled, state => {
-        state.user = { name: null, email: null };
+        state.user = { name: null, email: null, avatarURL: '' };
         state.token = null;
         state.isLoggedIn = false;
       })
@@ -45,6 +46,12 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
+      })
+      .addCase(updateSubscription.fulfilled, (state, action) => {
+        state.user.subscription = action.payload.subscription;
+      })
+      .addCase(categoryList.fulfilled, (state, action) => {
+        state.categoryList = action.payload;
       }),
 });
 

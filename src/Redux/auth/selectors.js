@@ -5,4 +5,9 @@ export const selectUser = state => state.auth.user;
 export const selectIsRefreshing = state => state.auth.isRefreshing;
 
 export const selectVerificationToken = state => state.auth.verificationToken;
+
 export const selectToken = state => state.auth.token;
+
+export const selectSubscription = state => state.auth.user.subscription;
+
+export const selectCategoryList = state => state.auth.categoryList;

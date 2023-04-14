@@ -34,7 +34,6 @@ export const Header = styled.div`
   font-weight: 600;
   font-size: 12px;
   line-height: 18px;
-  /* identical to box height, or 150% */
 
   color: #fafafa;
 
@@ -83,7 +82,6 @@ export const Quantity = styled.div`
   line-height: 15px;
   font-weight: 600;
   color: #fafafa;
-  
 
   @media screen and (min-width: 768px) {
     min-width: 80px;
@@ -104,7 +102,6 @@ export const QuantityWrapper = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   gap: 50px;
-  
 
   @media screen and (min-width: 768px) {
     gap: 70px;
