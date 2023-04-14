@@ -62,7 +62,7 @@ export const Header = () => {
             <Avatar to="/">
               <AvatarImg src={User?.avatarURL} alt="avatar" />
             </Avatar>
-            <UserName>{User?.name}</UserName>
+            <UserName>{User.name}</UserName>
 
             <StyledThemeHeader onClick={handleTheme}>
               {theme ? (

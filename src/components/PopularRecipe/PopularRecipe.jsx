@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import { PopularApi } from '../../apiService';
-import { AlertMessage } from '../../components/AlertMessage/AlertMessage';
+import { MiniLoader } from 'components/Loader/Loader';
+import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import {
   ContainerPopular,
   Title,
@@ -17,15 +18,15 @@ import {
 } from './PopularRecipe.styled';
 
 export const PopularRecipe = () => {
-	const [popular, setPopular] = useState([]);
-	const [isLoading, setIsLoading] = useState(false);
-	const [error, setError] = useState(null);
+  const [popular, setPopular] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-	useEffect(() => {
-	    (async() => {
+  useEffect(() => {
+    (async () => {
       try {
         setIsLoading(true);
-        const data  = await PopularApi.fetchPopularList();
+        const data = await PopularApi.fetchPopularList();
         setPopular(data);
       } catch (error) {
         setError({ error });
@@ -43,7 +44,7 @@ export const PopularRecipe = () => {
         </AlertMessage>
       )}
       {isLoading ? (
-        <AlertMessage>Loading...</AlertMessage>
+        <MiniLoader />
       ) : (
         <>
           {popular.length > 0 ? (

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Toaster, toast } from 'react-hot-toast';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-hot-toast';
 
 import { Sections } from 'components/Sections/Sections';
 import { Container } from 'components/Container/Container';
@@ -41,18 +40,17 @@ const FavoritePage = () => {
     renderFavorite();
   }, []); // ---------------> page
 
-  // console.log(recipes);
+  // console.log(page);
 
   const handleDelete = async id => {
     try {
+      toast.error('Deleted from favorites');
+
       setIsLoading(true);
 
       await deleteFavoriteById(id);
 
-      toast.error('Deleted from favorites');
-
       const { data } = await getAllFavorite();
-
       setRecipes(data);
     } catch (error) {
       setError({ error });
@@ -63,9 +61,6 @@ const FavoritePage = () => {
 
   return (
     <>
-      <div>
-        <Toaster position="top-right" reverseOrder={false} />
-      </div>
       <Sections>
         <Container>
           {error && (

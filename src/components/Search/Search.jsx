@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 import { SearchMainPageBlack, SerchInput } from './Search.styled';
 
@@ -37,12 +37,10 @@ export function Search({ onSubmit }) {
         <SerchInput
           type="text"
           autoComplete="off"
-          placeholder="Beef"
           onChange={handleInputChange}
         />
 
         <SearchMainPageBlack>Search</SearchMainPageBlack>
-        <Toaster reverseOrder={true} />
       </form>
     </div>
   );
