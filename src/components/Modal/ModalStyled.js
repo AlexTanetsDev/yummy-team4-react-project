@@ -1,9 +1,33 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { modal } from '../../images/index';
+import { modal, modalMini } from '../../images/index';
 
 export const MobileMenu = styled.div`
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0);
+    background-image: url(${modalMini});
+    background-color: #ebf3d4;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: inherit;
+      transform: rotate(100deg);
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1443px) {
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -26,6 +50,7 @@ export const MobileMenu = styled.div`
       transform: rotate(100deg);
     }
   }
+
   display: none;
 `;
 
@@ -40,11 +65,20 @@ export const ModalHeader = styled.div`
 export const StyledLinkBurger = styled(NavLink)`
   font-family: 'Poppins';
   font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 24px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
   letter-spacing: -0.02em;
   color: #22252a;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  &:last-of-type {
+    display: flex;
+  }
 
   &.active {
     color: #8baa36;
@@ -87,6 +121,7 @@ export const Content = styled.div`
 `;
 
 export const StyledBurger = styled.button`
+  position: absolute;
   margin-left: auto;
   top: 0;
   right: ${p => p.theme.space(6)};
