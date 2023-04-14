@@ -33,10 +33,15 @@ export const App = () => {
   useEffect(() => {
     const handleRefreshUser = async () => {
       await dispatch(refreshUser());
-      dispatch(categoryList());
     };
     handleRefreshUser();
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(categoryList());
+    }
+  }, [dispatch, isLoggedIn]);
 
   return isRefreshing ? (
     <MainLoader />

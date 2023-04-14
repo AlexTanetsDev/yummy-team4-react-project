@@ -25,19 +25,11 @@ import { Modal } from '../Modal/Modal';
 export const Header = () => {
   const User = useSelector(state => state.auth.user);
   const [modalActive, setModalActive] = useState(false);
-	const [userModal, SetUserModal] = useState(false);
-  const [nav, setNav] = useState(false);
-  
-	const handleUserAvatarClsck = () => {
-		SetUserModal(!userModal);
- }
+  const [userModal, SetUserModal] = useState(false);
 
-
-  const handleButtonClick = () => {
-    setNav(!nav);
+  const handleUserAvatarClsck = () => {
+    SetUserModal(!userModal);
   };
-
-
 
   return (
     <StyledHeader>
