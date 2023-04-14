@@ -5,7 +5,7 @@ import { object, string } from 'yup';
 import { AiOutlineUser } from 'react-icons/ai';
 import { FiMail } from 'react-icons/fi';
 import { FiLock } from 'react-icons/fi';
-import { SingInButtonGreen } from "components/Button/Button";
+import { SingInButtonGreen } from 'components/Button/Button';
 import {
   StyledWrapper,
   ModalWrapper,
@@ -35,13 +35,13 @@ const registerSchema = object({
 });
 
 export const RegisterForm = () => {
-	const dispatch = useDispatch();
-	
-	const handleSubmit = async (values, { resetForm }) => {
-		await dispatch(register(values));
-		dispatch(categoryList());
-		resetForm();
-	};
+  const dispatch = useDispatch();
+
+  const handleSubmit = async (values, { resetForm }) => {
+    await dispatch(register(values));
+    dispatch(categoryList());
+    resetForm();
+  };
 
   return (
     <StyledWrapper>
@@ -54,7 +54,7 @@ export const RegisterForm = () => {
           validationSchema={registerSchema}
           onSubmit={handleSubmit}
         >
-          {({ values, errors, touched}) => (
+          {({ values, errors, touched }) => (
             <Form autoComplete="off">
               <InputWrapper>
                 <Field
@@ -64,23 +64,19 @@ export const RegisterForm = () => {
                   }`}
                   type="text"
                   name="name"
-                  placeholder="name"
+                  placeholder="Name"
                   values={values.name}
                 />
                 <IconWrap>
                   {window.innerWidth < 768 && (
                     <AiOutlineUser
-                      color={`${
-                        errors.name && touched.name ? 'red' : 'white'
-                      }`}
+                      color={`${errors.name && touched.name ? 'red' : 'white'}`}
                       size={20}
                     />
                   )}
                   {window.innerWidth >= 768 && (
                     <AiOutlineUser
-                      color={`${
-                        errors.name && touched.name ? 'red' : 'white'
-                      }`}
+                      color={`${errors.name && touched.name ? 'red' : 'white'}`}
                       size={24}
                     />
                   )}
@@ -99,7 +95,7 @@ export const RegisterForm = () => {
                   name="email"
                   type="email"
                   inputmode="email"
-                  placeholder="email"
+                  placeholder="Email"
                   values={values.email}
                 />
                 <IconWrap>
@@ -145,7 +141,7 @@ export const RegisterForm = () => {
                   }`}
                   type="password"
                   name="password"
-                  placeholder="password"
+                  placeholder="Password"
                 />
                 <IconWrap>
                   {window.innerWidth < 768 && (

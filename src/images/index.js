@@ -40,6 +40,8 @@ import rightSpinachMobile1x from './rightSpinachMobile-1x.png';
 import rightSpinachMobile2x from './rightSpinachMobile-2x.png';
 import tick from './tick.svg';
 import modal from './modal.png';
+import modalMini from './modalMini.png';
+
 export {
   leftSpinachDesktop1x,
   leftSpinachDesktop2x,
@@ -83,4 +85,5 @@ export {
   circleDark,
   tick,
   modal,
+  modalMini,
 };
