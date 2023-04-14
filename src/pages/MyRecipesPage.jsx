@@ -6,7 +6,7 @@ import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { MyRecipesList } from 'components/MyRecipesList/MyResipesList';
 import { MyRecipesItem } from 'components/MyRecipesItem/MyRecipesItem';
 import { AlertMessage } from '../components/AlertMessage/AlertMessage';
-import RecipesPagination from 'components/Paginator/Paginator';
+import { RecipesPagination } from 'components/Paginator/Paginator';
 import { OwnRecipeApi } from '../apiService';
 import { Toaster, toast } from 'react-hot-toast';
 import { MiniLoader } from 'components/Loader/Loader';
