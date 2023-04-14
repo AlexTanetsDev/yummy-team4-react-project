@@ -8,27 +8,31 @@ import {
   StyledThemeBtn,
   Content,
   StyledBurger,
+ ModalHeader
 } from './ModalStyled';
+import {SearchIcon} from "../Header/Header.styled"
 import Dark from '../../images/Switch-dark.svg';
 import Light from '../../images/Switch-light.svg';
-import { BsSearch } from 'react-icons/bs';
+
 import { useState } from 'react';
 import { LogoHeader } from 'components/Logo/Logo';
 import { IoMdClose } from 'react-icons/io';
 
 export const Modal = ({ active, setActive }) => {
-  const [theme, setTheme] = useState(true);
+  const [theme, setTheme] = useState(false);
   const handleTheme = () => {
     setTheme(!theme);
   };
 
   return (
-    <MobileMenu
+  
+          <MobileMenu
       className={active ? 'modal active' : 'modal'}
       onClick={() => {
         setActive(false);
       }}
     >
+    <ModalHeader>
       <LogoHeader />
       <StyledBurger
         onClick={() => {
@@ -36,9 +40,10 @@ export const Modal = ({ active, setActive }) => {
         }}
         // onClick={handleButtonClick}
       >
-        <IoMdClose />
+        <IoMdClose style={{ width: '32px', height: '32px' }} />
       </StyledBurger>
-
+      </ModalHeader>
+      
       <Content className="modal_content" onClick={evt => evt.stopPropagation()}>
         <StyledNavBurger>
           <StyledLinkBurger to="/categories/Beef" onClick={() => {
@@ -59,7 +64,7 @@ export const Modal = ({ active, setActive }) => {
           <StyledLinkBurger to="/search" onClick={() => {
         setActive(false);
       }}>
-            <BsSearch /> Search
+            <SearchIcon /> Search
           </StyledLinkBurger>
         </StyledNavBurger>
         <ThemeModalDiv>
@@ -71,7 +76,9 @@ export const Modal = ({ active, setActive }) => {
             )}
           </StyledThemeBtn>
         </ThemeModalDiv>
-      </Content>
-    </MobileMenu>
+        </Content>
+       
+      </MobileMenu>
+   
   );
 };
