@@ -5,6 +5,7 @@ import { categoryList, signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
 import { FiMail } from 'react-icons/fi';
 import { FiLock } from 'react-icons/fi';
+import { SingInButtonGreen } from "components/Button/Button";
 import {
   StyledWrapper,
   ImageReg,
@@ -51,7 +52,7 @@ export const SignInForm = () => {
           validationSchema={signInSchema}
           onSubmit={handleSubmit}
         >
-          {({ values, errors, touched, isSubmitting, handleChange }) => (
+          {({ values, errors, touched }) => (
             <Form>
               <InputWrapper>
                 <Field
@@ -61,14 +62,14 @@ export const SignInForm = () => {
                   }`}
                   name="email"
                   type="text"
-                  placeholder="email"
+                  placeholder="Email"
                   values={values.email}
                 />
                 <IconWrap>
                   {window.innerWidth < 768 && (
                     <FiMail
                       color={`${
-                        errors.password && touched.password ? 'red' : 'white'
+                        errors.email && touched.email ? 'red' : 'white'
                       }`}
                       size={20}
                     />
@@ -76,7 +77,7 @@ export const SignInForm = () => {
                   {window.innerWidth >= 768 && (
                     <FiMail
                       color={`${
-                        errors.password && touched.password ? 'red' : 'white'
+                        errors.email && touched.email ? 'red' : 'white'
                       }`}
                       size={24}
                     />
@@ -97,7 +98,7 @@ export const SignInForm = () => {
                   }`}
                   type="password"
                   name="password"
-                  placeholder="password"
+                  placeholder="Password"
                 />
                 <IconWrap>
                   {window.innerWidth < 768 && (
@@ -144,9 +145,9 @@ export const SignInForm = () => {
                 {errors.name && touched.name && (
                   <p className="sing-up__inp_error-mess">{errors.password}</p>
                 )}
-                {/* <FormError name="password" component="div" /> */}
+                <FormError name="password" component="div" />
               </InputWrapper>
-              <Button type="submit">Sign in</Button>
+              <SingInButtonGreen type="submit">Sign in</SingInButtonGreen>
             </Form>
           )}
         </Formik>

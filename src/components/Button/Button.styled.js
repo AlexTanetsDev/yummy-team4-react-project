@@ -96,28 +96,34 @@ export const SingInBtn = styled(NavLink)`
 `;
 
 export const SingInBtnGreen = styled.button`
-  padding: 12px 106px;
+  display: block;
+  margin-top: 28px;
   width: 279px;
-  background-color: ${p => p.theme.colors.firstAccentColor};
+  height: 45px;
   color: ${p => p.theme.colors.mainBgColor};
-  font-family: 'Poppins';
-  font-size: ${p => p.theme.fontSizes.xl}px;
-  line-height: 18px;
   border-radius: 6px;
-  border: ${p => p.theme.border.greenBtnBorder};
+  border-color: transparent;
+  background-color: ${p => p.theme.colors.firstAccentColor};
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
   @media (min-width: 768px) {
-    padding: 18px 170px;
+    margin-top: 50px;
     width: 400px;
+    height: 59px;
   }
-  @media (min-width: 1440px) {
-    padding: 19px 170px;
+  @media (max-width: 1440px) and (max-height: 940px) {
+    margin-top: 28px;
+    width: 279px;
+    height: 45px;
+    color: ${p => p.theme.colors.mainBgColor};
+    border-radius: 6px;
+    border-color: transparent;
+    background-color: ${p => p.theme.colors.firstAccentColor};
   }
 
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.secondAccentColor};
+    background-color: ${p => p.theme.colors.darkBgColor};
+    color: ${p => p.theme.colors.firstAccentColor};
     outline: none;
   }
 `;

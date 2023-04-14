@@ -19,13 +19,20 @@ export const register = createAsyncThunk(
       const response = await axios.post('api/users/register', credentials);
       setAuthHeader(response.data.token);
       const result = response.data;
-      toast.success(result.message, {
-        duration: 4000,
-      });
       return result;
     } catch (error) {
       toast.error(error.response.data.message, {
         duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
       });
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -40,7 +47,19 @@ export const signIn = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
-      console.log(error.response.data.message);
+      toast.error(error.response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }

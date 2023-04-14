@@ -5,11 +5,11 @@ import { object, string } from 'yup';
 import { AiOutlineUser } from 'react-icons/ai';
 import { FiMail } from 'react-icons/fi';
 import { FiLock } from 'react-icons/fi';
+import { SingInButtonGreen } from "components/Button/Button";
 import {
   StyledWrapper,
   ModalWrapper,
   InputField,
-  Button,
   Title,
   ImageReg,
   BottomBgImage,
@@ -52,7 +52,7 @@ export const RegisterForm = () => {
           validationSchema={registerSchema}
           onSubmit={handleSubmit}
         >
-          {({ values, errors, touched, isSubmitting, handleChange }) => (
+          {({ values, errors, touched}) => (
             <Form autoComplete="off">
               <InputWrapper>
                 <Field
@@ -69,7 +69,7 @@ export const RegisterForm = () => {
                   {window.innerWidth < 768 && (
                     <AiOutlineUser
                       color={`${
-                        errors.password && touched.password ? 'red' : 'white'
+                        errors.name && touched.name ? 'red' : 'white'
                       }`}
                       size={20}
                     />
@@ -77,7 +77,7 @@ export const RegisterForm = () => {
                   {window.innerWidth >= 768 && (
                     <AiOutlineUser
                       color={`${
-                        errors.password && touched.password ? 'red' : 'white'
+                        errors.name && touched.name ? 'red' : 'white'
                       }`}
                       size={24}
                     />
@@ -104,7 +104,7 @@ export const RegisterForm = () => {
                   {window.innerWidth < 768 && (
                     <FiMail
                       color={`${
-                        errors.password && touched.password ? 'red' : 'white'
+                        errors.email && touched.email ? 'red' : 'white'
                       }`}
                       size={20}
                     />
@@ -112,7 +112,7 @@ export const RegisterForm = () => {
                   {window.innerWidth >= 768 && (
                     <FiMail
                       color={`${
-                        errors.password && touched.password ? 'red' : 'white'
+                        errors.email && touched.email ? 'red' : 'white'
                       }`}
                       size={24}
                     />
@@ -187,7 +187,7 @@ export const RegisterForm = () => {
                 <FormError name="password" component="div" />
               </InputWrapper>
 
-              <Button type="submit">Sign up</Button>
+              <SingInButtonGreen type="submit">Sign up</SingInButtonGreen>
             </Form>
           )}
         </Formik>

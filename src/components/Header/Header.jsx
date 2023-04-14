@@ -54,9 +54,9 @@ export const Header = () => {
 
           <Headerblock>
             <Avatar to="/">
-              <img src={User?.avatarURL} alt="avatar" />
+              <img src={User.avatarURL} alt="avatar" />
             </Avatar>
-            <UserName>{User?.name}</UserName>
+            <UserName>{User.name}</UserName>
 
             <StyledThemeHeader onClick={handleTheme}>
               {theme ? (
