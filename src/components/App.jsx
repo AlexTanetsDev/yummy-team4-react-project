@@ -16,15 +16,14 @@ const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const SignInPage = lazy(() => import('../pages/SignInPage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
 const CategoriesPage = lazy(() => import('../pages/CategoriesPage'));
-const AddRecipePage = lazy(() =>
-  import('../pages/AddRecipesPage/AddRecipesPage')
-);
+const AddRecipePage = lazy(() => import('../pages/AddRecipesPage'));
 const FavoritePage = lazy(() => import('../pages/FavoritePage'));
 const RecipePage = lazy(() => import('../pages/RecipePage'));
 const MyRecipesPage = lazy(() => import('../pages/MyRecipesPage'));
 const SearchPage = lazy(() => import('../pages/SearchPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+const ErrorPage = lazy(() => import('../pages/ErrorPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -79,7 +78,7 @@ export const App = () => {
             <Route path="shopping-list" element={<ShoppingListPage />} />
           </>
         ) : (
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<ErrorPage />} />
         )}
         <Route path="*" element={<NotFoundPage />} />
       </Route>

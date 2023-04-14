@@ -1,10 +1,9 @@
 import styled from 'styled-components';
+import Select from 'react-select';
 import Icon from '../../images/chevron-up.svg';
 
 export const IngridientsContainer = styled.div`
   display: flex;
-  // align-items: center;
-  // justify-content: center;
   flex-direction: column;
   margin-bottom: 67px;
 `;
@@ -85,6 +84,17 @@ export const IngridientFields = styled.div`
   flex-wrap: wrap;
 `;
 
+export const StyledSelect = styled(Select)`
+  .select__container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .select__single-value {
+    color: black;
+  }
+`;
+
 export const IngridientNameContainer = styled.div`
   position: relative;
   width: 193px;
@@ -92,8 +102,6 @@ export const IngridientNameContainer = styled.div`
 
   @media screen and (max-width: 372px) {
     margin-bottom: 8px;
-    // width: 193px;
-    // height: 53px;
   }
 
   @media screen and (min-width: 768px) {
@@ -158,20 +166,15 @@ export const ContainerNumberQuantity = styled.div`
   top: 0;
   bottom: 0;
   left: 0;
+  right: 62%;
   z-index: 2;
-
-  width: 32px;
-
-  @media screen and (min-width: 768px) {
-    width: 38px;
-  }
 `;
 
 export const InputQuantity = styled.input`
   background-color: transparent;
 
   width: 100%;
-  height: 53px;
+  height: 100%;
 
   border: none;
   outline: none;
@@ -186,6 +189,10 @@ export const InputQuantity = styled.input`
   &:invalid {
     border: 1px solid gba(231, 74, 59, 1);
   }
+
+  // overflow: hidden;
+  // white-space: nowrap;
+  // text-overflow: ellipsis;
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
@@ -290,7 +297,6 @@ export const Error = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 10;
   border: 2px solid #e74a3b;
   border-radius: 6px;
   pointer-events: none;

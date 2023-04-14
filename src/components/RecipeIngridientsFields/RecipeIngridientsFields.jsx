@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FieldArray, Field } from 'formik';
 import { FiMinus, FiPlus, FiX } from 'react-icons/fi';
 
-import { AlertMessage } from '../../components/AlertMessage/AlertMessage';
+import { CustomSelect } from '../CustomSelect/CustomSelect';
 import { IngredientsApi } from '../../apiService';
 import {
   IngridientsContainer,
@@ -14,11 +14,8 @@ import {
   IngridientContainer,
   IngridientFields,
   IngridientNameContainer,
-  InputIngridientName,
   QuantityContainer,
   InputQuantity,
-  InputMeasure,
-  Option,
   ContainerNumberQuantity,
   DeleteBtnContainer,
   DeleteButton,
@@ -26,6 +23,183 @@ import {
   Label,
   Error,
 } from './RecipeIngridientsFields.styled';
+
+const Units = [
+  {
+    label: 'tbs',
+    value: 'tbs',
+  },
+  {
+    label: 'tsp',
+    value: 'tsp',
+  },
+  {
+    label: 'kg',
+    value: 'kg',
+  },
+  {
+    label: 'g',
+    value: 'g',
+  },
+];
+
+const IngredientInputStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    fontFamily: 'Poppins',
+    paddingBottom: 6,
+    fontSize: 12,
+    lineHeight: 1.5,
+    letterSpacing: '-0.02em',
+    opacity: 0.5,
+    color: state.isSelected ? '#8baa36' : '#000000',
+    backgroundColor: state.isSelected ? 'transparent' : 'white',
+
+    '@media screen and (min-width: 768px)': {
+      fontSize: 14,
+    },
+  }),
+  control: (provided, state) => ({
+    ...provided,
+    width: '100%',
+    fontFamily: 'Poppins',
+    fontSize: 14,
+    lineHeight: 1.235,
+    letterSpacing: '-0.02em',
+    color: '#000000',
+    borderRadius: '6px',
+    backgroundColor: '#D9D9D9',
+    padding: 16,
+    paddingRight: 12,
+
+    '@media screen and (min-width: 768px)': {
+      fontSize: 18,
+      lineHeight: 1.5,
+      paddingLeft: 18,
+      paddingRight: 18,
+    },
+  }),
+  menu: (provided, state) => ({
+    ...provided,
+    width: '100%',
+    overflow: 'auto',
+    borderRadius: '6px',
+    backgroundColor: '#ffffff',
+    paddingLeft: 18,
+    paddingTop: 8,
+    paddingBottom: 8,
+    boxShadow: '0 6.5px 7.8px rgba(0, 0, 0, 0.0314074)',
+  }),
+  placeholder: provided => ({
+    ...provided,
+    opacity: 0.5,
+  }),
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    color: '#8BAA36',
+  }),
+  menuList: provided => ({
+    ...provided,
+
+    maxHeight: '138px',
+    overflowY: 'auto',
+
+    '@media screen and (min-width: 768px)': {
+      maxHeight: '154px',
+    },
+
+    '&::-webkit-scrollbar': {
+      width: '4px',
+    },
+    '&::-webkit-scrollbar-track': {
+      // background: '#E7E5E5',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      background: '#E7E5E5',
+      borderRadius: 12,
+    },
+  }),
+};
+
+const UnitInputStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    paddingBottom: 6,
+    fontFamily: 'Poppins',
+    fontSize: 12,
+    lineHeight: 1.5,
+    letterSpacing: '-0.02em',
+    opacity: 0.5,
+    color: state.isSelected ? '#8baa36' : '#000000',
+    backgroundColor: state.isSelected ? 'transparent' : 'white',
+
+    '@media screen and (min-width: 768px)': {
+      fontSize: 14,
+      lineHeight: 1.5,
+    },
+  }),
+  control: (provided, state) => ({
+    ...provided,
+    width: '100%',
+    fontFamily: 'Poppins',
+    fontSize: 14,
+    lineHeight: 1.235,
+    letterSpacing: '-0.02em',
+    color: '#000000',
+    borderRadius: '6px',
+    backgroundColor: '#D9D9D9',
+    paddingTop: 16,
+    paddingBottom: 16,
+    paddingRight: 10,
+    paddingLeft: 32,
+
+    '@media screen and (min-width: 768px)': {
+      fontSize: 18,
+      lineHeight: 1.5,
+      paddingLeft: 42,
+      paddingRight: 14,
+    },
+  }),
+  menu: (provided, state) => ({
+    ...provided,
+    width: '100%',
+    overflow: 'auto',
+    borderRadius: '6px',
+    backgroundColor: '#ffffff',
+    paddingLeft: 32,
+    paddingTop: 8,
+    paddingBottom: 8,
+    boxShadow: '0 6.5px 7.8px rgba(0, 0, 0, 0.0314074)',
+
+    '@media screen and (min-width: 768px)': {
+      paddingLeft: 40,
+    },
+  }),
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    color: '#8BAA36',
+  }),
+  menuList: provided => ({
+    ...provided,
+    maxHeight: '138px',
+    overflowY: 'auto',
+
+    '@media screen and (min-width: 768px)': {
+      maxHeight: '154px',
+    },
+
+    '&::-webkit-scrollbar': {
+      width: '4px',
+    },
+    '&::-webkit-scrollbar-track': {
+      // background: '#E7E5E5',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      background: '#E7E5E5',
+      borderRadius: 12,
+    },
+  }),
+};
 
 export const RecipeIngridientsFields = ({ formik }) => {
   const [ingredients, setIngredients] = useState([]);
@@ -37,7 +211,11 @@ export const RecipeIngridientsFields = ({ formik }) => {
       try {
         setIsLoading(true);
         const data = await IngredientsApi.fetchIngredientsList();
-        setIngredients(data);
+        const ingredientsObj = data.map(ingredient => ({
+          value: ingredient._id,
+          label: ingredient.ttl,
+        }));
+        setIngredients(ingredientsObj);
       } catch (error) {
         setError({ error });
       } finally {
@@ -93,18 +271,20 @@ export const RecipeIngridientsFields = ({ formik }) => {
                     <IngridientNameContainer>
                       <Label htmlFor={`ingredients.${index}.name`}></Label>
                       <Field
-                        as={InputIngridientName}
+                        as={CustomSelect}
+                        options={ingredients}
+                        customStyles={IngredientInputStyles}
+                        label={'Ingredient...'}
                         name={`ingredients.${index}.name`}
                         id={`ingredients.${index}.name`}
-                      >
-                        <Option value="">Select ingredient</Option>
-                        {!error &&
-                          ingredients.map((ingredient, index) => (
-                            <Option key={index} value={ingredient._id}>
-                              {ingredient.ttl}
-                            </Option>
-                          ))}
-                      </Field>
+                        onChange={option => {
+                          formik.setFieldValue(
+                            `ingredients.${index}.name`,
+                            option.value
+                          );
+                        }}
+                        required
+                      ></Field>
                       {formik.touched.ingredients &&
                       formik.touched.ingredients[index] &&
                       formik.touched.ingredients[index].name &&
@@ -124,7 +304,6 @@ export const RecipeIngridientsFields = ({ formik }) => {
                           as={InputQuantity}
                           id={`ingredients.${index}.quantity`}
                           name={`ingredients.${index}.quantity`}
-                          // placeholder="Enter quantity"
                           type="number"
                           maxlength="3"
                           min="0"
@@ -134,17 +313,22 @@ export const RecipeIngridientsFields = ({ formik }) => {
                       <ContainerMeasure>
                         <Label htmlFor={`ingredients.${index}.unit`}></Label>
                         <Field
-                          as={InputMeasure}
-                          id={`ingredients.${index}.unit`}
+                          as={CustomSelect}
+                          options={Units}
+                          defaultValue={Units[0].value}
+                          label={Units[0].label}
+                          customStyles={UnitInputStyles}
+                          isSearchable={false}
                           name={`ingredients.${index}.unit`}
-                        >
-                          <Option value="tbs">tbs</Option>
-                          <Option value="tsp">tsp</Option>
-                          <Option value="kg">kg</Option>
-                          <Option value="g">g</Option>
-                          {/* <OptionMeasure value="l">l</OptionMeasure>
-                          <OptionMeasure value="ml">ml</OptionMeasure> */}
-                        </Field>
+                          id={`ingredients.${index}.unit`}
+                          onChange={option => {
+                            formik.setFieldValue(
+                              `ingredients.${index}.unit`,
+                              option.value
+                            );
+                          }}
+                          required
+                        ></Field>
                       </ContainerMeasure>
                       {formik.touched.ingredients &&
                       formik.touched.ingredients[index] &&

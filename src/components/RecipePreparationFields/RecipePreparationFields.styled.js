@@ -70,7 +70,6 @@ export const Error = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 10;
   border: 2px solid #e74a3b;
   border-radius: 6px;
   pointer-events: none;
