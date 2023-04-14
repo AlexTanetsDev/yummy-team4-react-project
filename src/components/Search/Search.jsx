@@ -37,7 +37,6 @@ export function Search({ onSubmit }) {
         <SerchInput
           type="text"
           autoComplete="off"
-          placeholder="Beef"
           onChange={handleInputChange}
         />
 
