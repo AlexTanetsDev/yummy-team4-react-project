@@ -15,62 +15,13 @@ export const StyledWrapper = styled.div`
   background-color: ${p => p.theme.colors.lightBgColor};
 `;
 
-export const ImageReg = styled.div`
-  position: absolute;
-  top: 125px;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 87px;
-  width: 285px;
-  height: 250px;
-  z-index: 9;
-  background-image: url(${mainRegImgMob});
-  @media (min-width: 768px) {
-    top: 19%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 87px;
-    width: 409px;
-    height: 359px;
-    background-image: url(${mainRegImgTab});
-  }
-
-  @media (max-width: 1440px) and (max-height: 940px) {
-    position: absolute;
-    top: 125px;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 87px;
-    width: 285px;
-    height: 250px;
-    z-index: 9;
-    background-image: url(${mainRegImgMob});
-  }
-
-  @media (min-width: 1440px) {
-    top: 35%;
-    left: 50%;
-    transform: translate(-110%, -50%);
-    width: 532px;
-    height: 468px;
-    background-image: url(${mainRegImg});
-    background-size: contain;
-  }
-`;
-
 export const BottomBgImage = styled.div`
   position: absolute;
   left: 50%;
   top: 100%;
   transform: translate(-50%, -100%);
   width: 100vw;
-  height: 490px;
+  height: 50%;
   background-image: url(${bottomRegImgMob});
   background-repeat: no-repeat;
   background-size: cover;
@@ -80,22 +31,66 @@ export const BottomBgImage = styled.div`
   }
 
   @media (min-width: 1440px) {
-    height: 325px;
+    height: 50%;
     background-image: url(${bottomRegImg});
   }
 
   @media (min-width: 1440px) and (min-height: 771px) {
-    height: 425px;
+    height: 50%;
     background-image: url(${bottomRegImg});
   } ;
 `;
 
-export const ModalWrapper = styled.div`
+export const ContentWrapper = styled.div`
   position: absolute;
-  top: 480px;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media (min-width: 1440px) {
+    display: flex;
+    left: 47%;
+  }
+`;
+
+export const ImageReg = styled.div`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 285px;
+  height: 250px;
+  z-index: 9;
+  background-image: url(${mainRegImgMob});
+  @media (min-width: 768px) {
+    width: 409px;
+    height: 359px;
+    background-image: url(${mainRegImgTab});
+  }
+
+  @media (max-width: 1440px) and (max-height: 940px) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 285px;
+    height: 250px;
+    z-index: 9;
+    background-image: url(${mainRegImgMob});
+  }
+
+  @media (min-width: 1440px) {
+    width: 532px;
+    height: 468px;
+    margin-right: 115px;
+    background-image: url(${mainRegImg});
+    background-size: contain;
+  }
+`;
+
+export const ModalWrapper = styled.div``;
+
+export const Modal = styled.div`
   height: 350px;
+  margin-top: -30px;
+  margin-bottom: 18px;
   padding-top: 32px;
   padding-bottom: 40px;
   padding-left: 28px;
@@ -104,10 +99,8 @@ export const ModalWrapper = styled.div`
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   @media (min-width: 768px) {
-    top: 64%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     height: 481px;
+    margin-top: -15px;
     padding-top: 44px;
     padding-bottom: 44px;
     padding-left: 50px;
@@ -115,11 +108,8 @@ export const ModalWrapper = styled.div`
   }
 
   @media (max-width: 1440px) and (max-height: 940px) {
-    position: absolute;
-    top: 480px;
-    left: 50%;
-    transform: translate(-50%, -50%);
     height: 350px;
+    margin-top: -30px;
     padding-top: 32px;
     padding-bottom: 40px;
     padding-left: 28px;
@@ -130,9 +120,7 @@ export const ModalWrapper = styled.div`
   }
 
   @media (min-width: 1440px) {
-    top: 48%;
-    left: 50%;
-    transform: translate(10%, -50%);
+    margin-top: 0;
   } ;
 `;
 
@@ -158,7 +146,7 @@ export const InputWrapper = styled.div`
 
 export const InputField = styled.input`
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   width: 279px;
   height: 45px;
   padding-left: 40px;
@@ -172,14 +160,14 @@ export const InputField = styled.input`
   }
 
   @media (min-width: 768px) {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
     padding-left: 50px;
     width: 400px;
     height: 59px;
   }
 
   @media (max-width: 1440px) and (max-height: 940px) {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     width: 279px;
     height: 45px;
     padding-left: 40px;
@@ -226,18 +214,11 @@ export const StateInputIcon = styled.img`
 `;
 
 export const Link = styled(NavLink)`
-  position: absolute;
-  top: 380px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: block;
+
+  text-align: center;
   color: ${p => p.theme.colors.mainBgColor};
   opacity: 0.8;
-  @media (min-width: 768px) {
-    top: 520px;
-  }
-  @media (max-width: 1440px) and (max-height: 940px) {
-    top: 380px;
-  }
   &:hover {
     opacity: 1;
   }

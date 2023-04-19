@@ -8,7 +8,8 @@ import { FiLock } from 'react-icons/fi';
 import { SingInButtonGreen } from 'components/Button/Button';
 import {
   StyledWrapper,
-  ModalWrapper,
+	ModalWrapper,
+	Modal,
   InputField,
   Title,
   ImageReg,
@@ -16,7 +17,8 @@ import {
   Link,
   InputWrapper,
   IconWrap,
-  StateInputIcon,
+	StateInputIcon,
+	ContentWrapper
 } from './RegisterForm.styled';
 import '../../styles/styles.css';
 import { FormError } from 'components/FormError/FormError';
@@ -67,9 +69,11 @@ export const RegisterForm = () => {
             <MainLoader />
           ) : (
             <StyledWrapper>
-              <ImageReg />
-              <BottomBgImage />
-              <ModalWrapper>
+							<BottomBgImage />
+							<ContentWrapper>
+							<ImageReg />
+							<ModalWrapper>
+              <Modal>
                 <Title>Registration</Title>
                 <Formik
                   initialValues={initialValues}
@@ -85,7 +89,11 @@ export const RegisterForm = () => {
                             errors.name && touched.name
                               ? 'sign-up__inp_error'
                               : ''
-                          }`}
+                          } ${
+                            !errors.name && touched.name
+                              ? 'sign-up__inp_suc'
+                              : ''
+                          }`}	
                           type="text"
                           name="name"
                           placeholder="Name"
@@ -94,16 +102,18 @@ export const RegisterForm = () => {
                         <IconWrap>
                           {window.innerWidth < 768 && (
                             <AiOutlineUser
-                              color={`${
-                                errors.name && touched.name ? 'red' : 'white'
+                              color={`${(!touched.name && 'white') ||
+																				(errors.name && touched.name && '#e74a3b') ||
+																				(!errors.name && touched.name && '#3cbc81')
                               }`}
                               size={20}
                             />
                           )}
                           {window.innerWidth >= 768 && (
                             <AiOutlineUser
-                              color={`${
-                                errors.name && touched.name ? 'red' : 'white'
+                              color={`${(!touched.name && 'white') ||
+																				(errors.name && touched.name && '#e74a3b') ||
+																				(!errors.name && touched.name && '#3cbc81')
                               }`}
                               size={24}
                             />
@@ -111,7 +121,10 @@ export const RegisterForm = () => {
                         </IconWrap>
                         {errors.name && touched.name && (
                           <StateInputIcon src={errorIcon} />
-                        )}
+														)}
+												{!errors.name && touched.name && (
+															<StateInputIcon src={succesIcon} />
+												)}	
                         <FormError name="name" component="div" />
                       </InputWrapper>
                       <InputWrapper>
@@ -121,7 +134,11 @@ export const RegisterForm = () => {
                             errors.email && touched.email
                               ? 'sign-up__inp_error'
                               : ''
-                          }`}
+                          } ${
+                            !errors.email && touched.email
+                              ? 'sign-up__inp_suc'
+                              : ''
+                          }`}	
                           name="email"
                           type="email"
                           inputmode="email"
@@ -131,16 +148,18 @@ export const RegisterForm = () => {
                         <IconWrap>
                           {window.innerWidth < 768 && (
                             <FiMail
-                              color={`${
-                                errors.email && touched.email ? 'red' : 'white'
+                              color={`${(!touched.email && 'white') ||
+																				(errors.email && touched.email && '#e74a3b') ||
+																				(!errors.email && touched.email && '#3cbc81')
                               }`}
                               size={20}
                             />
                           )}
                           {window.innerWidth >= 768 && (
                             <FiMail
-                              color={`${
-                                errors.email && touched.email ? 'red' : 'white'
+                              color={`${(!touched.email && 'white') ||
+																				(errors.email && touched.email && '#e74a3b') ||
+																				(!errors.email && touched.email && '#3cbc81')
                               }`}
                               size={24}
                             />
@@ -148,11 +167,18 @@ export const RegisterForm = () => {
                         </IconWrap>
                         {errors.email && touched.email && (
                           <StateInputIcon src={errorIcon} />
-                        )}
+														)}
+												{!errors.email && touched.email && (
+															<StateInputIcon src={succesIcon} />
+												)}		
                         <FormError name="email" component="div" />
                       </InputWrapper>
                       <InputWrapper>
-                        <Field
+												<Field
+                          type="password"
+                          name="password"
+													placeholder="Password"
+                          values={values.password}																	
                           as={InputField}
                           className={`sign-up__inp ${
                             errors.password && touched.password
@@ -161,65 +187,62 @@ export const RegisterForm = () => {
                           } ${
                             0 < values.password.length &&
                             values.password.length < 8 &&
-                            !touched.password
+                            !errors.password
                               ? 'sign-up__inp_war'
                               : ''
                           } ${
-                            8 <= values.password.length && !touched.password
+                            8 <= values.password.length && !errors.password
                               ? 'sign-up__inp_suc'
                               : ''
-                          }`}
-                          type="password"
-                          name="password"
-                          placeholder="Password"
+                          }`}																
                         />
                         <IconWrap>
                           {window.innerWidth < 768 && (
                             <FiLock
                               className="input-icon__mobile"
-                              color={`${
-                                errors.password && touched.password
-                                  ? 'red'
-                                  : 'white'
-                              }`}
+                              color={`${(!touched.password && 'white') ||
+																				(errors.password && touched.password && '#e74a3b') ||
+																        (6 <= values.password.length && values.password.length < 8 && '#f6c23e') ||
+																        (8 <= values.password.length && '#3cbc81')
+                                    }`}
                               size={20}
                             />
                           )}
                           {window.innerWidth >= 768 && (
                             <FiLock
                               className="input-con"
-                              color={`${
-                                errors.password && touched.password
-                                  ? 'red'
-                                  : 'white'
-                              }`}
+                              color={`${(!touched.password && 'white') ||
+																				(errors.password && touched.password && '#e74a3b') ||
+																        (6 <= values.password.length && values.password.length < 8 && '#f6c23e') ||
+																        (8 <= values.password.length && '#3cbc81')
+                                    }`}
                               size={24}
                             />
                           )}
                         </IconWrap>
-                        {0 < values.password.length &&
-                          values.password.length < 8 &&
-                          !touched.password && (
+                        {6 <= values.password.length &&
+                          values.password.length < 8 && !errors.password &&
+                           (
                             <StateInputIcon src={warningIcon} />
                           )}
-                        {0 < values.password.length &&
-                          values.password.length < 8 &&
-                          !touched.password && (
+                        {6 <= values.password.length &&
+                          values.password.length < 8 && !errors.password &&
+                           (
                             <p className="sing-up__inp_war-mess">
                               Your password is little secure
                             </p>
                           )}
-                        {8 <= values.password.length && !touched.password && (
+                        {8 <= values.password.length && !errors.password && (
                           <StateInputIcon src={succesIcon} />
                         )}
-                        {8 <= values.password.length && !touched.password && (
+                        {8 <= values.password.length && !errors.password && (
                           <p className="sing-up__inp_suc-mess">
                             Password is secure
                           </p>
                         )}
                         {errors.password && touched.password && (
                           <StateInputIcon src={errorIcon} />
-                        )}
+												)}
                         <FormError name="password" component="div" />
                       </InputWrapper>
 
@@ -229,8 +252,10 @@ export const RegisterForm = () => {
                     </Form>
                   )}
                 </Formik>
-                <Link to="/signin">Sign in</Link>
-              </ModalWrapper>
+									</Modal>
+									<Link to="/signin">Sign in</Link>
+								</ModalWrapper>			
+								</ContentWrapper>
             </StyledWrapper>
           )}
         </>

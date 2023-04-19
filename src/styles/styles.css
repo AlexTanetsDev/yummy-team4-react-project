@@ -38,7 +38,7 @@
 
 .sing-up__inp_war-mess {
   position: absolute;
-  top: 40px;
+  top: 45px;
   font-size: 10px;
   line-height: 21px;
   color: #f6c23e;
@@ -60,7 +60,7 @@
 
 .sing-up__inp_suc-mess {
   position: absolute;
-  top: 41px;
+  top: 45px;
   font-size: 10px;
   line-height: 21px;
   color: #3cbc81;
@@ -82,7 +82,7 @@
 
 .sing-up__inp_error-mess {
   position: absolute;
-  top: 40px;
+  top: 45spx;
   font-size: 10px;
   line-height: 21px;
   color: #e74a3b;
