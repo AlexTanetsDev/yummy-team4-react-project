@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { AiOutlineUser } from 'react-icons/ai';
+import { FiMail } from 'react-icons/fi';
+import { FiLock } from 'react-icons/fi';
 import {
   mainRegImgMob,
   mainRegImgTab,
@@ -21,17 +24,17 @@ export const BottomBgImage = styled.div`
   top: 100%;
   transform: translate(-50%, -100%);
   width: 100vw;
-  height: 50%;
+  height: 58%;
   background-image: url(${bottomRegImgMob});
   background-repeat: no-repeat;
   background-size: cover;
   @media (min-width: 768px) {
-    height: 606px;
+    height: 59%;
     background-image: url(${bottomRegImgTab});
   }
 
   @media (min-width: 1440px) {
-    height: 50%;
+    height: 43%;
     background-image: url(${bottomRegImg});
   }
 
@@ -120,7 +123,7 @@ export const Modal = styled.div`
   }
 
   @media (min-width: 1440px) {
-    margin-top: 0;
+    margin-top: 20px;
   } ;
 `;
 
@@ -153,7 +156,7 @@ export const InputField = styled.input`
   padding-right: 30px;
   color: ${p => p.theme.colors.mainBgColor};
   background-color: ${p => p.theme.colors.thirdAccentColor};
-  border: solid 1px ${p => p.theme.colors.mainBgColor};
+  border-color: ${props => props.brdcolor};
   border-radius: 6px;
   opacity: 0.8;
   &:hover {
@@ -222,5 +225,71 @@ export const Link = styled(NavLink)`
   opacity: 0.8;
   &:hover {
     opacity: 1;
+  }
+`;
+
+export const StyledAiOutlineUser = styled(AiOutlineUser)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const StyledFiMail = styled(FiMail)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const StyledFiLock = styled(FiLock)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const WarningAndSuccessMessage = styled.p`
+  position: absolute;
+  top: 45px;
+  font-size: 10px;
+  line-height: 21px;
+  color: ${props => props.color};
+
+  @media (min-width: 768px) {
+    top: 60px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 1440px) and (max-height: 940px) {
+    top: 45px;
+    font-size: 10px;
   }
 `;
