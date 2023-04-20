@@ -305,6 +305,7 @@ export const RecipeIngridientsFields = ({ formik }) => {
                           id={`ingredients.${index}.quantity`}
                           name={`ingredients.${index}.quantity`}
                           type="number"
+                          placeholder="0"
                           maxlength="3"
                           min="0"
                           readonly
