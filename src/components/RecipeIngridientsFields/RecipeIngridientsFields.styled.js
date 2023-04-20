@@ -178,8 +178,9 @@ export const InputQuantity = styled.input`
 
   border: none;
   outline: none;
-  padding-left: 4px;
-  text-align: right;
+  padding-left: 10px;
+  /* text-align: right; */
+  text-align: left;
 
   font-size: 14px;
   line-height: 21px;
