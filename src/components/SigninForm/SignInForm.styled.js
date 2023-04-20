@@ -149,6 +149,7 @@ export const InputField = styled.input`
   width: 279px;
   height: 45px;
   padding-left: 40px;
+  padding-right: 30px;
   color: ${p => p.theme.colors.mainBgColor};
   background-color: ${p => p.theme.colors.thirdAccentColor};
   border: solid 1px ${p => p.theme.colors.mainBgColor};
