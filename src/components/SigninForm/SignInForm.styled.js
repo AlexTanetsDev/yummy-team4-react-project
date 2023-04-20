@@ -28,7 +28,7 @@ export const BottomBgImage = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   @media (min-width: 768px) {
-    height: 56;
+    height: 56%;
     background-image: url(${bottomRegImgTab});
   }
 
@@ -38,7 +38,7 @@ export const BottomBgImage = styled.div`
   }
 
   @media (min-width: 1440px) and (min-height: 771px) {
-    height: 50%px;
+    height: 50%;
     background-image: url(${bottomRegImg});
   } ;
 `;
