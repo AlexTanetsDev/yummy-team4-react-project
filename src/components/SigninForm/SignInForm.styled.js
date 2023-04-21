@@ -167,6 +167,7 @@ export const InputField = styled.input`
     padding-left: 50px;
     width: 400px;
     height: 59px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
   }
 
   @media (max-width: 1440px) and (max-height: 940px) {
@@ -174,6 +175,7 @@ export const InputField = styled.input`
     width: 279px;
     height: 45px;
     padding-left: 40px;
+    font-size: ${p => p.theme.fontSizes.l}px;
     color: ${p => p.theme.colors.mainBgColor};
     background-color: ${p => p.theme.colors.thirdAccentColor};
     border: solid 1px ${p => p.theme.colors.mainBgColor};

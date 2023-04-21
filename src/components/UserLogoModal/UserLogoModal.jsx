@@ -25,7 +25,7 @@ import { CancelButton, LogOutButton } from '../Button/Button';
 
 		const handleBtnCancelLogoutClick = () => {
 			SetLogout(false);
-		}
+		};
 
 		return (
 	<>
