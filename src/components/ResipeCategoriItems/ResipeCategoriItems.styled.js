@@ -30,6 +30,11 @@ export const RecipeItem = styled.li`
   padding: 0;
   overflow: hidden;
 
+  @media (max-width: 374.9px) {
+    max-width: 288px;
+    height: 298px;
+  }
+
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
@@ -66,6 +71,11 @@ export const TitleRecipe = styled.h2`
   @media (min-width: 768px) {
     width: 300px;
   }
+  @media (max-width: 374.9px) {
+    width: 260px;
+    left: ${p => p.theme.space(3.5)};
+    bottom: ${p => p.theme.space(4.5)};
+  }
 
   @media (min-width: 1440px) {
     width: 268px;
@@ -78,6 +88,11 @@ export const ImgRecipe = styled.img`
   width: 343px;
   height: 323px;
   transition: all 0.25s linear;
+
+  @media (max-width: 374.9px) {
+    height: 298px;
+  }
+
   &:hover {
     transform: scale(1.1);
   }
