@@ -122,7 +122,7 @@ export const Modal = styled.div`
 
   @media (min-width: 1440px) {
     margin-top: 20px;
-  } ;
+  }
 `;
 
 export const Title = styled.h1`
@@ -152,6 +152,7 @@ export const InputField = styled.input`
   height: 45px;
   padding-left: 40px;
   padding-right: 30px;
+  font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.mainBgColor};
   background-color: ${p => p.theme.colors.thirdAccentColor};
   border-color: ${props => props.brdcolor};
@@ -181,7 +182,7 @@ export const InputField = styled.input`
     &:hover {
       opacity: 1;
     }
-  } ;
+  }
 `;
 
 export const IconWrap = styled.div`
@@ -200,7 +201,7 @@ export const IconWrap = styled.div`
   @media (min-width: 768px) {
     width: 24px;
     height: 24px;
-  } ;
+  }
 `;
 
 export const InputIcon = styled.img`
@@ -210,7 +211,7 @@ export const InputIcon = styled.img`
   @media (min-width: 768px) {
     width: 24px;
     height: 24px;
-  } ;
+  }
 `;
 
 export const StateInputIcon = styled.img`

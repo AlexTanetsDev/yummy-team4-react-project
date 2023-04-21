@@ -41,7 +41,7 @@ export const BottomBgImage = styled.div`
   @media (min-width: 1440px) and (min-height: 771px) {
     height: 50%;
     background-image: url(${bottomRegImg});
-  } ;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -124,7 +124,7 @@ export const Modal = styled.div`
 
   @media (min-width: 1440px) {
     margin-top: 20px;
-  } ;
+  }
 `;
 
 export const Title = styled.h1`
@@ -154,6 +154,7 @@ export const InputField = styled.input`
   height: 45px;
   padding-left: 40px;
   padding-right: 30px;
+  font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.mainBgColor};
   background-color: ${p => p.theme.colors.thirdAccentColor};
   border-color: ${props => props.brdcolor};
@@ -183,7 +184,7 @@ export const InputField = styled.input`
     &:hover {
       opacity: 1;
     }
-  } ;
+  }
 `;
 
 export const IconWrap = styled.div`
