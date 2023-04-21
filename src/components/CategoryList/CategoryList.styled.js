@@ -16,6 +16,9 @@ export const CategoryLists = styled.ul`
     width: 0;
     height: 0;
   }
+  @media (max-width: 374.9px) {
+    width: 288px;
+  }
 
   @media (min-width: 768px) {
     gap: 55px;
