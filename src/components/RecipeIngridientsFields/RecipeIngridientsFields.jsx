@@ -125,13 +125,14 @@ const UnitInputStyles = {
   option: (provided, state) => ({
     ...provided,
     paddingBottom: 6,
+
     fontFamily: 'Poppins',
     fontSize: 12,
     lineHeight: 1.5,
     letterSpacing: '-0.02em',
-    opacity: 0.5,
     color: state.isSelected ? '#8baa36' : '#000000',
     backgroundColor: state.isSelected ? 'transparent' : 'white',
+    opacity: 0.5,
 
     '@media screen and (min-width: 768px)': {
       fontSize: 14,
@@ -141,6 +142,12 @@ const UnitInputStyles = {
   control: (provided, state) => ({
     ...provided,
     width: '100%',
+
+    paddingTop: 16,
+    paddingBottom: 16,
+    paddingRight: 10,
+    paddingLeft: 46,
+
     fontFamily: 'Poppins',
     fontSize: 14,
     lineHeight: 1.235,
@@ -148,31 +155,29 @@ const UnitInputStyles = {
     color: '#000000',
     borderRadius: '6px',
     backgroundColor: '#D9D9D9',
-    paddingTop: 16,
-    paddingBottom: 16,
-    paddingRight: 10,
-    paddingLeft: 32,
 
     '@media screen and (min-width: 768px)': {
       fontSize: 18,
       lineHeight: 1.5,
-      paddingLeft: 42,
+      paddingLeft: 62,
       paddingRight: 14,
     },
   }),
   menu: (provided, state) => ({
     ...provided,
     width: '100%',
+
+    paddingLeft: 48,
+    paddingTop: 8,
+    paddingBottom: 8,
+
     overflow: 'auto',
     borderRadius: '6px',
     backgroundColor: '#ffffff',
-    paddingLeft: 32,
-    paddingTop: 8,
-    paddingBottom: 8,
     boxShadow: '0 6.5px 7.8px rgba(0, 0, 0, 0.0314074)',
 
     '@media screen and (min-width: 768px)': {
-      paddingLeft: 40,
+      paddingLeft: 58,
     },
   }),
   dropdownIndicator: (provided, state) => ({
@@ -296,21 +301,6 @@ export const RecipeIngridientsFields = ({ formik }) => {
                     </IngridientNameContainer>
 
                     <QuantityContainer>
-                      <ContainerNumberQuantity>
-                        <label
-                          htmlFor={`ingredients.${index}.quantity`}
-                        ></label>
-                        <Field
-                          as={InputQuantity}
-                          id={`ingredients.${index}.quantity`}
-                          name={`ingredients.${index}.quantity`}
-                          type="number"
-                          placeholder="0"
-                          maxlength="3"
-                          min="0"
-                          readonly
-                        />
-                      </ContainerNumberQuantity>
                       <ContainerMeasure>
                         <Label htmlFor={`ingredients.${index}.unit`}></Label>
                         <Field
@@ -331,6 +321,21 @@ export const RecipeIngridientsFields = ({ formik }) => {
                           required
                         ></Field>
                       </ContainerMeasure>
+                      <ContainerNumberQuantity>
+                        <label
+                          htmlFor={`ingredients.${index}.quantity`}
+                        ></label>
+                        <Field
+                          as={InputQuantity}
+                          id={`ingredients.${index}.quantity`}
+                          name={`ingredients.${index}.quantity`}
+                          type="number"
+                          placeholder="0"
+                          maxlength="3"
+                          min="0"
+                          readonly
+                        />
+                      </ContainerNumberQuantity>
                       {formik.touched.ingredients &&
                       formik.touched.ingredients[index] &&
                       formik.touched.ingredients[index].quantity &&
