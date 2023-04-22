@@ -125,12 +125,12 @@ export const SignInForm = () => {
                         </IconWrap>
                         {6 <= values.password.length &&
                           values.password.length < 8 && !errors.password &&
-                           (
+                          (
                             <StateInputIcon src={warningIcon} />
                           )}
                         {6 <= values.password.length &&
                           values.password.length < 8 && !errors.password &&
-                           (
+                          (
                             <WarningAndSuccessMessage color={'#f6c23e'}>
                               Your password is little secure
                             </WarningAndSuccessMessage>

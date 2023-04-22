@@ -310,8 +310,9 @@ export const SeeAllBtn = styled.button`
 `;
 
 export const LogOutBtn = styled.button`
-  padding: 14px 44px;
   width: 137px;
+  margin-right: 8px;
+  padding: 14px 18px;
   background-color: ${p => p.theme.colors.firstAccentColor};
   color: ${p => p.theme.colors.mainBgColor};
   font-family: 'Poppins';
@@ -323,8 +324,9 @@ export const LogOutBtn = styled.button`
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
-    padding: 19px 68px;
+    padding: 19px 65px;
     width: 192px;
+    margin-right: 16px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 18px;
   }
