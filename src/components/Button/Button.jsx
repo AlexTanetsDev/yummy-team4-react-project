@@ -18,6 +18,7 @@ import {
   FavoritesDeleteBtn,
   MyRecipesDeleteBtn,
   RemoveFavoriteRecBtn,
+  ButtonUp,
 } from './Button.styled';
 
 export const SearchButtonBlack = ({ type = 'button', onClick, children }) => {
@@ -41,11 +42,7 @@ export const SingInButton = () => {
 };
 
 export const SingInButtonGreen = ({ type = 'button', children }) => {
-  return (
-    <SingInBtnGreen type={type}>
-      {children}
-    </SingInBtnGreen>
-  );
+  return <SingInBtnGreen type={type}>{children}</SingInBtnGreen>;
 };
 
 export const RegistrationButton = () => {
@@ -185,5 +182,18 @@ export const MyRecipesDeleteButton = ({
     <MyRecipesDeleteBtn type={type} onClick={onClick}>
       {children}
     </MyRecipesDeleteBtn>
+  );
+};
+
+export const ButtonScrollUp = ({
+  type = 'button',
+  onClick,
+  children,
+  isButtonUp,
+}) => {
+  return (
+    <ButtonUp type={type} onClick={onClick} isButtonUp={isButtonUp}>
+      {children}
+    </ButtonUp>
   );
 };

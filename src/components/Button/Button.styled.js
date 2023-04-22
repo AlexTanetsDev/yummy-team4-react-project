@@ -631,3 +631,35 @@ export const MyRecipesDeleteBtn = styled.button`
     outline: none;
   }
 `;
+
+export const ButtonUp = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: ${p => (p.isButtonUp ? 1 : 0)};
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 50px;
+  width: 50px;
+  background: ${p => p.theme.colors.firstAccentColor};
+  border: none;
+  border-radius: 8px;
+  font-size: 30px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    scale: 1.1;
+    color: ${p => p.theme.colors.lightGreenText};
+  }
+
+  @media (min-width: 768px) {
+    bottom: 100px;
+    right: 50px;
+    height: 70px;
+    width: 70px;
+    font-size: 50px;
+    bottom: 100px;
+  }
+`;
