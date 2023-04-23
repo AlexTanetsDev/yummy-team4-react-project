@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { AiOutlineUser } from 'react-icons/ai';
+import { FiMail } from 'react-icons/fi';
+import { FiLock } from 'react-icons/fi';
 import {
   mainRegImgMob,
   mainRegImgTab,
@@ -15,38 +18,61 @@ export const StyledWrapper = styled.div`
   background-color: ${p => p.theme.colors.lightBgColor};
 `;
 
-export const ImageReg = styled.div`
+export const BottomBgImage = styled.div`
   position: absolute;
-  top: 125px;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  top: 100%;
+  transform: translate(-50%, -100%);
+  width: 100vw;
+  height: 58%;
+  background-image: url(${bottomRegImgMob});
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media (min-width: 768px) {
+    height: 59%;
+    background-image: url(${bottomRegImgTab});
+  }
+
+  @media (min-width: 1440px) {
+    height: 43%;
+    background-image: url(${bottomRegImg});
+  }
+
+  @media (min-width: 1440px) and (min-height: 771px) {
+    height: 50%;
+    background-image: url(${bottomRegImg});
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @media (min-width: 1440px) {
+    display: flex;
+    left: 47%;
+  }
+`;
+
+export const ImageReg = styled.div`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 87px;
   width: 285px;
   height: 250px;
   z-index: 9;
   background-image: url(${mainRegImgMob});
   @media (min-width: 768px) {
-    top: 19%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 87px;
     width: 409px;
     height: 359px;
     background-image: url(${mainRegImgTab});
   }
 
   @media (max-width: 1440px) and (max-height: 940px) {
-    position: absolute;
-    top: 125px;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 87px;
     width: 285px;
     height: 250px;
     z-index: 9;
@@ -54,48 +80,20 @@ export const ImageReg = styled.div`
   }
 
   @media (min-width: 1440px) {
-    top: 35%;
-    left: 50%;
-    transform: translate(-110%, -50%);
     width: 532px;
     height: 468px;
+    margin-right: 115px;
     background-image: url(${mainRegImg});
     background-size: contain;
   }
 `;
 
-export const BottomBgImage = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translate(-50%, -100%);
-  width: 100vw;
-  height: 490px;
-  background-image: url(${bottomRegImgMob});
-  background-repeat: no-repeat;
-  background-size: cover;
-  @media (min-width: 768px) {
-    height: 606px;
-    background-image: url(${bottomRegImgTab});
-  }
+export const ModalWrapper = styled.div``;
 
-  @media (min-width: 1440px) {
-    height: 325px;
-    background-image: url(${bottomRegImg});
-  }
-
-  @media (min-width: 1440px) and (min-height: 771px) {
-    height: 425px;
-    background-image: url(${bottomRegImg});
-  } ;
-`;
-
-export const ModalWrapper = styled.div`
-  position: absolute;
-  top: 480px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+export const Modal = styled.div`
   height: 350px;
+  margin-top: -30px;
+  margin-bottom: 18px;
   padding-top: 32px;
   padding-bottom: 40px;
   padding-left: 28px;
@@ -104,10 +102,8 @@ export const ModalWrapper = styled.div`
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   @media (min-width: 768px) {
-    top: 64%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     height: 481px;
+    margin-top: -15px;
     padding-top: 44px;
     padding-bottom: 44px;
     padding-left: 50px;
@@ -115,11 +111,8 @@ export const ModalWrapper = styled.div`
   }
 
   @media (max-width: 1440px) and (max-height: 940px) {
-    position: absolute;
-    top: 480px;
-    left: 50%;
-    transform: translate(-50%, -50%);
     height: 350px;
+    margin-top: -30px;
     padding-top: 32px;
     padding-bottom: 40px;
     padding-left: 28px;
@@ -130,10 +123,8 @@ export const ModalWrapper = styled.div`
   }
 
   @media (min-width: 1440px) {
-    top: 48%;
-    left: 50%;
-    transform: translate(10%, -50%);
-  } ;
+    margin-top: 20px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -158,13 +149,15 @@ export const InputWrapper = styled.div`
 
 export const InputField = styled.input`
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   width: 279px;
   height: 45px;
   padding-left: 40px;
+  padding-right: 30px;
+  font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.mainBgColor};
   background-color: ${p => p.theme.colors.thirdAccentColor};
-  border: solid 1px ${p => p.theme.colors.mainBgColor};
+  border-color: ${props => props.brdcolor};
   border-radius: 6px;
   opacity: 0.8;
   &:hover {
@@ -172,17 +165,19 @@ export const InputField = styled.input`
   }
 
   @media (min-width: 768px) {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
     padding-left: 50px;
     width: 400px;
     height: 59px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
   }
 
   @media (max-width: 1440px) and (max-height: 940px) {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     width: 279px;
     height: 45px;
     padding-left: 40px;
+    font-size: ${p => p.theme.fontSizes.l}px;
     color: ${p => p.theme.colors.mainBgColor};
     background-color: ${p => p.theme.colors.thirdAccentColor};
     border: solid 1px ${p => p.theme.colors.mainBgColor};
@@ -191,7 +186,7 @@ export const InputField = styled.input`
     &:hover {
       opacity: 1;
     }
-  } ;
+  }
 `;
 
 export const IconWrap = styled.div`
@@ -226,19 +221,78 @@ export const StateInputIcon = styled.img`
 `;
 
 export const Link = styled(NavLink)`
-  position: absolute;
-  top: 380px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: block;
+
+  text-align: center;
   color: ${p => p.theme.colors.mainBgColor};
   opacity: 0.8;
-  @media (min-width: 768px) {
-    top: 520px;
+  &:hover {
+    opacity: 1;
   }
-  @media (max-width: 1440px) and (max-height: 940px) {
-    top: 380px;
+`;
+
+export const StyledAiOutlineUser = styled(AiOutlineUser)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
   }
   &:hover {
     opacity: 1;
+  }
+`;
+
+export const StyledFiMail = styled(FiMail)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const StyledFiLock = styled(FiLock)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const WarningAndSuccessMessage = styled.p`
+  position: absolute;
+  top: 45px;
+  font-size: 10px;
+  line-height: 21px;
+  color: ${props => props.color};
+
+  @media (min-width: 768px) {
+    top: 60px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 1440px) and (max-height: 940px) {
+    top: 45px;
+    font-size: 10px;
   }
 `;
