@@ -6,7 +6,6 @@ import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { SearchedRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
 import { useParams, useNavigate } from 'react-router-dom';
-// import { AlertMessage } from 'components/AlertMessage/AlertMessage.jsx';
 import { MiniLoader } from 'components/Loader/Loader.jsx';
 import { toast } from 'react-hot-toast';
 
@@ -17,7 +16,6 @@ const SearchPage = () => {
   const [selectedOption, setSelectedOption] = useState('Title');
   const [selectedOptionFinal, setSelectedOptionFinal] =
     useState(selectedOption);
-  // const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -25,25 +23,24 @@ const SearchPage = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const recipesData = await getSearchedRecipes(
-          selectedOptionFinal,
-          query
-        );
+        const recipesData = await getSearchedRecipes(selectedOptionFinal, query);
+        setRecipes(recipesData);
         if (recipesData.length > 0) {
           toast.success('Recipes are found!');
-          setRecipes(recipesData);
         } else {
           toast.error('No recipes are found');
-          setRecipes([]);
         }
       } catch (error) {
         toast.error('No recipes with this ingredient are found');
+        setRecipes([]);
       } finally {
         setIsLoading(false);
       }
     };
     fetchData();
   }, [query, selectedOptionFinal]);
+
+
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -52,12 +49,15 @@ const SearchPage = () => {
     navigate(`/search/${searchBarValue}`);
   };
 
+
   const handleOptionClick = option => {
     setSelectedOption(option);
     setIsOpen(false);
   };
 
+
   return (
+ 
     <>
       <Sections>
         <Container>
