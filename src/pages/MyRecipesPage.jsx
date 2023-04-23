@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const MyRecipesPage = () => {
   const [recipes, setRecipes] = useState([]);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
+  const [totalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -33,15 +34,18 @@ const MyRecipesPage = () => {
       }
     };
     renderMyRecipesPage();
-  }, [currentPage]);
+  }, [currentPage, totalItemsCount, totalPages]);
 
   const deleteMyRecipe = async id => {
+    const lastItem = totalItemsCount % 4;
+    if (currentPage > 1 || lastItem === 1) {
+      setCurrentPage(currentPage - 1);
+    }
     try {
       setIsLoading(true);
       toast.error('Deleted from my recipes');
 
       await OwnRecipeApi.DeleteRecipe(id);
-
       const { data, total } = await OwnRecipeApi.FetchRecipes(currentPage, 4);
 
       setTotalItemsCount(total);
