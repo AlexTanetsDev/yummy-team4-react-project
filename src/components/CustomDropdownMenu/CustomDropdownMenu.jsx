@@ -15,20 +15,18 @@ export const CustomDropdownMenu = ({
 }) => {
   const modalRef = useRef(null);
 
-  const handleClickOutside = event => {
+  useEffect(() => {
+    const handleClickOutside = event => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
       setIsOpen(false);
     }
   };
-
-  useEffect(() => {
-    // добавляем обработчик клика на window
     window.addEventListener('click', handleClickOutside);
     return () => {
-      // удаляем обработчик клика при размонтировании компонента
+     
       window.removeEventListener('click', handleClickOutside);
     };
-  }, []);
+  });
 
   return (
     <div>
