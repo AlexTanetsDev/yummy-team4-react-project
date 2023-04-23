@@ -35,9 +35,10 @@ export const RecipesPagination = ({
       </PaginationContainer>
     );
   } else {
-    if (totalItemsCount === 0)
+    if (totalItemsCount === 0) {
       return (
         <AlertMessage>Please add the recipe to my recipes...</AlertMessage>
       );
+    }
   }
 };
