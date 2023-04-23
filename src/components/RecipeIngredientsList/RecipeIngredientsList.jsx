@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { addToShoppingList } from 'apiService/ShoppingListApi';
 import {
   IngredientsSection,
@@ -14,21 +14,34 @@ import {
   IngredientWrapper,
 } from './RecipeIngredientsList.styled';
 import { CheckBoxCustom } from 'components/CheckBoxForRecipeList/CheckBoxForRecipeList';
+import { RemoveFromFavoriteBtn } from 'components/Button/Button';
+import { toast } from 'react-hot-toast';
 
 export const RecipeIngredientsList = ({ ingredients }) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const shoppingList = [];
+  const [list, setList] = useState([]);
+
   useEffect(() => {
-    return () => {
-      if (shoppingList.length > 0) {
-        const res = addToShoppingList(shoppingList);
-        if (res) {
-          const numToSplice = shoppingList.length - 1;
-          shoppingList.splice(0, numToSplice);
-        }
+    const items = JSON.parse(localStorage.getItem('shoppingList'));
+    if (items) {
+      setList(items);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('shoppingList', JSON.stringify(list));
+  }, [list]);
+
+  const handleAddtoShoppingList = () => {
+    if (list.length > 0) {
+      const res = addToShoppingList(list);
+      if (res) {
+        setList([]);
+        toast.success('Added to shopping list');
       }
-    };
-  }, [shoppingList, shoppingList.length]);
+      toast.error('Something went wrong. Try again.');
+    }
+    toast.error('Ingredients allready added');
+  };
 
   return (
     <IngredientsSection>
@@ -49,12 +62,15 @@ export const RecipeIngredientsList = ({ ingredients }) => {
               </IngredientWrapper>
               <MeasureCheckBoxWrapper>
                 <IngredientMeasure>{item.measure}</IngredientMeasure>
-                <CheckBoxCustom list={shoppingList} item={item} />
+                <CheckBoxCustom list={list} setList={setList} item={item} />
               </MeasureCheckBoxWrapper>
             </IngredientItem>
           );
         })}
       </IngredietntsList>
+      <RemoveFromFavoriteBtn onClick={handleAddtoShoppingList}>
+        Add to shopping list
+      </RemoveFromFavoriteBtn>
     </IngredientsSection>
   );
 };

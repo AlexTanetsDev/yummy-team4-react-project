@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const IngredientsSection = styled.section`
+  display: flex;
+  flex-direction: column;
+
   padding: 32px 0px 50px;
 
   @media (min-width: 768px) {
@@ -67,8 +70,11 @@ export const IngredietntsList = styled.ul`
   flex-direction: column;
   gap: 16px;
 
+  margin-bottom: 16px;
+
   @media (min-width: 768px) {
     gap: 24px;
+    margin-bottom: 24px;
   }
 `;
 

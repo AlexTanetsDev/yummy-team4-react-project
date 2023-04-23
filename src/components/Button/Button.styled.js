@@ -425,6 +425,7 @@ export const AddToFavoriteBtn = styled.button`
 `;
 
 export const RemoveFavoriteRecBtn = styled.button`
+  align-self: center;
   padding: 8px 16px;
   width: 150px;
   background-color: ${p => p.theme.colors.firstAccentColor};
