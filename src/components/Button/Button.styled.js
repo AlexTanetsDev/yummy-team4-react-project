@@ -273,7 +273,7 @@ export const SaveChangesBtn = styled.button`
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
-    padding: 19px 143px;
+    padding: 19px 43px;
     width: 400px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 18px;

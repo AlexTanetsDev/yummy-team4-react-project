@@ -18,6 +18,7 @@ export const StyledHeader = styled.header`
 
 export const HeaderWrapper = styled.section`
   display: flex;
+  height: 46px;
 `;
 
 export const Headerblock = styled.div`
@@ -108,15 +109,21 @@ export const UserProfileWrap = styled.div`
 
 export const Avatar = styled.button`
   display: block;
-  width: 44px;
-  height: 44px;
   padding: 0;
   border-radius: 50%;
   border: solid 1px transparent;
 `;
 
 export const AvatarImg = styled.img`
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
+  opacity: 0.9;
+  &:hover {
+    width: 46px;
+    height: 46px;
+    opacity: 1;
+  }
 `;
 
 export const UserName = styled.p`
