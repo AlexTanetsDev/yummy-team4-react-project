@@ -7,6 +7,6 @@ export const getSearchedRecipes = async (requestType, query) => {
     );
     return response.data;
   } catch (error) {
-    console.log(error);
+    return;
   }
 };

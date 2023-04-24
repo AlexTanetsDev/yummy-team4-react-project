@@ -23,7 +23,6 @@ const FavoritePage = () => {
     const renderFavorite = async () => {
       try {
         setIsLoading(true);
-
         const { data, total } = await getAllFavorite(page, 4);
 
         setTotalPage(total);

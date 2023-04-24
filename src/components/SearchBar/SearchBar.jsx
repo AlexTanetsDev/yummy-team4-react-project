@@ -6,16 +6,21 @@ import {
   SelectLabel,
   SearchBarContainer,
   SearchBarForm,
+ 
 } from './SearchBar.styled';
 import { CustomDropdownMenu } from 'components/CustomDropdownMenu/CustomDropdownMenu';
-import React from 'react';
+import React, { useState } from 'react';
 
-export const SearchBar = ({ handleSubmit, handleOptionClick, isOpen, setIsOpen, selectedOption }) => {
+export const SearchBar = ({ query, handleSubmit, handleOptionClick, isOpen, setIsOpen, selectedOption}) => {
+  const [value, setValue] = useState(query);
+
   return (
     <SearchBarContainer>
-      <SearchBarForm id="form" onSubmit={handleSubmit}>
+      <SearchBarForm id="form" onSubmit={handleSubmit} >
         <InputWrapper>
-          <Input
+          <Input 
+            value={value}
+            onChange={event => setValue(event.target.value)}
             type="text"
             autoComplete="off"
             placeholder="Search"
@@ -28,7 +33,7 @@ export const SearchBar = ({ handleSubmit, handleOptionClick, isOpen, setIsOpen, 
 
         <SearchTypeSelector>
           <SelectLabel>Search by:</SelectLabel>
-          <CustomDropdownMenu handleOptionClick={handleOptionClick} isOpen={isOpen} setIsOpen={setIsOpen} selectedOption={selectedOption} />
+          <CustomDropdownMenu handleOptionClick={handleOptionClick} isOpen={isOpen} setIsOpen={setIsOpen} selectedOption={selectedOption}/>
         </SearchTypeSelector>
       </SearchBarForm>
     </SearchBarContainer>
