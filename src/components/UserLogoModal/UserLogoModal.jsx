@@ -6,7 +6,7 @@ import { editIcon, arrowRightIcon } from '../../images';
 import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
 
 
-	export const UserLogoModal = ({opened, onClose}) => {
+	export const UserLogoModal = ({opened}) => {
 		const [logout, setLogout] = useState(false);
 		const [edit, setEdit] = useState(false);
 		const [isShow, setIsShow] = useState(opened);

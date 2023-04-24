@@ -70,15 +70,14 @@ export const UserImfoModal = ({opened, onClose }) => {
   const [error, setError] = useState('');
   const dispatch = useDispatch();
 	const user = useSelector(selectUser);
-	const [isShow, setIsShow] = useState(opened);
 	initialValues.name = user.name;
 	initialValues.photo = user.avatarURL;
+	const [isShow, setIsShow] = useState(opened);
+	const tooltipRef = useRef(null);
 
-		const tooltipRef = useRef(null);
-
-		useEffect(() => {
-		
-			const handleClick = e => {
+	useEffect(() => {
+			
+				const handleClick = e => {
 				if (tooltipRef.current && !tooltipRef.current.contains(e.target)) {
 					setIsShow(false);
 				}				
@@ -86,7 +85,7 @@ export const UserImfoModal = ({opened, onClose }) => {
 			
 			const handleKeyDown = e => {
         if (e.code === 'Escape') {
-				setIsShow(false);
+					setIsShow(false);
         }
       }
 
@@ -102,7 +101,7 @@ export const UserImfoModal = ({opened, onClose }) => {
     try {
 			setIsLoading(true);
 			await dispatch(updateUser({ avatar: values.photo, name: values.name}));
-				setIsShow(false);
+				onClose();
     } catch (error) {
       setError(error);
     } finally {
@@ -116,7 +115,7 @@ export const UserImfoModal = ({opened, onClose }) => {
 				<>
 				<UserEditModal ref={tooltipRef}>
 			{error ? (
-			        <AlertMessage>
+			<AlertMessage>
           Oops, something went wrong. Please try again later...
         </AlertMessage>
 			) : (
@@ -134,13 +133,13 @@ export const UserImfoModal = ({opened, onClose }) => {
       {({ values, errors, touched}) => (
 					<Form autoComplete="off">
 						<AvatarWrap>
-							<Field
-								as={AvatarField}
-    				    id="photo"
-    				    name="photo"
-    				    type="file"
-    				    component={FileInput}
-						    	/>
+		          <Field
+		          	as={AvatarField}
+                id="photo"
+                name="photo"
+                type="file"
+                component={FileInput}
+						  />
 						<EditAvatarBtn>
 						<EditAvatarIcon src={plusIcon} />
 						</EditAvatarBtn>
@@ -170,7 +169,7 @@ export const UserImfoModal = ({opened, onClose }) => {
 						</>
 		)}
 	</UserEditModal>
-				</>
+				</>		
 			)}
 		</>
 )

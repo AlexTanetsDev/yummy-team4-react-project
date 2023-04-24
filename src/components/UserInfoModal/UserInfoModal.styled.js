@@ -5,7 +5,7 @@ import { AiOutlineUser } from 'react-icons/ai';
 export const UserEditModal = styled.div`
   position: absolute;
   top: 150%;
-  left: -153%;
+  left: -130%;
   width: 330px;
   height: 327px;
   padding: 32px 24px;
@@ -124,7 +124,7 @@ export const InputField = styled.input`
   width: 282px;
   height: 48px;
   padding-left: 40px;
-  padding-right: 30px;
+  padding-right: 35px;
   font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.itemTextColor};
   background-color: ${p => p.theme.colors.mainBgColor};
@@ -137,6 +137,7 @@ export const InputField = styled.input`
   @media (min-width: 768px) {
     margin-bottom: 30px;
     padding-left: 50px;
+    padding-right: 50px;
     width: 400px;
     height: 59px;
     font-size: ${p => p.theme.fontSizes.xl}px;
