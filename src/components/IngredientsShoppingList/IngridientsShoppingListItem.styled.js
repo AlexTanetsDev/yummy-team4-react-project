@@ -71,6 +71,7 @@ export const ImgTitleWrapper = styled.div`
 `;
 
 export const Quantity = styled.div`
+  padding: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,6 +85,7 @@ export const Quantity = styled.div`
   color: #fafafa;
 
   @media screen and (min-width: 768px) {
+    padding: 4px 8px;
     min-width: 80px;
     min-height: 40px;
     font-size: 18px;
