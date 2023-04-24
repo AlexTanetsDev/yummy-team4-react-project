@@ -15,7 +15,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const MyRecipesPage = () => {
   const [recipes, setRecipes] = useState([]);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
-  const [totalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,11 +33,12 @@ const MyRecipesPage = () => {
       }
     };
     renderMyRecipesPage();
-  }, [currentPage, totalItemsCount, totalPages]);
+  }, [currentPage, totalItemsCount]);
 
   const deleteMyRecipe = async id => {
     const lastItem = totalItemsCount % 4;
-    if (currentPage > 1 || lastItem === 1) {
+
+    if (currentPage > 1 && lastItem === 1) {
       setCurrentPage(currentPage - 1);
     }
     try {
