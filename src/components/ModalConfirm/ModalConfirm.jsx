@@ -6,10 +6,10 @@ import { CancelButton, LogOutButton } from '../Button/Button';
 import { CloseModalBtn, CloseModalIcon, LogoutTitle, Modal } from './ModalConfir.styled';
 import { closeModalIcon } from '../../images';
 
-
 export const ModalConfirm = ({opened, onClose}) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const [isShow, setIsShow] = useState(opened);
 
 	const tooltipRef = useRef(null);
 
@@ -17,13 +17,13 @@ export const ModalConfirm = ({opened, onClose}) => {
 		
 			const handleClick = e => {
 				if (tooltipRef.current && !tooltipRef.current.contains(e.target)) {
-				onClose();
+					setIsShow(false);
 				}				
 			}
 			
 			const handleKeyDown = e => {
         if (e.code === 'Escape') {
-				onClose();
+					setIsShow(false);
         }
       }
 
@@ -33,18 +33,18 @@ export const ModalConfirm = ({opened, onClose}) => {
 			document.removeEventListener('keydown', handleKeyDown);
 			document.removeEventListener('click', handleClick, true)
 		}
-		}, [opened]);
+		}, []);
 		
 
 			const handleBtnConfirmLogoutClick = async () => {
 			await dispatch(logOut());
 			navigate("/signin");
-				onClose();
+					setIsShow(false);
 		};
 
 	return (
 		<>
-			{opened && (
+			{isShow && (
 				<>
 		<Modal ref={tooltipRef}>
 			<CloseModalBtn type='button' onClick={onClose}>
