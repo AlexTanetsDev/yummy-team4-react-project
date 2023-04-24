@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 import { getRecipesByCategory } from 'apiService';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { MiniLoader } from 'components/Loader/Loader';
+import { RecipesPagination } from 'components/Paginator/Paginator';
 
 const CategoriesPage = () => {
   const { categoryName = 'Beef' } = useParams();
@@ -18,13 +19,22 @@ const CategoriesPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const categories = useSelector(selectCategoryList);
+  const [totalItemsCount, setTotalItemsCount] = useState(0);
+  const [totalPages] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const renderRecipeList = async () => {
       try {
         setIsLoading(true);
-        const data = await getRecipesByCategory(categoryName, token);
+        const { data, total } = await getRecipesByCategory(
+          categoryName,
+          token,
+          currentPage,
+          8
+        );
         setRecipes(data);
+        setTotalItemsCount(total);
       } catch (error) {
         setError(error);
       } finally {
@@ -32,7 +42,13 @@ const CategoriesPage = () => {
       }
     };
     renderRecipeList();
-  }, [categoryName, token]);
+  }, [categoryName, currentPage, token, totalPages]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [categoryName]);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <Container>
@@ -51,6 +67,12 @@ const CategoriesPage = () => {
           ) : (
             <ResipeCategoriItems recipes={recipes} />
           )}
+          <RecipesPagination
+            totalItemsCount={totalItemsCount}
+            paginate={paginate}
+            currentPage={currentPage}
+            totalPages={Math.ceil(totalItemsCount / 8)}
+          />
         </Sections>
       )}
     </Container>
