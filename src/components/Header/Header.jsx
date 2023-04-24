@@ -31,10 +31,6 @@ export const Header = () => {
 		setOpened(!opened);
 	}
 
-	const onClose = () => {
-		setOpened(false);
-	}
-
   return (
     <StyledHeader>
       <Container>
@@ -57,7 +53,7 @@ export const Header = () => {
                 <AvatarImg src={User.avatarURL} alt="avatar" />
               </Avatar>
               <UserName>{User.name}</UserName>
-							{opened && <UserLogoModal opened={opened} onClose={onClose } />}
+							{opened && <UserLogoModal opened={opened}/>}
             </UserProfileWrap>
             <StyledBurger
               onClick={() => {

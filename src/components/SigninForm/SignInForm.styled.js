@@ -40,7 +40,7 @@ export const BottomBgImage = styled.div`
   @media (min-width: 1440px) and (min-height: 771px) {
     height: 50%;
     background-image: url(${bottomRegImg});
-  } ;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -165,6 +165,7 @@ export const InputField = styled.input`
   @media (min-width: 768px) {
     margin-bottom: 24px;
     padding-left: 50px;
+    padding-right: 40px;
     width: 400px;
     height: 59px;
     font-size: ${p => p.theme.fontSizes.xl}px;

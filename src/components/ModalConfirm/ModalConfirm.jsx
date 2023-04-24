@@ -10,11 +10,10 @@ export const ModalConfirm = ({opened, onClose}) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [isShow, setIsShow] = useState(opened);
-
 	const tooltipRef = useRef(null);
 
-		useEffect(() => {
-		
+	useEffect(() => {
+			
 			const handleClick = e => {
 				if (tooltipRef.current && !tooltipRef.current.contains(e.target)) {
 					setIsShow(false);
@@ -26,12 +25,12 @@ export const ModalConfirm = ({opened, onClose}) => {
 					setIsShow(false);
         }
       }
-
-		document.addEventListener('keydown', handleKeyDown);
-		document.addEventListener('click', handleClick, true)
+		
+		  document.addEventListener('keydown', handleKeyDown);
+			document.addEventListener('click', handleClick, true);
 		return () => {
 			document.removeEventListener('keydown', handleKeyDown);
-			document.removeEventListener('click', handleClick, true)
+			document.removeEventListener('click', handleClick, true);
 		}
 		}, []);
 		
