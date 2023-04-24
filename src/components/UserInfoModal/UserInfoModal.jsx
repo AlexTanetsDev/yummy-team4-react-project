@@ -11,8 +11,6 @@ import { FormError } from 'components/FormError/FormError';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { MiniLoader } from 'components/Loader/Loader';
 
-
-
 const initialValues = {
 	photo: '',
   name: '',
@@ -104,7 +102,7 @@ export const UserImfoModal = ({opened, onClose }) => {
     try {
 			setIsLoading(true);
 			await dispatch(updateUser({ avatar: values.photo, name: values.name}));
-			onClose();
+				setIsShow(false);
     } catch (error) {
       setError(error);
     } finally {
