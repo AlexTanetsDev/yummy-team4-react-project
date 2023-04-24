@@ -25,11 +25,15 @@ import { Modal } from '../Modal/Modal';
 export const Header = () => {
   const User = useSelector(state => state.auth.user);
   const [modalActive, setModalActive] = useState(false);
-  const [userModal, SetUserModal] = useState(false);
+	const [opened, setOpened] = useState(false);
+	
+	const handleClick = () => {
+		setOpened(!opened);
+	}
 
-  const handleUserAvatarClsck = () => {
-    SetUserModal(!userModal);
-  };
+	const onClose = () => {
+		setOpened(false);
+	}
 
   return (
     <StyledHeader>
@@ -38,7 +42,6 @@ export const Header = () => {
           <LogoHeader />
           <StyledNav>
             <StyledLink to="/categories/Beef">Categories</StyledLink>
-
             <StyledLink to="/add">Add recipes</StyledLink>
             <StyledLink to="/my">My recipes</StyledLink>
             <StyledLink to="/favorite">Favorites</StyledLink>
@@ -50,11 +53,11 @@ export const Header = () => {
 
           <Headerblock>
             <UserProfileWrap>
-              <Avatar onClick={handleUserAvatarClsck}>
+							<Avatar onClick={handleClick}>
                 <AvatarImg src={User.avatarURL} alt="avatar" />
               </Avatar>
               <UserName>{User.name}</UserName>
-              {userModal && <UserLogoModal />}
+							{opened && <UserLogoModal opened={opened} onClose={onClose } />}
             </UserProfileWrap>
             <StyledBurger
               onClick={() => {

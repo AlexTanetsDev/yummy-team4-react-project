@@ -44,6 +44,8 @@ import modalMini from './modalMini.png';
 import editIcon from './edit-icon.png';
 import arrowRightIcon from './arrow-right.png';
 import closeModalIcon from './close-modal-icon.png';
+import userIcon from './user.png';
+import plusIcon from './plus.png';
 
 export {
   leftSpinachDesktop1x,
@@ -92,4 +94,6 @@ export {
   editIcon,
   arrowRightIcon,
   closeModalIcon,
+  userIcon,
+  plusIcon,
 };

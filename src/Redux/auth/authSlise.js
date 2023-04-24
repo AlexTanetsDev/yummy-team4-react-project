@@ -6,10 +6,11 @@ import {
   refreshUser,
   updateSubscription,
   categoryList,
+  updateUser,
 } from './operations';
 
 const initialState = {
-  user: { name: null, email: null, avatarURL: '' },
+  user: { name: null, email: null, avatarURl: '' },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -52,6 +53,10 @@ const authSlice = createSlice({
       })
       .addCase(categoryList.fulfilled, (state, action) => {
         state.categoryList = action.payload;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user.avatarURL = action.payload.avatarURL;
+        state.user.name = action.payload.name;
       }),
 });
 
