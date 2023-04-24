@@ -17,7 +17,6 @@ import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
 			const handleClick = e => {
 				if (tooltipRef.current && !tooltipRef.current.contains(e.target)) {
 					setIsShow(false);
-					onClose();
 				}				
 			}
 			
