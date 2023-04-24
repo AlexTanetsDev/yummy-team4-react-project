@@ -88,7 +88,7 @@ export const UserImfoModal = ({opened, onClose }) => {
 			
 			const handleKeyDown = e => {
         if (e.code === 'Escape') {
-				onClose();
+				setIsShow(false);
         }
       }
 
