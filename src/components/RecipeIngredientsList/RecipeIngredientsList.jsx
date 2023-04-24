@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { addToShoppingList } from 'apiService/ShoppingListApi';
 import {
   IngredientsSection,
@@ -16,9 +17,11 @@ import {
 import { CheckBoxCustom } from 'components/CheckBoxForRecipeList/CheckBoxForRecipeList';
 import { RemoveFromFavoriteBtn } from 'components/Button/Button';
 import { toast } from 'react-hot-toast';
+import { vegetablesBasket } from 'images';
 
 export const RecipeIngredientsList = ({ ingredients }) => {
   const [list, setList] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem('shoppingList'));
@@ -27,18 +30,18 @@ export const RecipeIngredientsList = ({ ingredients }) => {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('shoppingList', JSON.stringify(list));
-  }, [list]);
-
   const handleAddtoShoppingList = () => {
     if (list.length > 0) {
       const res = addToShoppingList(list);
       if (res) {
         setList([]);
+        localStorage.setItem('shoppingList', JSON.stringify([]));
         toast.success('Added to shopping list');
+        navigate('/shopping-list');
+        return;
       }
       toast.error('Something went wrong. Try again.');
+      return;
     }
     toast.error('Ingredients allready added');
   };
@@ -57,7 +60,10 @@ export const RecipeIngredientsList = ({ ingredients }) => {
           return (
             <IngredientItem key={item.id}>
               <IngredientWrapper>
-                <IngredientPhoto src={item.image} alt="ingredient image" />
+                <IngredientPhoto
+                  src={item.image ? item.image : vegetablesBasket}
+                  alt="ingredient image"
+                />
                 <IngredientName>{item.name}</IngredientName>
               </IngredientWrapper>
               <MeasureCheckBoxWrapper>

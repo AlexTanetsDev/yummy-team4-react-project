@@ -5,8 +5,8 @@ import { object, string } from 'yup';
 import { SingInButtonGreen } from 'components/Button/Button';
 import {
   StyledWrapper,
-	ModalWrapper,
-	Modal,
+  ModalWrapper,
+  Modal,
   InputField,
   Title,
   ImageReg,
@@ -14,14 +14,13 @@ import {
   Link,
   InputWrapper,
   IconWrap,
-	StateInputIcon,
-	ContentWrapper,
-	StyledAiOutlineUser,
-	StyledFiMail,
-	StyledFiLock,
-	WarningAndSuccessMessage
+  StateInputIcon,
+  ContentWrapper,
+  StyledAiOutlineUser,
+  StyledFiMail,
+  StyledFiLock,
+  WarningAndSuccessMessage,
 } from './RegisterForm.styled';
-import '../../styles/styles.css';
 import { FormError } from 'components/FormError/FormError';
 import { errorIcon, warningIcon, succesIcon } from 'images';
 import { MainLoader } from 'components/Loader/Loader';
@@ -70,125 +69,152 @@ export const RegisterForm = () => {
             <MainLoader />
           ) : (
             <StyledWrapper>
-							<BottomBgImage />
-							<ContentWrapper>
-							<ImageReg />
-							<ModalWrapper>
-              <Modal>
-                <Title>Registration</Title>
-                <Formik
-                  initialValues={initialValues}
-                  validationSchema={registerSchema}
-                  onSubmit={handleSubmit}
-                >
-                  {({ values, errors, touched }) => (
-                    <Form autoComplete="off">
-                      <InputWrapper>
-                        <Field
-													as={InputField}
-													brdcolor={(!touched.name && 'white') || (errors.name && touched.name && '#e74a3b') || (!errors.name && touched.name && '#3cbc81')}
-                          type="text"
-                          name="name"
-                          placeholder="Name"
-                          values={values.name}
-                        />
-                        <IconWrap>
-                            <StyledAiOutlineUser
-                              color={`${(!touched.name && 'white') ||
-																				(errors.name && touched.name && '#e74a3b') ||
-																				(!errors.name && touched.name && '#3cbc81')
-                              }`}
+              <BottomBgImage />
+              <ContentWrapper>
+                <ImageReg />
+                <ModalWrapper>
+                  <Modal>
+                    <Title>Registration</Title>
+                    <Formik
+                      initialValues={initialValues}
+                      validationSchema={registerSchema}
+                      onSubmit={handleSubmit}
+                    >
+                      {({ values, errors, touched }) => (
+                        <Form autoComplete="off">
+                          <InputWrapper>
+                            <Field
+                              as={InputField}
+                              brdcolor={
+                                (!touched.name && 'white') ||
+                                (errors.name && touched.name && '#e74a3b') ||
+                                (!errors.name && touched.name && '#3cbc81')
+                              }
+                              type="text"
+                              name="name"
+                              placeholder="Name"
+                              values={values.name}
                             />
-                        </IconWrap>
-                        {errors.name && touched.name && (
-                          <StateInputIcon src={errorIcon} />
-														)}
-												{!errors.name && touched.name && (
-															<StateInputIcon src={succesIcon} />
-												)}	
-                        <FormError name="name" component="div" />
-                      </InputWrapper>
-                      <InputWrapper>
-                        <Field
-													as={InputField}
-													brdcolor={(!touched.email && 'white') || (errors.email && touched.email && '#e74a3b') || (!errors.email && touched.email && '#3cbc81')}																	
-                          name="email"
-                          type="email"
-                          inputmode="email"
-                          placeholder="Email"
-                          values={values.email}
-                        />
-                        <IconWrap>
-                            <StyledFiMail
-                              color={`${(!touched.email && 'white') ||
-																				(errors.email && touched.email && '#e74a3b') ||
-																				(!errors.email && touched.email && '#3cbc81')
-                              }`}
+                            <IconWrap>
+                              <StyledAiOutlineUser
+                                color={`${
+                                  (!touched.name && 'white') ||
+                                  (errors.name && touched.name && '#e74a3b') ||
+                                  (!errors.name && touched.name && '#3cbc81')
+                                }`}
+                              />
+                            </IconWrap>
+                            {errors.name && touched.name && (
+                              <StateInputIcon src={errorIcon} />
+                            )}
+                            {!errors.name && touched.name && (
+                              <StateInputIcon src={succesIcon} />
+                            )}
+                            <FormError name="name" component="div" />
+                          </InputWrapper>
+                          <InputWrapper>
+                            <Field
+                              as={InputField}
+                              brdcolor={
+                                (!touched.email && 'white') ||
+                                (errors.email && touched.email && '#e74a3b') ||
+                                (!errors.email && touched.email && '#3cbc81')
+                              }
+                              name="email"
+                              type="email"
+                              inputmode="email"
+                              placeholder="Email"
+                              values={values.email}
                             />
-                        </IconWrap>
-                        {errors.email && touched.email && (
-                          <StateInputIcon src={errorIcon} />
-														)}
-												{!errors.email && touched.email && (
-															<StateInputIcon src={succesIcon} />
-												)}		
-                        <FormError name="email" component="div" />
-                      </InputWrapper>
-                      <InputWrapper>
-												<Field
-                          type="password"
-                          name="password"
-													placeholder="Password"
-                          values={values.password}																	
-																	as={InputField}
-													brdcolor={(!touched.password && 'white') || (errors.password && touched.password && '#e74a3b') || (6 <= values.password.length && values.password.length < 8 && '#f6c23e') ||
-														(8 <= values.password.length && '#3cbc81')}																															
-                        />
-                        <IconWrap>
-                            <StyledFiLock
-                              color={`${(!touched.password && 'white') ||
-																(errors.password && touched.password && '#e74a3b') ||
-																(6 <= values.password.length && values.password.length < 8 && '#f6c23e') ||
-																(8 <= values.password.length && '#3cbc81')
-                                    }`}
+                            <IconWrap>
+                              <StyledFiMail
+                                color={`${
+                                  (!touched.email && 'white') ||
+                                  (errors.email &&
+                                    touched.email &&
+                                    '#e74a3b') ||
+                                  (!errors.email && touched.email && '#3cbc81')
+                                }`}
+                              />
+                            </IconWrap>
+                            {errors.email && touched.email && (
+                              <StateInputIcon src={errorIcon} />
+                            )}
+                            {!errors.email && touched.email && (
+                              <StateInputIcon src={succesIcon} />
+                            )}
+                            <FormError name="email" component="div" />
+                          </InputWrapper>
+                          <InputWrapper>
+                            <Field
+                              type="password"
+                              name="password"
+                              placeholder="Password"
+                              values={values.password}
+                              as={InputField}
+                              brdcolor={
+                                (!touched.password && 'white') ||
+                                (errors.password &&
+                                  touched.password &&
+                                  '#e74a3b') ||
+                                (6 <= values.password.length &&
+                                  values.password.length < 8 &&
+                                  '#f6c23e') ||
+                                (8 <= values.password.length && '#3cbc81')
+                              }
                             />
-                        </IconWrap>
-                        {6 <= values.password.length &&
-                          values.password.length < 8 && !errors.password &&
-                           (
-                            <StateInputIcon src={warningIcon} />
-                          )}
-                        {6 <= values.password.length &&
-                          values.password.length < 8 && !errors.password &&
-                           (
-                            <WarningAndSuccessMessage color={'#f6c23e'}>
-                              Your password is little secure
-                            </WarningAndSuccessMessage>
-                          )}
-                        {8 <= values.password.length && !errors.password && (
-                          <StateInputIcon src={succesIcon} />
-                        )}
-                        {8 <= values.password.length && !errors.password && (
-                          <WarningAndSuccessMessage color={'#3cbc81'}>
-                            Password is secure
-                          </WarningAndSuccessMessage>
-                        )}
-                        {errors.password && touched.password && (
-                          <StateInputIcon src={errorIcon} />
-												)}
-                        <FormError name="password" component="div" />
-                      </InputWrapper>
+                            <IconWrap>
+                              <StyledFiLock
+                                color={`${
+                                  (!touched.password && 'white') ||
+                                  (errors.password &&
+                                    touched.password &&
+                                    '#e74a3b') ||
+                                  (6 <= values.password.length &&
+                                    values.password.length < 8 &&
+                                    '#f6c23e') ||
+                                  (8 <= values.password.length && '#3cbc81')
+                                }`}
+                              />
+                            </IconWrap>
+                            {6 <= values.password.length &&
+                              values.password.length < 8 &&
+                              !errors.password && (
+                                <StateInputIcon src={warningIcon} />
+                              )}
+                            {6 <= values.password.length &&
+                              values.password.length < 8 &&
+                              !errors.password && (
+                                <WarningAndSuccessMessage color={'#f6c23e'}>
+                                  Your password is little secure
+                                </WarningAndSuccessMessage>
+                              )}
+                            {8 <= values.password.length &&
+                              !errors.password && (
+                                <StateInputIcon src={succesIcon} />
+                              )}
+                            {8 <= values.password.length &&
+                              !errors.password && (
+                                <WarningAndSuccessMessage color={'#3cbc81'}>
+                                  Password is secure
+                                </WarningAndSuccessMessage>
+                              )}
+                            {errors.password && touched.password && (
+                              <StateInputIcon src={errorIcon} />
+                            )}
+                            <FormError name="password" component="div" />
+                          </InputWrapper>
 
-                      <SingInButtonGreen type="submit">
-                        Sign up
-                      </SingInButtonGreen>
-                    </Form>
-                  )}
-                </Formik>
-									</Modal>
-									<Link to="/signin">Sign in</Link>
-								</ModalWrapper>			
-								</ContentWrapper>
+                          <SingInButtonGreen type="submit">
+                            Sign up
+                          </SingInButtonGreen>
+                        </Form>
+                      )}
+                    </Formik>
+                  </Modal>
+                  <Link to="/signin">Sign in</Link>
+                </ModalWrapper>
+              </ContentWrapper>
             </StyledWrapper>
           )}
         </>

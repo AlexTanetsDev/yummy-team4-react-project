@@ -23,7 +23,7 @@ const CategoriesPage = () => {
     const renderRecipeList = async () => {
       try {
         setIsLoading(true);
-        const data = await getRecipesByCategory(categoryName, token);
+        const { data } = await getRecipesByCategory(categoryName, token);
         setRecipes(data);
       } catch (error) {
         setError(error);
