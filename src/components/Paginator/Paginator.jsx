@@ -24,6 +24,8 @@ export const RecipesPagination = ({
           <ThemeProvider theme={theme}>
             <Pagination
               count={totalPages}
+              siblingCount={0}
+              boundaryCount={1}
               page={currentPage}
               theme={theme}
               color="primary"
