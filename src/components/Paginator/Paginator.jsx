@@ -1,6 +1,5 @@
 import React from 'react';
 import { PaginationContainer, PaginationWrapper } from './Paginator.styled';
-import { AlertMessage } from '../AlertMessage/AlertMessage';
 import Pagination from '@mui/material/Pagination';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -25,6 +24,8 @@ export const RecipesPagination = ({
           <ThemeProvider theme={theme}>
             <Pagination
               count={totalPages}
+              siblingCount={0}
+              boundaryCount={1}
               page={currentPage}
               theme={theme}
               color="primary"
@@ -34,10 +35,5 @@ export const RecipesPagination = ({
         </PaginationWrapper>
       </PaginationContainer>
     );
-  } else {
-    if (totalItemsCount === 0)
-      return (
-        <AlertMessage>Please add the recipe to my recipes...</AlertMessage>
-      );
   }
 };

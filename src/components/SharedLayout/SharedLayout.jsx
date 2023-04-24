@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
@@ -10,9 +10,28 @@ import { BackgroundDecorHeader } from 'components/BackgroundDecor/BackgroundDeco
 import { Footer } from 'components/Footer/Footer';
 
 import { Main } from './SharedLayout.styled';
+import { ButtonScrollUp } from 'components/Button/Button';
 
 export const SharedLayout = () => {
+  const [isButtonUp, setIsButtonUp] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        setIsButtonUp(true);
+        return;
+      }
+      setIsButtonUp(false);
+    });
+  }, []);
+
+  const handleOnScrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <>
@@ -40,6 +59,9 @@ export const SharedLayout = () => {
             </Suspense>
           </Main>
           <Footer />
+          <ButtonScrollUp isButtonUp={isButtonUp} onClick={handleOnScrollUp}>
+            ^
+          </ButtonScrollUp>
         </>
       )}
     </>

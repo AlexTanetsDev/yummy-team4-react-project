@@ -1,34 +1,73 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
-import { logOut } from '../../Redux/auth/operations';
-
-import { EditIcon, EditProfile, LogOutBtn,  Wrap, LogoutIcon } from './UserLogoModal.styled';
+import React, { useState, useEffect, useRef } from 'react';
+ 
+import {ModalConfirm} from '../ModalConfirm/ModalConfirm'
+import {EditIcon, EditProfile, LogOut, UserModal, LogoutIcon} from './UserLogoModal.styled';
 import { editIcon, arrowRightIcon } from '../../images';
+import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
 
-	export const UserLogoModal = () => {
-		const dispatch = useDispatch();
-		const navigate = useNavigate();
-	
-		const handleBtnLogoutClick = async () => {
-			await dispatch(logOut());
-			navigate("/signin");
+
+	export const UserLogoModal = ({opened}) => {
+		const [logout, setLogout] = useState(false);
+		const [edit, setEdit] = useState(false);
+		const [isShow, setIsShow] = useState(opened);
+		const tooltipRef = useRef(null);
+
+		useEffect(() => {
+		
+			const handleClick = e => {
+				if (tooltipRef.current && !tooltipRef.current.contains(e.target)) {
+					setIsShow(false);
+				}				
+			}
+			
+			const handleKeyDown = e => {
+        if (e.code === 'Escape') {
+					setIsShow(false);
+        }
+      }
+
+		document.addEventListener('keydown', handleKeyDown);
+		document.addEventListener('click', handleClick, true)
+		return () => {
+			document.removeEventListener('keydown', handleKeyDown);
+			document.removeEventListener('click', handleClick, true)
+		}
+  },[ opened]);
+
+
+		const handleBtnToggleLogoutModalClick = () => {
+			setLogout(!logout);
 		};
 
-	return (
-		<Wrap>
-			<EditProfile>
+		const handleToggleEditModalClick = () => {
+			setEdit(!edit);
+		};
+
+		return (
+			
+			<>
+			
+			{isShow && (
+			<UserModal ref={tooltipRef}>
+			<EditProfile type='button' onClick={handleToggleEditModalClick}>
 				<p>
 					Edit profile
 					<EditIcon src={editIcon} alt="edit button" />
 				</p>
 			</EditProfile>
-			<LogOutBtn  onClick={handleBtnLogoutClick}>
+			<LogOut onClick={handleBtnToggleLogoutModalClick}>
 				<p>
 					Log out
 				</p>
-				<LogoutIcon src={arrowRightIcon} alt="arrow image"/>
-			</LogOutBtn>
-		</Wrap>
+			<LogoutIcon src={arrowRightIcon} alt="arrow image"/>
+			</LogOut>
+			</UserModal>)
+			}
+			{logout && (
+					<ModalConfirm opened={logout} onClose={handleBtnToggleLogoutModalClick } />
+				)}
+			{edit && <UserImfoModal opened={edit} onClose={handleToggleEditModalClick}/>}
+			
+			</>			
 	)
 };

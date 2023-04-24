@@ -18,7 +18,6 @@ import {
   InputWrapper,
   ContentWrapper,
   StyledFiMail,
-  StyledFiLock,
   WarningAndSuccessMessage,
 } from './SignInForm.styled';
 import { FormError } from 'components/FormError/FormError';
@@ -127,21 +126,6 @@ export const SignInForm = () => {
                               name="password"
                               placeholder="Password"
                             />
-                            <IconWrap>
-                              <StyledFiLock
-                                color={`${
-                                  (!touched.password && 'white') ||
-                                  (errors.password &&
-                                    touched.password &&
-                                    '#e74a3b') ||
-                                  (6 <= values.password.length &&
-                                    values.password.length < 8 &&
-                                    '#f6c23e') ||
-                                  (8 <= values.password.length && '#3cbc81')
-                                }`}
-                                size={20}
-                              />
-                            </IconWrap>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (
