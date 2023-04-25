@@ -97,15 +97,15 @@ export const StyledSelect = styled(Select)`
 
 export const IngridientNameContainer = styled.div`
   position: relative;
-  width: 193px;
+  width: 153px;
   height: 53px;
 
-  @media screen and (max-width: 372px) {
-    margin-bottom: 8px;
+  @media screen and (max-width: 374px) {
+    width: 130px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 398px;
+    width: 298px;
     height: 59px;
   }
 `;
@@ -127,16 +127,10 @@ export const InputIngridientName = styled.select`
   color: #000000;
   border-radius: 6px;
 
-  // background: url(${Icon}) no-repeat 90% 50%;
-  // background-size: 14px;
-  // background-size: 14px;
   background-color: rgba(217, 217, 217, 1);
   border-radius: 6px;
 
   @media screen and (min-width: 768px) {
-    // width: 398px;
-    // height: 59px;
-
     font-size: 18px;
     line-height: 27px;
   }
@@ -150,13 +144,18 @@ export const QuantityContainer = styled.div`
   margin-right: 14px;
 
   height: 53px;
-  width: 84px;
+  width: 100px;
 
   background-color: rgba(217, 217, 217, 1);
   border-radius: 6px;
 
+  @media screen and (max-width: 374px) {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
   @media screen and (min-width: 768px) {
-    width: 109px;
+    width: 129px;
     height: 59px;
   }
 `;
@@ -166,8 +165,7 @@ export const ContainerNumberQuantity = styled.div`
   top: 0;
   bottom: 0;
   left: 0;
-  right: 62%;
-  z-index: 2;
+  right: 56%;
 `;
 
 export const InputQuantity = styled.input`
@@ -178,21 +176,22 @@ export const InputQuantity = styled.input`
 
   border: none;
   outline: none;
-  padding-left: 4px;
-  text-align: right;
+  padding-left: 10px;
+  /* text-align: right; */
+  text-align: left;
 
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
   color: #000000;
 
-  &:invalid {
-    border: 1px solid gba(231, 74, 59, 1);
-  }
-
   // overflow: hidden;
   // white-space: nowrap;
   // text-overflow: ellipsis;
+
+  &:invalid {
+    border: 1px solid gba(231, 74, 59, 1);
+  }
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
@@ -245,22 +244,7 @@ export const InputMeasure = styled.select`
 `;
 
 export const Label = styled.label`
-  // position: absolute;
-  // top: 18px;
-  // right: 12px;
   color: transparent;
-
-  // width: 18px;
-  // height: 18px;
-
-  // color: rgba(51, 51, 51, 1);
-  // background-color: transparent;
-
-  // margin: 0;
-  // padding: 0;
-  // font-size: 24px;
-  // line-height: 24px;
-  // cursor: pointer;
 `;
 
 export const Option = styled.option`

@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { addToShoppingList } from 'apiService/ShoppingListApi';
 import {
   IngredientsSection,
@@ -14,21 +15,36 @@ import {
   IngredientWrapper,
 } from './RecipeIngredientsList.styled';
 import { CheckBoxCustom } from 'components/CheckBoxForRecipeList/CheckBoxForRecipeList';
+import { RemoveFromFavoriteBtn } from 'components/Button/Button';
+import { toast } from 'react-hot-toast';
+import { vegetablesBasket } from 'images';
 
 export const RecipeIngredientsList = ({ ingredients }) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const shoppingList = [];
+  const [list, setList] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    return () => {
-      if (shoppingList.length > 0) {
-        const res = addToShoppingList(shoppingList);
-        if (res) {
-          const numToSplice = shoppingList.length - 1;
-          shoppingList.splice(0, numToSplice);
-        }
+    const items = JSON.parse(localStorage.getItem('shoppingList'));
+    if (items) {
+      setList(items);
+    }
+  }, []);
+
+  const handleAddtoShoppingList = () => {
+    if (list.length > 0) {
+      const res = addToShoppingList(list);
+      if (res) {
+        setList([]);
+        localStorage.setItem('shoppingList', JSON.stringify([]));
+        toast.success('Added to shopping list');
+        navigate('/shopping-list');
+        return;
       }
-    };
-  }, [shoppingList, shoppingList.length]);
+      toast.error('Something went wrong. Try again.');
+      return;
+    }
+    toast.error('Ingredients allready added');
+  };
 
   return (
     <IngredientsSection>
@@ -44,17 +60,23 @@ export const RecipeIngredientsList = ({ ingredients }) => {
           return (
             <IngredientItem key={item.id}>
               <IngredientWrapper>
-                <IngredientPhoto src={item.image} alt="ingredient image" />
+                <IngredientPhoto
+                  src={item.image ? item.image : vegetablesBasket}
+                  alt="ingredient image"
+                />
                 <IngredientName>{item.name}</IngredientName>
               </IngredientWrapper>
               <MeasureCheckBoxWrapper>
                 <IngredientMeasure>{item.measure}</IngredientMeasure>
-                <CheckBoxCustom list={shoppingList} item={item} />
+                <CheckBoxCustom list={list} setList={setList} item={item} />
               </MeasureCheckBoxWrapper>
             </IngredientItem>
           );
         })}
       </IngredietntsList>
+      <RemoveFromFavoriteBtn onClick={handleAddtoShoppingList}>
+        Add to shopping list
+      </RemoveFromFavoriteBtn>
     </IngredientsSection>
   );
 };

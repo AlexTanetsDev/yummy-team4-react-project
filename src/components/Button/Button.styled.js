@@ -273,7 +273,7 @@ export const SaveChangesBtn = styled.button`
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
-    padding: 19px 143px;
+    padding: 19px 43px;
     width: 400px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 18px;
@@ -310,8 +310,9 @@ export const SeeAllBtn = styled.button`
 `;
 
 export const LogOutBtn = styled.button`
-  padding: 14px 44px;
   width: 137px;
+  margin-right: 8px;
+  padding: 14px 18px;
   background-color: ${p => p.theme.colors.firstAccentColor};
   color: ${p => p.theme.colors.mainBgColor};
   font-family: 'Poppins';
@@ -323,8 +324,9 @@ export const LogOutBtn = styled.button`
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
-    padding: 19px 68px;
+    padding: 19px 65px;
     width: 192px;
+    margin-right: 16px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 18px;
   }
@@ -425,6 +427,7 @@ export const AddToFavoriteBtn = styled.button`
 `;
 
 export const RemoveFavoriteRecBtn = styled.button`
+  align-self: center;
   padding: 8px 16px;
   width: 150px;
   background-color: ${p => p.theme.colors.firstAccentColor};
@@ -627,5 +630,37 @@ export const MyRecipesDeleteBtn = styled.button`
     border: ${p => p.theme.border.favoriteBtnBorder};
     color: ${p => p.theme.colors.secondAccentColor};
     outline: none;
+  }
+`;
+
+export const ButtonUp = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: ${p => (p.isButtonUp ? 1 : 0)};
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 50px;
+  width: 50px;
+  background: ${p => p.theme.colors.firstAccentColor};
+  border: none;
+  border-radius: 8px;
+  font-size: 30px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    scale: 1.1;
+    color: ${p => p.theme.colors.lightGreenText};
+  }
+
+  @media (min-width: 768px) {
+    bottom: 100px;
+    right: 50px;
+    height: 70px;
+    width: 70px;
+    font-size: 50px;
+    bottom: 100px;
   }
 `;

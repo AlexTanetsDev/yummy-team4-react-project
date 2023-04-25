@@ -197,12 +197,17 @@ export const RreviewImageContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 279px;
-  height: 268px;
+  width: 244px;
+  height: 238px;
 
   background-color: #8baa36;
   border-radius: 8px;
   overflow: hidden;
+
+  @media screen and (min-width: 375px) {
+    width: 279px;
+    height: 268px;
+  }
 `;
 
 export const Image = styled.img`

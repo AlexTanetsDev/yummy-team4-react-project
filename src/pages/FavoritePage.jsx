@@ -23,7 +23,6 @@ const FavoritePage = () => {
     const renderFavorite = async () => {
       try {
         setIsLoading(true);
-
         const { data, total } = await getAllFavorite(page, 4);
 
         setTotalPage(total);
@@ -39,17 +38,24 @@ const FavoritePage = () => {
   }, [page]);
 
   const handleDelete = async id => {
+    const lastItem = totalPage % 4;
+    const lastPage = Math.trunc((totalPage + 3) / 4);
+
     try {
       setIsLoading(true);
-      toast.error('Deleted from favorites');
 
       await deleteFavoriteById(id);
+      toast.error('Deleted from favorites');
 
-      const { data, total } = await getAllFavorite(page, 4);
+      if (page > 1 && lastPage === page && lastItem === 1) {
+        setPage(page - 1);
+      } else {
+        const { data, total } = await getAllFavorite(page, 4);
 
-      setTotalPage(total);
+        setTotalPage(total);
 
-      setRecipes(data);
+        setRecipes(data);
+      }
     } catch (error) {
       setError({ error });
     } finally {

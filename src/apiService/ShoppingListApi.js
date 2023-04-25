@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 export const baseUrl = 'https://yummy-team4-nodejs-project.onrender.com/';
 
 export async function fetchShoppingList() {
@@ -8,8 +9,12 @@ export async function fetchShoppingList() {
 }
 
 export async function deleteShoppingListItem(id) {
-  const response = await axios.delete(`/api/shopping-list/${id}`);
-  return response;
+  try {
+    const response = await axios.delete(`/api/shopping-list/${id}`);
+    return response;
+  } catch (error) {
+    toast.error('Something went wrong, try again');
+  }
 }
 
 export const addToShoppingList = async list => {

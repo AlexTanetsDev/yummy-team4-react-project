@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Field } from 'formik';
-import { CustomSelect } from '../CustomSelect/CustomSelect';
 
+import { selectCategoryList } from 'Redux/auth/selectors';
+import { CustomSelect } from '../CustomSelect/CustomSelect';
 import { CategoryApi } from '../../apiService';
 import photoIcon from '../../images/addRecipePhoto.svg';
 import {
@@ -23,7 +25,7 @@ import {
 } from './RecipeDescriptionFields.styled';
 
 const times = Array.from(Array(24), (_, i) => (i + 1) * 5).map(time => ({
-  value: `${time} min`,
+  value: `${time}`,
   label: `${time} min`,
 }));
 
@@ -52,11 +54,11 @@ const categoryInputStyles = {
     color: '#000000',
     borderRadius: '6px',
     paddingLeft: 14,
+    minWidth: '120px',
 
     '@media screen and (min-width: 768px)': {
       fontSize: 14,
     },
-
   }),
   menu: (provided, state) => ({
     ...provided,
@@ -159,12 +161,14 @@ export const RecipeDescriptionFields = ({ formik }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const categoriesList = useSelector(selectCategoryList);
+
   useEffect(() => {
     (async () => {
       try {
         setIsLoading(true);
-        const data = await CategoryApi.fetchCategoryList();
-        const categoriesObj = data.map(category => ({
+        // const data = await CategoryApi.fetchCategoryList();
+        const categoriesObj = categoriesList.map(category => ({
           value: category,
           label: category,
         }));

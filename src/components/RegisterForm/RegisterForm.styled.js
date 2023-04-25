@@ -41,7 +41,7 @@ export const BottomBgImage = styled.div`
   @media (min-width: 1440px) and (min-height: 771px) {
     height: 50%;
     background-image: url(${bottomRegImg});
-  } ;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -124,7 +124,7 @@ export const Modal = styled.div`
 
   @media (min-width: 1440px) {
     margin-top: 20px;
-  } ;
+  }
 `;
 
 export const Title = styled.h1`
@@ -153,6 +153,8 @@ export const InputField = styled.input`
   width: 279px;
   height: 45px;
   padding-left: 40px;
+  padding-right: 30px;
+  font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.mainBgColor};
   background-color: ${p => p.theme.colors.thirdAccentColor};
   border-color: ${props => props.brdcolor};
@@ -165,8 +167,10 @@ export const InputField = styled.input`
   @media (min-width: 768px) {
     margin-bottom: 30px;
     padding-left: 50px;
+    padding-right: 40px;
     width: 400px;
     height: 59px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
   }
 
   @media (max-width: 1440px) and (max-height: 940px) {
@@ -174,6 +178,7 @@ export const InputField = styled.input`
     width: 279px;
     height: 45px;
     padding-left: 40px;
+    font-size: ${p => p.theme.fontSizes.l}px;
     color: ${p => p.theme.colors.mainBgColor};
     background-color: ${p => p.theme.colors.thirdAccentColor};
     border: solid 1px ${p => p.theme.colors.mainBgColor};
@@ -182,7 +187,7 @@ export const InputField = styled.input`
     &:hover {
       opacity: 1;
     }
-  } ;
+  }
 `;
 
 export const IconWrap = styled.div`

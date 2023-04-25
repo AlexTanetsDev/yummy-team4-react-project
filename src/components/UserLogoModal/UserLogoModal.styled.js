@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrap = styled.div`
+export const UserModal = styled.div`
   position: absolute;
   top: 72px;
   right: 15%;
@@ -13,8 +13,11 @@ export const Wrap = styled.div`
   @media (min-width: 768px) {
     width: 177px;
     height: 134px;
-    border: none;
   }
+`;
+
+export const WrapContent = styled.div`
+  position: relative;
 `;
 
 export const EditProfile = styled.button`
@@ -48,7 +51,7 @@ export const EditIcon = styled.img`
   height: 14px;
 `;
 
-export const LogOutBtn = styled.button`
+export const LogOut = styled.button`
   position: relative;
   display: block;
   width: 125px;

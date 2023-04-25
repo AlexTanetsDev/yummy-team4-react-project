@@ -36,17 +36,24 @@ const MyRecipesPage = () => {
   }, [currentPage]);
 
   const deleteMyRecipe = async id => {
+    const lastItem = totalItemsCount % 4;
+    const lastPage = Math.trunc((totalItemsCount + 3) / 4);
+
     try {
       setIsLoading(true);
-      toast.error('Deleted from my recipes');
 
       await OwnRecipeApi.DeleteRecipe(id);
+      toast.error('Deleted from my recipes');
 
-      const { data, total } = await OwnRecipeApi.FetchRecipes(currentPage, 4);
+      if (currentPage > 1 && lastPage === currentPage && lastItem === 1) {
+        setCurrentPage(currentPage - 1);
+      } else {
+        const { data, total } = await OwnRecipeApi.FetchRecipes(currentPage, 4);
 
-      setTotalItemsCount(total);
+        setTotalItemsCount(total);
 
-      setRecipes(data);
+        setRecipes(data);
+      }
     } catch (error) {
       setError({ error });
     } finally {
