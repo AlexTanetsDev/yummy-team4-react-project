@@ -22,6 +22,7 @@ const CategoriesPage = () => {
   const [totalItemsCount, setTotalItemsCount] = useState(0);
   const [totalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isRefreshPagination, setIsRefreshPagination] = useState(false);
 
   useEffect(() => {
     const renderRecipeList = async () => {
@@ -39,12 +40,20 @@ const CategoriesPage = () => {
         setError(error);
       } finally {
         setIsLoading(false);
+        setTimeout(() => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        }, 500);
+        setIsRefreshPagination(false);
       }
     };
     renderRecipeList();
   }, [categoryName, currentPage, token, totalPages]);
 
   useEffect(() => {
+    setIsRefreshPagination(true);
     setCurrentPage(1);
   }, [categoryName]);
 
@@ -67,12 +76,14 @@ const CategoriesPage = () => {
           ) : (
             <ResipeCategoriItems recipes={recipes} />
           )}
-          <RecipesPagination
-            totalItemsCount={totalItemsCount}
-            paginate={paginate}
-            currentPage={currentPage}
-            totalPages={Math.ceil(totalItemsCount / 8)}
-          />
+          {!isRefreshPagination && (
+            <RecipesPagination
+              totalItemsCount={totalItemsCount}
+              paginate={paginate}
+              currentPage={currentPage}
+              totalPages={Math.ceil(totalItemsCount / 8)}
+            />
+          )}
         </Sections>
       )}
     </Container>
