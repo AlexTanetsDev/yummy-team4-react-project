@@ -37,8 +37,9 @@ const MyRecipesPage = () => {
 
   const deleteMyRecipe = async id => {
     const lastItem = totalItemsCount % 4;
+    const lastPage = Math.trunc((totalItemsCount + 3) / 4);
 
-    if (currentPage > 1 && lastItem === 1) {
+    if (currentPage > 1 && lastPage === currentPage && lastItem === 1) {
       setCurrentPage(currentPage - 1);
     }
     try {
