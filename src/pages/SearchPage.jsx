@@ -20,10 +20,16 @@ const SearchPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!query) {
+      return;
+    }
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const recipesData = await getSearchedRecipes(selectedOptionFinal, query);
+        const recipesData = await getSearchedRecipes(
+          selectedOptionFinal,
+          query
+        );
         setRecipes(recipesData);
         if (recipesData.length > 0) {
           toast.success('Recipes are found!');
@@ -40,8 +46,6 @@ const SearchPage = () => {
     fetchData();
   }, [query, selectedOptionFinal]);
 
-
-
   const handleSubmit = async e => {
     e.preventDefault();
     const searchBarValue = e.target.searchBar.value;
@@ -49,15 +53,12 @@ const SearchPage = () => {
     navigate(`/search/${searchBarValue}`);
   };
 
-
   const handleOptionClick = option => {
     setSelectedOption(option);
     setIsOpen(false);
   };
 
-
   return (
- 
     <>
       <Sections>
         <Container>
