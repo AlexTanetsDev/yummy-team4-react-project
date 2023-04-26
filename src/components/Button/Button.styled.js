@@ -643,16 +643,23 @@ export const ButtonUp = styled.button`
   right: 20px;
   height: 50px;
   width: 50px;
-  background: ${p => p.theme.colors.firstAccentColor};
-  border: none;
-  border-radius: 8px;
+  background: transparent;
+  border: 2px solid ${p => p.theme.colors.firstAccentColor};
+  border-radius: 50%;
   font-size: 30px;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover,
-  &:focus {
+  &:hover {
     scale: 1.1;
     color: ${p => p.theme.colors.lightGreenText};
+    border: 2px solid transparent;
+     background: ${p => p.theme.colors.firstAccentColor}; */
+
+  }
+  &:active,
+  &:focus {
+    outline: none; 
+    box-shadow: none;
   }
 
   @media (min-width: 768px) {
