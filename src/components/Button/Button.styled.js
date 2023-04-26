@@ -653,12 +653,12 @@ export const ButtonUp = styled.button`
     scale: 1.1;
     color: ${p => p.theme.colors.lightGreenText};
     border: 2px solid transparent;
-     background: ${p => p.theme.colors.firstAccentColor}; */
-
+    background: ${p => p.theme.colors.firstAccentColor};
   }
+
   &:active,
   &:focus {
-    outline: none; 
+    outline: none;
     box-shadow: none;
   }
 
