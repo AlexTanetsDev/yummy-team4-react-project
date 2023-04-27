@@ -169,6 +169,6 @@ export const SignInForm = () => {
         </>
       )}
 		</>,
-			document.querySelector("#login-root")
+			document.querySelector("#modal-root")
   );
 };
