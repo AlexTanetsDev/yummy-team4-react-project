@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
- 
+import ReactDOM from "react-dom";
 import {ModalConfirm} from '../ModalConfirm/ModalConfirm'
 import {EditIcon, EditProfile, LogOut, UserModal, LogoutIcon} from './UserLogoModal.styled';
 import { editIcon, arrowRightIcon } from '../../images';
@@ -10,6 +10,8 @@ import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
 		const [logout, setLogout] = useState(false);
 		const [edit, setEdit] = useState(false);
 		const [isShow, setIsShow] = useState(opened);
+		console.log(opened);
+		console.log(isShow);
 		const tooltipRef = useRef(null);
 
 		useEffect(() => {
@@ -43,10 +45,8 @@ import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
 			setEdit(!edit);
 		};
 
-		return (
-			
+		return ReactDOM.createPortal (
 			<>
-			
 			{isShow && (
 			<UserModal ref={tooltipRef}>
 			<EditProfile type='button' onClick={handleToggleEditModalClick}>
@@ -67,7 +67,7 @@ import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
 					<ModalConfirm opened={logout} onClose={handleBtnToggleLogoutModalClick } />
 				)}
 			{edit && <UserImfoModal opened={edit} onClose={handleToggleEditModalClick}/>}
-			
-			</>			
+			</>,
+			document.querySelector("#user-root")
 	)
 };

@@ -53,7 +53,6 @@ export const Header = () => {
                 <AvatarImg src={User.avatarURL} alt="avatar" />
               </Avatar>
               <UserName>{User.name}</UserName>
-							{opened && <UserLogoModal opened={opened}/>}
             </UserProfileWrap>
             <StyledBurger
               onClick={() => {
@@ -64,7 +63,8 @@ export const Header = () => {
             </StyledBurger>
           </Headerblock>
 
-          <Modal active={modalActive} setActive={setModalActive} />
+					<Modal active={modalActive} setActive={setModalActive} />
+					{opened && <UserLogoModal opened={opened}/>}
         </HeaderWrapper>
       </Container>
     </StyledHeader>

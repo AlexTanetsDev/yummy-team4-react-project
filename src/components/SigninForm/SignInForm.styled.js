@@ -89,32 +89,37 @@ export const ImageReg = styled.div`
 export const ModalWrapper = styled.div``;
 
 export const Modal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 315px;
+  width: 335px;
   margin-top: -30px;
   margin-bottom: 18px;
   padding-top: 32px;
   padding-bottom: 40px;
-  padding-left: 28px;
-  padding-right: 28px;
   background-color: ${p => p.theme.colors.thirdAccentColor};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
+
+  @media (max-width: 400px) {
+    width: 280px;
+  }
+
   @media (min-width: 768px) {
     height: 419px;
+    width: 500px;
     margin-top: -15px;
     padding-top: 44px;
     padding-bottom: 44px;
-    padding-left: 50px;
-    padding-right: 50px;
   }
 
-  @media (max-width: 1440px) and (max-height: 940px) {
+  @media (min-width: 400px) and (max-width: 1440px) and (max-height: 940px) {
     height: 315px;
+    width: 335px;
     margin-top: -30px;
     padding-top: 32px;
     padding-bottom: 40px;
-    padding-left: 28px;
-    padding-right: 28px;
     background-color: ${p => p.theme.colors.thirdAccentColor};
     box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
@@ -162,6 +167,10 @@ export const InputField = styled.input`
     opacity: 1;
   }
 
+  @media (max-width: 400px) {
+    width: 250px;
+  }
+
   @media (min-width: 768px) {
     margin-bottom: 24px;
     padding-left: 50px;
@@ -171,7 +180,7 @@ export const InputField = styled.input`
     font-size: ${p => p.theme.fontSizes.xl}px;
   }
 
-  @media (max-width: 1440px) and (max-height: 940px) {
+  @media (min-width: 400px) and (max-width: 1440px) and (max-height: 940px) {
     margin-bottom: 20px;
     width: 279px;
     height: 45px;

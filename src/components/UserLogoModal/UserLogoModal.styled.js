@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const UserModal = styled.div`
   position: absolute;
   top: 72px;
-  right: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 161px;
   height: 130px;
   padding-top: 18px;
