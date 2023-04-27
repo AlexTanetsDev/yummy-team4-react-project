@@ -105,12 +105,15 @@ export const SingInBtnGreen = styled.button`
   border-color: transparent;
   background-color: ${p => p.theme.colors.firstAccentColor};
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media (max-width: 400px) {
+    width: 250px;
+  }
   @media (min-width: 768px) {
     margin-top: 50px;
     width: 400px;
     height: 59px;
   }
-  @media (max-width: 1440px) and (max-height: 940px) {
+  @media (min-width: 400px) and (max-width: 1440px) and (max-height: 940px) {
     margin-top: 28px;
     width: 279px;
     height: 45px;
@@ -272,6 +275,11 @@ export const SaveChangesBtn = styled.button`
   border-radius: 6px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  @media (max-width: 400px) {
+    width: 250px;
+    padding: 14px 54px;
+  }
+
   @media (min-width: 768px) {
     padding: 19px 43px;
     width: 400px;
@@ -323,6 +331,10 @@ export const LogOutBtn = styled.button`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  @media (max-width: 400px) {
+    width: 120px;
+  }
+
   @media (min-width: 768px) {
     padding: 19px 65px;
     width: 192px;
@@ -351,6 +363,10 @@ export const CancelBtn = styled.button`
   border: 1px solid #d9d9d9;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (max-width: 400px) {
+    width: 120px;
+  }
 
   @media (min-width: 768px) {
     padding: 19px 68px;

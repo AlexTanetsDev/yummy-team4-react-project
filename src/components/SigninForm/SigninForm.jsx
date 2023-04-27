@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactDOM from "react-dom";
 import { Formik, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import { categoryList, signIn } from '../../Redux/auth/operations';
@@ -52,7 +53,7 @@ export const SignInForm = () => {
     }
   };
 
-  return (
+  return ReactDOM.createPortal (
     <>
       {error ? (
         <AlertMessage>
@@ -167,6 +168,7 @@ export const SignInForm = () => {
           )}
         </>
       )}
-    </>
+		</>,
+			document.querySelector("#login-root")
   );
 };

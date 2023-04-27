@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../Redux/auth/operations';
 import { CancelButton, LogOutButton } from '../Button/Button';
-import { CloseModalBtn, CloseModalIcon, LogoutTitle, Modal } from './ModalConfir.styled';
+import { CloseModalBtn, CloseModalIcon, LogoutTitle, Modal, WrapBtn } from './ModalConfir.styled';
 import { closeModalIcon } from '../../images';
 
 export const ModalConfirm = ({opened, onClose}) => {
@@ -50,8 +50,10 @@ export const ModalConfirm = ({opened, onClose}) => {
 			<CloseModalIcon src={closeModalIcon} alt='close'/>	
 			</CloseModalBtn>
 			<LogoutTitle>Are you sure you want to log out?</LogoutTitle>
+			<WrapBtn>
 			<LogOutButton onClick={handleBtnConfirmLogoutClick}>Log out</LogOutButton>
 			<CancelButton  type='button'  onClick={onClose} >Cancel</CancelButton>
+			</WrapBtn>
 	  </Modal>
 				</>
 		)}

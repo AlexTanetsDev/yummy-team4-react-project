@@ -4,22 +4,25 @@ import { AiOutlineUser } from 'react-icons/ai';
 
 export const UserEditModal = styled.div`
   position: absolute;
-  top: 150%;
-  left: -130%;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 330px;
   height: 327px;
   padding: 32px 24px;
   border-radius: 30px;
   background-color: ${p => p.theme.colors.mainBgColor};
   border: solid 1px ${p => p.theme.colors.firstAccentColor};
+
+  @media (max-width: 400px) {
+    width: 300px;
+  }
   @media (min-width: 768px) {
-    left: -280%;
     width: 480px;
     height: 402px;
     padding: 50px 40px;
   }
   @media (min-width: 1440px) {
-    left: -280%;
     width: 500px;
     height: 425px;
     padding: 60px 50px;
@@ -133,6 +136,9 @@ export const InputField = styled.input`
   opacity: 0.6;
   &:hover {
     opacity: 1;
+  }
+  @media (max-width: 400px) {
+    width: 250px;
   }
   @media (min-width: 768px) {
     margin-bottom: 30px;
