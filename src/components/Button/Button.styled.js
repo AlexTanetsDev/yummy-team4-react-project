@@ -687,3 +687,43 @@ export const ButtonUp = styled.button`
     bottom: 100px;
   }
 `;
+
+export const BackTorecipeBtn = styled(NavLink)`
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 40px;
+  background-color: ${p => p.theme.colors.secondAccentColor};
+  color: ${p => p.theme.colors.mainBgColor};
+  font-family: 'Poppins';
+  font-size: ${p => p.theme.fontSizes.l}px;
+  font-weight: medium;
+  line-height: 15px;
+  border: ${p => p.theme.border.blackBtnBorder};
+  border-radius: 24px 44px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (min-width: 768px) {
+    margin-bottom: 120px;
+    padding: 11px 32px;
+    bottom: 28px;
+    right: 24px;
+    width: 190px;
+    height: 50px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
+    line-height: 21px;
+  }
+  @media (min-width: 1440px) {
+    margin-bottom: 150px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.firstAccentColor};
+    border: ${p => p.theme.border.greenBtnBorder};
+    outline: none;
+  }
+`;
