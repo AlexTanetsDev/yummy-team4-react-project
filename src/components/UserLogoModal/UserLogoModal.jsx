@@ -68,6 +68,6 @@ import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
 				)}
 			{edit && <UserImfoModal opened={edit} onClose={handleToggleEditModalClick}/>}
 			</>,
-			document.querySelector("#user-root")
+			document.querySelector("#modal-root")
 	)
 };

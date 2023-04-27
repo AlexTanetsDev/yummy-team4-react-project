@@ -220,6 +220,6 @@ export const RegisterForm = () => {
         </>
       )}
 		</>,
-			document.querySelector("#register-root")
+			document.querySelector("#modal-root")
   );
 };
