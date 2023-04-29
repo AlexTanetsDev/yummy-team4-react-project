@@ -654,6 +654,7 @@ export const ButtonUp = styled.button`
   align-items: center;
   justify-content: center;
   opacity: ${p => (p.isButtonUp ? 1 : 0)};
+  pointer-events: ${p => (p.isButtonUp ? 'auto' : 'none')};
   position: fixed;
   bottom: 20px;
   right: 20px;
