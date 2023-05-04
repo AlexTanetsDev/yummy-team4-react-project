@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SerchInput = styled.input`
   border-radius: 24px 44px;
-  padding: 14px 32px;
+  padding: 14px 86px 14px 32px;
   width: 295px;
   position: relative;
   background-color: ${p => p.theme.colors.whiteText};
@@ -13,13 +13,13 @@ export const SerchInput = styled.input`
   border: 1px solid #f0f0f0;
   border-radius: 24px 44px;
   @media (min-width: 768px) {
-    padding: 16px 52px;
+    padding: 16px 136px 16px 52px;
     width: 362px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 24px;
   }
   @media (min-width: 1440px) {
-    padding: 22px 52px;
+    padding: 22px 146px 22px 52px;
     width: 510px;
   }
 

@@ -1,5 +1,5 @@
 import { useMediaQuery } from 'react-responsive';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { FiTrash2 } from 'react-icons/fi';
 
@@ -33,13 +33,13 @@ export const FavoriteItem = ({
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
-
+  const location = useLocation();
   return (
     <>
       {isMobile ? (
         <StyledFavoriteItem>
           <FavoritesDeleteButton onClick={onDelete} children={<FiTrash2 />} />
-          <NavLink to={`/recipe/${id}`}>
+          <NavLink to={`/recipe/${id}`} state={{ from: location }}>
             <ImageWrapper>
               <Image src={preview} alt={title} />
             </ImageWrapper>
@@ -71,7 +71,11 @@ export const FavoriteItem = ({
               <TimeText>{time} min</TimeText>
             </TimeWrapper>
           </InfoWrapper>
-          <SeeRecipeButtonBlack to={`/recipe/${id}`} children="See recipe" />
+          <SeeRecipeButtonBlack
+            to={`/recipe/${id}`}
+            state={{ from: location }}
+            children="See recipe"
+          />
         </StyledFavoriteItem>
       )}
     </>

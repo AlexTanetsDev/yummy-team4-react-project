@@ -13,6 +13,7 @@ import { MiniLoader } from 'components/Loader/Loader';
 import { RecipesPagination } from 'components/Paginator/Paginator';
 
 const CategoriesPage = () => {
+  const [prevCategoryName, setPrevCategoryName] = useState('');
   const { categoryName = 'Beef' } = useParams();
   const [recipes, setRecipes] = useState([]);
   const token = useSelector(selectToken);
@@ -20,42 +21,42 @@ const CategoriesPage = () => {
   const [error, setError] = useState('');
   const categories = useSelector(selectCategoryList);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
-  const [totalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [isRefreshPagination, setIsRefreshPagination] = useState(false);
 
   useEffect(() => {
     const renderRecipeList = async () => {
-      try {
-        setIsLoading(true);
-        const { data, total } = await getRecipesByCategory(
-          categoryName,
-          token,
-          currentPage,
-          8
-        );
-        setRecipes(data);
-        setTotalItemsCount(total);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-        setTimeout(() => {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-          });
-        }, 500);
-        setIsRefreshPagination(false);
+      if (prevCategoryName !== categoryName) {
+        setPrevCategoryName(categoryName);
+        setIsRefreshPagination(true);
+        setCurrentPage(1);
+      } else {
+        try {
+          setIsLoading(true);
+          const { data, total } = await getRecipesByCategory(
+            categoryName,
+            token,
+            currentPage,
+            8
+          );
+          setRecipes(data);
+          setTotalItemsCount(total);
+        } catch (error) {
+          setError(error);
+        } finally {
+          setIsLoading(false);
+          setTimeout(() => {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth',
+            });
+          }, 500);
+          setIsRefreshPagination(false);
+        }
       }
     };
     renderRecipeList();
-  }, [categoryName, currentPage, token, totalPages]);
-
-  useEffect(() => {
-    setIsRefreshPagination(true);
-    setCurrentPage(1);
-  }, [categoryName]);
+  }, [prevCategoryName, categoryName, currentPage, token]);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactDOM from "react-dom";
 import { Formik, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import { categoryList, signIn } from '../../Redux/auth/operations';
@@ -17,7 +18,8 @@ import {
   IconWrap,
   InputWrapper,
   ContentWrapper,
-  StyledFiMail,
+	StyledFiMail,
+	StyledFiLock,
   WarningAndSuccessMessage,
 } from './SignInForm.styled';
 import { FormError } from 'components/FormError/FormError';
@@ -52,7 +54,7 @@ export const SignInForm = () => {
     }
   };
 
-  return (
+  return ReactDOM.createPortal (
     <>
       {error ? (
         <AlertMessage>
@@ -110,7 +112,10 @@ export const SignInForm = () => {
                             <FormError name="email" component="div" />
                           </InputWrapper>
                           <InputWrapper>
-                            <Field
+														<Field
+                              type="password"
+                              name="password"
+                              placeholder="Password"																	
                               as={InputField}
                               brdcolor={
                                 (!touched.password && 'white') ||
@@ -122,10 +127,21 @@ export const SignInForm = () => {
                                   '#f6c23e') ||
                                 (8 <= values.password.length && '#3cbc81')
                               }
-                              type="password"
-                              name="password"
-                              placeholder="Password"
-                            />
+																/>
+                            <IconWrap>
+                              <StyledFiLock
+                                color={`${
+                                  (!touched.password && 'white') ||
+                                  (errors.password &&
+                                    touched.password &&
+                                    '#e74a3b') ||
+                                  (6 <= values.password.length &&
+                                    values.password.length < 8 &&
+                                    '#f6c23e') ||
+                                  (8 <= values.password.length && '#3cbc81')
+                                }`}
+                              />
+                            </IconWrap>																
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (
@@ -167,6 +183,7 @@ export const SignInForm = () => {
           )}
         </>
       )}
-    </>
+		</>,
+			document.querySelector("#modal-root")
   );
 };
