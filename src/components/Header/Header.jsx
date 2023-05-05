@@ -21,15 +21,17 @@ import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 import { Container } from 'components/Container/Container';
 
 import { Modal } from '../Modal/Modal';
+import { useLocation } from 'react-router-dom';
 
 export const Header = () => {
   const User = useSelector(state => state.auth.user);
   const [modalActive, setModalActive] = useState(false);
-	const [opened, setOpened] = useState(false);
-	
-	const handleClick = () => {
-		setOpened(!opened);
-	}
+  const [opened, setOpened] = useState(false);
+  const location = useLocation();
+
+  const handleClick = () => {
+    setOpened(!opened);
+  };
 
   return (
     <StyledHeader>
@@ -37,7 +39,9 @@ export const Header = () => {
         <HeaderWrapper>
           <LogoHeader />
           <StyledNav>
-            <StyledLink to="/categories/Beef">Categories</StyledLink>
+            <StyledLink path={location.pathname} to="/categories/Beef">
+              Categories
+            </StyledLink>
             <StyledLink to="/add">Add recipes</StyledLink>
             <StyledLink to="/my">My recipes</StyledLink>
             <StyledLink to="/favorite">Favorites</StyledLink>
@@ -49,7 +53,7 @@ export const Header = () => {
 
           <Headerblock>
             <UserProfileWrap>
-							<Avatar onClick={handleClick}>
+              <Avatar onClick={handleClick}>
                 <AvatarImg src={User.avatarURL} alt="avatar" />
               </Avatar>
               <UserName>{User.name}</UserName>
