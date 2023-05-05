@@ -105,12 +105,15 @@ export const SingInBtnGreen = styled.button`
   border-color: transparent;
   background-color: ${p => p.theme.colors.firstAccentColor};
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media (max-width: 400px) {
+    width: 250px;
+  }
   @media (min-width: 768px) {
     margin-top: 50px;
     width: 400px;
     height: 59px;
   }
-  @media (max-width: 1440px) and (max-height: 940px) {
+  @media (min-width: 400px) and (max-width: 1440px) and (max-height: 940px) {
     margin-top: 28px;
     width: 279px;
     height: 45px;
@@ -272,6 +275,11 @@ export const SaveChangesBtn = styled.button`
   border-radius: 6px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  @media (max-width: 400px) {
+    width: 250px;
+    padding: 14px 54px;
+  }
+
   @media (min-width: 768px) {
     padding: 19px 43px;
     width: 400px;
@@ -323,6 +331,10 @@ export const LogOutBtn = styled.button`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  @media (max-width: 400px) {
+    width: 120px;
+  }
+
   @media (min-width: 768px) {
     padding: 19px 65px;
     width: 192px;
@@ -351,6 +363,10 @@ export const CancelBtn = styled.button`
   border: 1px solid #d9d9d9;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (max-width: 400px) {
+    width: 120px;
+  }
 
   @media (min-width: 768px) {
     padding: 19px 68px;
@@ -638,6 +654,7 @@ export const ButtonUp = styled.button`
   align-items: center;
   justify-content: center;
   opacity: ${p => (p.isButtonUp ? 1 : 0)};
+  pointer-events: ${p => (p.isButtonUp ? 'auto' : 'none')};
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -653,12 +670,12 @@ export const ButtonUp = styled.button`
     scale: 1.1;
     color: ${p => p.theme.colors.lightGreenText};
     border: 2px solid transparent;
-     background: ${p => p.theme.colors.firstAccentColor}; */
-
+    background: ${p => p.theme.colors.firstAccentColor};
   }
+
   &:active,
   &:focus {
-    outline: none; 
+    outline: none;
     box-shadow: none;
   }
 
@@ -669,5 +686,45 @@ export const ButtonUp = styled.button`
     width: 70px;
     font-size: 50px;
     bottom: 100px;
+  }
+`;
+
+export const BackTorecipeBtn = styled(NavLink)`
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 40px;
+  background-color: ${p => p.theme.colors.secondAccentColor};
+  color: ${p => p.theme.colors.mainBgColor};
+  font-family: 'Poppins';
+  font-size: ${p => p.theme.fontSizes.l}px;
+  font-weight: medium;
+  line-height: 15px;
+  border: ${p => p.theme.border.blackBtnBorder};
+  border-radius: 24px 44px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (min-width: 768px) {
+    margin-bottom: 120px;
+    padding: 11px 32px;
+    bottom: 28px;
+    right: 24px;
+    width: 190px;
+    height: 50px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
+    line-height: 21px;
+  }
+  @media (min-width: 1440px) {
+    margin-bottom: 150px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.firstAccentColor};
+    border: ${p => p.theme.border.greenBtnBorder};
+    outline: none;
   }
 `;

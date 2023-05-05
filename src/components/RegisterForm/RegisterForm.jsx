@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import ReactDOM from "react-dom";
 import { register, categoryList } from 'Redux/auth/operations';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
@@ -57,7 +58,7 @@ export const RegisterForm = () => {
     }
   };
 
-  return (
+  return ReactDOM.createPortal (
     <>
       {error ? (
         <AlertMessage>
@@ -204,7 +205,6 @@ export const RegisterForm = () => {
                             )}
                             <FormError name="password" component="div" />
                           </InputWrapper>
-
                           <SingInButtonGreen type="submit">
                             Sign up
                           </SingInButtonGreen>
@@ -219,6 +219,7 @@ export const RegisterForm = () => {
           )}
         </>
       )}
-    </>
+		</>,
+			document.querySelector("#modal-root")
   );
 };

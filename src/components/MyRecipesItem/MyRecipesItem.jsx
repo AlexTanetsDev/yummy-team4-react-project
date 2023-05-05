@@ -1,5 +1,5 @@
 import { FiTrash2 } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import {
   SeeRecipeButtonGreen,
@@ -28,6 +28,7 @@ export const MyRecipesItem = ({
   preview,
   onDelete,
 }) => {
+  const location = useLocation();
   return (
     <>
       <StyledMyRecipesItem>
@@ -44,7 +45,7 @@ export const MyRecipesItem = ({
             <TimeText>{time} min</TimeText>
           </TimeWrapper>
         </InfoWrapper>
-        <Link to={`/recipe/${id}`}>
+        <Link to={`/recipe/${id}`} state={{ from: location }}>
           <SeeRecipeButtonGreen children="See recipe" />
         </Link>
         <MyRecipesDeleteButton onClick={onDelete} children={<FiTrash2 />} />

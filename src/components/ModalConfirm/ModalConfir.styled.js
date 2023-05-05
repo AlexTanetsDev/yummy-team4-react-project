@@ -3,24 +3,29 @@ import styled from 'styled-components';
 export const Modal = styled.div`
   position: absolute;
   top: 72px;
-  left: -135%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 332px;
   height: 179px;
-  padding: 44px 24px;
+  padding-top: 44px;
+  padding-bottom: 44px;
   text-align: center;
   border-radius: 30px;
   background-color: ${p => p.theme.colors.mainBgColor};
   border: solid 1px ${p => p.theme.colors.firstAccentColor};
+  @media (max-width: 400px) {
+    width: 310px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
   @media (min-width: 768px) {
-    left: -300%;
     width: 482px;
     height: 215px;
-    padding: 50px 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
   @media (min-width: 1440px) {
-    left: -300%;
     width: 502px;
-    padding: 50px 50px;
   }
 `;
 
@@ -36,6 +41,10 @@ export const CloseModalBtn = styled.button`
     top: 24px;
     right: 24px;
   }
+`;
+export const WrapBtn = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 export const CloseModalIcon = styled.img`

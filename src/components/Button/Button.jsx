@@ -19,6 +19,7 @@ import {
   MyRecipesDeleteBtn,
   RemoveFavoriteRecBtn,
   ButtonUp,
+  BackTorecipeBtn,
 } from './Button.styled';
 
 export const SearchButtonBlack = ({ type = 'button', onClick, children }) => {
@@ -145,8 +146,12 @@ export const RemoveFromFavoriteBtn = ({
   );
 };
 
-export const SeeRecipeButtonBlack = ({ to, children }) => {
-  return <SeeRecipeBtnBlack to={to}>{children}</SeeRecipeBtnBlack>;
+export const SeeRecipeButtonBlack = ({ to, children, state }) => {
+  return (
+    <SeeRecipeBtnBlack to={to} state={state}>
+      {children}
+    </SeeRecipeBtnBlack>
+  );
 };
 
 export const SeeRecipeButtonGreen = ({
@@ -196,4 +201,8 @@ export const ButtonScrollUp = ({
       {children}
     </ButtonUp>
   );
+};
+
+export const GoBackToRecipeBtn = ({ from, children }) => {
+  return <BackTorecipeBtn to={from}>{children}</BackTorecipeBtn>;
 };
