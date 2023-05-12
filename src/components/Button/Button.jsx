@@ -38,16 +38,16 @@ export const SearchButtonGreen = ({ type = 'button', onClick, children }) => {
   );
 };
 
-export const SingInButton = () => {
-  return <SingInBtn to="/signin">Sign in</SingInBtn>;
+export const SingInButton = ({ children }) => {
+  return <SingInBtn to="/signin">{children}</SingInBtn>;
 };
 
 export const SingInButtonGreen = ({ type = 'button', children }) => {
   return <SingInBtnGreen type={type}>{children}</SingInBtnGreen>;
 };
 
-export const RegistrationButton = () => {
-  return <RegistrationBtn to="/register">Register</RegistrationBtn>;
+export const RegistrationButton = ({ children }) => {
+  return <RegistrationBtn to="/register">{children}</RegistrationBtn>;
 };
 
 export const OtherCategoriesButton = ({

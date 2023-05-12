@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 import { Formik, Form, Field } from 'formik';
+import { object, string } from 'yup';
+import { useTranslation } from 'react-i18next';
+
+import { SingInButtonGreen } from 'components/Button/Button';
+import { AlertMessage } from 'components/AlertMessage/AlertMessage';
+import { MainLoader } from 'components/Loader/Loader';
+import { FormError } from 'components/FormError/FormError';
+
 import { useDispatch } from 'react-redux';
 import { categoryList, signIn } from '../../Redux/auth/operations';
-import { object, string } from 'yup';
-import { SingInButtonGreen } from 'components/Button/Button';
+
 import {
   StyledWrapper,
   ImageReg,
@@ -18,14 +25,13 @@ import {
   IconWrap,
   InputWrapper,
   ContentWrapper,
-	StyledFiMail,
-	StyledFiLock,
+  StyledFiMail,
+  StyledFiLock,
   WarningAndSuccessMessage,
 } from './SignInForm.styled';
-import { FormError } from 'components/FormError/FormError';
+
 import { errorIcon, warningIcon, succesIcon } from 'images';
-import { AlertMessage } from 'components/AlertMessage/AlertMessage';
-import { MainLoader } from 'components/Loader/Loader';
+import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 
 const initialValues = {
   email: '',
@@ -41,6 +47,8 @@ export const SignInForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+
   const handleSubmit = async (values, { resetForm }) => {
     try {
       setIsLoading(true);
@@ -54,7 +62,7 @@ export const SignInForm = () => {
     }
   };
 
-  return ReactDOM.createPortal (
+  return ReactDOM.createPortal(
     <>
       {error ? (
         <AlertMessage>
@@ -66,12 +74,13 @@ export const SignInForm = () => {
             <MainLoader />
           ) : (
             <StyledWrapper>
+              <LanguageSelector page="others" />
               <BottomBgImage />
               <ContentWrapper>
                 <ImageReg />
                 <ModalWrapper>
                   <Modal>
-                    <Title>Sign In</Title>
+                    <Title>{t('Sign In')}</Title>
                     <Formik
                       initialValues={initialValues}
                       validationSchema={signInSchema}
@@ -89,7 +98,7 @@ export const SignInForm = () => {
                               }
                               name="email"
                               type="text"
-                              placeholder="Email"
+                              placeholder={t('Email')}
                               values={values.email}
                             />
                             <IconWrap>
@@ -112,10 +121,10 @@ export const SignInForm = () => {
                             <FormError name="email" component="div" />
                           </InputWrapper>
                           <InputWrapper>
-														<Field
+                            <Field
                               type="password"
                               name="password"
-                              placeholder="Password"																	
+                              placeholder={t('Password')}
                               as={InputField}
                               brdcolor={
                                 (!touched.password && 'white') ||
@@ -127,7 +136,7 @@ export const SignInForm = () => {
                                   '#f6c23e') ||
                                 (8 <= values.password.length && '#3cbc81')
                               }
-																/>
+                            />
                             <IconWrap>
                               <StyledFiLock
                                 color={`${
@@ -141,7 +150,7 @@ export const SignInForm = () => {
                                   (8 <= values.password.length && '#3cbc81')
                                 }`}
                               />
-                            </IconWrap>																
+                            </IconWrap>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (
@@ -151,7 +160,7 @@ export const SignInForm = () => {
                               values.password.length < 8 &&
                               !errors.password && (
                                 <WarningAndSuccessMessage color={'#f6c23e'}>
-                                  Your password is little secure
+                                  {t('Your password is little secure')}
                                 </WarningAndSuccessMessage>
                               )}
                             {8 <= values.password.length &&
@@ -161,7 +170,7 @@ export const SignInForm = () => {
                             {8 <= values.password.length &&
                               !errors.password && (
                                 <WarningAndSuccessMessage color={'#3cbc81'}>
-                                  Password is secure
+                                  {t('Password is secure')}
                                 </WarningAndSuccessMessage>
                               )}
                             {errors.password && touched.password && (
@@ -170,20 +179,20 @@ export const SignInForm = () => {
                             <FormError name="password" component="div" />
                           </InputWrapper>
                           <SingInButtonGreen type="submit">
-                            Sign in
+                            {t('Sign in')}
                           </SingInButtonGreen>
                         </Form>
                       )}
                     </Formik>
                   </Modal>
-                  <Link to="/register">Registration</Link>
+                  <Link to="/register">{t('Registration')}</Link>
                 </ModalWrapper>
               </ContentWrapper>
             </StyledWrapper>
           )}
         </>
       )}
-		</>,
-			document.querySelector("#modal-root")
+    </>,
+    document.querySelector('#modal-root')
   );
 };
