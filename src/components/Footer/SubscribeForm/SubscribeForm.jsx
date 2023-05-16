@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useMedia } from 'react-use';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
@@ -23,6 +24,7 @@ const SubscribeForm = () => {
   const { user } = useAuth();
   const dispatch = useDispatch();
   const subscribe = useSelector(selectSubscription);
+  const { t } = useTranslation();
 
   const handleSubmit = async values => {
     if (subscribe === 'unsubscribe') {
@@ -40,10 +42,9 @@ const SubscribeForm = () => {
     <div>
       {!isMobile && (
         <SubscribeWrapper>
-          <SubscribeTitle>Subscribe to our Newsletter</SubscribeTitle>
+          <SubscribeTitle>{t('Subscribe to our Newsletter')}</SubscribeTitle>
           <SubscribeText>
-            Subscribe up to our newsletter. Be in touch with latest news and
-            special offers, etc.
+            {t('Subscribe up to our newsletter. Be in touch')}
           </SubscribeText>
         </SubscribeWrapper>
       )}
@@ -101,11 +102,11 @@ const SubscribeForm = () => {
             </InputWrapper>
             {subscribe !== 'subscribe' ? (
               <SubscribeBtn type="submit" disabled={!props.isValid}>
-                Subcribe
+                {t('Subscribe')}
               </SubscribeBtn>
             ) : (
               <SubscribeBtn type="submit" disabled={!props.isValid}>
-                Unsubcribe
+                {t('Unsubscribe')}
               </SubscribeBtn>
             )}
           </FormStyled>
