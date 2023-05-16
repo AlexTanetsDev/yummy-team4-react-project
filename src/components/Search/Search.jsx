@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 
 import { SearchMainPageBlack, SerchInput } from './Search.styled';
@@ -7,6 +8,7 @@ import PropTypes from 'prop-types';
 
 export function Search({ onSubmit }) {
   const [searchQuery, setSearchQuery] = useState('');
+  const { t } = useTranslation();
 
   const handleInputChange = eve => {
     setSearchQuery(eve.currentTarget.value.toLowerCase());
@@ -40,7 +42,7 @@ export function Search({ onSubmit }) {
           onChange={handleInputChange}
         />
 
-        <SearchMainPageBlack>Search</SearchMainPageBlack>
+        <SearchMainPageBlack>{t('Search')}</SearchMainPageBlack>
       </form>
     </div>
   );

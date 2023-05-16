@@ -1,7 +1,11 @@
+import { useTranslation } from 'react-i18next';
+
 import { scrollToTop } from 'helpers/scrollToTop';
 import { NavLinkStyled, NavWraper } from './NavFooter.styled';
 
 const NavFooter = () => {
+  const { t } = useTranslation();
+
   return (
     <NavWraper>
       <li>
@@ -10,27 +14,27 @@ const NavFooter = () => {
           state={{ ingredient: true }}
           onClick={scrollToTop}
         >
-          Ingredients
+          {t('Ingredients')}
         </NavLinkStyled>
       </li>
       <li>
         <NavLinkStyled to="/add" onClick={scrollToTop}>
-          Add recipes
+          {t('Add recipes')}
         </NavLinkStyled>
       </li>
       <li>
         <NavLinkStyled to="/my" onClick={scrollToTop}>
-          My recipes
+          {t('My recipes')}
         </NavLinkStyled>
       </li>
       <li>
         <NavLinkStyled to="/favorite" onClick={scrollToTop}>
-          Favorite
+          {t('Favorite')}
         </NavLinkStyled>
       </li>
       <li>
         <NavLinkStyled to="/shopping-list" onClick={scrollToTop}>
-          Shopping list
+          {t('Shopping list')}
         </NavLinkStyled>
       </li>
     </NavWraper>

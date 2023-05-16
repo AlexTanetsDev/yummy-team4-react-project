@@ -77,7 +77,7 @@ export const RegisterForm = () => {
             <MainLoader />
           ) : (
             <StyledWrapper>
-              <LanguageSelector page="others" />
+              <LanguageSelector page="auth" />
               <BottomBgImage />
               <ContentWrapper>
                 <ImageReg />

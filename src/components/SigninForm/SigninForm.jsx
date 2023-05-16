@@ -74,7 +74,7 @@ export const SignInForm = () => {
             <MainLoader />
           ) : (
             <StyledWrapper>
-              <LanguageSelector page="others" />
+              <LanguageSelector page="auth" />
               <BottomBgImage />
               <ContentWrapper>
                 <ImageReg />

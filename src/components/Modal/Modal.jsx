@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import './Modal.css';
 import {
   MobileMenu,
@@ -10,10 +12,14 @@ import {
 } from './ModalStyled';
 import { SearchIconMobile } from '../Header/Header.styled';
 
+import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 import { LogoHeader } from 'components/Logo/Logo';
+
 import { IoMdClose } from 'react-icons/io';
 
 export const Modal = ({ active, setActive }) => {
+  const { t } = useTranslation();
+
   return (
     <MobileMenu
       className={active ? 'modal active' : 'modal'}
@@ -21,19 +27,18 @@ export const Modal = ({ active, setActive }) => {
         setActive(false);
       }}
     >
-      <ModalHeader>
-        <LogoHeader />
-        <StyledBurger
-          onClick={() => {
-            setActive(false);
-          }}
-          // onClick={handleButtonClick}
-        >
-          <IoMdClose style={{ width: '32px', height: '32px' }} />
-        </StyledBurger>
-      </ModalHeader>
-
       <Content className="modal_content" onClick={evt => evt.stopPropagation()}>
+        <ModalHeader>
+          <LogoHeader />
+          <StyledBurger
+            onClick={() => {
+              setActive(false);
+            }}
+            // onClick={handleButtonClick}
+          >
+            <IoMdClose style={{ width: '32px', height: '32px' }} />
+          </StyledBurger>
+        </ModalHeader>
         <StyledNavBurger>
           <StyledLinkBurger
             to="/categories/Beef"
@@ -41,7 +46,7 @@ export const Modal = ({ active, setActive }) => {
               setActive(false);
             }}
           >
-            Categories
+            {t('Categories')}
           </StyledLinkBurger>
           <StyledLinkBurger
             to="/add"
@@ -49,7 +54,7 @@ export const Modal = ({ active, setActive }) => {
               setActive(false);
             }}
           >
-            Add recipes
+            {t('Add recipes')}
           </StyledLinkBurger>
           <StyledLinkBurger
             to="/my"
@@ -57,7 +62,7 @@ export const Modal = ({ active, setActive }) => {
               setActive(false);
             }}
           >
-            My recipes
+            {t('My recipes')}
           </StyledLinkBurger>
           <StyledLinkBurger
             to="/favorite"
@@ -65,7 +70,7 @@ export const Modal = ({ active, setActive }) => {
               setActive(false);
             }}
           >
-            Favorites
+            {t('Favorites')}
           </StyledLinkBurger>
           <StyledLinkBurger
             to="/shopping-list"
@@ -73,7 +78,7 @@ export const Modal = ({ active, setActive }) => {
               setActive(false);
             }}
           >
-            Shopping list
+            {t('Shopping list')}
           </StyledLinkBurger>
           <StyledLinkBurger
             to="/search"
@@ -81,9 +86,10 @@ export const Modal = ({ active, setActive }) => {
               setActive(false);
             }}
           >
-            <SearchIconMobile /> Search
+            <SearchIconMobile /> {t('Search')}
           </StyledLinkBurger>
         </StyledNavBurger>
+        <LanguageSelector page="mobileMenu" />
       </Content>
     </MobileMenu>
   );

@@ -45,11 +45,9 @@ export const Headerblock = styled.div`
 export const StyledNav = styled.nav`
   display: none;
   @media screen and (min-width: 1440px) {
-    margin-right: 30px;
-    margin-left: 30px;
     display: flex;
     gap: 30px;
-    margin-left: 330px;
+    margin-left: 187px;
   }
 `;
 
@@ -88,15 +86,19 @@ export const SearchIconMobile = styled(Search)`
 `;
 
 export const StyledBurger = styled.button`
-  @media screen and (max-width: 1440px) {
-    align-items: center;
-    border-style: none;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    border-style: none;
-    background-color: transparent;
+  align-items: center;
+  border-style: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  border-style: none;
+  background-color: transparent;
+  margin-left: 27.5px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 54px;
   }
+
   @media screen and (min-width: 1440px) {
     display: none;
   }
@@ -128,6 +130,5 @@ export const AvatarImg = styled.img`
 `;
 
 export const UserName = styled.p`
-  margin-right: 24px;
   margin-left: 14px;
 `;
