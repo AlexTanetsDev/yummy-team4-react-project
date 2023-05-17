@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import { Search } from 'components/Search/Search';
 import {
@@ -30,7 +30,7 @@ export const ChoseYourBreakfast = () => {
   };
 
   return (
-    <div>
+    <>
       <MainPageHero>
         <Container children>
           <HeroTitle>
@@ -39,20 +39,20 @@ export const ChoseYourBreakfast = () => {
           <HeroInfo>{t('What to cook?')}</HeroInfo>
           <InputWraper>
             <BreakfastButton>
-              <Link to={`/categories/Breakfast`} state={{ from: location }}>
+              <div>
                 <Text>
                   <Span>{t('Delicious and healthy')}</Span> {t('Way to enjoy')}
                 </Text>
-                <Arrow tipe="button">
+                <Arrow to={`/categories/Breakfast`} state={{ from: location }}>
                   {t('See recipes')}
                   <BsArrowRight style={{ marginLeft: '7px' }} />
                 </Arrow>
-              </Link>
+              </div>
             </BreakfastButton>
             <Search onSubmit={formSubmitHandler} />
           </InputWraper>
         </Container>
       </MainPageHero>
-    </div>
+    </>
   );
 };
