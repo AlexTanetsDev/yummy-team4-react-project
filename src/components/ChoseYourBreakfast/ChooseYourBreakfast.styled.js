@@ -18,6 +18,7 @@ import {
   unsplashDesctop,
   bgDesctop,
 } from '../../images/mainPagePhoto/desctop';
+import { NavLink } from 'react-router-dom';
 
 export const MainPageHero = styled.div`
   position: relative;
@@ -117,13 +118,16 @@ export const HeroInfo = styled.h3`
 
 export const BreakfastButton = styled.div`
   padding: 8px 8px;
-  width: 225px;
+  max-width: 225px;
   background: #fafafa;
   border-radius: 8px;
   margin-bottom: 115px;
-  margin-right: -40px;
   margin-left: auto;
   border: ${p => p.theme.border.greenBtnBorder};
+
+  @media (min-width: 450px) {
+    margin-right: -40px;
+  }
 
   @media (min-width: 768px) {
     margin-bottom: 0;
@@ -150,7 +154,7 @@ export const InputWraper = styled.div`
 
 export const Text = styled.p`
   display: inline-block;
-  width: 209px;
+  max-width: 209px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
@@ -171,7 +175,7 @@ export const Text = styled.p`
   }
 `;
 
-export const Arrow = styled.button`
+export const Arrow = styled(NavLink)`
   margin-left: auto;
   padding-top: 7px;
   font-family: 'Poppins';

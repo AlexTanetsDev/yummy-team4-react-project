@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import { Search } from 'components/Search/Search';
 import {
@@ -27,7 +27,7 @@ export const ChoseYourBreakfast = () => {
   };
 
   return (
-    <div>
+    <>
       <MainPageHero>
         <Container children>
           <HeroTitle>
@@ -39,20 +39,20 @@ export const ChoseYourBreakfast = () => {
           </HeroInfo>
           <InputWraper>
             <BreakfastButton>
-              <Link to={`/categories/Breakfast`} state={{ from: location }}>
+              <div>
                 <Text>
                   <Span>Delicious and healthy</Span> way to enjoy a variety of
                   fresh ingredients in one satisfying meal
                 </Text>
-                <Arrow tipe="button">
+                <Arrow to={`/categories/Breakfast`} state={{ from: location }}>
                   See recipes <BsArrowRight style={{ marginLeft: '7px' }} />
                 </Arrow>
-              </Link>
+              </div>
             </BreakfastButton>
             <Search onSubmit={formSubmitHandler} />
           </InputWraper>
         </Container>
       </MainPageHero>
-    </div>
+    </>
   );
 };
