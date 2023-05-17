@@ -1,3 +1,6 @@
+import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import { RxHamburgerMenu } from 'react-icons/rx';
 
 import {
@@ -19,15 +22,15 @@ import { useSelector } from 'react-redux';
 import { LogoHeader } from '../Logo/Logo';
 import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 import { Container } from 'components/Container/Container';
-
+import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 import { Modal } from '../Modal/Modal';
-import { useLocation } from 'react-router-dom';
 
 export const Header = () => {
   const User = useSelector(state => state.auth.user);
   const [modalActive, setModalActive] = useState(false);
   const [opened, setOpened] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   const handleClick = () => {
     setOpened(!opened);
@@ -40,17 +43,16 @@ export const Header = () => {
           <LogoHeader />
           <StyledNav>
             <StyledLink path={location.pathname} to="/categories/Beef">
-              Categories
+              {t('Categories')}
             </StyledLink>
-            <StyledLink to="/add">Add recipes</StyledLink>
-            <StyledLink to="/my">My recipes</StyledLink>
-            <StyledLink to="/favorite">Favorites</StyledLink>
-            <StyledLink to="/shopping-list">Shopping list</StyledLink>
+            <StyledLink to="/add">{t('Add recipes')}</StyledLink>
+            <StyledLink to="/my">{t('My recipes')}</StyledLink>
+            <StyledLink to="/favorite">{t('Favorites')}</StyledLink>
+            <StyledLink to="/shopping-list">{t('Shopping list')}</StyledLink>
             <StyledLink to="/search">
               <SearchIcon />
             </StyledLink>
           </StyledNav>
-
           <Headerblock>
             <UserProfileWrap>
               <Avatar onClick={handleClick}>
@@ -65,10 +67,10 @@ export const Header = () => {
             >
               <RxHamburgerMenu style={{ width: '32px', height: '32px' }} />
             </StyledBurger>
+            <LanguageSelector page="others" />
           </Headerblock>
-
-					<Modal active={modalActive} setActive={setModalActive} />
-					{opened && <UserLogoModal opened={opened}/>}
+          <Modal active={modalActive} setActive={setModalActive} />
+          {opened && <UserLogoModal opened={opened} />}
         </HeaderWrapper>
       </Container>
     </StyledHeader>
