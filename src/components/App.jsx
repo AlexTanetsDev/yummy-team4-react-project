@@ -4,7 +4,7 @@ import { lazy, useEffect } from 'react';
 import { useAuth } from 'hooks';
 
 import { refreshUser, categoryList } from 'Redux/auth/operations';
-import { selectIsLoggedIn } from 'Redux/auth/selectors';
+import { selectIsLoggedIn, selectUser } from 'Redux/auth/selectors';
 
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -24,11 +24,13 @@ const SearchPage = lazy(() => import('../pages/SearchPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 const ErrorPage = lazy(() => import('../pages/ErrorPage'));
+const EmailVerifyPage = lazy(() => import('../pages/EmailVerifyPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     const handleRefreshUser = async () => {
@@ -38,28 +40,27 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn && user.verify) {
       dispatch(categoryList());
     }
-  }, [dispatch, isLoggedIn]);
+  }, [dispatch, isLoggedIn, user.verify]);
 
   return isRefreshing ? (
     <MainLoader />
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route
-          index
-          element={
-            <RestrictedRoute component={<WelcomPage />} redirectTo="/main" />
-          }
-        />
+        <Route index element={<WelcomPage />} />
         <Route
           path="register"
           element={
-            <RestrictedRoute component={<RegisterPage />} redirectTo="/main" />
+            <RestrictedRoute
+              component={<RegisterPage />}
+              redirectTo="/signin"
+            />
           }
         />
+        <Route path="verify/:verificationToken" element={<EmailVerifyPage />} />
         <Route
           path="signin"
           element={

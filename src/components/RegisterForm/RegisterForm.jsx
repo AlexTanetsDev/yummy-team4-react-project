@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import ReactDOM from "react-dom";
-import { register, categoryList } from 'Redux/auth/operations';
+import ReactDOM from 'react-dom';
+import { register } from 'Redux/auth/operations';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { SingInButtonGreen } from 'components/Button/Button';
@@ -49,7 +49,6 @@ export const RegisterForm = () => {
     try {
       setIsLoading(true);
       await dispatch(register(values));
-      dispatch(categoryList());
       resetForm();
     } catch (error) {
       setError(error);
@@ -58,7 +57,7 @@ export const RegisterForm = () => {
     }
   };
 
-  return ReactDOM.createPortal (
+  return ReactDOM.createPortal(
     <>
       {error ? (
         <AlertMessage>
@@ -219,7 +218,7 @@ export const RegisterForm = () => {
           )}
         </>
       )}
-		</>,
-			document.querySelector("#modal-root")
+    </>,
+    document.querySelector('#modal-root')
   );
 };

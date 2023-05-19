@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import ReactDOM from "react-dom";
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { Formik, Form, Field } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { categoryList, signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
 import { SingInButtonGreen } from 'components/Button/Button';
+import { selectIsLoggedIn, selectUser } from 'Redux/auth/selectors';
 import {
   StyledWrapper,
   ImageReg,
@@ -18,8 +19,8 @@ import {
   IconWrap,
   InputWrapper,
   ContentWrapper,
-	StyledFiMail,
-	StyledFiLock,
+  StyledFiMail,
+  StyledFiLock,
   WarningAndSuccessMessage,
 } from './SignInForm.styled';
 import { FormError } from 'components/FormError/FormError';
@@ -38,14 +39,22 @@ const signInSchema = object({
 });
 
 export const SignInForm = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const user = useSelector(selectUser);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isLoggedIn && user.verify) {
+      dispatch(categoryList());
+    }
+  }, [dispatch, isLoggedIn, user.verify]);
+
   const handleSubmit = async (values, { resetForm }) => {
     try {
       setIsLoading(true);
       await dispatch(signIn(values));
-      dispatch(categoryList());
       resetForm();
     } catch (error) {
       setError(error);
@@ -54,7 +63,7 @@ export const SignInForm = () => {
     }
   };
 
-  return ReactDOM.createPortal (
+  return ReactDOM.createPortal(
     <>
       {error ? (
         <AlertMessage>
@@ -112,10 +121,10 @@ export const SignInForm = () => {
                             <FormError name="email" component="div" />
                           </InputWrapper>
                           <InputWrapper>
-														<Field
+                            <Field
                               type="password"
                               name="password"
-                              placeholder="Password"																	
+                              placeholder="Password"
                               as={InputField}
                               brdcolor={
                                 (!touched.password && 'white') ||
@@ -127,7 +136,7 @@ export const SignInForm = () => {
                                   '#f6c23e') ||
                                 (8 <= values.password.length && '#3cbc81')
                               }
-																/>
+                            />
                             <IconWrap>
                               <StyledFiLock
                                 color={`${
@@ -141,7 +150,7 @@ export const SignInForm = () => {
                                   (8 <= values.password.length && '#3cbc81')
                                 }`}
                               />
-                            </IconWrap>																
+                            </IconWrap>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (
@@ -183,7 +192,7 @@ export const SignInForm = () => {
           )}
         </>
       )}
-		</>,
-			document.querySelector("#modal-root")
+    </>,
+    document.querySelector('#modal-root')
   );
 };
