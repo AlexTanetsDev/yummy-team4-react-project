@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { RegistrationButton, SingInButton } from 'components/Button/Button';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
-import { startPegeLogo } from '../../images';
+import { startPageLogo } from '../../images';
 
 import {
   ContentWrapper,
@@ -21,7 +21,7 @@ export const WellcomPageWrapper = () => {
       <LanguageSelector page="welcome" />
       <ContentWrapper>
         <Logo>
-          <LogoImage src={startPegeLogo} />
+          <LogoImage src={startPageLogo} />
         </Logo>
         <Title>{t('Welcome to the app!')}</Title>
         <Text>{t('This app offers')}</Text>
