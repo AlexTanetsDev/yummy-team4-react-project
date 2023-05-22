@@ -6,13 +6,14 @@ import { selectCategoryList, selectToken } from 'Redux/auth/selectors';
 import { CategoryList } from 'components/CategoryList/CategoryList';
 import { NavCategory } from 'components/CategoryList/CategoryList.styled';
 import { ResipeCategoriItems } from 'components/ResipeCategoriItems/ResipeCategoriItems';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { getRecipesByCategory } from 'apiService';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { MiniLoader } from 'components/Loader/Loader';
 import { RecipesPagination } from 'components/Paginator/Paginator';
 
 const CategoriesPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [prevCategoryName, setPrevCategoryName] = useState('');
   const { categoryName = 'Beef' } = useParams();
   const [recipes, setRecipes] = useState([]);
@@ -21,12 +22,19 @@ const CategoriesPage = () => {
   const [error, setError] = useState('');
   const categories = useSelector(selectCategoryList);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+
+  const [currentPage, setCurrentPage] = useState(() => {
+    const page = searchParams.get('page')
+      ? Number(searchParams.get('page'))
+      : 1;
+    return page;
+  });
   const [isRefreshPagination, setIsRefreshPagination] = useState(false);
 
   useEffect(() => {
     const renderRecipeList = async () => {
-      if (prevCategoryName !== categoryName) {
+      const searchParam = searchParams.get('page');
+      if (prevCategoryName !== categoryName && !searchParam) {
         setPrevCategoryName(categoryName);
         setIsRefreshPagination(true);
         setCurrentPage(1);
@@ -58,7 +66,10 @@ const CategoriesPage = () => {
     renderRecipeList();
   }, [prevCategoryName, categoryName, currentPage, token]);
 
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = pageNumber => {
+    setCurrentPage(pageNumber);
+    setSearchParams({ page: pageNumber });
+  };
 
   return (
     <Container>
