@@ -23,6 +23,9 @@ import {
   StyledFiLock,
   WarningAndSuccessMessage,
   ResendLink,
+  StyledAiFillEyeInvisible,
+  StyledAiFillEye,
+  EyeButton,
 } from './SignInForm.styled';
 import { FormError } from 'components/FormError/FormError';
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -44,6 +47,7 @@ export const SignInForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  let passFieldType = 'password';
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -60,6 +64,14 @@ export const SignInForm = () => {
       setError(error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleClick = () => {
+    if (passFieldType === 'password') {
+      passFieldType = 'text';
+    } else {
+      passFieldType = 'password';
     }
   };
 
@@ -122,7 +134,7 @@ export const SignInForm = () => {
                           </InputWrapper>
                           <InputWrapper>
                             <Field
-                              type="password"
+                              type={passFieldType}
                               name="password"
                               placeholder="Password"
                               as={InputField}
@@ -151,6 +163,12 @@ export const SignInForm = () => {
                                 }`}
                               />
                             </IconWrap>
+                            <EyeButton onClick={handleClick}>
+                              {passFieldType === 'password' && (
+                                <StyledAiFillEyeInvisible />
+                              )}
+                              {passFieldType === 'text' && <StyledAiFillEye />}
+                            </EyeButton>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (

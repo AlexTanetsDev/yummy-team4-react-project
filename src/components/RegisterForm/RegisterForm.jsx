@@ -21,6 +21,9 @@ import {
   StyledFiMail,
   StyledFiLock,
   WarningAndSuccessMessage,
+  StyledAiFillEyeInvisible,
+  StyledAiFillEye,
+  EyeButton,
 } from './RegisterForm.styled';
 import { FormError } from 'components/FormError/FormError';
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -44,6 +47,7 @@ export const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  let passFieldType = 'password';
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
@@ -54,6 +58,14 @@ export const RegisterForm = () => {
       setError(error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleClick = () => {
+    if (passFieldType === 'password') {
+      passFieldType = 'text';
+    } else {
+      passFieldType = 'password';
     }
   };
 
@@ -147,7 +159,7 @@ export const RegisterForm = () => {
                           </InputWrapper>
                           <InputWrapper>
                             <Field
-                              type="password"
+                              type={passFieldType}
                               name="password"
                               placeholder="Password"
                               values={values.password}
@@ -177,6 +189,12 @@ export const RegisterForm = () => {
                                 }`}
                               />
                             </IconWrap>
+                            <EyeButton onClick={handleClick}>
+                              {passFieldType === 'password' && (
+                                <StyledAiFillEyeInvisible />
+                              )}
+                              {passFieldType === 'text' && <StyledAiFillEye />}
+                            </EyeButton>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (

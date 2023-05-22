@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FiMail } from 'react-icons/fi';
 import { FiLock } from 'react-icons/fi';
+import { AiFillEye } from 'react-icons/ai';
+import { AiFillEyeInvisible } from 'react-icons/ai';
 import {
   mainRegImgMob,
   mainRegImgTab,
@@ -286,6 +288,49 @@ export const StyledFiLock = styled(FiLock)`
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
+  opacity: 0.8;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const EyeButton = styled.button`
+  position: absolute;
+  top: 50%;
+  left: 83%;
+  padding: 0;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  @media (min-width: 768px) {
+    left: 85%;
+  }
+`;
+
+export const StyledAiFillEyeInvisible = styled(AiFillEyeInvisible)`
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  opacity: 0.8;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const StyledAiFillEye = styled(AiFillEye)`
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: #fff;
   opacity: 0.8;
   @media (min-width: 768px) {
     width: 24px;
