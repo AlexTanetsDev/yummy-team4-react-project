@@ -25,6 +25,7 @@ const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 const ErrorPage = lazy(() => import('../pages/ErrorPage'));
 const EmailVerifyPage = lazy(() => import('../pages/EmailVerifyPage'));
+const ResendEmailPage = lazy(() => import('../pages/ResendEmailPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,7 @@ export const App = () => {
             <RestrictedRoute component={<SignInPage />} redirectTo="/main" />
           }
         />
+        <Route path="resend" element={<ResendEmailPage />} />
         <Route
           path="main"
           element={

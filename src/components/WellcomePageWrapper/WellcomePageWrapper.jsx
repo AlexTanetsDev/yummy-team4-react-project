@@ -25,7 +25,7 @@ export const WellcomPageWrapper = () => {
         </Text>
         <ButtonWrapper>
           <RegistrationButton />
-          <SingInButton />
+          <SingInButton>SigngIn</SingInButton>
         </ButtonWrapper>
       </ContentWrapper>
     </StyledWrapper>

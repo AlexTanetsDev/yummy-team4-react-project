@@ -35,7 +35,6 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(signIn.rejected, state => {
-        state.user = { name: null, email: null, avatarURL: '' };
         state.token = null;
         state.isLoggedIn = false;
       })

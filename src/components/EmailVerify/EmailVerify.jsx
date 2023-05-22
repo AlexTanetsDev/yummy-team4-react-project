@@ -41,7 +41,7 @@ export const EmailVerify = () => {
           </ErrorText>
         )}
         <ButtonWrapper>
-          <SingInButton />
+          <SingInButton>SigngIn</SingInButton>
         </ButtonWrapper>
       </ContentWrapper>
     </StyledWrapper>

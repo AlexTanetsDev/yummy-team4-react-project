@@ -2,9 +2,7 @@ import { EmailVerify } from 'components/EmailVerify/EmailVerify';
 
 const EmailVerifyPage = () => {
   return (
-    <>
       <EmailVerify />
-    </>
   );
 };
 

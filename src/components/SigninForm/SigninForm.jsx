@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { categoryList, signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
 import { SingInButtonGreen } from 'components/Button/Button';
-import { selectIsLoggedIn, selectUser } from 'Redux/auth/selectors';
+import { selectIsLoggedIn } from 'Redux/auth/selectors';
 import {
   StyledWrapper,
   ImageReg,
@@ -22,6 +22,7 @@ import {
   StyledFiMail,
   StyledFiLock,
   WarningAndSuccessMessage,
+  ResendLink,
 } from './SignInForm.styled';
 import { FormError } from 'components/FormError/FormError';
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -40,16 +41,15 @@ const signInSchema = object({
 
 export const SignInForm = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const user = useSelector(selectUser);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isLoggedIn && user.verify) {
+    if (isLoggedIn) {
       dispatch(categoryList());
     }
-  }, [dispatch, isLoggedIn, user.verify]);
+  }, [dispatch, isLoggedIn]);
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
@@ -184,6 +184,9 @@ export const SignInForm = () => {
                         </Form>
                       )}
                     </Formik>
+                    <ResendLink to="/resend">
+                      Resend verification email
+                    </ResendLink>
                   </Modal>
                   <Link to="/register">Registration</Link>
                 </ModalWrapper>

@@ -59,6 +59,57 @@ export const verify = createAsyncThunk(
       const response = await axios.post(`api/users/verify/${credentials}`);
       return response.data;
     } catch (error) {
+      toast.error(error.response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const resend = createAsyncThunk(
+  'auth/resend',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post('api/users/verify/', credentials);
+      toast.success(response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#8BAA36',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
