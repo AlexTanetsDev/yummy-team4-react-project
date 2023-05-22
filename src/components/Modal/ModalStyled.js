@@ -3,35 +3,32 @@ import { NavLink } from 'react-router-dom';
 import { modal, modalMini } from '../../images/index';
 
 export const MobileMenu = styled.div`
-  @media screen and (max-width: 767px) {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    padding-top: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: scale(0);
-    background-image: url(${modalMini});
-    background-color: #ebf3d4;
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    &::before {
-      content: '';
-      position: absolute;
-      background-image: inherit;
-      transform: rotate(100deg);
-    }
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0);
+  background-image: url(${modalMini});
+  background-color: #ebf3d4;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: inherit;
+    transform: rotate(100deg);
   }
-  @media screen and (min-width: 768px) and (max-width: 1443px) {
+
+  @media screen and (min-width: 768px) {
     position: fixed;
     height: 100vh;
     width: 100vw;
     top: 0;
     left: 0;
-    padding-top: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +44,10 @@ export const MobileMenu = styled.div`
       transform: rotate(100deg);
     }
   }
-  display: none;
+
+  @media (min-width: 1440px) {
+    display: none;
+  }
 `;
 
 export const ModalHeader = styled.div`
@@ -92,7 +92,6 @@ export const StyledNavBurger = styled.nav`
   justify-content: center;
   align-items: center;
   gap: 32px;
-  margin-top: 185px;
 `;
 
 export const StyledThemeBtn = styled.button`

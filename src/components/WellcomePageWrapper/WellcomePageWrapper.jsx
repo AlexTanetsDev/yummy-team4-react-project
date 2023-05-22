@@ -1,3 +1,8 @@
+import { useTranslation } from 'react-i18next';
+import { RegistrationButton, SingInButton } from 'components/Button/Button';
+import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
+import { startPegeLogo } from '../../images';
+
 import {
   ContentWrapper,
   StyledWrapper,
@@ -7,25 +12,22 @@ import {
   Logo,
   LogoImage,
 } from './WellcomePageWrapper.styled';
-import { RegistrationButton, SingInButton } from 'components/Button/Button';
-import { startPageLogo } from '../../images';
 
 export const WellcomPageWrapper = () => {
+  const { t } = useTranslation();
+
   return (
     <StyledWrapper>
+      <LanguageSelector page="welcome" />
       <ContentWrapper>
         <Logo>
-          <LogoImage src={startPageLogo} />
+          <LogoImage src={startPegeLogo} />
         </Logo>
-        <Title>Welcome to the app!</Title>
-        <Text>
-          This app offers more than just a collection of recipes - it is
-          designed to be your very own digital cookbook. You can easily save and
-          retrieve your own recipes at any time.
-        </Text>
+        <Title>{t('Welcome to the app!')}</Title>
+        <Text>{t('This app offers')}</Text>
         <ButtonWrapper>
-          <RegistrationButton />
-          <SingInButton>SigngIn</SingInButton>
+          <RegistrationButton children={t('Register')} />
+          <SingInButton children={t('Sign in')} />
         </ButtonWrapper>
       </ContentWrapper>
     </StyledWrapper>

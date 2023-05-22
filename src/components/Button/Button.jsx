@@ -19,6 +19,7 @@ import {
   MyRecipesDeleteBtn,
   RemoveFavoriteRecBtn,
   ButtonUp,
+  BackTorecipeBtn,
 } from './Button.styled';
 
 export const SearchButtonBlack = ({ type = 'button', onClick, children }) => {
@@ -39,18 +40,21 @@ export const SearchButtonGreen = ({ type = 'button', onClick, children }) => {
 
 export const SingInButton = ({ children }) => {
   return <SingInBtn to="/signin">{children}</SingInBtn>;
+
 };
 
 export const ResendEmailButton = ({ children }) => {
   return <SingInBtn>{children}</SingInBtn>;
+
+
 };
 
 export const SingInButtonGreen = ({ type = 'button', children }) => {
   return <SingInBtnGreen type={type}>{children}</SingInBtnGreen>;
 };
 
-export const RegistrationButton = () => {
-  return <RegistrationBtn to="/register">Register</RegistrationBtn>;
+export const RegistrationButton = ({ children }) => {
+  return <RegistrationBtn to="/register">{children}</RegistrationBtn>;
 };
 
 export const OtherCategoriesButton = ({
@@ -149,8 +153,12 @@ export const RemoveFromFavoriteBtn = ({
   );
 };
 
-export const SeeRecipeButtonBlack = ({ to, children }) => {
-  return <SeeRecipeBtnBlack to={to}>{children}</SeeRecipeBtnBlack>;
+export const SeeRecipeButtonBlack = ({ to, children, state }) => {
+  return (
+    <SeeRecipeBtnBlack to={to} state={state}>
+      {children}
+    </SeeRecipeBtnBlack>
+  );
 };
 
 export const SeeRecipeButtonGreen = ({
@@ -200,4 +208,8 @@ export const ButtonScrollUp = ({
       {children}
     </ButtonUp>
   );
+};
+
+export const GoBackToRecipeBtn = ({ from, children }) => {
+  return <BackTorecipeBtn to={from}>{children}</BackTorecipeBtn>;
 };

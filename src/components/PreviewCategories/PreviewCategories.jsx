@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -32,6 +33,7 @@ export function PreviewCategories() {
   });
   const location = useLocation();
   const token = useSelector(state => state.auth.token);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const renderMainPageRecipesList = async () => {
@@ -97,7 +99,7 @@ export function PreviewCategories() {
                 to={`/categories/${item.category}`}
                 state={{ from: location }}
               >
-                <SeeAllButton children={'See all'} onClick={scrollToTop} />
+                <SeeAllButton children={t('See all')} onClick={scrollToTop} />
               </Link>
             </div>
           ))
@@ -106,7 +108,7 @@ export function PreviewCategories() {
       <Link to={`/categories/Beef`} state={{ from: location }}>
         {items && (
           <OtherCategoriesButton
-            children={'Other categories'}
+            children={t('Other categories')}
             onClick={scrollToTop}
           />
         )}
