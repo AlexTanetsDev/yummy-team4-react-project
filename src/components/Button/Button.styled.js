@@ -66,7 +66,6 @@ export const SearchBtnGreen = styled.button`
 export const SingInBtn = styled(NavLink)`
   display: block;
   padding: 10px 24px;
-  width: 99px;
   background-color: transparent;
   color: ${p => p.theme.colors.mainBgColor};
   font-family: 'Poppins';
@@ -79,7 +78,6 @@ export const SingInBtn = styled(NavLink)`
 
   @media (min-width: 768px) {
     padding: 19px 44px;
-    width: 145px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 24px;
   }

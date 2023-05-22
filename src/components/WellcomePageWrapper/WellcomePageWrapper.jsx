@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
-
 import { RegistrationButton, SingInButton } from 'components/Button/Button';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
-
 import { startPegeLogo } from '../../images';
 
 import {

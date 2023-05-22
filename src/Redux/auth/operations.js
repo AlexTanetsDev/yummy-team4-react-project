@@ -2,8 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
-axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com';
-// axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -18,7 +17,84 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post('api/users/register', credentials);
-      setAuthHeader(response.data.token);
+      if (response) {
+        toast.success('Verification letter sent on your email adress', {
+          duration: 4000,
+          style: {
+            width: '300px',
+            height: '150px',
+            backgroundColor: '#8BAA36',
+            color: '#fff',
+            fontSize: '20px',
+            marginTop: '20%',
+            marginRight: 'auto',
+            marginLeft: 'auto',
+          },
+        });
+      }
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const verify = createAsyncThunk(
+  'auth/verify',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post(`api/users/verify/${credentials}`);
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const resend = createAsyncThunk(
+  'auth/resend',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post('api/users/verify/', credentials);
+      toast.success(response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#8BAA36',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
       return response.data;
     } catch (error) {
       toast.error(error.response.data.message, {

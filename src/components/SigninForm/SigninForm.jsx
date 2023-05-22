@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Formik, Form, Field } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import { categoryList, signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
 import { useTranslation } from 'react-i18next';
 
 import { SingInButtonGreen } from 'components/Button/Button';
+import { selectIsLoggedIn } from 'Redux/auth/selectors';
+
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { MainLoader } from 'components/Loader/Loader';
 import { FormError } from 'components/FormError/FormError';
 
-import { useDispatch } from 'react-redux';
-import { categoryList, signIn } from '../../Redux/auth/operations';
+
 
 import {
   StyledWrapper,
@@ -28,6 +32,7 @@ import {
   StyledFiMail,
   StyledFiLock,
   WarningAndSuccessMessage,
+  ResendLink,
 } from './SignInForm.styled';
 
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -44,16 +49,24 @@ const signInSchema = object({
 });
 
 export const SignInForm = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(categoryList());
+    }
+  }, [dispatch, isLoggedIn]);
   const { t } = useTranslation();
+
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
       setIsLoading(true);
       await dispatch(signIn(values));
-      dispatch(categoryList());
       resetForm();
     } catch (error) {
       setError(error);
@@ -184,6 +197,9 @@ export const SignInForm = () => {
                         </Form>
                       )}
                     </Formik>
+                    <ResendLink to="/resend">
+                      Resend verification email
+                    </ResendLink>
                   </Modal>
                   <Link to="/register">{t('Registration')}</Link>
                 </ModalWrapper>

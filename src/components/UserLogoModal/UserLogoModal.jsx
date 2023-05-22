@@ -10,8 +10,7 @@ import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
 		const [logout, setLogout] = useState(false);
 		const [edit, setEdit] = useState(false);
 		const [isShow, setIsShow] = useState(opened);
-		console.log(opened);
-		console.log(isShow);
+
 		const tooltipRef = useRef(null);
 
 		useEffect(() => {
