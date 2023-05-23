@@ -258,6 +258,7 @@ export const Link = styled(NavLink)`
 export const ResendLink = styled(NavLink)`
   display: block;
   margin-top: 15px;
+  font-size: ${p => p.theme.fontSizes.l}px;
   text-align: center;
   color: ${p => p.theme.colors.mainBgColor};
   opacity: 0.8;
