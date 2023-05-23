@@ -158,7 +158,7 @@ export const InputField = styled.input`
   width: 279px;
   height: 45px;
   padding-left: 40px;
-  padding-right: 30px;
+  padding-right: 50px;
   font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.mainBgColor};
   background-color: ${p => p.theme.colors.thirdAccentColor};
@@ -176,7 +176,7 @@ export const InputField = styled.input`
   @media (min-width: 768px) {
     margin-bottom: 24px;
     padding-left: 50px;
-    padding-right: 40px;
+    padding-right: 70px;
     width: 400px;
     height: 59px;
     font-size: ${p => p.theme.fontSizes.xl}px;
@@ -301,13 +301,13 @@ export const StyledFiLock = styled(FiLock)`
 export const EyeButton = styled.button`
   position: absolute;
   top: 50%;
-  left: 83%;
+  left: 82%;
   padding: 0;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
   @media (min-width: 768px) {
-    left: 85%;
+    left: 83%;
   }
 `;
 

@@ -28,10 +28,10 @@ import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
       }
 
 		document.addEventListener('keydown', handleKeyDown);
-		document.addEventListener('click', handleClick, true)
+			document.addEventListener('click', handleClick, true);
 		return () => {
 			document.removeEventListener('keydown', handleKeyDown);
-			document.removeEventListener('click', handleClick, true)
+			document.removeEventListener('click', handleClick, true);
 		}
   },[ opened]);
 
