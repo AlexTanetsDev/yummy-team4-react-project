@@ -218,16 +218,6 @@ export const IconWrap = styled.div`
   }
 `;
 
-export const InputIcon = styled.img`
-  display: block;
-  width: 18px;
-  height: 18px;
-  @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
-  }
-`;
-
 export const StateInputIcon = styled.img`
   position: absolute;
   top: 35%;
