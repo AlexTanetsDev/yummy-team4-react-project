@@ -15,6 +15,7 @@ const RecipePage = () => {
   const token = useSelector(selectToken);
   const { recipeId } = useParams();
   let location = useLocation();
+  const { pathname, search } = location.state?.from;
 
   useEffect(() => {
     (async () => {
@@ -38,7 +39,7 @@ const RecipePage = () => {
           image={recipe?.thumb}
           instructions={recipe?.instructions}
         />
-        <GoBackToRecipeBtn from={location.state?.from.pathname}>
+        <GoBackToRecipeBtn from={pathname + search}>
           Back to recipes
         </GoBackToRecipeBtn>
       </Container>
