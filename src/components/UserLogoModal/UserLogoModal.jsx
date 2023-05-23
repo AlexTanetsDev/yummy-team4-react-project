@@ -10,8 +10,7 @@ import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
 		const [logout, setLogout] = useState(false);
 		const [edit, setEdit] = useState(false);
 		const [isShow, setIsShow] = useState(opened);
-		console.log(opened);
-		console.log(isShow);
+
 		const tooltipRef = useRef(null);
 
 		useEffect(() => {
@@ -29,10 +28,10 @@ import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
       }
 
 		document.addEventListener('keydown', handleKeyDown);
-		document.addEventListener('click', handleClick, true)
+			document.addEventListener('click', handleClick, true);
 		return () => {
 			document.removeEventListener('keydown', handleKeyDown);
-			document.removeEventListener('click', handleClick, true)
+			document.removeEventListener('click', handleClick, true);
 		}
   },[ opened]);
 

@@ -17,7 +17,7 @@ import startPageBg from './startPageBg.jpg';
 import mainRegImgMob from './mainRegImgMob.png';
 import mainRegImg from './mainRegImg.png';
 import mainRegImgTab from './mainRegImgTab.png';
-import startPegeLogo from './startPegeLogo.png';
+import startPageLogo from './startPegeLogo.png';
 import errorIcon from './error-icon.png';
 import succesIcon from './succes-icon.png';
 import warningIcon from './warning-icon.png';
@@ -76,7 +76,7 @@ export {
   startPageBgMob,
   startPageBgTab,
   startPageBg,
-  startPegeLogo,
+  startPageLogo,
   mainRegImgMob,
   mainRegImg,
   mainRegImgTab,

@@ -1,47 +1,61 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { startPageBgMob, startPageBgTab, startPageBg } from '../../images';
 import { FiMail } from 'react-icons/fi';
-import { FiLock } from 'react-icons/fi';
-import { AiFillEye } from 'react-icons/ai';
-import { AiFillEyeInvisible } from 'react-icons/ai';
-import {
-  mainRegImgMob,
-  mainRegImgTab,
-  mainRegImg,
-  bottomRegImgMob,
-  bottomRegImgTab,
-  bottomRegImg,
-} from '../../images';
+import { NavLink } from 'react-router-dom';
 
 export const StyledWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: ${p => p.theme.colors.lightBgColor};
-`;
 
-export const BottomBgImage = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translate(-50%, -100%);
-  width: 100vw;
-  height: 56%;
-  background-image: url(${bottomRegImgMob});
   background-repeat: no-repeat;
   background-size: cover;
+
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 58.58%,
+      rgba(0, 0, 0, 0.345172) 78.98%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(mgg-vitchakorn-Ul4sgxQMmHU-unsplash.jpg), url(${startPageBgMob});
   @media (min-width: 768px) {
-    height: 56%;
-    background-image: url(${bottomRegImgTab});
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 58.58%,
+        rgba(0, 0, 0, 0.345172) 78.98%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url(mgg-vitchakorn-Ul4sgxQMmHU-unsplash.jpg), url(${startPageBgTab});
   }
-
   @media (min-width: 1440px) {
-    height: 43%;
-    background-image: url(${bottomRegImg});
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 58.58%,
+        rgba(0, 0, 0, 0.345172) 78.98%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url(mgg-vitchakorn-Ul4sgxQMmHU-unsplash.jpg), url(${startPageBg});
   }
+`;
 
-  @media (min-width: 1440px) and (min-height: 771px) {
-    height: 50%;
-    background-image: url(${bottomRegImg});
+export const Logo = styled.div`
+  margin-right: auto;
+  margin-left: auto;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 28px;
+  border-radius: 12px;
+  background-color: ${p => p.theme.colors.firstAccentColor};
+  @media (min-width: 768px) {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 44px;
+  }
+`;
+
+export const LogoImage = styled.img`
+  padding: 5px;
+  @media (min-width: 768px) {
+    padding: 12px;
   }
 `;
 
@@ -50,54 +64,28 @@ export const ContentWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @media (min-width: 1440px) {
-    display: flex;
-    left: 47%;
-  }
 `;
 
-export const ImageReg = styled.div`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 285px;
-  height: 250px;
-  z-index: 9;
-  background-image: url(${mainRegImgMob});
+export const Title = styled.h1`
+  margin-bottom: 34px;
+  text-align: center;
+  font-size: ${p => p.theme.fontSizes.xxxl}px;
+  color: ${p => p.theme.colors.mainBgColor};
   @media (min-width: 768px) {
-    width: 409px;
-    height: 359px;
-    background-image: url(${mainRegImgTab});
-  }
-
-  @media (max-width: 1440px) and (max-height: 940px) {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 285px;
-    height: 250px;
-    z-index: 9;
-    background-image: url(${mainRegImgMob});
-  }
-
-  @media (min-width: 1440px) {
-    width: 532px;
-    height: 468px;
-    margin-right: 115px;
-    background-image: url(${mainRegImg});
-    background-size: contain;
+    margin-bottom: 64px;
+    font-size: ${p => p.theme.fontSizes.xxxxl}px;
   }
 `;
-export const ModalWrapper = styled.div``;
 
 export const Modal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 330px;
   width: 335px;
   margin-top: -30px;
   margin-bottom: 18px;
+  margin-right: auto;
+  margin-left: auto;
   padding-top: 32px;
   padding-bottom: 40px;
   background-color: ${p => p.theme.colors.thirdAccentColor};
@@ -109,15 +97,13 @@ export const Modal = styled.div`
   }
 
   @media (min-width: 768px) {
-    height: 430px;
     width: 500px;
     margin-top: -15px;
     padding-top: 44px;
-    padding-bottom: 44px;
+    padding-bottom: 54px;
   }
 
   @media (min-width: 400px) and (max-width: 1440px) and (max-height: 940px) {
-    height: 330px;
     width: 335px;
     margin-top: -30px;
     padding-top: 32px;
@@ -132,7 +118,7 @@ export const Modal = styled.div`
   }
 `;
 
-export const Title = styled.h1`
+export const ModalTitle = styled.h1`
   margin-bottom: 40px;
   font-size: 24px;
   font-weight: 600;
@@ -158,7 +144,7 @@ export const InputField = styled.input`
   width: 279px;
   height: 45px;
   padding-left: 40px;
-  padding-right: 50px;
+  padding-right: 30px;
   font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.mainBgColor};
   background-color: ${p => p.theme.colors.thirdAccentColor};
@@ -176,7 +162,7 @@ export const InputField = styled.input`
   @media (min-width: 768px) {
     margin-bottom: 24px;
     padding-left: 50px;
-    padding-right: 70px;
+    padding-right: 40px;
     width: 400px;
     height: 59px;
     font-size: ${p => p.theme.fontSizes.xl}px;
@@ -247,18 +233,7 @@ export const StateInputIcon = styled.img`
 
 export const Link = styled(NavLink)`
   display: block;
-  text-align: center;
-  color: ${p => p.theme.colors.mainBgColor};
-  opacity: 0.8;
-  &:hover {
-    opacity: 1;
-  }
-`;
 
-export const ResendLink = styled(NavLink)`
-  display: block;
-  margin-top: 15px;
-  font-size: ${p => p.theme.fontSizes.l}px;
   text-align: center;
   color: ${p => p.theme.colors.mainBgColor};
   opacity: 0.8;
@@ -280,82 +255,5 @@ export const StyledFiMail = styled(FiMail)`
   }
   &:hover {
     opacity: 1;
-  }
-`;
-
-export const StyledFiLock = styled(FiLock)`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  opacity: 0.8;
-  @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
-  }
-  &:hover {
-    opacity: 1;
-  }
-`;
-
-export const EyeButton = styled.button`
-  position: absolute;
-  top: 50%;
-  left: 82%;
-  padding: 0;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  @media (min-width: 768px) {
-    left: 83%;
-  }
-`;
-
-export const StyledAiFillEyeInvisible = styled(AiFillEyeInvisible)`
-  display: block;
-  width: 20px;
-  height: 20px;
-  color: #fff;
-  opacity: 0.8;
-  @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
-  }
-  &:hover {
-    opacity: 1;
-  }
-`;
-
-export const StyledAiFillEye = styled(AiFillEye)`
-  display: block;
-  width: 20px;
-  height: 20px;
-  color: #fff;
-  opacity: 0.8;
-  @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
-  }
-  &:hover {
-    opacity: 1;
-  }
-`;
-
-export const WarningAndSuccessMessage = styled.p`
-  position: absolute;
-  top: 45px;
-  font-size: 10px;
-  line-height: 21px;
-  color: ${props => props.color};
-
-  @media (min-width: 768px) {
-    top: 60px;
-    font-size: 14px;
-  }
-
-  @media (max-width: 1440px) and (max-height: 940px) {
-    top: 45px;
-    font-size: 10px;
   }
 `;

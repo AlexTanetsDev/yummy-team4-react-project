@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import ReactDOM from "react-dom";
-import { register, categoryList } from 'Redux/auth/operations';
+import ReactDOM from 'react-dom';
+import { register } from 'Redux/auth/operations';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { SingInButtonGreen } from 'components/Button/Button';
@@ -21,6 +21,9 @@ import {
   StyledFiMail,
   StyledFiLock,
   WarningAndSuccessMessage,
+  StyledAiFillEyeInvisible,
+  StyledAiFillEye,
+  EyeButton,
 } from './RegisterForm.styled';
 import { FormError } from 'components/FormError/FormError';
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -44,12 +47,12 @@ export const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  let passFieldType = 'password';
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
       setIsLoading(true);
       await dispatch(register(values));
-      dispatch(categoryList());
       resetForm();
     } catch (error) {
       setError(error);
@@ -58,7 +61,15 @@ export const RegisterForm = () => {
     }
   };
 
-  return ReactDOM.createPortal (
+  const handleClick = () => {
+    if (passFieldType === 'password') {
+      passFieldType = 'text';
+    } else {
+      passFieldType = 'password';
+    }
+  };
+
+  return ReactDOM.createPortal(
     <>
       {error ? (
         <AlertMessage>
@@ -148,7 +159,7 @@ export const RegisterForm = () => {
                           </InputWrapper>
                           <InputWrapper>
                             <Field
-                              type="password"
+                              type={passFieldType}
                               name="password"
                               placeholder="Password"
                               values={values.password}
@@ -178,6 +189,12 @@ export const RegisterForm = () => {
                                 }`}
                               />
                             </IconWrap>
+                            <EyeButton onClick={handleClick}>
+                              {passFieldType === 'password' && (
+                                <StyledAiFillEyeInvisible />
+                              )}
+                              {passFieldType === 'text' && <StyledAiFillEye />}
+                            </EyeButton>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (
@@ -219,7 +236,7 @@ export const RegisterForm = () => {
           )}
         </>
       )}
-		</>,
-			document.querySelector("#modal-root")
+    </>,
+    document.querySelector('#modal-root')
   );
 };
