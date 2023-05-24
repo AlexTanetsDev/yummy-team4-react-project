@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
 export const RecipePreparationWrapper = styled.section`
-  padding-bottom: 100px;
+  padding-bottom: 76px;
   @media (min-width: 768px) {
-    padding-bottom: 200px;
+    padding-bottom: 80px;
   }
 
   @media (min-width: 1440px) {
     display: flex;
     gap: 50px;
+    padding-bottom: 50px;
   }
 `;
 

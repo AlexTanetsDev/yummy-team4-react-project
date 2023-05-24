@@ -1,9 +1,18 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
-import { register } from 'Redux/auth/operations';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
+import { useTranslation } from 'react-i18next';
+
 import { SingInButtonGreen } from 'components/Button/Button';
+import { FormError } from 'components/FormError/FormError';
+import { MainLoader } from 'components/Loader/Loader';
+import { AlertMessage } from 'components/AlertMessage/AlertMessage';
+import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
+
+import { register, categoryList } from 'Redux/auth/operations';
+
 import {
   StyledWrapper,
   ModalWrapper,
@@ -25,11 +34,8 @@ import {
   StyledAiFillEye,
   EyeIcon,
 } from './RegisterForm.styled';
-import { FormError } from 'components/FormError/FormError';
+
 import { errorIcon, warningIcon, succesIcon } from 'images';
-import { MainLoader } from 'components/Loader/Loader';
-import { useState } from 'react';
-import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 
 const initialValues = {
   name: '',
@@ -47,8 +53,10 @@ export const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+
   const [type, setType] = useState('password');
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
+
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
@@ -84,12 +92,13 @@ export const RegisterForm = () => {
             <MainLoader />
           ) : (
             <StyledWrapper>
+              <LanguageSelector page="auth" />
               <BottomBgImage />
               <ContentWrapper>
                 <ImageReg />
                 <ModalWrapper>
                   <Modal>
-                    <Title>Registration</Title>
+                    <Title>{t('Registration')}</Title>
                     <Formik
                       initialValues={initialValues}
                       validationSchema={registerSchema}
@@ -107,7 +116,7 @@ export const RegisterForm = () => {
                               }
                               type="text"
                               name="name"
-                              placeholder="Name"
+                              placeholder={t('Name')}
                               values={values.name}
                             />
                             <IconWrap>
@@ -138,7 +147,7 @@ export const RegisterForm = () => {
                               name="email"
                               type="email"
                               inputmode="email"
-                              placeholder="Email"
+                              placeholder={t('Email')}
                               values={values.email}
                             />
                             <IconWrap>
@@ -164,7 +173,7 @@ export const RegisterForm = () => {
                             <Field
                               type={type}
                               name="password"
-                              placeholder="Password"
+                              placeholder={t('Password')}
                               values={values.password}
                               as={InputField}
                               brdcolor={
@@ -204,7 +213,7 @@ export const RegisterForm = () => {
                               values.password.length < 8 &&
                               !errors.password && (
                                 <WarningAndSuccessMessage color={'#f6c23e'}>
-                                  Your password is little secure
+                                  {t('Your password is little secure')}
                                 </WarningAndSuccessMessage>
                               )}
                             {8 <= values.password.length &&
@@ -214,7 +223,7 @@ export const RegisterForm = () => {
                             {8 <= values.password.length &&
                               !errors.password && (
                                 <WarningAndSuccessMessage color={'#3cbc81'}>
-                                  Password is secure
+                                  {t('Password is secure')}
                                 </WarningAndSuccessMessage>
                               )}
                             {errors.password && touched.password && (
@@ -223,13 +232,13 @@ export const RegisterForm = () => {
                             <FormError name="password" component="div" />
                           </InputWrapper>
                           <SingInButtonGreen type="submit">
-                            Sign up
+                            {t('Sign up')}
                           </SingInButtonGreen>
                         </Form>
                       )}
                     </Formik>
                   </Modal>
-                  <Link to="/signin">Sign in</Link>
+                  <Link to="/signin">{t('Sign in')}</Link>
                 </ModalWrapper>
               </ContentWrapper>
             </StyledWrapper>

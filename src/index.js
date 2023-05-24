@@ -11,8 +11,12 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './utils/theme';
 import { GlobalStyles } from 'components/GlobalStyles';
 
+import { initializeI18n } from 'core/i18n';
+
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
+
+initializeI18n();
 
 root.render(
   <StrictMode>

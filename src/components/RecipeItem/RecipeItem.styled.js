@@ -41,8 +41,12 @@ export const TitleRecipe = styled.h2`
   background: #ffffff;
   border-radius: ${p => p.theme.space(2)};
   padding: ${p => p.theme.space(4)};
-  width: 307px;
+  width: 280px;
   height: 52px;
+  @media (min-width: 360px) {
+    width: 307px;
+  }
+
   @media (min-width: 768px) {
     width: 300px;
   }

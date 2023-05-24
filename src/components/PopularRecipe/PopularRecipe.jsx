@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import { useLocation } from 'react-router-dom';
 import { PopularApi } from '../../apiService';
 import { MiniLoader } from 'components/Loader/Loader';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
@@ -21,6 +21,7 @@ export const PopularRecipe = () => {
   const [popular, setPopular] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     (async () => {
@@ -53,7 +54,7 @@ export const PopularRecipe = () => {
               <PopularList>
                 {popular.map(({ id, preview, title, description }) => (
                   <PopularItem key={id}>
-                    <RecipeLink to={`/recipe/${id}`}>
+                    <RecipeLink to={`/recipe/${id}`} state={{ from: location }}>
                       <ImageWrapper>
                         <Image src={preview} alt={title} />
                       </ImageWrapper>

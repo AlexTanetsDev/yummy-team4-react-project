@@ -1,11 +1,21 @@
+
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Formik, Form, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { categoryList, signIn } from '../../Redux/auth/operations';
 import { object, string } from 'yup';
+import { useTranslation } from 'react-i18next';
+
 import { SingInButtonGreen } from 'components/Button/Button';
 import { selectIsLoggedIn } from 'Redux/auth/selectors';
+
+import { AlertMessage } from 'components/AlertMessage/AlertMessage';
+import { MainLoader } from 'components/Loader/Loader';
+import { FormError } from 'components/FormError/FormError';
+
+
+
 import {
   StyledWrapper,
   ImageReg,
@@ -27,10 +37,9 @@ import {
   StyledAiFillEye,
   EyeIcon,
 } from './SignInForm.styled';
-import { FormError } from 'components/FormError/FormError';
+
 import { errorIcon, warningIcon, succesIcon } from 'images';
-import { AlertMessage } from 'components/AlertMessage/AlertMessage';
-import { MainLoader } from 'components/Loader/Loader';
+import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 
 const initialValues = {
   email: '',
@@ -50,11 +59,14 @@ export const SignInForm = () => {
   const [type, setType] = useState('password');
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
 
+
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(categoryList());
     }
   }, [dispatch, isLoggedIn]);
+  const { t } = useTranslation();
+
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
@@ -90,12 +102,13 @@ export const SignInForm = () => {
             <MainLoader />
           ) : (
             <StyledWrapper>
+              <LanguageSelector page="auth" />
               <BottomBgImage />
               <ContentWrapper>
                 <ImageReg />
                 <ModalWrapper>
                   <Modal>
-                    <Title>Sign In</Title>
+                    <Title>{t('Sign In')}</Title>
                     <Formik
                       initialValues={initialValues}
                       validationSchema={signInSchema}
@@ -113,7 +126,7 @@ export const SignInForm = () => {
                               }
                               name="email"
                               type="text"
-                              placeholder="Email"
+                              placeholder={t('Email')}
                               values={values.email}
                             />
                             <IconWrap>
@@ -139,7 +152,7 @@ export const SignInForm = () => {
                             <Field
                               type={type}
                               name="password"
-                              placeholder="Password"
+                              placeholder={t('Password')}
                               as={InputField}
                               brdcolor={
                                 (!touched.password && 'white') ||
@@ -178,7 +191,7 @@ export const SignInForm = () => {
                               values.password.length < 8 &&
                               !errors.password && (
                                 <WarningAndSuccessMessage color={'#f6c23e'}>
-                                  Your password is little secure
+                                  {t('Your password is little secure')}
                                 </WarningAndSuccessMessage>
                               )}
                             {8 <= values.password.length &&
@@ -188,7 +201,7 @@ export const SignInForm = () => {
                             {8 <= values.password.length &&
                               !errors.password && (
                                 <WarningAndSuccessMessage color={'#3cbc81'}>
-                                  Password is secure
+                                  {t('Password is secure')}
                                 </WarningAndSuccessMessage>
                               )}
                             {errors.password && touched.password && (
@@ -197,7 +210,7 @@ export const SignInForm = () => {
                             <FormError name="password" component="div" />
                           </InputWrapper>
                           <SingInButtonGreen type="submit">
-                            Sign in
+                            {t('Sign in')}
                           </SingInButtonGreen>
                         </Form>
                       )}
@@ -206,7 +219,7 @@ export const SignInForm = () => {
                       Resend verification email
                     </ResendLink>
                   </Modal>
-                  <Link to="/register">Registration</Link>
+                  <Link to="/register">{t('Registration')}</Link>
                 </ModalWrapper>
               </ContentWrapper>
             </StyledWrapper>

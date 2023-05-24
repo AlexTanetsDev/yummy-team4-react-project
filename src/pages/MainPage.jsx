@@ -3,11 +3,7 @@ import React from 'react';
 import { Main } from '../components/Main/Main';
 
 const MainPage = () => {
-  return (
-    <div>
-      <Main />
-    </div>
-  );
+  return <Main />;
 };
 
 export default MainPage;
