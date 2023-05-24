@@ -25,7 +25,7 @@ import {
   ResendLink,
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
-  EyeButton,
+  EyeIcon,
 } from './SignInForm.styled';
 import { FormError } from 'components/FormError/FormError';
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -47,7 +47,8 @@ export const SignInForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  let passFieldType = 'password';
+  const [type, setType] = useState('password');
+  const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -68,10 +69,12 @@ export const SignInForm = () => {
   };
 
   const handleClick = () => {
-    if (passFieldType === 'password') {
-      passFieldType = 'text';
+    if (type === 'password') {
+      setType('text');
+      setToggleIcon(<StyledAiFillEye />);
     } else {
-      passFieldType = 'password';
+      setType('password');
+      setToggleIcon(<StyledAiFillEyeInvisible />);
     }
   };
 
@@ -134,7 +137,7 @@ export const SignInForm = () => {
                           </InputWrapper>
                           <InputWrapper>
                             <Field
-                              type={passFieldType}
+                              type={type}
                               name="password"
                               placeholder="Password"
                               as={InputField}
@@ -163,12 +166,9 @@ export const SignInForm = () => {
                                 }`}
                               />
                             </IconWrap>
-                            <EyeButton onClick={handleClick}>
-                              {passFieldType === 'password' && (
-                                <StyledAiFillEyeInvisible />
-                              )}
-                              {passFieldType === 'text' && <StyledAiFillEye />}
-                            </EyeButton>
+                            <EyeIcon onClick={handleClick}>
+                              {toggleIcon}
+                            </EyeIcon>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (

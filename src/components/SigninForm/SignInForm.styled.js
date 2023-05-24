@@ -289,7 +289,7 @@ export const StyledFiLock = styled(FiLock)`
   }
 `;
 
-export const EyeButton = styled.button`
+export const EyeIcon = styled.span`
   position: absolute;
   top: 50%;
   left: 82%;
@@ -299,6 +299,9 @@ export const EyeButton = styled.button`
   border: none;
   @media (min-width: 768px) {
     left: 83%;
+  }
+  &:hover {
+    cursor: pointer;
   }
 `;
 
