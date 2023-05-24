@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { AiOutlineUser } from 'react-icons/ai';
 import { FiMail } from 'react-icons/fi';
 import { FiLock } from 'react-icons/fi';
+import { AiFillEye } from 'react-icons/ai';
+import { AiFillEyeInvisible } from 'react-icons/ai';
 import {
   mainRegImgMob,
   mainRegImgTab,
@@ -157,7 +159,7 @@ export const InputField = styled.input`
   width: 279px;
   height: 45px;
   padding-left: 40px;
-  padding-right: 30px;
+  padding-right: 50px;
   font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.mainBgColor};
   background-color: ${p => p.theme.colors.thirdAccentColor};
@@ -175,7 +177,7 @@ export const InputField = styled.input`
   @media (min-width: 768px) {
     margin-bottom: 30px;
     padding-left: 50px;
-    padding-right: 40px;
+    padding-right: 70px;
     width: 400px;
     height: 59px;
     font-size: ${p => p.theme.fontSizes.xl}px;
@@ -278,6 +280,52 @@ export const StyledFiLock = styled(FiLock)`
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
+  opacity: 0.8;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const EyeIcon = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 82%;
+  padding: 0;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  @media (min-width: 768px) {
+    left: 83%;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const StyledAiFillEyeInvisible = styled(AiFillEyeInvisible)`
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  opacity: 0.8;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const StyledAiFillEye = styled(AiFillEye)`
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: #fff;
   opacity: 0.8;
   @media (min-width: 768px) {
     width: 24px;

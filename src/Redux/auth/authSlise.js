@@ -15,7 +15,6 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: false,
   categoryList: [],
-  isVerified: true,
 };
 
 const authSlice = createSlice({
@@ -23,11 +22,8 @@ const authSlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
-      .addCase(verify.fulfilled, state => {
-        state.isVerified = true;
-      })
-      .addCase(verify.rejected, state => {
-        state.isVerified = false;
+      .addCase(verify.fulfilled, (state, action) => {
+        state.user = action.payload.user;
       })
       .addCase(signIn.fulfilled, (state, action) => {
         state.user = action.payload.user;

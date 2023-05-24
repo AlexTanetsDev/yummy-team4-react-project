@@ -38,23 +38,34 @@ export const SearchButtonGreen = ({ type = 'button', onClick, children }) => {
   );
 };
 
-export const SingInButton = ({ children }) => {
-  return <SingInBtn to="/signin">{children}</SingInBtn>;
 
+export const SingInButton = ({ type = 'button', onClick, children }) => {
+  return (
+    <SingInBtn to="/signin" type={type} onClick={onClick}>
+      {children}
+    </SingInBtn>
+  );
 };
 
-export const ResendEmailButton = ({ children }) => {
-  return <SingInBtn>{children}</SingInBtn>;
-
-
+export const ResendEmailButton = ({ type = 'button', onClick, children }) => {
+  return (
+    <SingInBtn type={type} onClick={onClick}>
+      {children}
+    </SingInBtn>
+  );
 };
 
 export const SingInButtonGreen = ({ type = 'button', children }) => {
   return <SingInBtnGreen type={type}>{children}</SingInBtnGreen>;
 };
 
-export const RegistrationButton = ({ children }) => {
-  return <RegistrationBtn to="/register">{children}</RegistrationBtn>;
+
+export const RegistrationButton = ({ type = 'button', onClick, children }) => {
+  return (
+    <RegistrationBtn to="/register" type={type} onClick={onClick}>
+      {children}
+    </RegistrationBtn>
+  );
 };
 
 export const OtherCategoriesButton = ({

@@ -33,6 +33,9 @@ import {
   StyledFiLock,
   WarningAndSuccessMessage,
   ResendLink,
+  StyledAiFillEyeInvisible,
+  StyledAiFillEye,
+  EyeIcon,
 } from './SignInForm.styled';
 
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -53,6 +56,8 @@ export const SignInForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  const [type, setType] = useState('password');
+  const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
 
 
   useEffect(() => {
@@ -72,6 +77,16 @@ export const SignInForm = () => {
       setError(error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleClick = () => {
+    if (type === 'password') {
+      setType('text');
+      setToggleIcon(<StyledAiFillEye />);
+    } else {
+      setType('password');
+      setToggleIcon(<StyledAiFillEyeInvisible />);
     }
   };
 
@@ -135,7 +150,7 @@ export const SignInForm = () => {
                           </InputWrapper>
                           <InputWrapper>
                             <Field
-                              type="password"
+                              type={type}
                               name="password"
                               placeholder={t('Password')}
                               as={InputField}
@@ -164,6 +179,9 @@ export const SignInForm = () => {
                                 }`}
                               />
                             </IconWrap>
+                            <EyeIcon onClick={handleClick}>
+                              {toggleIcon}
+                            </EyeIcon>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (
