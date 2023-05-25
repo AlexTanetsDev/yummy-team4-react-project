@@ -291,6 +291,7 @@ export const StyledFiLock = styled(FiLock)`
 `;
 
 export const EyeIcon = styled.span`
+
   position: absolute;
   top: 50%;
   left: 82%;
@@ -304,6 +305,7 @@ export const EyeIcon = styled.span`
   &:hover {
     cursor: pointer;
   }
+
 `;
 
 export const StyledAiFillEyeInvisible = styled(AiFillEyeInvisible)`

@@ -35,7 +35,7 @@ import {
   ResendLink,
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
-  EyeIcon,
+  EyeIcon
 } from './SignInForm.styled';
 
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -60,12 +60,14 @@ export const SignInForm = () => {
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
 
 
+
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(categoryList());
     }
   }, [dispatch, isLoggedIn]);
   const { t } = useTranslation();
+
 
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -87,6 +89,7 @@ export const SignInForm = () => {
     } else {
       setType('password');
       setToggleIcon(<StyledAiFillEyeInvisible />);
+
     }
   };
 
@@ -153,6 +156,7 @@ export const SignInForm = () => {
                               type={type}
                               name="password"
                               placeholder={t('Password')}
+
                               as={InputField}
                               brdcolor={
                                 (!touched.password && 'white') ||
@@ -179,9 +183,11 @@ export const SignInForm = () => {
                                 }`}
                               />
                             </IconWrap>
+
                             <EyeIcon onClick={handleClick}>
                               {toggleIcon}
                             </EyeIcon>
+
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (

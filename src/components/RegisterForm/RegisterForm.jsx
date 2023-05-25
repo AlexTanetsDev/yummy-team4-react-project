@@ -32,7 +32,7 @@ import {
   WarningAndSuccessMessage,
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
-  EyeIcon,
+  EyeIcon
 } from './RegisterForm.styled';
 
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -53,6 +53,7 @@ export const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  let passFieldType = 'password';
 
   const [type, setType] = useState('password');
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
@@ -77,6 +78,7 @@ export const RegisterForm = () => {
     } else {
       setType('password');
       setToggleIcon(<StyledAiFillEyeInvisible />);
+
     }
   };
 
@@ -171,7 +173,9 @@ export const RegisterForm = () => {
                           </InputWrapper>
                           <InputWrapper>
                             <Field
+
                               type={type}
+
                               name="password"
                               placeholder={t('Password')}
                               values={values.password}
@@ -204,6 +208,7 @@ export const RegisterForm = () => {
                             <EyeIcon onClick={handleClick}>
                               {toggleIcon}
                             </EyeIcon>
+
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (
