@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
+import { useNavigate, useLocation } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import { Search } from 'components/Search/Search';
 import {
@@ -17,6 +19,7 @@ import { Container } from 'components/Container/Container';
 export const ChoseYourBreakfast = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
 
   const formSubmitHandler = data => {
     if (data) {
@@ -27,32 +30,29 @@ export const ChoseYourBreakfast = () => {
   };
 
   return (
-    <div>
+    <>
       <MainPageHero>
         <Container children>
           <HeroTitle>
             <Span>So</Span>Yummy
           </HeroTitle>
-          <HeroInfo>
-            "What to cook?" is not only a recipe app, it is, in fact, your
-            cookbook. You can add your own recipes to save them for the future.
-          </HeroInfo>
+          <HeroInfo>{t('What to cook?')}</HeroInfo>
           <InputWraper>
             <BreakfastButton>
-              <Link to={`/categories/Breakfast`} state={{ from: location }}>
+              <div>
                 <Text>
-                  <Span>Delicious and healthy</Span> way to enjoy a variety of
-                  fresh ingredients in one satisfying meal
+                  <Span>{t('Delicious and healthy')}</Span> {t('Way to enjoy')}
                 </Text>
-                <Arrow tipe="button">
-                  See recipes <BsArrowRight style={{ marginLeft: '7px' }} />
+                <Arrow to={`/categories/Breakfast`} state={{ from: location }}>
+                  {t('See recipes')}
+                  <BsArrowRight style={{ marginLeft: '7px' }} />
                 </Arrow>
-              </Link>
+              </div>
             </BreakfastButton>
             <Search onSubmit={formSubmitHandler} />
           </InputWraper>
         </Container>
       </MainPageHero>
-    </div>
+    </>
   );
 };

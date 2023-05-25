@@ -204,15 +204,6 @@ export const IconWrap = styled.div`
   }
 `;
 
-export const InputIcon = styled.img`
-  display: block;
-  width: 18px;
-  height: 18px;
-  @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
-  }
-`;
 
 export const StateInputIcon = styled.img`
   position: absolute;
@@ -231,16 +222,6 @@ export const StateInputIcon = styled.img`
   }
 `;
 
-export const Link = styled(NavLink)`
-  display: block;
-
-  text-align: center;
-  color: ${p => p.theme.colors.mainBgColor};
-  opacity: 0.8;
-  &:hover {
-    opacity: 1;
-  }
-`;
 
 export const StyledFiMail = styled(FiMail)`
   position: absolute;

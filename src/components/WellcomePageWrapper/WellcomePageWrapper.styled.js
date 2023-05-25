@@ -32,7 +32,7 @@ export const StyledWrapper = styled.div`
         rgba(0, 0, 0, 0) 100%
       ),
       url(mgg-vitchakorn-Ul4sgxQMmHU-unsplash.jpg), url(${startPageBg});
-  } ;
+  }
 `;
 
 export const Logo = styled.div`
@@ -47,7 +47,7 @@ export const Logo = styled.div`
     width: 68px;
     height: 68px;
     margin-bottom: 44px;
-  } ;
+  }
 `;
 
 export const LogoImage = styled.img`
@@ -71,7 +71,7 @@ export const Title = styled.h1`
   @media (min-width: 768px) {
     margin-bottom: 14px;
     font-size: ${p => p.theme.fontSizes.xxxl}px;
-  } ;
+  }
 `;
 
 export const Text = styled.p`
@@ -86,7 +86,7 @@ export const Text = styled.p`
     width: 550px;
     margin-bottom: 40px;
     font-size: ${p => p.theme.fontSizes.xxl}px;
-  } ;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -96,5 +96,5 @@ export const ButtonWrapper = styled.div`
   gap: 12px;
   @media (min-width: 768px) {
     gap: 18px;
-  } ;
+  }
 `;
