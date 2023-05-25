@@ -11,7 +11,7 @@ import { MainLoader } from 'components/Loader/Loader';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 
-import { register, categoryList } from 'Redux/auth/operations';
+import { register } from 'Redux/auth/operations';
 
 import {
   StyledWrapper,
@@ -32,7 +32,7 @@ import {
   WarningAndSuccessMessage,
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
-  EyeIcon
+  EyeIcon,
 } from './RegisterForm.styled';
 
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -53,11 +53,10 @@ export const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  let passFieldType = 'password';
+  const { t } = useTranslation();
 
   const [type, setType] = useState('password');
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
-
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
@@ -78,7 +77,6 @@ export const RegisterForm = () => {
     } else {
       setType('password');
       setToggleIcon(<StyledAiFillEyeInvisible />);
-
     }
   };
 
@@ -173,9 +171,7 @@ export const RegisterForm = () => {
                           </InputWrapper>
                           <InputWrapper>
                             <Field
-
                               type={type}
-
                               name="password"
                               placeholder={t('Password')}
                               values={values.password}
