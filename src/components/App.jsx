@@ -41,7 +41,7 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (isLoggedIn && user.verify) {
+    if (isLoggedIn && user?.verify) {
       dispatch(categoryList());
     }
   }, [dispatch, isLoggedIn, user.verify]);

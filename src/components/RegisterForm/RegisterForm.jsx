@@ -53,10 +53,10 @@ export const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const [type, setType] = useState('password');
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
-
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
