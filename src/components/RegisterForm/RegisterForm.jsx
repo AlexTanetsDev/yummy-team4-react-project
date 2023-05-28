@@ -11,7 +11,7 @@ import { MainLoader } from 'components/Loader/Loader';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 
-import { register, categoryList } from 'Redux/auth/operations';
+import { register } from 'Redux/auth/operations';
 
 import {
   StyledWrapper,
@@ -23,7 +23,7 @@ import {
   BottomBgImage,
   Link,
   InputWrapper,
-  IconWrap,
+  IconsWrap,
   StateInputIcon,
   ContentWrapper,
   StyledAiOutlineUser,
@@ -119,15 +119,13 @@ export const RegisterForm = () => {
                               placeholder={t('Name')}
                               values={values.name}
                             />
-                            <IconWrap>
-                              <StyledAiOutlineUser
-                                color={`${
-                                  (!touched.name && 'white') ||
-                                  (errors.name && touched.name && '#e74a3b') ||
-                                  (!errors.name && touched.name && '#3cbc81')
-                                }`}
-                              />
-                            </IconWrap>
+                            <StyledAiOutlineUser
+                              color={`${
+                                (!touched.name && 'white') ||
+                                (errors.name && touched.name && '#e74a3b') ||
+                                (!errors.name && touched.name && '#3cbc81')
+                              }`}
+                            />
                             {errors.name && touched.name && (
                               <StateInputIcon src={errorIcon} />
                             )}
@@ -150,17 +148,13 @@ export const RegisterForm = () => {
                               placeholder={t('Email')}
                               values={values.email}
                             />
-                            <IconWrap>
-                              <StyledFiMail
-                                color={`${
-                                  (!touched.email && 'white') ||
-                                  (errors.email &&
-                                    touched.email &&
-                                    '#e74a3b') ||
-                                  (!errors.email && touched.email && '#3cbc81')
-                                }`}
-                              />
-                            </IconWrap>
+                            <StyledFiMail
+                              color={`${
+                                (!touched.email && 'white') ||
+                                (errors.email && touched.email && '#e74a3b') ||
+                                (!errors.email && touched.email && '#3cbc81')
+                              }`}
+                            />
                             {errors.email && touched.email && (
                               <StateInputIcon src={errorIcon} />
                             )}
@@ -187,28 +181,35 @@ export const RegisterForm = () => {
                                 (8 <= values.password.length && '#3cbc81')
                               }
                             />
-                            <IconWrap>
-                              <StyledFiLock
-                                color={`${
-                                  (!touched.password && 'white') ||
-                                  (errors.password &&
-                                    touched.password &&
-                                    '#e74a3b') ||
-                                  (6 <= values.password.length &&
-                                    values.password.length < 8 &&
-                                    '#f6c23e') ||
-                                  (8 <= values.password.length && '#3cbc81')
-                                }`}
-                              />
-                            </IconWrap>
-                            <EyeIcon onClick={handleClick}>
-                              {toggleIcon}
-                            </EyeIcon>
-                            {6 <= values.password.length &&
-                              values.password.length < 8 &&
-                              !errors.password && (
-                                <StateInputIcon src={warningIcon} />
+                            <StyledFiLock
+                              color={`${
+                                (!touched.password && 'white') ||
+                                (errors.password &&
+                                  touched.password &&
+                                  '#e74a3b') ||
+                                (6 <= values.password.length &&
+                                  values.password.length < 8 &&
+                                  '#f6c23e') ||
+                                (8 <= values.password.length && '#3cbc81')
+                              }`}
+                            />
+                            <IconsWrap>
+                              <EyeIcon onClick={handleClick}>
+                                {toggleIcon}
+                              </EyeIcon>
+                              {6 <= values.password.length &&
+                                values.password.length < 8 &&
+                                !errors.password && (
+                                  <StateInputIcon src={warningIcon} />
+                                )}
+                              {8 <= values.password.length &&
+                                !errors.password && (
+                                  <StateInputIcon src={succesIcon} />
+                                )}
+                              {errors.password && touched.password && (
+                                <StateInputIcon src={errorIcon} />
                               )}
+                            </IconsWrap>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (
@@ -218,17 +219,10 @@ export const RegisterForm = () => {
                               )}
                             {8 <= values.password.length &&
                               !errors.password && (
-                                <StateInputIcon src={succesIcon} />
-                              )}
-                            {8 <= values.password.length &&
-                              !errors.password && (
                                 <WarningAndSuccessMessage color={'#3cbc81'}>
                                   {t('Password is secure')}
                                 </WarningAndSuccessMessage>
                               )}
-                            {errors.password && touched.password && (
-                              <StateInputIcon src={errorIcon} />
-                            )}
                             <FormError name="password" component="div" />
                           </InputWrapper>
                           <SingInButtonGreen type="submit">
