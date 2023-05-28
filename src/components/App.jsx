@@ -41,6 +41,7 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
+
     if (isLoggedIn) {
       dispatch(categoryList());
     }
