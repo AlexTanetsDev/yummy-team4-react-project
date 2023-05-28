@@ -257,6 +257,7 @@ export const StyledFiLock = styled(FiLock)`
 
 export const IconsWrap = styled.div`
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   position: absolute;

@@ -41,10 +41,10 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (isLoggedIn && user.verify) {
+    if (isLoggedIn) {
       dispatch(categoryList());
     }
-  }, [dispatch, isLoggedIn, user.verify]);
+  }, [dispatch, isLoggedIn]);
 
   return isRefreshing ? (
     <MainLoader />

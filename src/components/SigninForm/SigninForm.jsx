@@ -131,12 +131,14 @@ export const SignInForm = () => {
                                 (!errors.email && touched.email && '#3cbc81')
                               }`}
                             />
-                            {errors.email && touched.email && (
-                              <StateInputIcon src={errorIcon} />
-                            )}
-                            {!errors.email && touched.email && (
-                              <StateInputIcon src={succesIcon} />
-                            )}
+                            <IconsWrap>
+                              {errors.email && touched.email && (
+                                <StateInputIcon src={errorIcon} />
+                              )}
+                              {!errors.email && touched.email && (
+                                <StateInputIcon src={succesIcon} />
+                              )}
+                            </IconsWrap>
                             <FormError name="email" component="div" />
                           </InputWrapper>
                           <InputWrapper>
@@ -169,9 +171,6 @@ export const SignInForm = () => {
                               }`}
                             />
                             <IconsWrap>
-                              <EyeIcon onClick={handleClick}>
-                                {toggleIcon}
-                              </EyeIcon>
                               {6 <= values.password.length &&
                                 values.password.length < 8 &&
                                 !errors.password && (
@@ -184,6 +183,9 @@ export const SignInForm = () => {
                               {errors.password && touched.password && (
                                 <StateInputIcon src={errorIcon} />
                               )}
+                              <EyeIcon onClick={handleClick}>
+                                {toggleIcon}
+                              </EyeIcon>
                             </IconsWrap>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
