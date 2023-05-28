@@ -32,6 +32,7 @@ export const EmailVerify = () => {
         setIsLoading(true);
         await dispatch(verify(params.verificationToken));
         setIsVerified(user.verify);
+        console.log(user);
       } catch (error) {
         setError(error);
       } finally {

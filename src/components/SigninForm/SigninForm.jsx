@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Formik, Form, Field } from 'formik';
@@ -14,8 +13,6 @@ import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { MainLoader } from 'components/Loader/Loader';
 import { FormError } from 'components/FormError/FormError';
 
-
-
 import {
   StyledWrapper,
   ImageReg,
@@ -26,7 +23,7 @@ import {
   Modal,
   Title,
   Link,
-  IconWrap,
+  IconsWrap,
   InputWrapper,
   ContentWrapper,
   StyledFiMail,
@@ -59,14 +56,12 @@ export const SignInForm = () => {
   const [type, setType] = useState('password');
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
 
-
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(categoryList());
     }
   }, [dispatch, isLoggedIn]);
   const { t } = useTranslation();
-
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
@@ -129,17 +124,13 @@ export const SignInForm = () => {
                               placeholder={t('Email')}
                               values={values.email}
                             />
-                            <IconWrap>
-                              <StyledFiMail
-                                color={`${
-                                  (!touched.email && 'white') ||
-                                  (errors.email &&
-                                    touched.email &&
-                                    '#e74a3b') ||
-                                  (!errors.email && touched.email && '#3cbc81')
-                                }`}
-                              />
-                            </IconWrap>
+                            <StyledFiMail
+                              color={`${
+                                (!touched.email && 'white') ||
+                                (errors.email && touched.email && '#e74a3b') ||
+                                (!errors.email && touched.email && '#3cbc81')
+                              }`}
+                            />
                             {errors.email && touched.email && (
                               <StateInputIcon src={errorIcon} />
                             )}
@@ -165,28 +156,35 @@ export const SignInForm = () => {
                                 (8 <= values.password.length && '#3cbc81')
                               }
                             />
-                            <IconWrap>
-                              <StyledFiLock
-                                color={`${
-                                  (!touched.password && 'white') ||
-                                  (errors.password &&
-                                    touched.password &&
-                                    '#e74a3b') ||
-                                  (6 <= values.password.length &&
-                                    values.password.length < 8 &&
-                                    '#f6c23e') ||
-                                  (8 <= values.password.length && '#3cbc81')
-                                }`}
-                              />
-                            </IconWrap>
-                            <EyeIcon onClick={handleClick}>
-                              {toggleIcon}
-                            </EyeIcon>
-                            {6 <= values.password.length &&
-                              values.password.length < 8 &&
-                              !errors.password && (
-                                <StateInputIcon src={warningIcon} />
+                            <StyledFiLock
+                              color={`${
+                                (!touched.password && 'white') ||
+                                (errors.password &&
+                                  touched.password &&
+                                  '#e74a3b') ||
+                                (6 <= values.password.length &&
+                                  values.password.length < 8 &&
+                                  '#f6c23e') ||
+                                (8 <= values.password.length && '#3cbc81')
+                              }`}
+                            />
+                            <IconsWrap>
+                              <EyeIcon onClick={handleClick}>
+                                {toggleIcon}
+                              </EyeIcon>
+                              {6 <= values.password.length &&
+                                values.password.length < 8 &&
+                                !errors.password && (
+                                  <StateInputIcon src={warningIcon} />
+                                )}
+                              {8 <= values.password.length &&
+                                !errors.password && (
+                                  <StateInputIcon src={succesIcon} />
+                                )}
+                              {errors.password && touched.password && (
+                                <StateInputIcon src={errorIcon} />
                               )}
+                            </IconsWrap>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
                               !errors.password && (
@@ -196,17 +194,10 @@ export const SignInForm = () => {
                               )}
                             {8 <= values.password.length &&
                               !errors.password && (
-                                <StateInputIcon src={succesIcon} />
-                              )}
-                            {8 <= values.password.length &&
-                              !errors.password && (
                                 <WarningAndSuccessMessage color={'#3cbc81'}>
                                   {t('Password is secure')}
                                 </WarningAndSuccessMessage>
                               )}
-                            {errors.password && touched.password && (
-                              <StateInputIcon src={errorIcon} />
-                            )}
                             <FormError name="password" component="div" />
                           </InputWrapper>
                           <SingInButtonGreen type="submit">
