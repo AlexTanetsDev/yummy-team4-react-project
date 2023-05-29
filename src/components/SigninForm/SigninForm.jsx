@@ -32,7 +32,7 @@ import {
   ResendLink,
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
-  EyeIcon,
+  EyeIcon
 } from './SignInForm.styled';
 
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -82,6 +82,7 @@ export const SignInForm = () => {
     } else {
       setType('password');
       setToggleIcon(<StyledAiFillEyeInvisible />);
+
     }
   };
 
@@ -146,6 +147,7 @@ export const SignInForm = () => {
                               type={type}
                               name="password"
                               placeholder={t('Password')}
+
                               as={InputField}
                               brdcolor={
                                 (!touched.password && 'white') ||
@@ -158,6 +160,7 @@ export const SignInForm = () => {
                                 (8 <= values.password.length && '#3cbc81')
                               }
                             />
+
                             <StyledFiLock
                               color={`${
                                 (!touched.password && 'white') ||
@@ -182,6 +185,7 @@ export const SignInForm = () => {
                                 )}
                               {errors.password && touched.password && (
                                 <StateInputIcon src={errorIcon} />
+
                               )}
                               <EyeIcon onClick={handleClick}>
                                 {toggleIcon}

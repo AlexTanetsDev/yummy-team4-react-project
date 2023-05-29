@@ -255,6 +255,7 @@ export const StyledFiLock = styled(FiLock)`
   }
 `;
 
+<
 export const IconsWrap = styled.div`
   display: flex;
   flex-direction: row-reverse;
@@ -293,6 +294,7 @@ export const EyeIcon = styled.span`
   @media (min-width: 768px) {
     left: 83%;
   }
+
 `;
 
 export const StyledAiFillEyeInvisible = styled(AiFillEyeInvisible)`
