@@ -199,42 +199,6 @@ export const InputField = styled.input`
   }
 `;
 
-export const IconWrap = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  margin-left: 14px;
-  opacity: 0.8;
-  color: #fff;
-  &:hover {
-    opacity: 1;
-  }
-
-  @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
-  }
-`;
-
-export const StateInputIcon = styled.img`
-  position: absolute;
-  top: 35%;
-  left: 94%;
-  transform: translate(-50%);
-  width: 16px;
-  height: 16px;
-  @media (min-width: 768px) {
-    width: 20px;
-    height: 20px;
-  }
-  @media (max-width: 1440px) and (max-height: 940px) {
-    width: 16px;
-    height: 16px;
-  }
-`;
-
 export const Link = styled(NavLink)`
   display: block;
   text-align: center;
@@ -263,6 +227,7 @@ export const StyledFiMail = styled(FiMail)`
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
+  margin-left: 14px;
   opacity: 0.8;
   @media (min-width: 768px) {
     width: 24px;
@@ -279,6 +244,7 @@ export const StyledFiLock = styled(FiLock)`
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
+  margin-left: 14px;
   opacity: 0.8;
   @media (min-width: 768px) {
     width: 24px;
@@ -289,52 +255,77 @@ export const StyledFiLock = styled(FiLock)`
   }
 `;
 
-
-export const EyeIcon = styled.span`
-
+<
+export const IconsWrap = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 82%;
-  padding: 0;
   transform: translateY(-50%);
+  width: 40px;
+  @media (min-width: 768px) {
+    left: 85%;
+    width: 50px;
+  }
+`;
+
+export const StateInputIcon = styled.img`
+  display: block;
+  width: 16px;
+  height: 16px;
+  @media (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+  @media (max-width: 1440px) and (max-height: 940px) {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+export const EyeIcon = styled.span`
+  display: block;
+  padding: 0;
   background-color: transparent;
   border: none;
   @media (min-width: 768px) {
     left: 83%;
-  }
-  &:hover {
-    cursor: pointer;
   }
 
 `;
 
 export const StyledAiFillEyeInvisible = styled(AiFillEyeInvisible)`
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   color: #fff;
   opacity: 0.8;
   @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
   &:hover {
     opacity: 1;
+    cursor: pointer;
   }
 `;
 
 export const StyledAiFillEye = styled(AiFillEye)`
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   color: #fff;
   opacity: 0.8;
   @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
   &:hover {
     opacity: 1;
+    cursor: pointer;
   }
 `;
 
