@@ -126,12 +126,14 @@ export const RegisterForm = () => {
                                 (!errors.name && touched.name && '#3cbc81')
                               }`}
                             />
-                            {errors.name && touched.name && (
-                              <StateInputIcon src={errorIcon} />
-                            )}
-                            {!errors.name && touched.name && (
-                              <StateInputIcon src={succesIcon} />
-                            )}
+                            <IconsWrap>
+                              {errors.name && touched.name && (
+                                <StateInputIcon src={errorIcon} />
+                              )}
+                              {!errors.name && touched.name && (
+                                <StateInputIcon src={succesIcon} />
+                              )}
+                            </IconsWrap>
                             <FormError name="name" component="div" />
                           </InputWrapper>
                           <InputWrapper>
@@ -155,12 +157,14 @@ export const RegisterForm = () => {
                                 (!errors.email && touched.email && '#3cbc81')
                               }`}
                             />
-                            {errors.email && touched.email && (
-                              <StateInputIcon src={errorIcon} />
-                            )}
-                            {!errors.email && touched.email && (
-                              <StateInputIcon src={succesIcon} />
-                            )}
+                            <IconsWrap>
+                              {errors.email && touched.email && (
+                                <StateInputIcon src={errorIcon} />
+                              )}
+                              {!errors.email && touched.email && (
+                                <StateInputIcon src={succesIcon} />
+                              )}
+                            </IconsWrap>
                             <FormError name="email" component="div" />
                           </InputWrapper>
                           <InputWrapper>
@@ -194,9 +198,6 @@ export const RegisterForm = () => {
                               }`}
                             />
                             <IconsWrap>
-                              <EyeIcon onClick={handleClick}>
-                                {toggleIcon}
-                              </EyeIcon>
                               {6 <= values.password.length &&
                                 values.password.length < 8 &&
                                 !errors.password && (
@@ -209,6 +210,9 @@ export const RegisterForm = () => {
                               {errors.password && touched.password && (
                                 <StateInputIcon src={errorIcon} />
                               )}
+                              <EyeIcon onClick={handleClick}>
+                                {toggleIcon}
+                              </EyeIcon>
                             </IconsWrap>
                             {6 <= values.password.length &&
                               values.password.length < 8 &&
