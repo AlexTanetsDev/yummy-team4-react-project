@@ -57,8 +57,10 @@ export const verify = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post(`api/users/verify/${credentials}`);
+      console.log('operation reponse.data`', response.data);
       return response.data;
     } catch (error) {
+      console.log('operation error', error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
