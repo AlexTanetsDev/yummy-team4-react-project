@@ -66,7 +66,8 @@ export const SignInForm = () => {
   const handleSubmit = async (values, { resetForm }) => {
     try {
       setIsLoading(true);
-      await dispatch(signIn(values));
+      const response = await dispatch(signIn(values));
+      console.log(response);
       resetForm();
     } catch (error) {
       setError(error);

@@ -27,20 +27,21 @@ export const EmailVerify = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const EmailVerification = async () => {
+    const EmailVerification = async verificationToken => {
       try {
         setIsLoading(true);
-        await dispatch(verify(params.verificationToken));
-        setIsVerified(user.verify);
-        console.log(user);
+        const response = await dispatch(verify(verificationToken));
+        if (!response.error) {
+          setIsVerified(true);
+        }
       } catch (error) {
         setError(error);
       } finally {
         setIsLoading(false);
       }
     };
-    EmailVerification();
-  }, [dispatch, params.verificationToken, user.verify]);
+    EmailVerification(params.verificationToken);
+  }, [dispatch, params.verificationToken]);
 
   return (
     <>
