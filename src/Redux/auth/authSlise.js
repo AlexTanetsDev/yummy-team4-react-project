@@ -20,6 +20,10 @@ const initialState = {
   error: null,
 };
 
+const handlePending = state => {
+  state.isLoading = true;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -97,6 +101,7 @@ const authSlice = createSlice({
       })
       .addCase(updateSubscription.fulfilled, (state, action) => {
         state.user.subscription = action.payload.subscription;
+        state.isRefreshing = false;
         state.error = null;
       })
       .addCase(updateSubscription.rejected, (state, action) => {
@@ -108,6 +113,7 @@ const authSlice = createSlice({
       })
       .addCase(categoryList.fulfilled, (state, action) => {
         state.categoryList = action.payload;
+        state.isRefreshing = false;
         state.error = null;
       })
       .addCase(categoryList.rejected, (state, action) => {
@@ -120,6 +126,7 @@ const authSlice = createSlice({
       .addCase(updateUser.fulfilled, (state, action) => {
         state.user.avatarURL = action.payload.avatarURL;
         state.user.name = action.payload.name;
+        state.isRefreshing = false;
         state.error = null;
       })
       .addCase(updateUser.rejected, (state, action) => {
