@@ -11,3 +11,7 @@ export const selectToken = state => state.auth.token;
 export const selectSubscription = state => state.auth.user.subscription;
 
 export const selectCategoryList = state => state.auth.categoryList;
+
+export const selectError = state => state.auth.error;
+
+export const selectIsLoading = state => state.auth.isLoading;
