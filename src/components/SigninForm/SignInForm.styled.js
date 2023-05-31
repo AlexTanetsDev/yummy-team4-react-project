@@ -265,9 +265,15 @@ export const IconsWrap = styled.div`
   left: 82%;
   transform: translateY(-50%);
   width: 40px;
-  @media (min-width: 1450px) {
+
+  @media (min-width: 768px) {
+    left: 80%;
+    width: 45px;
+  }
+  @media (min-width: 1440px) {
+
     left: 85%;
-    width: 50px;
+    width: 45px;
   }
 `;
 
