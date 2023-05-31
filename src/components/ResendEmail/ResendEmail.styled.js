@@ -204,6 +204,7 @@ export const IconWrap = styled.div`
   }
 `;
 
+
 export const StateInputIcon = styled.img`
   position: absolute;
   top: 35%;
@@ -220,6 +221,7 @@ export const StateInputIcon = styled.img`
     height: 16px;
   }
 `;
+
 
 export const StyledFiMail = styled(FiMail)`
   position: absolute;
