@@ -20,8 +20,22 @@ const initialState = {
   error: null,
 };
 
-const handlePending = state => {
+const handleIsLoadingPending = state => {
   state.isLoading = true;
+};
+
+const handleIsRefreshingPending = state => {
+  state.isRefreshing = false;
+};
+
+const handleIsLoadingRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+
+const handleIsRefreshingRejected = (state, action) => {
+  state.isRefreshing = false;
+  state.error = action.payload;
 };
 
 const authSlice = createSlice({
@@ -29,33 +43,21 @@ const authSlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
-      .addCase(verify.pending, state => {
-        state.isLoading = true;
-      })
+      .addCase(verify.pending, handleIsLoadingPending)
       .addCase(verify.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(verify.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(register.pending, state => {
-        state.isLoading = true;
-      })
+      .addCase(verify.rejected, handleIsLoadingRejected)
+      .addCase(register.pending, handleIsLoadingPending)
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(register.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(signIn.pending, state => {
-        state.isLoading = true;
-      })
+      .addCase(register.rejected, handleIsLoadingRejected)
+      .addCase(signIn.pending, handleIsLoadingPending)
       .addCase(signIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
@@ -69,9 +71,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(logOut.pending, state => {
-        state.isLoading = true;
-      })
+      .addCase(logOut.pending, handleIsLoadingPending)
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null, avatarURL: '' };
         state.token = null;
@@ -79,10 +79,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(logOut.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
+      .addCase(logOut.rejected, handleIsLoadingRejected)
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
@@ -92,47 +89,29 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = null;
       })
-      .addCase(refreshUser.rejected, (state, action) => {
-        state.isRefreshing = false;
-        state.error = action.payload;
-      })
-      .addCase(updateSubscription.pending, state => {
-        state.isRefreshing = true;
-      })
+      .addCase(refreshUser.rejected, handleIsRefreshingRejected)
+      .addCase(updateSubscription.pending, handleIsRefreshingPending)
       .addCase(updateSubscription.fulfilled, (state, action) => {
         state.user.subscription = action.payload.subscription;
         state.isRefreshing = false;
         state.error = null;
       })
-      .addCase(updateSubscription.rejected, (state, action) => {
-        state.isRefreshing = false;
-        state.error = action.payload;
-      })
-      .addCase(categoryList.pending, state => {
-        state.isRefreshing = true;
-      })
+      .addCase(updateSubscription.rejected, handleIsRefreshingRejected)
+      .addCase(categoryList.pending, handleIsRefreshingPending)
       .addCase(categoryList.fulfilled, (state, action) => {
         state.categoryList = action.payload;
         state.isRefreshing = false;
         state.error = null;
       })
-      .addCase(categoryList.rejected, (state, action) => {
-        state.isRefreshing = false;
-        state.error = action.payload;
-      })
-      .addCase(updateUser.pending, state => {
-        state.isRefreshing = true;
-      })
+      .addCase(categoryList.rejected, handleIsRefreshingRejected)
+      .addCase(updateUser.pending, handleIsRefreshingPending)
       .addCase(updateUser.fulfilled, (state, action) => {
         state.user.avatarURL = action.payload.avatarURL;
         state.user.name = action.payload.name;
         state.isRefreshing = false;
         state.error = null;
       })
-      .addCase(updateUser.rejected, (state, action) => {
-        state.isRefreshing = false;
-        state.error = action.payload;
-      }),
+      .addCase(updateUser.rejected, handleIsRefreshingRejected),
 });
 
 export const authReducer = authSlice.reducer;
