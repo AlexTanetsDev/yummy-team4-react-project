@@ -177,17 +177,12 @@ export const InputQuantity = styled.input`
   border: none;
   outline: none;
   padding-left: 10px;
-  /* text-align: right; */
   text-align: left;
 
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
   color: #000000;
-
-  // overflow: hidden;
-  // white-space: nowrap;
-  // text-overflow: ellipsis;
 
   &:invalid {
     border: 1px solid gba(231, 74, 59, 1);

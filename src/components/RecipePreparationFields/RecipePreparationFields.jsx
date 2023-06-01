@@ -19,7 +19,6 @@ export const RecipePreparationFields = ({ formik }) => {
           placeholder="Enter recipe"
           maxLength="300"
           {...formik.getFieldProps('preparation')}
-        //   onKeyDown={handleChange}
         />
         {formik.touched.preparation &&
         formik.errors.preparation ? (

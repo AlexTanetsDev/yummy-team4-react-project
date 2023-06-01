@@ -10,11 +10,6 @@ export const DescriptionContainer = styled.div`
     flex-direction: row;
     align-items: center;
   }
-
-  // @media screen and (min-width: 1440px) {
-  // padding: 0 100px;
-  // max-width: ${p => p.theme.breakPoints[2]};
-  // }
 `;
 
 export const InputFieldsContainer = styled.div`
@@ -32,7 +27,6 @@ export const InputFieldsContainer = styled.div`
 export const FieldContainer = styled.div`
   position: relative;
   margin-bottom: 8px;
-
 `;
 
 export const InputTitle = styled.input`
@@ -100,11 +94,6 @@ export const InputDescription = styled.textarea`
   }
 
   overflow: hidden;
-  // max-width: 100%;
-  // display: -webkit-box;
-  // -webkit-line-clamp: 3;
-  // -webkit-box-orient: vertical;
-
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
@@ -146,7 +135,6 @@ export const InputCategory = styled.select`
   font-size: 12px;
   line-height: 12px;
   color: #000000;
-  // text-align: right;
 
   outline: none;
   border: none;

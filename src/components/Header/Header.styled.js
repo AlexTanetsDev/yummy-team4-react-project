@@ -22,8 +22,6 @@ export const HeaderWrapper = styled.section`
 `;
 
 export const Headerblock = styled.div`
-  /* position: absolute; */
-  /* padding-top: ${p => p.theme.space(4.5)}; */
   top: ${p => p.theme.space(4.5)};
   right: ${p => p.theme.space(4)};
 
@@ -36,10 +34,8 @@ export const Headerblock = styled.div`
     right: ${p => p.theme.space(25)};
   }
   display: flex;
-  /* justify-content:space-between; */
   align-items: center;
   margin-left: auto;
-  /* z-index:1; */
 `;
 
 export const StyledNav = styled.nav`
