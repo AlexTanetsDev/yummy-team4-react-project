@@ -47,13 +47,9 @@ export const RecipeLink = styled(NavLink)`
 `;
 
 export const PopularItem = styled.li`
-  // position: relative;
-  // display: flex;
   padding-bottom: ${p => p.theme.space(3.5)};
   margin-bottom: ${p => p.theme.space(6)};
   height: 98px;
-  //   background-color: ${p => p.theme.colors.whiteText};
-  //   border-radius: ${p => p.theme.space(2)};
   border-bottom: 1px solid #707070;
 
   &:last-of-type {

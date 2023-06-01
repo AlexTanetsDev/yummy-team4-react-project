@@ -238,13 +238,6 @@ export const Image = styled.img`
 
 export const InputIconContainer = styled.div`
   display: block;
-  /* width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  @media (min-width: 768px) {
-    width: 103px;
-    height: 103px;
-  } */
 `;
 
 export const FileLabel = styled.label`

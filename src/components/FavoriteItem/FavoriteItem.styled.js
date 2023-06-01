@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { NavLink } from 'react-router-dom';
 
 export const StyledFavoriteItem = styled.li`
   position: relative;
@@ -21,7 +20,7 @@ export const StyledFavoriteItem = styled.li`
       margin-bottom: ${p => p.theme.space(10)};
     }
   }
-  }
+
   @media screen and (min-width: 1440px) {
     padding: ${p => p.theme.space(10)};
     width: ${p => p.theme.space(310)};

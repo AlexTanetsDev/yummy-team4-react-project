@@ -13,7 +13,6 @@ import {
   selectIsLoggedIn,
 } from 'redux/auth/selectors';
 
-// import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { MainLoader } from 'components/Loader/Loader';
 import { FormError } from 'components/FormError/FormError';
 
