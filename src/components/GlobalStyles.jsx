@@ -34,7 +34,9 @@ button, a {
 	text-decoration:none;
 }
 
-
+*{
+transition: all, 0.5s, ease-in;
+}
 
 
 `;
