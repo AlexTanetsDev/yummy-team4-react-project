@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Field } from 'formik';
 
-import { selectCategoryList } from 'Redux/auth/selectors';
+import { selectCategoryList } from 'redux/auth/selectors';
 import { CustomSelect } from '../CustomSelect/CustomSelect';
-import { CategoryApi } from '../../apiService';
 import photoIcon from '../../images/addRecipePhoto.svg';
 import {
   DescriptionContainer,
@@ -158,28 +157,16 @@ const FileInput = ({
 
 export const RecipeDescriptionFields = ({ formik }) => {
   const [categories, setCategories] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const categoriesList = useSelector(selectCategoryList);
 
   useEffect(() => {
-    (async () => {
-      try {
-        setIsLoading(true);
-        // const data = await CategoryApi.fetchCategoryList();
-        const categoriesObj = categoriesList.map(category => ({
-          value: category,
-          label: category,
-        }));
-        setCategories(categoriesObj);
-      } catch (error) {
-        setError({ error });
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
+    const categoriesObj = categoriesList.map(category => ({
+      value: category,
+      label: category,
+    }));
+    setCategories(categoriesObj);
+  }, [categoriesList]);
 
   return (
     <DescriptionContainer>

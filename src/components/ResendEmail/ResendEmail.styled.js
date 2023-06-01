@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { startPageBgMob, startPageBgTab, startPageBg } from '../../images';
 import { FiMail } from 'react-icons/fi';
-import { NavLink } from 'react-router-dom';
 
 export const StyledWrapper = styled.div`
   width: 100%;

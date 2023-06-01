@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getRecipeById } from 'apiService';
 import { useSelector } from 'react-redux';
 import { useParams, useLocation } from 'react-router-dom';
-import { selectToken } from 'Redux/auth/selectors';
+import { selectToken } from 'redux/auth/selectors';
 
 import { RecipeHero } from 'components/RecipePageHero/RecipePageHero';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';

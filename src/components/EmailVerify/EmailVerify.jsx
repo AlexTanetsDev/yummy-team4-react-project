@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { verify } from 'Redux/auth/operations';
-import { selectUser, selectError, selectIsLoading } from 'Redux/auth/selectors';
+import { verify } from 'redux/auth/operations';
+import { selectError, selectIsLoading } from 'redux/auth/selectors';
 
 import {
   ContentWrapper,
@@ -16,15 +16,10 @@ import {
 import { SingInButton } from 'components/Button/Button';
 import { startPageLogo } from '../../images';
 import { MainLoader } from 'components/Loader/Loader';
-// import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 
 export const EmailVerify = () => {
   const dispatch = useDispatch();
   const params = useParams();
-  // const user     = useSelector(selectUser);
-  // const [isVerified, setIsVerified] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState('');
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
 

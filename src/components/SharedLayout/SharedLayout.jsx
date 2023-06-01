@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 import { useSelector } from 'react-redux';
-import { selectIsLoggedIn } from 'Redux/auth/selectors';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 import { Header } from '../Header/Header';
 import { BackgroundDecorHeader } from 'components/BackgroundDecor/BackgroundDecor';
