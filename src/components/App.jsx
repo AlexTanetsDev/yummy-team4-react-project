@@ -1,15 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { lazy, useEffect } from 'react';
+import { lazy, useEffect, useState } from 'react';
 import { useAuth } from 'hooks';
 
-import { refreshUser, categoryList } from 'Redux/auth/operations';
-import { selectIsLoggedIn, selectUser } from 'Redux/auth/selectors';
+import { refreshUser, categoryList } from 'redux/auth/operations';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRout';
 import { MainLoader } from './Loader/Loader';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme, theme } from 'utils/theme';
+import { GlobalStyles } from './GlobalStyles';
 
 const WelcomPage = lazy(() => import('../pages/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -31,7 +34,20 @@ export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const user = useSelector(selectUser);
+
+  const [themeToggle, setThemeToggle] = useState(
+    localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
+  );
+  const isDarkTheme = themeToggle === 'dark' ? true : false;
+
+  const handleTogleThemeClick = () => {
+    const value = themeToggle === 'light' ? 'dark' : 'light';
+    setThemeToggle(value);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('theme', themeToggle);
+  }, [themeToggle]);
 
   useEffect(() => {
     const handleRefreshUser = async () => {
@@ -41,60 +57,73 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-
     if (isLoggedIn) {
       dispatch(categoryList());
     }
   }, [dispatch, isLoggedIn]);
 
-  return isRefreshing ? (
-    <MainLoader />
-  ) : (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<WelcomPage />} />
-        <Route
-          path="register"
-          element={
-            <RestrictedRoute
-              component={<RegisterPage />}
-              redirectTo="/signin"
-            />
-          }
-        />
-        <Route path="verify/:verificationToken" element={<EmailVerifyPage />} />
-        <Route
-          path="signin"
-          element={
-            <RestrictedRoute component={<SignInPage />} redirectTo="/main" />
-          }
-        />
-        <Route path="resend" element={<ResendEmailPage />} />
-        <Route
-          path="main"
-          element={
-            <PrivateRoute component={<MainPage />} redirectTo="/signin" />
-          }
-        />
-        {isLoggedIn ? (
-          <>
+  return (
+    <ThemeProvider theme={isDarkTheme ? darkTheme : theme}>
+      {isRefreshing ? (
+        <MainLoader />
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={<SharedLayout onClick={handleTogleThemeClick} />}
+          >
+            <Route index element={<WelcomPage />} />
             <Route
-              path="categories/:categoryName"
-              element={<CategoriesPage />}
+              path="register"
+              element={
+                <RestrictedRoute
+                  component={<RegisterPage />}
+                  redirectTo="/signin"
+                />
+              }
             />
-            <Route path="add" element={<AddRecipePage />} />
-            <Route path="favorite" element={<FavoritePage />} />
-            <Route path="recipe/:recipeId" element={<RecipePage />} />
-            <Route path="my" element={<MyRecipesPage />} />
-            <Route path="search" element={<SearchPage />} />
-            <Route path="search/:query" element={<SearchPage />} />
-            <Route path="shopping-list" element={<ShoppingListPage />} />
-          </>
-        ) : (
-          <Route path="*" element={<ErrorPage />} />
-        )}
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
+            <Route
+              path="verify/:verificationToken"
+              element={<EmailVerifyPage />}
+            />
+            <Route
+              path="signin"
+              element={
+                <RestrictedRoute
+                  component={<SignInPage />}
+                  redirectTo="/main"
+                />
+              }
+            />
+            <Route path="resend" element={<ResendEmailPage />} />
+            <Route
+              path="main"
+              element={
+                <PrivateRoute component={<MainPage />} redirectTo="/signin" />
+              }
+            />
+            {isLoggedIn ? (
+              <>
+                <Route
+                  path="categories/:categoryName"
+                  element={<CategoriesPage />}
+                />
+                <Route path="add" element={<AddRecipePage />} />
+                <Route path="favorite" element={<FavoritePage />} />
+                <Route path="recipe/:recipeId" element={<RecipePage />} />
+                <Route path="my" element={<MyRecipesPage />} />
+                <Route path="search" element={<SearchPage />} />
+                <Route path="search/:query" element={<SearchPage />} />
+                <Route path="shopping-list" element={<ShoppingListPage />} />
+              </>
+            ) : (
+              <Route path="*" element={<ErrorPage />} />
+            )}
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      )}
+      <GlobalStyles />
+    </ThemeProvider>
   );
 };

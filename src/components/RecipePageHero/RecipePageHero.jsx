@@ -7,7 +7,7 @@ import {
   RemoveFromFavoriteBtn,
 } from 'components/Button/Button';
 import { addFavoriteById, deleteFavoriteById } from 'apiService';
-import { selectUser } from 'Redux/auth/selectors';
+import { selectUser } from 'redux/auth/selectors';
 
 import {
   HeroSection,

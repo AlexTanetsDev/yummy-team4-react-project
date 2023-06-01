@@ -16,8 +16,8 @@ import {
   SubscribeText,
 } from './SubscribeForm.styled';
 
-import { updateSubscription } from 'Redux/auth/operations.js';
-import { selectSubscription } from 'Redux/auth/selectors.js';
+import { updateSubscription } from 'redux/auth/operations.js';
+import { selectSubscription } from 'redux/auth/selectors.js';
 
 const SubscribeForm = () => {
   const isMobile = useMedia('(max-width: 1439px)');

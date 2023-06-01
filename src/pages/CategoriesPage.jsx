@@ -2,7 +2,7 @@ import { Sections } from 'components/Sections/Sections';
 import { useEffect, useState } from 'react';
 import { Container } from 'components/Container/Container';
 import { useSelector } from 'react-redux';
-import { selectCategoryList, selectToken } from 'Redux/auth/selectors';
+import { selectCategoryList, selectToken } from 'redux/auth/selectors';
 import { CategoryList } from 'components/CategoryList/CategoryList';
 import { NavCategory } from 'components/CategoryList/CategoryList.styled';
 import { ResipeCategoriItems } from 'components/ResipeCategoriItems/ResipeCategoriItems';
@@ -64,7 +64,7 @@ const CategoriesPage = () => {
       }
     };
     renderRecipeList();
-  }, [prevCategoryName, categoryName, currentPage, token]);
+  }, [prevCategoryName, categoryName, currentPage, token, searchParams]);
 
   const paginate = pageNumber => {
     setCurrentPage(pageNumber);

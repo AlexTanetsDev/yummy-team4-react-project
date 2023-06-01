@@ -22,7 +22,7 @@ import { SingInButtonGreen } from 'components/Button/Button';
 import { FormError } from 'components/FormError/FormError';
 import { startPageLogo } from '../../images';
 import { errorIcon, succesIcon } from 'images';
-import { resend } from 'Redux/auth/operations';
+import { resend } from 'redux/auth/operations';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { MainLoader } from 'components/Loader/Loader';
 

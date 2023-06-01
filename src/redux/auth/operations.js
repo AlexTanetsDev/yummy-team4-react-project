@@ -2,11 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
-
-
 axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com';
-
-
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -61,10 +57,8 @@ export const verify = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post(`api/users/verify/${credentials}`);
-      console.log('operation reponse.data`', response.data);
       return response.data;
     } catch (error) {
-      console.log('operation error', error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 import { useSelector } from 'react-redux';
-import { selectIsLoggedIn } from 'Redux/auth/selectors';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 import { Header } from '../Header/Header';
 import { BackgroundDecorHeader } from 'components/BackgroundDecor/BackgroundDecor';
@@ -12,7 +12,7 @@ import { Footer } from 'components/Footer/Footer';
 import { Main } from './SharedLayout.styled';
 import { ButtonScrollUp } from 'components/Button/Button';
 
-export const SharedLayout = () => {
+export const SharedLayout = ({ onClick }) => {
   const [isButtonUp, setIsButtonUp] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
@@ -51,7 +51,7 @@ export const SharedLayout = () => {
           <div>
             <Toaster position="top-right" reverseOrder={false} />
           </div>
-          <Header />
+          <Header onClick={onClick} />
           <Main>
             <BackgroundDecorHeader />
             <Suspense>

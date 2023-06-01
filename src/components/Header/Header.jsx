@@ -24,8 +24,9 @@ import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 import { Container } from 'components/Container/Container';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 import { Modal } from '../Modal/Modal';
+import ThemeButton from 'components/ThemeButton/ThemeButton';
 
-export const Header = () => {
+export const Header = ({ onClick }) => {
   const User = useSelector(state => state.auth.user);
   const [modalActive, setModalActive] = useState(false);
   const [opened, setOpened] = useState(false);
@@ -60,6 +61,7 @@ export const Header = () => {
               </Avatar>
               <UserName>{User.name}</UserName>
             </UserProfileWrap>
+            <ThemeButton onClick={onClick} />
             <StyledBurger
               onClick={() => {
                 setModalActive(true);
