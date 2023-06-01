@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { modal, modalMini } from '../../images/index';
 
@@ -16,6 +16,14 @@ export const MobileMenu = styled.div`
   background-color: #ebf3d4;
   background-repeat: no-repeat;
   background-position: bottom right;
+  ${({ active }) =>
+    active === true &&
+    css`
+      transform: scale(1);
+      opacity: 1;
+      pointer-events: all;
+      z-index: 1;
+    `}
   &::before {
     content: '';
     position: absolute;
@@ -37,6 +45,14 @@ export const MobileMenu = styled.div`
     background-color: #ebf3d4;
     background-repeat: no-repeat;
     background-position: bottom right;
+    ${({ active }) =>
+      active === true &&
+      css`
+        transform: scale(1);
+        opacity: 1;
+        pointer-events: all;
+        z-index: 1;
+      `}
     &::before {
       content: '';
       position: absolute;
@@ -107,14 +123,6 @@ export const ThemeModalDiv = styled.div`
   height: 30px;
 `;
 
-export const Content = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: transparent;
-`;
-
 export const StyledBurger = styled.button`
   position: absolute;
   margin-left: auto;
@@ -143,4 +151,16 @@ export const StyledBurger = styled.button`
   @media screen and (min-width: 1440px) {
     display: none;
   }
+`;
+
+export const Content = styled.div`
+  padding: 32px;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: transparent;
 `;

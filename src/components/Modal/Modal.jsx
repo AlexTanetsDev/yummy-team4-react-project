@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import './Modal.css';
 import {
   MobileMenu,
   StyledNavBurger,
@@ -22,19 +21,18 @@ export const Modal = ({ active, setActive }) => {
 
   return (
     <MobileMenu
-      className={active ? 'modal active' : 'modal'}
+      active={active}
       onClick={() => {
         setActive(false);
       }}
     >
-      <Content className="modal_content" onClick={evt => evt.stopPropagation()}>
+      <Content onClick={evt => evt.stopPropagation()}>
         <ModalHeader>
           <LogoHeader />
           <StyledBurger
             onClick={() => {
               setActive(false);
             }}
-            // onClick={handleButtonClick}
           >
             <IoMdClose style={{ width: '32px', height: '32px' }} />
           </StyledBurger>
