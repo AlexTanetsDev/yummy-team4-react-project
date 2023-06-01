@@ -262,6 +262,7 @@ export const StyledFiLock = styled(FiLock)`
   }
 `;
 
+
 export const IconsWrap = styled.div`
   display: flex;
   flex-direction: row-reverse;
