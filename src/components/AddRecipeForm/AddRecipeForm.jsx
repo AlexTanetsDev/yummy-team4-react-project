@@ -13,16 +13,16 @@ import { AlertMessage } from '../../components/AlertMessage/AlertMessage';
 import { FormContainer } from './AddRecipeForm.styled';
 
 const validationSchema = Yup.object({
-  title: Yup.string().required('Required'),
-  description: Yup.string().required('Required'),
-  preparation: Yup.string().required('Required'),
+  title: Yup.string().min(3).max(40).required('Required'),
+  description: Yup.string().min(3).max(100).required('Required'),
+  preparation: Yup.string().min(5).max(500).required('Required'),
   category: Yup.string().required('Required'),
   time: Yup.string().required('Required'),
   photo: Yup.string().required('Required'),
   ingredients: Yup.array().of(
     Yup.object().shape({
       name: Yup.string().required('Required'),
-      quantity: Yup.string().required('Required'),
+      quantity: Yup.number().positive('Must be positive').required('Required'),
       unit: Yup.string().required('Required'),
     })
   ),
@@ -85,13 +85,16 @@ export const AddRecipeForm = () => {
     }
   };
 
+  if (error) {
+    return (
+      <AlertMessage>
+        Oops, something went wrong. Please try again later...
+      </AlertMessage>
+    );
+  }
+
   return (
     <>
-      {error && (
-        <AlertMessage>
-          Oops, something went wrong. Please try again later...
-        </AlertMessage>
-      )}
       {isLoading ? (
         <MiniLoader />
       ) : (
