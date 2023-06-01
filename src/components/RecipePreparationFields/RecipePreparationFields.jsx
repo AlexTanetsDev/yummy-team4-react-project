@@ -6,6 +6,7 @@ import {
   Title,
   InputRecipe,
   Error,
+  ErrorText,
 } from './RecipePreparationFields.styled';
 
 export const RecipePreparationFields = ({ formik }) => {
@@ -20,9 +21,10 @@ export const RecipePreparationFields = ({ formik }) => {
           maxLength="300"
           {...formik.getFieldProps('preparation')}
         />
-        {formik.touched.preparation &&
-        formik.errors.preparation ? (
-          <Error />
+        {formik.touched.preparation && formik.errors.preparation ? (
+          <Error>
+            <ErrorText>{formik.errors.preparation}</ErrorText>
+          </Error>
         ) : null}
       </InputContainer>
     </PreparationContainer>

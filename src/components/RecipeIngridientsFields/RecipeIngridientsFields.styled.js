@@ -38,6 +38,7 @@ export const MultButtonContainer = styled.div`
 
   width: 92px;
   height: 28px;
+  background-color: #fafafa;
   border: 1px solid rgba(51, 51, 51, 0.3);
   border-radius: 18px;
   overflow: hidden;
@@ -276,7 +277,19 @@ export const Error = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+
+  text-align: end;
+  color: #e74a3b;
   border: 2px solid #e74a3b;
   border-radius: 6px;
+  pointer-events: none;
+`;
+
+export const ErrorText = styled.div`
+  position: absolute;
+  top: 100%;
+  right: 4px;
+
+  color: #e74a3b;
   pointer-events: none;
 `;

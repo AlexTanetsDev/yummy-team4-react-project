@@ -22,6 +22,7 @@ import {
   ContainerMeasure,
   Label,
   Error,
+  ErrorText,
 } from './RecipeIngridientsFields.styled';
 
 const Units = [
@@ -288,7 +289,6 @@ export const RecipeIngridientsFields = ({ formik }) => {
                             option.value
                           );
                         }}
-                        required
                       ></Field>
                       {formik.touched.ingredients &&
                       formik.touched.ingredients[index] &&
@@ -296,7 +296,11 @@ export const RecipeIngridientsFields = ({ formik }) => {
                       formik.errors.ingredients &&
                       formik.errors.ingredients[index] &&
                       formik.errors.ingredients[index].name ? (
-                        <Error />
+                        <Error>
+                          <ErrorText>
+                            {formik.errors.ingredients[index].name}
+                          </ErrorText>
+                        </Error>
                       ) : null}
                     </IngridientNameContainer>
 
@@ -318,7 +322,6 @@ export const RecipeIngridientsFields = ({ formik }) => {
                               option.value
                             );
                           }}
-                          required
                         ></Field>
                       </ContainerMeasure>
                       <ContainerNumberQuantity>
@@ -331,8 +334,6 @@ export const RecipeIngridientsFields = ({ formik }) => {
                           name={`ingredients.${index}.quantity`}
                           type="number"
                           placeholder="0"
-                          maxlength="3"
-                          min="0"
                           readonly
                         />
                       </ContainerNumberQuantity>
@@ -342,7 +343,11 @@ export const RecipeIngridientsFields = ({ formik }) => {
                       formik.errors.ingredients &&
                       formik.errors.ingredients[index] &&
                       formik.errors.ingredients[index].quantity ? (
-                        <Error />
+                        <Error>
+                          <ErrorText>
+                            {formik.errors.ingredients[index].quantity}
+                          </ErrorText>
+                        </Error>
                       ) : null}
                     </QuantityContainer>
                   </IngridientFields>

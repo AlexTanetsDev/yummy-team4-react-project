@@ -45,11 +45,8 @@ export const InputTitle = styled.input`
   line-height: 12px;
   color: #000000;
   outline: none;
-  background-color: rgb(250, 250, 250);
-
-  &:invalid {
-    border-bottom: 1px solid rgba(224, 224, 224, 1);
-  }
+  background-color: #fafafa;
+  border-radius: 6px;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -60,7 +57,7 @@ export const InputTitle = styled.input`
 export const LabelTitle = styled.label`
   position: absolute;
   top: 0;
-  left: 0;
+  left: 8px;
 
   font-size: 14px;
   line-height: 21px;
@@ -104,12 +101,16 @@ export const FieldSelectContainer = styled.div`
   justify-content: space-between;
 
   padding-bottom: 10px;
+  background-color: #fafafa;
+  border-radius: 6px;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
 `;
 
 export const LabelCategory = styled.label`
   display: flex;
   align-items: center;
+  padding-left: 8px;
+
   font-size: 14px;
   line-height: 21px;
   color: #000000;
@@ -164,11 +165,11 @@ export const OptionCategory = styled.option`
 
 export const FileInputContainer = styled.div`
   position: relative;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
@@ -190,7 +191,6 @@ export const RreviewImageContainer = styled.div`
 
   background-color: #8baa36;
   border-radius: 8px;
-  overflow: hidden;
 
   @media screen and (min-width: 375px) {
     width: 279px;
@@ -206,11 +206,11 @@ export const Image = styled.img`
 
   object-fit: cover;
   object-position: center;
+  border-radius: 8px;
 `;
 
 export const InputIconContainer = styled.div`
   position: absolute;
-
   width: 64px;
   height: 64px;
 `;
@@ -230,11 +230,15 @@ export const InputFile = styled.input`
 
 export const Error = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   right: 0;
   width: 100%;
   height: 2px;
+
+  text-align: end;
+
+  color: #e74a3b;
   background-color: #e74a3b;
 `;
 
@@ -245,7 +249,21 @@ export const ErrorPhoto = styled.div`
   left: 0;
   right: 0;
   z-index: 10;
+
+  text-align: end;
+
+  color: #e74a3b;
   border: 2px solid #e74a3b;
   border-radius: 8px;
   pointer-events: none;
+`;
+
+export const ErrorText = styled.div`
+  position: absolute;
+  top: 100%;
+  right: 4px;
+
+  color: #e74a3b;
+  pointer-events: none;
+  z-index: 20;
 `;
