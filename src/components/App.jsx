@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { lazy, useEffect, useState } from 'react';
 import { useAuth } from 'hooks';
 
-import { refreshUser, categoryList } from 'Redux/auth/operations';
-import { selectIsLoggedIn, selectUser } from 'Redux/auth/selectors';
+import { refreshUser, categoryList } from 'redux/auth/operations';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -34,7 +34,6 @@ export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const user = useSelector(selectUser);
 
   const [themeToggle, setThemeToggle] = useState(
     localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'

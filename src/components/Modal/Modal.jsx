@@ -34,7 +34,7 @@ export const Modal = ({ active, setActive }) => {
             onClick={() => {
               setActive(false);
             }}
-            // onClick={handleButtonClick}
+      
           >
             <IoMdClose style={{ width: '32px', height: '32px' }} />
           </StyledBurger>

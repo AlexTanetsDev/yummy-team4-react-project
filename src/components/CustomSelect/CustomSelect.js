@@ -1,22 +1,19 @@
 import Select from 'react-select';
 
-
 export function CustomSelect({
   options,
-	onChange,
+  onChange,
   label,
-  defaultValue='',
+  defaultValue = '',
   customStyles,
   isSearchable = true,
 }) {
-
   return (
     <Select
       defaultValue={defaultValue}
       onChange={onChange}
       options={options}
       styles={customStyles}
-    //   maxMenuHeight={maxMenuHeight}
       unstyled
       required
       aria-errormessage="error"

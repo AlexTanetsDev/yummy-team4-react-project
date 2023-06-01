@@ -38,6 +38,7 @@ export const SearchButtonGreen = ({ type = 'button', onClick, children }) => {
   );
 };
 
+
 export const SingInButton = ({ type = 'button', onClick, children }) => {
   return (
     <SingInBtn to="/signin" type={type} onClick={onClick}>
@@ -52,6 +53,7 @@ export const ResendEmailButton = ({ type = 'button', onClick, children }) => {
       {children}
     </SingInBtn>
   );
+
 };
 
 export const SingInButtonGreen = ({ type = 'button', children }) => {

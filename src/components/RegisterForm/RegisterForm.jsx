@@ -9,9 +9,9 @@ import { SingInButtonGreen } from 'components/Button/Button';
 import { FormError } from 'components/FormError/FormError';
 import { MainLoader } from 'components/Loader/Loader';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
-import { selectError, selectIsLoading } from 'Redux/auth/selectors';
+import { selectError, selectIsLoading } from 'redux/auth/selectors';
 
-import { register } from 'Redux/auth/operations';
+import { register } from 'redux/auth/operations';
 
 import {
   StyledWrapper,

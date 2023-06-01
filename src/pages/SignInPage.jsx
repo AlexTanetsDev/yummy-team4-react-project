@@ -1,11 +1,7 @@
 import { SignInForm } from 'components/SigninForm/SigninForm';
 
 const SignIn = () => {
-  return (
-    <>
-      <SignInForm />
-    </>
-  );
+  return <SignInForm />;
 };
 
 export default SignIn;

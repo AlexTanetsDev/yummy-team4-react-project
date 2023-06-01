@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Formik, Form, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { categoryList, signIn } from '../../Redux/auth/operations';
+import { categoryList, signIn } from '../../redux/auth/operations';
 import { object, string } from 'yup';
 import { useTranslation } from 'react-i18next';
 
@@ -11,9 +11,8 @@ import {
   selectError,
   selectIsLoading,
   selectIsLoggedIn,
-} from 'Redux/auth/selectors';
+} from 'redux/auth/selectors';
 
-import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { MainLoader } from 'components/Loader/Loader';
 import { FormError } from 'components/FormError/FormError';
 
@@ -36,7 +35,7 @@ import {
   ResendLink,
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
-  EyeIcon,
+  EyeIcon
 } from './SignInForm.styled';
 
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -81,6 +80,7 @@ export const SignInForm = () => {
     } else {
       setType('password');
       setToggleIcon(<StyledAiFillEyeInvisible />);
+
     }
   };
 
@@ -158,6 +158,7 @@ export const SignInForm = () => {
                               touched.password &&
                               '#e74a3b') ||
                             (6 <= values.password.length &&
+
                               values.password.length < 8 &&
                               '#f6c23e') ||
                             (8 <= values.password.length && '#3cbc81')
