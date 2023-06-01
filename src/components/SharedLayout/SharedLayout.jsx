@@ -12,7 +12,7 @@ import { Footer } from 'components/Footer/Footer';
 import { Main } from './SharedLayout.styled';
 import { ButtonScrollUp } from 'components/Button/Button';
 
-export const SharedLayout = () => {
+export const SharedLayout = ({ onClick }) => {
   const [isButtonUp, setIsButtonUp] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
@@ -51,7 +51,7 @@ export const SharedLayout = () => {
           <div>
             <Toaster position="top-right" reverseOrder={false} />
           </div>
-          <Header />
+          <Header onClick={onClick} />
           <Main>
             <BackgroundDecorHeader />
             <Suspense>

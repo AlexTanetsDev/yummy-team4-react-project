@@ -7,10 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { App } from 'components/App';
 
-import { ThemeProvider } from 'styled-components';
-import { theme } from './utils/theme';
-import { GlobalStyles } from 'components/GlobalStyles';
-
 import { initializeI18n } from 'core/i18n';
 
 const rootElement = document.getElementById('root');
@@ -20,15 +16,12 @@ initializeI18n();
 
 root.render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <BrowserRouter>
-            <App />
-            <GlobalStyles />
-          </BrowserRouter>
-        </PersistGate>
-      </Provider>
-    </ThemeProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   </StrictMode>
 );

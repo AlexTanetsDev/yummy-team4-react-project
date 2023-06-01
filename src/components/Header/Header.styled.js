@@ -58,7 +58,11 @@ export const StyledLink = styled(NavLink)`
   font-size: 14px;
   line-height: 22px;
   color: ${({ path }) =>
-    path ? (path.includes('categories') ? '#8baa36' : '#23262a') : '#23262a'};
+    path
+      ? path.includes('categories')
+        ? p => p.theme.colors.firstAccentColor
+        : p => p.theme.colors.itemTextColor
+      : p => p.theme.colors.itemTextColor};
   white-space: nowrap;
   display: flex;
   flex-direction: row;
