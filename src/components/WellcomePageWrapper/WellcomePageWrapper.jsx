@@ -13,7 +13,6 @@ import {
   LogoImage,
 } from './WellcomePageWrapper.styled';
 
-
 export const WellcomPageWrapper = () => {
   const { t } = useTranslation();
 
@@ -30,7 +29,6 @@ export const WellcomPageWrapper = () => {
         <ButtonWrapper>
           <RegistrationButton children={t('Register')} />
           <SingInButton children={t('Sign in')} />
-
         </ButtonWrapper>
       </ContentWrapper>
     </StyledWrapper>

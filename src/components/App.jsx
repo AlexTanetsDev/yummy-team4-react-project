@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { lazy, useEffect, useState } from 'react';
+import { lazy, useEffect, useState, useRef } from 'react';
 import { useAuth } from 'hooks';
 
 import { refreshUser, categoryList } from 'redux/auth/operations';
@@ -39,6 +39,7 @@ export const App = () => {
     localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
   );
   const isDarkTheme = themeToggle === 'dark' ? true : false;
+  const ref = useRef(1);
 
   const handleTogleThemeClick = () => {
     const value = themeToggle === 'light' ? 'dark' : 'light';
@@ -50,6 +51,8 @@ export const App = () => {
   }, [themeToggle]);
 
   useEffect(() => {
+    if (ref.current !== 1) return;
+    ref.current += 1;
     const handleRefreshUser = async () => {
       await dispatch(refreshUser());
     };
@@ -72,7 +75,11 @@ export const App = () => {
             path="/"
             element={<SharedLayout onClick={handleTogleThemeClick} />}
           >
-            <Route index element={<WelcomPage />} />
+            {isLoggedIn ? (
+              <Route index element={<MainPage />} />
+            ) : (
+              <Route index element={<WelcomPage />} />
+            )}
             <Route
               path="register"
               element={
@@ -89,19 +96,16 @@ export const App = () => {
             <Route
               path="signin"
               element={
-                <RestrictedRoute
-                  component={<SignInPage />}
-                  redirectTo="/main"
-                />
+                <RestrictedRoute component={<SignInPage />} redirectTo="/" />
               }
             />
             <Route path="resend" element={<ResendEmailPage />} />
-            <Route
+            {/* <Route
               path="main"
               element={
                 <PrivateRoute component={<MainPage />} redirectTo="/signin" />
               }
-            />
+            /> */}
             {isLoggedIn ? (
               <>
                 <Route

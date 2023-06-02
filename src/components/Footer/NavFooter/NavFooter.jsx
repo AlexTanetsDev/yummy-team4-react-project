@@ -9,11 +9,7 @@ const NavFooter = () => {
   return (
     <NavWraper>
       <li>
-        <NavLinkStyled
-          to="/search"
-          state={{ ingredient: true }}
-          onClick={scrollToTop}
-        >
+        <NavLinkStyled to="/search" state={'ingredient'} onClick={scrollToTop}>
           {t('Ingredients')}
         </NavLinkStyled>
       </li>
