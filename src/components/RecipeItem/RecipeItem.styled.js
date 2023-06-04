@@ -38,7 +38,7 @@ export const TitleRecipe = styled.h2`
   line-height: 20px;
   letter-spacing: -0.24px;
   color: ${p => p.theme.colors.itemTitleColor};
-  background: #ffffff;
+  background: ${p => p.theme.colors.whiteText};
   border-radius: ${p => p.theme.space(2)};
   padding: ${p => p.theme.space(4)};
   width: 280px;
