@@ -32,7 +32,7 @@ export const FieldContainer = styled.div`
 export const InputTitle = styled.input`
   width: 100%;
   border: none;
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  border-bottom: ${p => p.theme.border.grayBorder};
   padding-left: 160px;
   text-align: right;
   padding-bottom: 18px;
@@ -43,10 +43,9 @@ export const InputTitle = styled.input`
 
   font-size: 12px;
   line-height: 12px;
-  color: #000000;
+  color: ${p => p.theme.colors.inputAddRecepies};
   outline: none;
-  background-color: #fafafa;
-  border-radius: 6px;
+  background: ${p => p.theme.colors.mainBgColor};
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -61,7 +60,7 @@ export const LabelTitle = styled.label`
 
   font-size: 14px;
   line-height: 21px;
-  color: #000000;
+  color: ${p => p.theme.colors.inputAddRecepies};
   opacity: 0.5;
 
   @media screen and (min-width: 768px) {
@@ -73,16 +72,16 @@ export const LabelTitle = styled.label`
 export const InputDescription = styled.textarea`
   width: 100%;
   border: none;
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  border-bottom: ${p => p.theme.border.grayBorder};
   padding-left: 180px;
   text-align: right;
   padding-bottom: 18px;
 
   font-size: 12px;
   line-height: 14px;
-  color: #000000;
+  color: ${p => p.theme.colors.inputAddRecepies};
   outline: none;
-  background-color: rgb(250, 250, 250);
+  background: ${p => p.theme.colors.mainBgColor};
   resize: none;
 
   @media screen and (min-width: 768px) {
@@ -101,9 +100,8 @@ export const FieldSelectContainer = styled.div`
   justify-content: space-between;
 
   padding-bottom: 10px;
-  background-color: #fafafa;
-  border-radius: 6px;
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  background: ${p => p.theme.colors.mainBgColor};
+  border-bottom: ${p => p.theme.border.grayBorder};
 `;
 
 export const LabelCategory = styled.label`
@@ -113,7 +111,7 @@ export const LabelCategory = styled.label`
 
   font-size: 14px;
   line-height: 21px;
-  color: #000000;
+  color: ${p => p.theme.colors.inputAddRecepies};
   opacity: 0.5;
 
   @media screen and (min-width: 768px) {

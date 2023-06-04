@@ -298,7 +298,7 @@ export const SeeAllBtn = styled.button`
   margin-right: 0;
   margin-left: auto;
   background-color: ${p => p.theme.colors.firstAccentColor};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: #fafafa;
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 18px;
