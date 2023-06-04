@@ -8,6 +8,7 @@ import { SearchedRecipesList } from 'components/SearchedRecipesList/SearchedReci
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { MiniLoader } from 'components/Loader/Loader.jsx';
 import { toast } from 'react-hot-toast';
+import { RecipesPagination } from 'components/Paginator/Paginator';
 
 const SearchPage = () => {
   const ref = useRef(1);
@@ -22,6 +23,7 @@ const SearchPage = () => {
   const [selectedOptionFinal, setSelectedOptionFinal] =
     useState(selectedOption);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,18 +55,46 @@ const SearchPage = () => {
     fetchData();
   }, [query, selectedOptionFinal]);
 
+  const searcRecipe = async page => {
+    try {
+      setIsLoading(true);
+      const { data } = await getSearchedRecipes(
+        selectedOptionFinal,
+        query,
+        page
+      );
+      setRecipes(data);
+    } catch (error) {
+      toast.error('Oops.. something went wrong try again');
+      setRecipes([]);
+      setTotalRecipe(0);
+    } finally {
+      setIsLoading(false);
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }, 500);
+    }
+  };
+
   const handleSubmit = async e => {
     e.preventDefault();
     const searchBarValue = e.target.searchBar.value;
     setSelectedOptionFinal(selectedOption);
     navigate(`/search/${searchBarValue}`);
+    ref.current = 1;
   };
 
   const handleOptionClick = option => {
     setSelectedOption(option);
     setIsOpen(false);
   };
-
+  const paginate = pageNumber => {
+    setCurrentPage(pageNumber);
+    searcRecipe(pageNumber);
+  };
   return (
     <>
       <Sections>
@@ -83,6 +113,12 @@ const SearchPage = () => {
           ) : (
             <SearchedRecipesList recipes={recipes} />
           )}
+          <RecipesPagination
+            totalItemsCount={totalRecipe}
+            paginate={paginate}
+            currentPage={currentPage}
+            totalPages={Math.ceil(totalRecipe / 12)}
+          />
         </Container>
       </Sections>
     </>
