@@ -9,6 +9,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { MiniLoader } from 'components/Loader/Loader.jsx';
 import { toast } from 'react-hot-toast';
 import { RecipesPagination } from 'components/Paginator/Paginator';
+import ReactCountryFlag from 'react-country-flag';
 
 const SearchPage = () => {
   const ref = useRef(1);
@@ -100,6 +101,18 @@ const SearchPage = () => {
       <Sections>
         <Container>
           <SectionTitle title="Search" />
+          <div>
+            <ReactCountryFlag
+              countryCode="IT"
+              style={{
+                fontSize: '2em',
+                lineHeight: '2em',
+                cursor: 'pointer',
+              }}
+              aria-label="United States"
+              title="US"
+            />
+          </div>
           <SearchBar
             query={query}
             handleSubmit={handleSubmit}
