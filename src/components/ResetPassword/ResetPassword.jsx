@@ -15,8 +15,6 @@ import {
   StyledWrapper,
   ButtonWrapper,
   Title,
-  Logo,
-  LogoImage,
   ErrorText,
   ModalWrapper,
   Modal,
@@ -32,7 +30,6 @@ import {
 } from './ResetPassword.styled';
 import { errorIcon, warningIcon, succesIcon } from 'images';
 import { SingInButton } from 'components/Button/Button';
-import { startPageLogo } from '../../images';
 import { MainLoader } from 'components/Loader/Loader';
 
 const initialValues = {
