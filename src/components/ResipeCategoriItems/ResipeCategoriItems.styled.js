@@ -23,7 +23,7 @@ export const RecipesContainer = styled.ul`
 
 export const RecipeItem = styled.li`
   margin-bottom: ${p => p.theme.space(7)};
-  max-width: 343px;
+  width: 343px;
   height: 323px;
   border-radius: ${p => p.theme.space(2)};
   position: relative;
@@ -64,7 +64,7 @@ export const TitleRecipe = styled.h2`
   line-height: 20px;
   letter-spacing: -0.24px;
   color: ${p => p.theme.colors.itemTitleColor};
-  background: #ffffff;
+  background: ${p => p.theme.colors.whiteText};
   border-radius: ${p => p.theme.space(2)};
   padding: ${p => p.theme.space(4)};
   width: 307px;
@@ -85,9 +85,10 @@ export const TitleRecipe = styled.h2`
 
 export const ImgRecipe = styled.img`
   display: block;
-  width: 343px;
-  height: 323px;
   transition: all 0.25s linear;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
 
   @media (max-width: 374.9px) {
     height: 298px;

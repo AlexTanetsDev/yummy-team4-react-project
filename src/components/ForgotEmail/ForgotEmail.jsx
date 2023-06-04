@@ -15,14 +15,14 @@ import {
   StateInputIcon,
   InputField,
   ModalTitle,
-} from './ResendEmail.styled';
+} from './ForgotEmail.styled';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { SingInButtonGreen } from 'components/Button/Button';
 import { FormError } from 'components/FormError/FormError';
 import { startPageLogo } from '../../images';
 import { errorIcon, succesIcon } from 'images';
-import { resend } from 'redux/auth/operations';
+import { forgot } from 'redux/auth/operations';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { MainLoader } from 'components/Loader/Loader';
 
@@ -34,7 +34,7 @@ const emailSchema = object({
   email: string().email().required(),
 });
 
-export const ResendEmail = () => {
+export const ForgotEmail = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ export const ResendEmail = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
-      await dispatch(resend(values));
+      await dispatch(forgot(values));
       navigate('/signin');
       resetForm();
     } catch (error) {
@@ -68,7 +68,7 @@ export const ResendEmail = () => {
                 <Logo>
                   <LogoImage src={startPageLogo} />
                 </Logo>
-                <Title>Please, verify your email!</Title>
+                <Title>Recovery password</Title>
                 <Modal>
                   <ModalTitle>Enter your email</ModalTitle>
                   <Formik
@@ -108,9 +108,8 @@ export const ResendEmail = () => {
                           )}
                           <FormError name="email" component="div" />
                         </InputWrapper>
-
                         <SingInButtonGreen type="submit">
-                          Resend email
+                          Send email
                         </SingInButtonGreen>
                       </Form>
                     )}

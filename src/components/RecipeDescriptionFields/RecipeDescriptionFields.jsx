@@ -21,6 +21,7 @@ import {
   InputFile,
   Error,
   ErrorPhoto,
+  ErrorText,
 } from './RecipeDescriptionFields.styled';
 
 const times = Array.from(Array(24), (_, i) => (i + 1) * 5).map(time => ({
@@ -124,8 +125,6 @@ const FileInput = ({
         setPreviewUrl(reader.result);
       };
       setFieldValue(field.name, file);
-    } else {
-      setPreviewUrl('');
     }
   };
 
@@ -133,7 +132,11 @@ const FileInput = ({
     <FileInputContainer>
       <RreviewImageContainer>
         {previewUrl && <Image src={previewUrl} alt="Preview repice photo" />}
-        {touched.photo && errors.photo ? <ErrorPhoto /> : null}
+        {touched.photo && errors.photo ? (
+          <ErrorPhoto>
+            <ErrorText>{errors.photo}</ErrorText>
+          </ErrorPhoto>
+        ) : null}
       </RreviewImageContainer>
       <InputIconContainer>
         <Image src={photoIcon} alt="Preview" />
@@ -145,7 +148,6 @@ const FileInput = ({
           accept="image/png, image/jpeg"
           onChange={handleFileChange}
           onSubmit={() => {
-            console.log('onSubmit InputFile');
             setPreviewUrl('');
           }}
           {...props}
@@ -186,12 +188,11 @@ export const RecipeDescriptionFields = ({ formik }) => {
           <InputTitle
             type="text"
             id="title"
-            minLength="3"
-            maxLength="40"
-            required
             {...formik.getFieldProps('title')}
           />
-          {formik.touched.title && formik.errors.title ? <Error /> : null}
+          {formik.touched.title && formik.errors.title ? (
+            <Error>{formik.errors.title}</Error>
+          ) : null}
         </FieldContainer>
 
         <FieldContainer>
@@ -199,13 +200,10 @@ export const RecipeDescriptionFields = ({ formik }) => {
           <InputTitle
             id="description"
             type="text"
-            minLength="3"
-            maxLength="100"
-            required
             {...formik.getFieldProps('description')}
           />
           {formik.touched.description && formik.errors.description ? (
-            <Error />
+            <Error>{formik.errors.description}</Error>
           ) : null}
         </FieldContainer>
 
@@ -222,9 +220,10 @@ export const RecipeDescriptionFields = ({ formik }) => {
             onChange={option => {
               formik.setFieldValue(`category`, option.value);
             }}
-            required
           ></Field>
-          {formik.touched.category && formik.errors.category ? <Error /> : null}
+          {formik.touched.category && formik.errors.category ? (
+            <Error>{formik.errors.category}</Error>
+          ) : null}
         </FieldSelectContainer>
 
         <FieldSelectContainer>
@@ -240,9 +239,10 @@ export const RecipeDescriptionFields = ({ formik }) => {
             onChange={option => {
               formik.setFieldValue(`time`, option.value);
             }}
-            required
           ></Field>
-          {formik.touched.time && formik.errors.time ? <Error /> : null}
+          {formik.touched.time && formik.errors.time ? (
+            <Error>{formik.errors.time}</Error>
+          ) : null}
         </FieldSelectContainer>
       </InputFieldsContainer>
     </DescriptionContainer>

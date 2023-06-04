@@ -22,8 +22,6 @@ export const HeaderWrapper = styled.section`
 `;
 
 export const Headerblock = styled.div`
-  /* position: absolute; */
-  /* padding-top: ${p => p.theme.space(4.5)}; */
   top: ${p => p.theme.space(4.5)};
   right: ${p => p.theme.space(4)};
 
@@ -36,10 +34,8 @@ export const Headerblock = styled.div`
     right: ${p => p.theme.space(25)};
   }
   display: flex;
-  /* justify-content:space-between; */
   align-items: center;
   margin-left: auto;
-  /* z-index:1; */
 `;
 
 export const StyledNav = styled.nav`
@@ -81,6 +77,7 @@ export const StyledLink = styled(NavLink)`
 export const SearchIcon = styled(Search)`
   height: 24px;
   width: 24px;
+  color: currentColor;
 `;
 
 export const SearchIconMobile = styled(Search)`
@@ -135,4 +132,5 @@ export const AvatarImg = styled.img`
 
 export const UserName = styled.p`
   margin-left: 14px;
+  color: ${p => p.theme.colors.userNameColor};
 `;

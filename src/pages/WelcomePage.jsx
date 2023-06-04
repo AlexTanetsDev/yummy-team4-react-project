@@ -1,11 +1,7 @@
 import { WellcomPageWrapper } from 'components/WellcomePageWrapper/WellcomePageWrapper';
 
 const Welcome = () => {
-  return (
-    <>
-      <WellcomPageWrapper />
-    </>
-  );
+  return <WellcomPageWrapper />;
 };
 
 export default Welcome;

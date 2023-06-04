@@ -8,6 +8,10 @@ import {
   updateUser,
   verify,
   register,
+  resend,
+  verifyReset,
+  resetPassword,
+  forgot,
 } from './operations';
 
 const initialState = {
@@ -43,6 +47,27 @@ const authSlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
+      .addCase(forgot.pending, handleIsLoadingPending)
+      .addCase(forgot.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(forgot.rejected, handleIsLoadingRejected)
+      .addCase(resetPassword.pending, handleIsLoadingPending)
+      .addCase(resetPassword.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(resetPassword.rejected, handleIsLoadingRejected)
+      .addCase(verifyReset.pending, handleIsLoadingPending)
+      .addCase(verifyReset.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(verifyReset.rejected, handleIsLoadingRejected)
       .addCase(verify.pending, handleIsLoadingPending)
       .addCase(verify.fulfilled, (state, action) => {
         state.user = action.payload.user;
@@ -50,6 +75,13 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(verify.rejected, handleIsLoadingRejected)
+      .addCase(resend.pending, handleIsLoadingPending)
+      .addCase(resend.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(resend.rejected, handleIsLoadingRejected)
       .addCase(register.pending, handleIsLoadingPending)
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;

@@ -8,6 +8,7 @@ export const FormStyled = styled(Form)`
   align-items: center;
   gap: 12px;
   margin-bottom: 44px;
+
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
@@ -35,7 +36,7 @@ export const Input = styled(Field)`
   font-size: 10px;
   line-height: ${p => p.theme.lineHeights.searchSelect};
   letter-spacing: ${p => p.theme.letterSpacings.content};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 259px;
@@ -86,14 +87,14 @@ export const ErrMsg = styled.p`
 
 export const SubscribeBtn = styled.button`
   border: none;
-  background-color: ${p => p.theme.colors.firstAccentColor};
+  background-color: ${p => p.theme.colors.footerButtonBg};
   border-radius: ${p => p.theme.radii.btnStandart};
   width: 204px;
   height: 38px;
   font-size: 14px;
   line-height: 1.14;
   text-align: center;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   transition: ${p => p.theme.transitions.main};
   :hover:not([disabled]),
   :focus:not([disabled]) {
@@ -127,15 +128,15 @@ export const SubscribeTitle = styled.h3`
     font-weight: ${p => p.theme.fontWeights[3]};
     font-size: 18px;
     line-height: ${p => p.theme.lineHeights.searchSelect};
-    color: ${p => p.theme.colors.mainBgColor};
+    color: ${p => p.theme.colors.footerText};
   }
 `;
 
 export const SubscribeText = styled.p`
+  color: ${p => p.theme.colors.footerText};
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: ${p => p.theme.lineHeights.extraContent};
     letter-spacing: ${p => p.theme.letterSpacings.content};
-    color: ${p => p.theme.colors.mainBgColor};
   }
 `;

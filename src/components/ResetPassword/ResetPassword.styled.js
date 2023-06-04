@@ -1,47 +1,42 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import { FiMail } from 'react-icons/fi';
 import { FiLock } from 'react-icons/fi';
 import { AiFillEye } from 'react-icons/ai';
 import { AiFillEyeInvisible } from 'react-icons/ai';
-import {
-  mainRegImgMob,
-  mainRegImgTab,
-  mainRegImg,
-  bottomRegImgMob,
-  bottomRegImgTab,
-  bottomRegImg,
-} from '../../images';
+import { NavLink } from 'react-router-dom';
+
+import { startPageBgMob, startPageBgTab, startPageBg } from '../../images';
 
 export const StyledWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: ${p => p.theme.colors.lightBgColor};
-`;
 
-export const BottomBgImage = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translate(-50%, -100%);
-  width: 100vw;
-  height: 56%;
-  background-image: url(${bottomRegImgMob});
   background-repeat: no-repeat;
   background-size: cover;
+
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 58.58%,
+      rgba(0, 0, 0, 0.345172) 78.98%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(mgg-vitchakorn-Ul4sgxQMmHU-unsplash.jpg), url(${startPageBgMob});
   @media (min-width: 768px) {
-    height: 56%;
-    background-image: url(${bottomRegImgTab});
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 58.58%,
+        rgba(0, 0, 0, 0.345172) 78.98%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url(mgg-vitchakorn-Ul4sgxQMmHU-unsplash.jpg), url(${startPageBgTab});
   }
-
   @media (min-width: 1440px) {
-    height: 43%;
-    background-image: url(${bottomRegImg});
-  }
-
-  @media (min-width: 1440px) and (min-height: 771px) {
-    height: 50%;
-    background-image: url(${bottomRegImg});
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 58.58%,
+        rgba(0, 0, 0, 0.345172) 78.98%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url(mgg-vitchakorn-Ul4sgxQMmHU-unsplash.jpg), url(${startPageBg});
   }
 `;
 
@@ -50,44 +45,29 @@ export const ContentWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @media (min-width: 1440px) {
-    display: flex;
-    left: 47%;
-  }
 `;
 
-export const ImageReg = styled.div`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 285px;
-  height: 250px;
-  z-index: 9;
-  background-image: url(${mainRegImgMob});
+export const ErrorText = styled.h1`
+  margin-bottom: 34px;
+  text-align: center;
+  font-size: ${p => p.theme.fontSizes.xxxl}px;
+  color: red;
   @media (min-width: 768px) {
-    width: 409px;
-    height: 359px;
-    background-image: url(${mainRegImgTab});
-  }
-
-  @media (max-width: 1440px) and (max-height: 940px) {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 285px;
-    height: 250px;
-    z-index: 9;
-    background-image: url(${mainRegImgMob});
-  }
-
-  @media (min-width: 1440px) {
-    width: 532px;
-    height: 468px;
-    margin-right: 115px;
-    background-image: url(${mainRegImg});
-    background-size: contain;
+    margin-bottom: 64px;
+    font-size: ${p => p.theme.fontSizes.xxxxl}px;
   }
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 12px;
+  @media (min-width: 768px) {
+    gap: 18px;
+  }
+`;
+
 export const ModalWrapper = styled.div``;
 
 export const Modal = styled.div`
@@ -120,17 +100,18 @@ export const Modal = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 40px;
+  margin-bottom: 18px;
   font-size: 24px;
   font-weight: 600;
+  text-align: center;
   color: ${p => p.theme.colors.mainBgColor};
   @media (min-width: 768px) {
-    margin-bottom: 50px;
+    margin-bottom: 32px;
     font-size: ${p => p.theme.fontSizes.xxxl}px;
     @media (max-width: 1440px) and (max-height: 940px) {
-      margin-bottom: 40px;
-      font-size: 24px;
+      margin-bottom: 18px;
       font-weight: 600;
+      font-size: 24px;
     }
   }
 `;
@@ -161,7 +142,7 @@ export const InputField = styled.input`
   }
 
   @media (min-width: 768px) {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
     padding-left: 50px;
     padding-right: 70px;
     width: 400px;
@@ -183,45 +164,6 @@ export const InputField = styled.input`
     &:hover {
       opacity: 1;
     }
-  }
-`;
-
-export const Link = styled(NavLink)`
-  display: block;
-  text-align: center;
-  color: ${p => p.theme.colors.mainBgColor};
-  opacity: 0.8;
-  &:hover {
-    opacity: 1;
-  }
-`;
-
-export const ResendLink = styled(NavLink)`
-  display: block;
-  margin-top: 10px;
-  font-size: ${p => p.theme.fontSizes.l}px;
-  text-align: center;
-  color: ${p => p.theme.colors.mainBgColor};
-  opacity: 0.8;
-  &:hover {
-    opacity: 1;
-  }
-`;
-
-export const StyledFiMail = styled(FiMail)`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  margin-left: 14px;
-  opacity: 0.8;
-  @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
-  }
-  &:hover {
-    opacity: 1;
   }
 `;
 
@@ -252,7 +194,6 @@ export const IconsWrap = styled.div`
   left: 82%;
   transform: translateY(-50%);
   width: 40px;
-
   @media (min-width: 768px) {
     left: 80%;
     width: 45px;

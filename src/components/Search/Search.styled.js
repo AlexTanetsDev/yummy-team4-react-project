@@ -6,11 +6,11 @@ export const SerchInput = styled.input`
   width: 250px;
   position: relative;
   background-color: ${p => p.theme.colors.whiteText};
-  color: ${p => p.theme.colors.mainTitleText};
+  color: ${p => p.theme.colors.categoryList};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
-  border: 1px solid #f0f0f0;
+  border: ${p => p.theme.border.inputSearch};
   border-radius: 24px 44px;
   @media (min-width: 400px) {
     width: 295px;

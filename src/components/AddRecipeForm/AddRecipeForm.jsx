@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 import { MiniLoader } from 'components/Loader/Loader';
 import { OwnRecipeApi } from '../../apiService';
@@ -13,16 +14,16 @@ import { AlertMessage } from '../../components/AlertMessage/AlertMessage';
 import { FormContainer } from './AddRecipeForm.styled';
 
 const validationSchema = Yup.object({
-  title: Yup.string().required('Required'),
-  description: Yup.string().required('Required'),
-  preparation: Yup.string().required('Required'),
+  title: Yup.string().min(3).max(40).required('Required'),
+  description: Yup.string().min(3).max(100).required('Required'),
+  preparation: Yup.string().min(5).max(500).required('Required'),
   category: Yup.string().required('Required'),
   time: Yup.string().required('Required'),
   photo: Yup.string().required('Required'),
   ingredients: Yup.array().of(
     Yup.object().shape({
       name: Yup.string().required('Required'),
-      quantity: Yup.string().required('Required'),
+      quantity: Yup.number().positive('Must be positive').required('Required'),
       unit: Yup.string().required('Required'),
     })
   ),
@@ -44,7 +45,7 @@ export const AddRecipeForm = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = async (values, { setSubmitting, resetForm }, event) => {
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       setIsLoading(true);
       setSubmitting(true);
@@ -85,13 +86,16 @@ export const AddRecipeForm = () => {
     }
   };
 
+  if (error) {
+    return (
+      <AlertMessage>
+        Oops, something went wrong. Please try again later...
+      </AlertMessage>
+    );
+  }
+
   return (
     <>
-      {error && (
-        <AlertMessage>
-          Oops, something went wrong. Please try again later...
-        </AlertMessage>
-      )}
       {isLoading ? (
         <MiniLoader />
       ) : (
@@ -99,16 +103,21 @@ export const AddRecipeForm = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
+          validateOnMount={true}
         >
           {formik => (
             <FormContainer>
-              <Form>
+              <Form noValidate>
                 <RecipeDescriptionFields formik={formik} />
                 <RecipeIngridientsFields formik={formik} />
                 <RecipePreparationFields formik={formik} />
                 <AddButton
                   type="submit"
-                  onClick={formik.handleSubmit}
+                  onClick={() => {
+                    if (!formik.isValid) {
+                      toast.error('Please fill in all fields correctly.');
+                    }
+                  }}
                   disabled={isLoading}
                 >
                   Add
