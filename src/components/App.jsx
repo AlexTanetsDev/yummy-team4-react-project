@@ -8,7 +8,9 @@ import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from './RestrictedRoute';
+
 // import { PrivateRoute } from './PrivateRout';
+
 import { MainLoader } from './Loader/Loader';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, theme } from 'utils/theme';
@@ -29,6 +31,8 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 const ErrorPage = lazy(() => import('../pages/ErrorPage'));
 const EmailVerifyPage = lazy(() => import('../pages/EmailVerifyPage'));
 const ResendEmailPage = lazy(() => import('../pages/ResendEmailPage'));
+const ForgotEmailPage = lazy(() => import('../pages/ForgotEmailPage'));
+const ResetPasswordPage = lazy(() => import('../pages/ResetPasswordPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -94,18 +98,17 @@ export const App = () => {
               element={<EmailVerifyPage />}
             />
             <Route
+              path="reset/:resetPasswordToken"
+              element={<ResetPasswordPage />}
+            />
+            <Route
               path="signin"
               element={
                 <RestrictedRoute component={<SignInPage />} redirectTo="/" />
               }
             />
             <Route path="resend" element={<ResendEmailPage />} />
-            {/* <Route
-              path="main"
-              element={
-                <PrivateRoute component={<MainPage />} redirectTo="/signin" />
-              }
-            /> */}
+            <Route path="forgot" element={<ForgotEmailPage />} />
             {isLoggedIn ? (
               <>
                 <Route
