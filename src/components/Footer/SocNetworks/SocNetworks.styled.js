@@ -9,7 +9,7 @@ export const SocLinkList = styled.ul`
     gap: 18px;
   }
   svg {
-    fill: ${p => p.theme.colors.firstAccentColor};
+    fill: ${p => p.theme.colors.footerSocialIcon};
     transition: ${p => p.theme.transitions.main};
     :hover {
       fill: ${p => p.theme.colors.mainBgColor};

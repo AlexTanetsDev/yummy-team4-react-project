@@ -10,7 +10,7 @@ export const InfoList = styled.ul`
     font-size: 14px;
     line-height: ${p => p.theme.lineHeights.extraContent};
     letter-spacing: ${p => p.theme.letterSpacings.content};
-    color: ${p => p.theme.colors.mainBgColor};
+    color: ${p => p.theme.colors.footerText};
   }
   @media screen and (min-width: 1440px) {
     gap: 12px;
