@@ -96,33 +96,21 @@ export const Modal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 350px;
-  width: 335px;
   margin-top: -30px;
   margin-bottom: 18px;
-  padding-top: 32px;
-  padding-bottom: 40px;
+  padding: 32px 28px;
   background-color: ${p => p.theme.colors.thirdAccentColor};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
 
-  @media (max-width: 400px) {
-    width: 280px;
-  }
   @media (min-width: 768px) {
-    height: 481px;
-    width: 500px;
     margin-top: -15px;
-    padding-top: 44px;
-    padding-bottom: 44px;
+    padding: 44px 50px;
   }
 
   @media (min-width: 400px) and (max-width: 1440px) and (max-height: 940px) {
-    height: 350px;
-    width: 335px;
     margin-top: -30px;
-    padding-top: 32px;
-    padding-bottom: 40px;
+    padding: 32px 28px;
     background-color: ${p => p.theme.colors.thirdAccentColor};
     box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
@@ -261,7 +249,6 @@ export const StyledFiLock = styled(FiLock)`
     opacity: 1;
   }
 `;
-
 
 export const IconsWrap = styled.div`
   display: flex;

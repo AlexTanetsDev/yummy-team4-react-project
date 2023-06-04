@@ -102,6 +102,94 @@ export const resend = createAsyncThunk(
   }
 );
 
+export const verifyReset = createAsyncThunk(
+  'auth/verifyReset',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post(`api/users/reset/${credentials}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const resetPassword = createAsyncThunk(
+  'auth/resetPassword',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post('api/users/reset', credentials);
+      toast.success(response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#8BAA36',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const forgot = createAsyncThunk(
+  'auth/forgot',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post('api/users/forgot', credentials);
+      toast.success(response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#8BAA36',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        duration: 4000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const signIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
