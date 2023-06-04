@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 import { MiniLoader } from 'components/Loader/Loader';
 import { OwnRecipeApi } from '../../apiService';
@@ -44,7 +45,7 @@ export const AddRecipeForm = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = async (values, { setSubmitting, resetForm }, event) => {
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       setIsLoading(true);
       setSubmitting(true);
@@ -102,16 +103,21 @@ export const AddRecipeForm = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
+          validateOnMount={true}
         >
           {formik => (
             <FormContainer>
-              <Form>
+              <Form noValidate>
                 <RecipeDescriptionFields formik={formik} />
                 <RecipeIngridientsFields formik={formik} />
                 <RecipePreparationFields formik={formik} />
                 <AddButton
                   type="submit"
-                  onClick={formik.handleSubmit}
+                  onClick={() => {
+                    if (!formik.isValid) {
+                      toast.error('Please fill in all fields correctly.');
+                    }
+                  }}
                   disabled={isLoading}
                 >
                   Add
