@@ -65,6 +65,9 @@ const FileInput = ({
     <FileInputContainer>
       <RreviewImageContainer>
         {previewUrl && <Image src={previewUrl} alt="Preview repice photo" />}
+        <EditAvatarBtn>
+          <EditAvatarIcon src={plusIcon} />
+        </EditAvatarBtn>
         {touched.photo && errors.photo ? <ErrorPhoto /> : null}
       </RreviewImageContainer>
       <InputIconContainer>
@@ -161,9 +164,6 @@ export const UserImfoModal = ({ opened, onClose }) => {
                               type="file"
                               component={FileInput}
                             />
-                            <EditAvatarBtn>
-                              <EditAvatarIcon src={plusIcon} />
-                            </EditAvatarBtn>
                           </AvatarWrap>
                           <InputWrapper>
                             <Field

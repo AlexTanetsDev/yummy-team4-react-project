@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -52,8 +52,13 @@ export const ResetPassword = () => {
   const [type, setType] = useState('password');
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
   const navigate = useNavigate();
+  const ref = useRef(1);
 
   useEffect(() => {
+    if (ref.current !== 1) {
+      return;
+    }
+    ref.current += 1;
     const PasswordVerification = async resetPasswordToken => {
       await dispatch(verifyReset(resetPasswordToken));
     };
@@ -64,7 +69,7 @@ export const ResetPassword = () => {
     const { password, confirmPassword } = values;
     if (password !== confirmPassword) {
       toast.error('Password mismatch!', {
-        duration: 4000,
+        duration: 2000,
         style: {
           width: '300px',
           height: '150px',
@@ -78,7 +83,7 @@ export const ResetPassword = () => {
       });
       return;
     }
-    const userValue = { ...values, email: user.email };
+    const userValue = { password: password, email: user.email };
     await dispatch(resetPassword(userValue));
     if (!error) {
       navigate('/signin');
@@ -249,7 +254,7 @@ export const ResetPassword = () => {
             </ContentWrapper>
           ) : (
             <ContentWrapper>
-              <ErrorText>Error: {error}</ErrorText>
+              <ErrorText>{error}</ErrorText>
               <ButtonWrapper>
                 <SingInButton>SigngIn</SingInButton>
               </ButtonWrapper>
