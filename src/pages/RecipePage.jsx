@@ -9,18 +9,32 @@ import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIn
 import { RecepiePreparation } from 'components/RecipePreparation/RecipePreparation';
 import { Container } from 'components/Container/Container';
 import { GoBackToRecipeBtn } from 'components/Button/Button';
+import { MiniLoader } from 'components/Loader/Loader';
 
 const RecipePage = () => {
   const [recipe, setRecipe] = useState(null);
   const token = useSelector(selectToken);
   const { recipeId } = useParams();
   let location = useLocation();
+  const [isLoading, setIsLoading] = useState(false);
   const { pathname, search } = location.state?.from;
 
   useEffect(() => {
     (async () => {
-      const recipe = await getRecipeById(recipeId, token);
-      setRecipe(recipe);
+      try {
+        setIsLoading(true);
+        const recipe = await getRecipeById(recipeId, token);
+        setRecipe(recipe);
+      } catch (error) {
+      } finally {
+        setIsLoading(false);
+        setTimeout(() => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        }, 300);
+      }
     })();
   }, [recipeId, token]);
 
@@ -34,11 +48,20 @@ const RecipePage = () => {
         favorites={recipe?.favorites}
       />
       <Container>
-        <RecipeIngredientsList ingredients={recipe?.ingredients} />
-        <RecepiePreparation
-          image={recipe?.thumb}
-          instructions={recipe?.instructions}
-        />
+        {isLoading ? (
+          <MiniLoader />
+        ) : (
+          <>
+            <RecipeIngredientsList
+              ingredients={recipe?.ingredients}
+              backTo={pathname + search}
+            />
+            <RecepiePreparation
+              image={recipe?.thumb}
+              instructions={recipe?.instructions}
+            />
+          </>
+        )}
         <GoBackToRecipeBtn from={pathname + search}>
           Back to recipes
         </GoBackToRecipeBtn>

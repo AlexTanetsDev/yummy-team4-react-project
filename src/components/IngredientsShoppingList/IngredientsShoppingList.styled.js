@@ -1,3 +1,4 @@
+import { css } from 'styled-components';
 import styled from 'styled-components';
 
 export const Header = styled.div`
@@ -59,8 +60,22 @@ export const ShoppingListTitle = styled.h2`
 `;
 
 export const ShppList = styled.ul`
-  margin-bottom: 100px;
+  ${props =>
+    props.state
+      ? css`
+          margin-bottom: 30px;
+        `
+      : css`
+          margin-bottom: 100px;
+        `}
   @media screen and (min-width: 768px) {
-    margin-bottom: 200px;
+    ${props =>
+      props.state
+        ? css`
+            margin-bottom: 70px;
+          `
+        : css`
+            margin-bottom: 200px;
+          `}
   }
 `;

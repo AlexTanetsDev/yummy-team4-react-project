@@ -3,7 +3,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com';
-// axios.defaults.baseURL = 'http://localhost:3001';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -20,7 +19,7 @@ export const register = createAsyncThunk(
       const response = await axios.post('api/users/register', credentials);
       if (response) {
         toast.success('Verification letter sent on your email adress', {
-          duration: 4000,
+          duration: 2000,
           style: {
             width: '300px',
             height: '150px',
@@ -36,7 +35,7 @@ export const register = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error(error.response.data.message, {
-        duration: 4000,
+        duration: 2000,
         style: {
           width: '300px',
           height: '150px',
@@ -71,7 +70,7 @@ export const resend = createAsyncThunk(
     try {
       const response = await axios.post('api/users/verify/', credentials);
       toast.success(response.data.message, {
-        duration: 4000,
+        duration: 2000,
         style: {
           width: '300px',
           height: '150px',
@@ -86,7 +85,7 @@ export const resend = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error(error.response.data.message, {
-        duration: 4000,
+        duration: 2000,
         style: {
           width: '300px',
           height: '150px',
@@ -108,20 +107,8 @@ export const verifyReset = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post(`api/users/reset/${credentials}`);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const resetPassword = createAsyncThunk(
-  'auth/resetPassword',
-  async (credentials, thunkAPI) => {
-    try {
-      const response = await axios.post('api/users/reset', credentials);
       toast.success(response.data.message, {
-        duration: 4000,
+        duration: 2000,
         style: {
           width: '300px',
           height: '150px',
@@ -136,7 +123,46 @@ export const resetPassword = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error(error.response.data.message, {
-        duration: 4000,
+        duration: 2000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const resetPassword = createAsyncThunk(
+  'auth/resetPassword',
+  async (credentials, thunkAPI) => {
+    console.log(credentials);
+    try {
+      const response = await axios.post('api/users/reset', credentials);
+      toast.success(response.data.message, {
+        duration: 2000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#8BAA36',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        duration: 2000,
         style: {
           width: '300px',
           height: '150px',
@@ -159,7 +185,7 @@ export const forgot = createAsyncThunk(
     try {
       const response = await axios.post('api/users/forgot', credentials);
       toast.success(response.data.message, {
-        duration: 4000,
+        duration: 2000,
         style: {
           width: '300px',
           height: '150px',
@@ -174,7 +200,7 @@ export const forgot = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error(error.response.data.message, {
-        duration: 4000,
+        duration: 2000,
         style: {
           width: '300px',
           height: '150px',
@@ -200,7 +226,7 @@ export const signIn = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error(error.response.data.message, {
-        duration: 4000,
+        duration: 2000,
         style: {
           width: '300px',
           height: '150px',
@@ -265,10 +291,34 @@ export const updateSubscription = createAsyncThunk(
   async (cred, thunkAPI) => {
     try {
       const { data } = await axios.patch('/api/subscribe', cred);
-      toast.success('You have successfully subscribed');
+      toast.success('You have successfully subscribed', {
+        duration: 2000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#8BAA36',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
       return data;
     } catch (error) {
-      toast.error(`Something went wrong. Try again...`);
+      toast.error(`Something went wrong. Try again...`, {
+        duration: 2000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -286,7 +336,7 @@ export const updateUser = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error(error.response.data.message, {
-        duration: 4000,
+        duration: 2000,
         style: {
           width: '300px',
           height: '150px',

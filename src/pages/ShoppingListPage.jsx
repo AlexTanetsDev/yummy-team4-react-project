@@ -8,11 +8,32 @@ import {
 import { Container } from 'components/Container/Container';
 import { ShoppingListTitle } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
 import { toast } from 'react-hot-toast';
+import { useLocation } from 'react-router-dom';
+import { GoBackToRecipeBtn } from 'components/Button/Button';
+import { MiniLoader } from 'components/Loader/Loader';
 
 const ShoppingList = () => {
   const [ingridients, setIngridients] = useState([]);
+  const location = useLocation();
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
-    fetchShoppingList().then(resp => setIngridients(resp.data));
+    (async () => {
+      try {
+        setIsLoading(true);
+        const shoppingList = await fetchShoppingList();
+        setIngridients(shoppingList.data);
+      } catch (error) {
+      } finally {
+        setIsLoading(false);
+        setTimeout(() => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        }, 300);
+      }
+    })();
   }, []);
 
   const handleDelete = id => {
@@ -26,10 +47,20 @@ const ShoppingList = () => {
     <Container>
       <ShoppingListTitle>Shopping List</ShoppingListTitle>
 
-      <IngridientsShoppingList
-        handleDelete={handleDelete}
-        ingridients={ingridients}
-      />
+      {isLoading ? (
+        <MiniLoader />
+      ) : (
+        <IngridientsShoppingList
+          handleDelete={handleDelete}
+          ingridients={ingridients}
+          state={location.state}
+        />
+      )}
+      {location.state && (
+        <GoBackToRecipeBtn from={location.state}>
+          Back to recipes
+        </GoBackToRecipeBtn>
+      )}
     </Container>
   );
 };

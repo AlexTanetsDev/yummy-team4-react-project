@@ -6,7 +6,11 @@ import {
   ShppList,
 } from './IngredientsShoppingList.styled';
 
-export const IngridientsShoppingList = ({ ingridients, handleDelete }) => {
+export const IngridientsShoppingList = ({
+  ingridients,
+  handleDelete,
+  state,
+}) => {
   return (
     <>
       <Header>
@@ -19,7 +23,7 @@ export const IngridientsShoppingList = ({ ingridients, handleDelete }) => {
         </NumberIRemoveWrapper>
       </Header>
 
-      <ShppList>
+      <ShppList state={state}>
         {ingridients.map(item => (
           <IngridientsShoppingListItem
             key={item._id}
