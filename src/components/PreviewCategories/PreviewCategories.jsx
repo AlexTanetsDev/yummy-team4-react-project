@@ -45,6 +45,12 @@ export function PreviewCategories() {
         setError(error);
       } finally {
         setIsLoading(false);
+        setTimeout(() => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        }, 300);
       }
     };
 

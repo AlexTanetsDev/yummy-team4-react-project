@@ -19,7 +19,7 @@ import { RemoveFromFavoriteBtn } from 'components/Button/Button';
 import { toast } from 'react-hot-toast';
 import { vegetablesBasket } from 'images';
 
-export const RecipeIngredientsList = ({ ingredients }) => {
+export const RecipeIngredientsList = ({ ingredients, backTo, state }) => {
   const [list, setList] = useState([]);
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ export const RecipeIngredientsList = ({ ingredients }) => {
         setList([]);
         localStorage.setItem('shoppingList', JSON.stringify([]));
         toast.success('Added to shopping list');
-        navigate('/shopping-list');
+        navigate('/shopping-list', { state: backTo });
         return;
       }
       toast.error('Something went wrong. Try again.');
