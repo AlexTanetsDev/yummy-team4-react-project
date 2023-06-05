@@ -17,13 +17,12 @@ export const CustomDropdownMenu = ({
 
   useEffect(() => {
     const handleClickOutside = event => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
-      setIsOpen(false);
-    }
-  };
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
     window.addEventListener('click', handleClickOutside);
     return () => {
-     
       window.removeEventListener('click', handleClickOutside);
     };
   });
@@ -45,6 +44,9 @@ export const CustomDropdownMenu = ({
         </DropdownItem>
         <DropdownItem onClick={() => handleOptionClick('Ingredient')}>
           Ingredient
+        </DropdownItem>
+        <DropdownItem onClick={() => handleOptionClick('Area')}>
+          Area
         </DropdownItem>
       </DropdownMenu>
     </div>

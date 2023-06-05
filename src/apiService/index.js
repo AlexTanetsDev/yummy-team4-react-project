@@ -11,6 +11,7 @@ import { getRecipeById } from './getRecipeById';
 import { getCategoryList, getRecipesByCategory } from './getCategory';
 import { getSearchedRecipes } from './search.js';
 import { getMainPageRecipes } from './MainPageRecipesApi';
+import { getAreasList } from './getAreasList';
 
 export {
   getAllFavorite,
@@ -25,4 +26,5 @@ export {
   getSearchedRecipes,
   PopularApi,
   getMainPageRecipes,
+  getAreasList,
 };

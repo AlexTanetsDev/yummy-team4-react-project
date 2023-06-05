@@ -1,15 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import ReactCountryFlag from 'react-country-flag';
 import { getSearchedRecipes } from '../apiService/search.js';
+import { getAreasList } from '../apiService';
 import { Sections } from 'components/Sections/Sections';
 import { Container } from 'components/Container/Container';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { SearchedRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { MiniLoader } from 'components/Loader/Loader.jsx';
-import { toast } from 'react-hot-toast';
 import { RecipesPagination } from 'components/Paginator/Paginator';
-import ReactCountryFlag from 'react-country-flag';
+import {
+  FlagsList,
+  FlagsItem,
+} from 'components/SearchedRecipesList/SearchedRecipesList.styled.js';
 
 const SearchPage = () => {
   const ref = useRef(1);
@@ -18,14 +23,23 @@ const SearchPage = () => {
   const { query } = useParams();
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const [selectedOption, setSelectedOption] = useState(
-    location.state ?? 'Title'
-  );
+  const [selectedOption, setSelectedOption] = useState(() => {
+    if (!location.state || location.state === 'Area') return 'Title';
+    return location.state;
+  });
   const [selectedOptionFinal, setSelectedOptionFinal] =
     useState(selectedOption);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [areasList, setAreasList] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    (async () => {
+      const list = await getAreasList();
+      setAreasList(list);
+    })();
+  }, []);
 
   useEffect(() => {
     if (!query) return;
@@ -96,31 +110,51 @@ const SearchPage = () => {
     setCurrentPage(pageNumber);
     searcRecipe(pageNumber);
   };
+
+  const handleFlagClick = e => {
+    const arr = e.target.title.split('');
+    const cap = arr.slice(0, 1).toString().toUpperCase();
+    arr.splice(0, 1, cap);
+    const cous = arr.join('');
+    setSelectedOptionFinal(selectedOption);
+    setSelectedOption('Title');
+    navigate(`/search/${cous}`);
+    ref.current = 1;
+  };
+
   return (
     <>
       <Sections>
         <Container>
           <SectionTitle title="Search" />
-          <div>
-            <ReactCountryFlag
-              countryCode="IT"
-              style={{
-                fontSize: '2em',
-                lineHeight: '2em',
-                cursor: 'pointer',
-              }}
-              aria-label="United States"
-              title="US"
+          {selectedOption === 'Area' ? (
+            <FlagsList>
+              {areasList.map(area => {
+                return (
+                  <FlagsItem key={area.cuisine} onClick={handleFlagClick}>
+                    <ReactCountryFlag
+                      countryCode={area.code}
+                      style={{
+                        fontSize: '3em',
+                        lineHeight: '1em',
+                        cursor: 'pointer',
+                      }}
+                      title={area.cuisine}
+                    />
+                  </FlagsItem>
+                );
+              })}
+            </FlagsList>
+          ) : (
+            <SearchBar
+              query={query}
+              handleSubmit={handleSubmit}
+              handleOptionClick={handleOptionClick}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              selectedOption={selectedOption}
             />
-          </div>
-          <SearchBar
-            query={query}
-            handleSubmit={handleSubmit}
-            handleOptionClick={handleOptionClick}
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            selectedOption={selectedOption}
-          />
+          )}
           {isLoading ? (
             <MiniLoader />
           ) : (
