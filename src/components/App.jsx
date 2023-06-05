@@ -8,6 +8,9 @@ import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from './RestrictedRoute';
+
+// import { PrivateRoute } from './PrivateRout';
+
 import { MainLoader } from './Loader/Loader';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, theme } from 'utils/theme';

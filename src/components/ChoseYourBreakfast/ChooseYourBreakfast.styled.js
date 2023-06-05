@@ -65,7 +65,7 @@ export const HeroTitle = styled.h1`
   line-height: 1;
   text-align: center;
   letter-spacing: -0.005em;
-  color: ${p => p.theme.colors.secondAccentColor};
+  color: ${p => p.theme.colors.heroTitle};
 
   @media (min-width: 768px) {
     padding-top: 204px;
@@ -119,7 +119,7 @@ export const HeroInfo = styled.h3`
 export const BreakfastButton = styled.div`
   padding: 8px 8px;
   max-width: 225px;
-  background: #fafafa;
+  background: ${p => p.theme.colors.mainBgColor};
   border-radius: 8px;
   margin-bottom: 115px;
   margin-left: auto;
@@ -162,7 +162,7 @@ export const Text = styled.p`
   line-height: 1.2;
   letter-spacing: -0.24px;
   text-align: left;
-  color: #3e4462;
+  color: ${p => p.theme.colors.itemTitleColor};
   @media (min-width: 768px) {
     width: 236px;
     font-size: ${p => p.theme.fontSizes.l}px;
@@ -188,7 +188,7 @@ export const Arrow = styled(NavLink)`
   text-align: center;
   justify-content: flex-end;
   letter-spacing: 0.2px;
-  color: #3e4462;
+  color: ${p => p.theme.colors.itemTitleColor};
   border: transparent;
   background-color: transparent;
 

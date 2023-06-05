@@ -77,6 +77,7 @@ export const StyledLink = styled(NavLink)`
 export const SearchIcon = styled(Search)`
   height: 24px;
   width: 24px;
+  color: currentColor;
 `;
 
 export const SearchIconMobile = styled(Search)`
@@ -131,4 +132,5 @@ export const AvatarImg = styled.img`
 
 export const UserName = styled.p`
   margin-left: 14px;
+  color: ${p => p.theme.colors.userNameColor};
 `;

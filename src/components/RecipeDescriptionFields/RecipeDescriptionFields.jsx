@@ -134,7 +134,7 @@ const FileInput = ({
         {previewUrl && <Image src={previewUrl} alt="Preview repice photo" />}
         {touched.photo && errors.photo ? (
           <ErrorPhoto>
-            <ErrorText>{errors.title}</ErrorText>
+            <ErrorText>{errors.photo}</ErrorText>
           </ErrorPhoto>
         ) : null}
       </RreviewImageContainer>

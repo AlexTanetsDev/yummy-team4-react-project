@@ -8,6 +8,7 @@ import { selectIsLoggedIn } from 'redux/auth/selectors';
 import { Header } from '../Header/Header';
 import { BackgroundDecorHeader } from 'components/BackgroundDecor/BackgroundDecor';
 import { Footer } from 'components/Footer/Footer';
+import { MotivationModal } from 'components/MotivationModal/MotivationModal';
 
 import { Main } from './SharedLayout.styled';
 import { ButtonScrollUp } from 'components/Button/Button';
@@ -15,6 +16,7 @@ import { ButtonScrollUp } from 'components/Button/Button';
 export const SharedLayout = ({ onClick }) => {
   const [isButtonUp, setIsButtonUp] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -62,6 +64,7 @@ export const SharedLayout = ({ onClick }) => {
           <ButtonScrollUp isButtonUp={isButtonUp} onClick={handleOnScrollUp}>
             ^
           </ButtonScrollUp>
+          <MotivationModal />
         </>
       )}
     </>
