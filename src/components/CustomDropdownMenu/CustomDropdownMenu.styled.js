@@ -32,7 +32,7 @@ export const DropdownMenu = styled.div`
   position: absolute;
   z-index: 999;
   width: 146px;
-  height: 74px;
+  height: 117px;
   padding: 0;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -45,7 +45,7 @@ export const DropdownMenu = styled.div`
 
   @media (min-width: 768px) {
     width: 176px;
-    height: 88px;
+    height: 125px;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;

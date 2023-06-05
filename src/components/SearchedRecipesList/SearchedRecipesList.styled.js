@@ -4,8 +4,16 @@ import styled from 'styled-components';
 export const RecipesList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  row-gap: 116px;
-  column-gap: 14px;
+  gap: 28px;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    row-gap: 100px;
+    column-gap: 14px;
+  }
 `;
 
 export const SearchedRecipesItem = styled(NavLink)`
@@ -13,17 +21,19 @@ export const SearchedRecipesItem = styled(NavLink)`
   width: 100%;
   height: 323px;
   border-radius: 8px;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    max-width: calc((100% - 28px) / 2);
+    max-width: calc((100% - 32px) / 2);
   }
   @media screen and (min-width: 1440px) {
-    max-width: calc((100% - 42px) / 4);
+    max-width: calc((100% - 44px) / 4);
   }
 `;
 
 export const RecipeLabel = styled.div`
   position: absolute;
+  z-index: 333;
   bottom: 26px;
   left: 0;
   right: 0;
@@ -53,6 +63,10 @@ export const RecipePreview = styled.img`
   border-radius: 8px;
   height: 100%;
   width: 100%;
+  transition: all 0.25s linear;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -75,7 +89,6 @@ export const Title = styled.p`
     line-height: 24px;
   }
   @media screen and (min-width: 1440px) {
-   
   }
 `;
 export const ImageBasket = styled.img`
@@ -88,6 +101,23 @@ export const ImageBasket = styled.img`
     height: 225px;
   }
   @media screen and (min-width: 1440px) {
-    
   }
 `;
+
+export const FlagsList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 10px;
+  width: 320px;
+  gap: 5px;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
+    width: 450px;
+    gap: 10px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 700px;
+  }
+`;
+
+export const FlagsItem = styled.li``;
