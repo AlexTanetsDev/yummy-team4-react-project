@@ -40,6 +40,12 @@ export const StyledWrapper = styled.div`
   }
 `;
 
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
 export const ContentWrapper = styled.div`
   position: absolute;
   top: 50%;

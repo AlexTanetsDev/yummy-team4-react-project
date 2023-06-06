@@ -3,6 +3,7 @@ import { startPageBgMob, startPageBgTab, startPageBg } from '../../images';
 import { FiMail } from 'react-icons/fi';
 
 export const StyledWrapper = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
 
@@ -34,6 +35,12 @@ export const StyledWrapper = styled.div`
       ),
       url(mgg-vitchakorn-Ul4sgxQMmHU-unsplash.jpg), url(${startPageBg});
   }
+`;
+
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export const Logo = styled.div`
