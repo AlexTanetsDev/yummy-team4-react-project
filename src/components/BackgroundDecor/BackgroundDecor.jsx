@@ -5,6 +5,7 @@ import { Container } from 'components/Container/Container';
 import {
   squareGreen,
   squareDark,
+  squareWhite,
   circleDark,
   leftSpinachDesktop1x,
   leftSpinachDesktop2x,
@@ -32,11 +33,10 @@ import {
   RightSpinachImage,
 } from './BackgroundDecor.styled';
 
-export const BackgroundDecorHeader = () => {
+export const BackgroundDecorHeader = ({ isDarkTheme }) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
-
   return (
     <>
       <Container>
@@ -47,7 +47,10 @@ export const BackgroundDecorHeader = () => {
           {isMobile ? (
             <ImageDark src={circleDark} alt="mobile-dark-decor" />
           ) : (
-            <ImageDark src={squareDark} alt="dark-decor" />
+            <ImageDark
+              src={!isDarkTheme ? squareDark : squareWhite}
+              alt={!isDarkTheme ? 'dark-decor' : 'white decor'}
+            />
           )}
         </DarkDecorWrapper>
         <RightGreenDecorWrapper>

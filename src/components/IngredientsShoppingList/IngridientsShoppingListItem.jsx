@@ -9,8 +9,10 @@ import {
   Img,
   Item,
 } from './IngridientsShoppingListItem.styled';
+import { useTheme } from 'styled-components';
 
 export const IngridientsShoppingListItem = ({ item, handleDelete }) => {
+  const theme = useTheme();
   return (
     <Item>
       <ImgTitleWrapper>
@@ -20,7 +22,7 @@ export const IngridientsShoppingListItem = ({ item, handleDelete }) => {
       <QuantityWrapper>
         <Quantity>{item.quantity}</Quantity>
         <Button type="button" onClick={() => handleDelete(item._id)}>
-          <RxCross1 size={15} />
+          <RxCross1 size={15} color={theme.colors.shopingListCrossIcon} />
         </Button>
       </QuantityWrapper>
     </Item>

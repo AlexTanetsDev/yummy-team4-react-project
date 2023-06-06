@@ -25,6 +25,7 @@ import { Container } from 'components/Container/Container';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 import { Modal } from '../Modal/Modal';
 import ThemeButton from 'components/ThemeButton/ThemeButton';
+import { useTheme } from 'styled-components';
 
 export const Header = ({ onClick }) => {
   const User = useSelector(state => state.auth.user);
@@ -32,6 +33,7 @@ export const Header = ({ onClick }) => {
   const [opened, setOpened] = useState(false);
   const location = useLocation();
   const { t } = useTranslation();
+  const theme = useTheme();
 
   const handleClick = () => {
     setOpened(!opened);
@@ -51,7 +53,7 @@ export const Header = ({ onClick }) => {
             <StyledLink to="/favorite">{t('Favorites')}</StyledLink>
             <StyledLink to="/shopping-list">{t('Shopping list')}</StyledLink>
             <StyledLink to="/search">
-              <SearchIcon />
+              <SearchIcon color={theme.colors.shopingListCrossIcon} />
             </StyledLink>
           </StyledNav>
           <Headerblock>

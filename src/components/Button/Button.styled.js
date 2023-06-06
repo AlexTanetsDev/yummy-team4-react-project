@@ -385,7 +385,7 @@ export const AddBtn = styled.button`
   padding: 11px 48px;
   width: 129px;
   background-color: ${p => p.theme.colors.secondAccentColor};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.xl}px;
   line-height: 24px;
@@ -487,7 +487,7 @@ export const SeeRecipeBtnBlack = styled(NavLink)`
     width: 138px;
     height: 45px;
     background-color: ${p => p.theme.colors.secondAccentColor};
-    color: ${p => p.theme.colors.mainBgColor};
+    color: #fafafa;
     font-family: 'Poppins';
     font-size: ${p => p.theme.fontSizes.l}px;
     line-height: 21px;
@@ -567,8 +567,8 @@ export const FavoritesDeleteBtn = styled.button`
   padding: 5px;
   width: 24px;
   height: 24px;
-  background-color: ${p => p.theme.colors.lightGreenText};
-  color: ${p => p.theme.colors.secondAccentColor};
+  background-color: ${p => p.theme.colors.favoritesDeleteBtnBgr};
+  color: ${p => p.theme.colors.heroTitle};
   font-size: ${p => p.theme.fontSizes.xl}px;
   border: ${p => p.theme.border.favoriteBtnBorder};
   border-radius: 4px;

@@ -77,7 +77,9 @@ export const StyledLink = styled(NavLink)`
 export const SearchIcon = styled(Search)`
   height: 24px;
   width: 24px;
-  color: currentColor;
+  path {
+    stroke: ${p => p.theme.colors.shopingListCrossIcon};
+  }
 `;
 
 export const SearchIconMobile = styled(Search)`

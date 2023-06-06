@@ -13,10 +13,9 @@ import { MotivationModal } from 'components/MotivationModal/MotivationModal';
 import { Main } from './SharedLayout.styled';
 import { ButtonScrollUp } from 'components/Button/Button';
 
-export const SharedLayout = ({ onClick }) => {
+export const SharedLayout = ({ onClick, isDarkTheme }) => {
   const [isButtonUp, setIsButtonUp] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
-
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -55,7 +54,7 @@ export const SharedLayout = ({ onClick }) => {
           </div>
           <Header onClick={onClick} />
           <Main>
-            <BackgroundDecorHeader />
+            <BackgroundDecorHeader isDarkTheme={isDarkTheme} />
             <Suspense>
               <Outlet />
             </Suspense>
