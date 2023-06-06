@@ -6,10 +6,11 @@ export const DropdownButton = styled.button`
   width: 146px;
   height: 41px;
   padding: 10px;
-  background-color: #eee;
-  border: 1px solid #ccc;
+  background-color: ${p => p.theme.colors.addRecepiesTexteriaBgr};
+  border: ${p => p.theme.border.addRecepiesTextarea};
+  outline: none;
   border-radius: 4px;
-  color: #333;
+  color: ${p => p.theme.colors.addRecepiesTexteriaText};
   text-align: left;
   font-style: normal;
   font-weight: 400;
@@ -34,8 +35,8 @@ export const DropdownMenu = styled.div`
   width: 146px;
   height: 117px;
   padding: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: ${p => p.theme.colors.addRecepiesTexteriaBgr};
+  border: ${p => p.theme.border.addRecepiesTextarea};
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   font-style: normal;
@@ -58,11 +59,12 @@ export const DropdownMenu = styled.div`
 export const DropdownItem = styled.a`
   display: block;
   padding: 10px;
-  color: #333;
+  color: ${p => p.theme.colors.addRecepiesTexteriaText};
   text-decoration: none;
 
   &:hover {
-    background-color: #f5f5f5;
+    color: #f5f5f5;
+    background: ${p => p.theme.colors.addRecepiesTexteriaText};
   }
   @media (min-width: 768px) {
   }

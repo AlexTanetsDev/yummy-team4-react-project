@@ -77,7 +77,12 @@ export const App = () => {
         <Routes>
           <Route
             path="/"
-            element={<SharedLayout onClick={handleTogleThemeClick} />}
+            element={
+              <SharedLayout
+                onClick={handleTogleThemeClick}
+                isDarkTheme={isDarkTheme}
+              />
+            }
           >
             {isLoggedIn ? (
               <Route index element={<MainPage />} />
