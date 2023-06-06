@@ -36,6 +36,12 @@ export const StyledWrapper = styled.div`
   }
 `;
 
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
 export const Logo = styled.div`
   margin-right: auto;
   margin-left: auto;
