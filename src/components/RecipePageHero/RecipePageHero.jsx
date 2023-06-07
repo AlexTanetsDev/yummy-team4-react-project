@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
@@ -8,6 +8,7 @@ import {
 } from 'components/Button/Button';
 import { addFavoriteById, deleteFavoriteById } from 'apiService';
 import { selectUser } from 'redux/auth/selectors';
+import { updateMotivation } from '../../redux/auth/authSlise';
 
 import {
   HeroSection,
@@ -23,6 +24,7 @@ import { toast } from 'react-hot-toast';
 export const RecipeHero = ({ descr, title, time, id, favorites }) => {
   const [isOwner, setIsOwner] = useState(false);
   const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (favorites?.includes(user.id)) {
@@ -35,6 +37,9 @@ export const RecipeHero = ({ descr, title, time, id, favorites }) => {
     if (resp) {
       setIsOwner(true);
       toast.success('Added to favorite sucsess!');
+
+      const { firstFavoriteRecipe } = resp;
+      dispatch(updateMotivation({ firstFavoriteRecipe }));
     }
   };
 
