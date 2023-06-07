@@ -353,3 +353,8 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
+
+export const updateMotivation = motivation => ({
+  type: 'UPDATE_MOTIVATION',
+  payload: motivation,
+});
