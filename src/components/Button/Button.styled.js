@@ -67,7 +67,7 @@ export const SingInBtn = styled(NavLink)`
   display: block;
   padding: 10px 24px;
   background-color: transparent;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
@@ -98,7 +98,7 @@ export const SingInBtnGreen = styled.button`
   margin-top: 28px;
   width: 279px;
   height: 45px;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   border-radius: 6px;
   border-color: transparent;
   background-color: ${p => p.theme.colors.firstAccentColor};
@@ -115,10 +115,6 @@ export const SingInBtnGreen = styled.button`
     margin-top: 28px;
     width: 279px;
     height: 45px;
-    color: ${p => p.theme.colors.mainBgColor};
-    border-radius: 6px;
-    border-color: transparent;
-    background-color: ${p => p.theme.colors.firstAccentColor};
   }
 
   &:hover,
@@ -134,7 +130,7 @@ export const RegistrationBtn = styled(NavLink)`
   padding: 11px 24px;
   width: 132px;
   background-color: ${p => p.theme.colors.firstAccentColor};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
@@ -523,7 +519,7 @@ export const SeeRecipeBtnGreen = styled.button`
   width: 88px;
   height: 27px;
   background-color: ${p => p.theme.colors.firstAccentColor};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.s}px;
   line-height: 15px;
@@ -613,7 +609,7 @@ export const MyRecipesDeleteBtn = styled.button`
   width: 24px;
   height: 24px;
   background-color: ${p => p.theme.colors.firstAccentColor};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-size: ${p => p.theme.fontSizes.l}px;
   border: ${p => p.theme.border.greenBtnBorder};
   border-radius: 4px;

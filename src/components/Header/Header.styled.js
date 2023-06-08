@@ -2,6 +2,13 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as Search } from '../../images/icons/search.svg';
 
+const linkColor = ({ path }) =>
+  path.includes('recipe')
+    ? '#23262A'
+    : path.includes('categories')
+    ? p => p.theme.colors.firstAccentColor
+    : p => p.theme.colors.itemTextColor;
+
 export const StyledHeader = styled.header`
   z-index: 1;
   position: absolute;
@@ -53,9 +60,11 @@ export const StyledLink = styled(NavLink)`
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
-  color: ${({ path }) =>
-    path
-      ? path.includes('categories')
+  color: ${({ path, category }) =>
+    path.includes('recipe')
+      ? '#23262A'
+      : category
+      ? category.some(value => path.includes(value))
         ? p => p.theme.colors.firstAccentColor
         : p => p.theme.colors.itemTextColor
       : p => p.theme.colors.itemTextColor};
@@ -78,7 +87,10 @@ export const SearchIcon = styled(Search)`
   height: 24px;
   width: 24px;
   path {
-    stroke: ${p => p.theme.colors.shopingListCrossIcon};
+    stroke: ${({ path }) =>
+      path.includes('recipe')
+        ? '#23262A'
+        : p => p.theme.colors.shopingListCrossIcon};
   }
 `;
 
