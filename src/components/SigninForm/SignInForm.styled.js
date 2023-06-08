@@ -19,6 +19,13 @@ export const StyledWrapper = styled.div`
   background-color: ${p => p.theme.colors.lightBgColor};
 `;
 
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
 export const BottomBgImage = styled.div`
   position: absolute;
   left: 50%;

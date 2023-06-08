@@ -36,6 +36,7 @@ import {
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
   EyeIcon,
+  LoaderWrapper,
 } from './SignInForm.styled';
 
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -85,7 +86,6 @@ export const SignInForm = () => {
 
   return ReactDOM.createPortal(
     <>
-      {isLoading && <MiniLoader />}
       <StyledWrapper>
         <LanguageSelector page="auth" />
         <BottomBgImage />
@@ -196,6 +196,7 @@ export const SignInForm = () => {
             <Link to="/register">{t('Registration')}</Link>
           </ModalWrapper>
         </ContentWrapper>
+        <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
       </StyledWrapper>
     </>,
     document.querySelector('#modal-root')

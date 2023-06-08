@@ -33,6 +33,7 @@ import {
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
   EyeIcon,
+  LoaderWrapper,
 } from './RegisterForm.styled';
 
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -218,6 +219,7 @@ export const RegisterForm = () => {
             <Link to="/signin">{t('Sign in')}</Link>
           </ModalWrapper>
         </ContentWrapper>
+        <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
       </StyledWrapper>
     </>,
     document.querySelector('#modal-root')
