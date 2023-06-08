@@ -28,6 +28,8 @@ export const theme = {
     addRecepiesTexteriaBgr: '#D9D9D9',
     favoritesDeleteBtnBgr: '#EBF3D4',
     shopingListCrossIcon: '#333333',
+    titleMyrecepies: '#8BAA36',
+    itemTextColorMyrecepies: '#23262A',
   },
   space: value => `${4 * value}px`,
   fontSizes: {
@@ -111,6 +113,8 @@ export const darkTheme = {
     addRecepiesTexteriaBgr: '#22252A',
     favoritesDeleteBtnBgr: '#1E1F28',
     shopingListCrossIcon: '#FAFAFA',
+    titleMyrecepies: '#8BAA36',
+    itemTextColorMyrecepies: '#23262A',
   },
   space: value => `${4 * value}px`,
   fontSizes: {

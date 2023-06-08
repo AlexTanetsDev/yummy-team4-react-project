@@ -34,7 +34,7 @@ export const HeroSection = styled.section`
 export const HeroSectionTitle = styled.h1`
   text-align: center;
   margin-bottom: 18px;
-  color: ${p => p.theme.colors.firstAccentColor};
+  color: ${p => p.theme.colors.titleMyrecepies};
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
@@ -53,7 +53,7 @@ export const HeroSectionText = styled.p`
   text-align: center;
 
   font-size: ${p => p.theme.fontSizes.m}px;
-  color: ${p => p.theme.colors.secondAccentColor};
+  color: ${p => p.theme.colors.itemTextColorMyrecepies};
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;

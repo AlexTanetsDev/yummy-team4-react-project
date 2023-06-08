@@ -25,11 +25,11 @@ export const NavLinkStyled = styled(NavLink)`
   color: #fafafa;
   transition: ${p => p.theme.transitions.main};
   &.active {
-    color: ${p => p.theme.colors.firstAccentColor};
+    color: ${p => p.theme.colors.footerButtonBg};
   }
   :hover:not(.active),
   :focus-visible:not(.active) {
-    color: ${p => p.theme.colors.firstAccentColor};
+    color: ${p => p.theme.colors.footerButtonBg};
   }
   @media screen and (min-width: 768px) {
   }

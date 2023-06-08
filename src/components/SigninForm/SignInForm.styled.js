@@ -123,7 +123,7 @@ export const Title = styled.h1`
   margin-bottom: 40px;
   font-size: 24px;
   font-weight: 600;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   @media (min-width: 768px) {
     margin-bottom: 50px;
     font-size: ${p => p.theme.fontSizes.xxxl}px;
@@ -201,7 +201,7 @@ export const ResendLink = styled(NavLink)`
   margin-top: 10px;
   font-size: ${p => p.theme.fontSizes.l}px;
   text-align: center;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   opacity: 0.8;
   &:hover {
     opacity: 1;
