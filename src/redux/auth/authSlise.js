@@ -48,7 +48,16 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     updateMotivation: (state, action) => {
-      state.motivation = action.payload;
+      if (
+        (!state.motivation.hasOwnProperty(Object.keys(action.payload)[0]) &&
+          Object.values(action.payload)[0]) ||
+        state.motivation[Object.keys(action.payload)[0]]
+      ) {
+        state.motivation = {
+          ...state.motivation,
+          ...action.payload,
+        };
+      }
     },
   },
   extraReducers: builder =>
@@ -127,7 +136,11 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = null;
 
-        state.motivation.tenthDayOfUsage = action.payload.tenthDayOfUsage;
+        authSlice.caseReducers.updateMotivation(state, {
+          payload: {
+            tenthDayOfUsage: action.payload.tenthDayOfUsage,
+          },
+        });
       })
       .addCase(refreshUser.rejected, handleIsRefreshingRejected)
       .addCase(updateSubscription.pending, handleIsRefreshingPending)
