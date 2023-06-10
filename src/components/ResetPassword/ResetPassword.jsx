@@ -106,7 +106,7 @@ export const ResetPassword = () => {
   return ReactDOM.createPortal(
     <>
       <StyledWrapper>
-        {error ? (
+        {!error ? (
           <>
             <ContentWrapper>
               <ModalWrapper>

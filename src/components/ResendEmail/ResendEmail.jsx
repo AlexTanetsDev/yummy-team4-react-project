@@ -1,9 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
+import { selectError, selectIsLoading } from 'redux/auth/selectors';
+
 import {
   StyledWrapper,
   ContentWrapper,
+  Logo,
+  LogoImage,
   Title,
   Modal,
   InputWrapper,
@@ -16,12 +20,12 @@ import {
 } from './ResendEmail.styled';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
-import { SingInButtonGreen, SingInButton } from 'components/Button/Button';
+import { SingInButtonGreen } from 'components/Button/Button';
 import { FormError } from 'components/FormError/FormError';
+import { startPageLogo } from '../../images';
 import { errorIcon, succesIcon } from 'images';
 import { resend } from 'redux/auth/operations';
 import { MiniLoader } from 'components/Loader/Loader';
-import { selectError, selectIsLoading } from 'redux/auth/selectors';
 
 const initialValues = {
   email: '',
@@ -32,10 +36,10 @@ const emailSchema = object({
 });
 
 export const ResendEmail = () => {
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const error = useSelector(selectError);
+  const isLoading = useSelector(selectIsLoading);
 
   const handleSubmit = async (values, { resetForm }) => {
     await dispatch(resend(values));
@@ -97,7 +101,7 @@ export const ResendEmail = () => {
             </Formik>
           </Modal>
         </ContentWrapper>
-        <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
+        <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
       </StyledWrapper>
     </>,
     document.querySelector('#modal-root')
