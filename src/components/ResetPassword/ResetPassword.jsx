@@ -29,6 +29,7 @@ import {
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
   LoaderWrapper,
+  Link,
 } from './ResetPassword.styled';
 import { errorIcon, warningIcon, succesIcon } from 'images';
 import { SingInButton } from 'components/Button/Button';
@@ -106,7 +107,7 @@ export const ResetPassword = () => {
   return ReactDOM.createPortal(
     <>
       <StyledWrapper>
-        {error ? (
+        {!error ? (
           <>
             <ContentWrapper>
               <ModalWrapper>
@@ -250,6 +251,7 @@ export const ResetPassword = () => {
                     )}
                   </Formik>
                 </Modal>
+                <Link to="/signin">{t('Sign in')}</Link>
               </ModalWrapper>
             </ContentWrapper>
             <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
