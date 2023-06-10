@@ -35,9 +35,7 @@ export const EmailVerify = () => {
           {!error ? (
             <Title>Email verified!</Title>
           ) : (
-            <ErrorText>
-              Your email has already been verified or email not found!
-            </ErrorText>
+            <ErrorText>{error}</ErrorText>
           )}
           <ButtonWrapper>
             <SingInButton>SigngIn</SingInButton>

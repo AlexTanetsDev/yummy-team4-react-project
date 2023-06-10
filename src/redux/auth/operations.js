@@ -48,7 +48,7 @@ export const register = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -60,7 +60,7 @@ export const verify = createAsyncThunk(
       const response = await axios.post(`api/users/verify/${credentials}`);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -98,7 +98,7 @@ export const resend = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -136,7 +136,7 @@ export const verifyReset = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -175,7 +175,7 @@ export const resetPassword = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -213,7 +213,7 @@ export const forgot = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -239,7 +239,7 @@ export const signIn = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -254,7 +254,7 @@ export const categoryList = createAsyncThunk(
       setAuthHeader(token);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -264,7 +264,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.post('/api/users/logout');
     clearAuthHeader();
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(error.response.data.message);
   }
 });
 
@@ -282,7 +282,7 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('api/users/current');
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -320,7 +320,7 @@ export const updateSubscription = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -349,7 +349,7 @@ export const updateUser = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
