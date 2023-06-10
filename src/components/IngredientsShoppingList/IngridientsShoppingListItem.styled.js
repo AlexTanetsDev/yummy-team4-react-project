@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: ${p => p.theme.border.grayBorder};
   padding: 25px 0;
   font-weight: 600;
   font-size: 12px;
@@ -53,7 +53,7 @@ export const Header = styled.div`
 export const ImgTitleWrapper = styled.div`
   display: flex;
   gap: 10px;
-  color: #3e4462;
+  color: ${p => p.theme.colors.itemTitleColor};
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;

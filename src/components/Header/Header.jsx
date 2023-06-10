@@ -25,33 +25,51 @@ import { Container } from 'components/Container/Container';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 import { Modal } from '../Modal/Modal';
 import ThemeButton from 'components/ThemeButton/ThemeButton';
+import { useTheme } from 'styled-components';
+import { selectCategoryList } from 'redux/auth/selectors';
 
 export const Header = ({ onClick }) => {
   const User = useSelector(state => state.auth.user);
+  const category = useSelector(selectCategoryList);
   const [modalActive, setModalActive] = useState(false);
   const [opened, setOpened] = useState(false);
   const location = useLocation();
   const { t } = useTranslation();
+  const theme = useTheme();
 
   const handleClick = () => {
     setOpened(!opened);
   };
-
   return (
     <StyledHeader>
       <Container>
         <HeaderWrapper>
           <LogoHeader />
           <StyledNav>
-            <StyledLink path={location.pathname} to="/categories/Beef">
+            <StyledLink
+              path={location.pathname}
+              category={category}
+              to="/categories/Beef"
+            >
               {t('Categories')}
             </StyledLink>
-            <StyledLink to="/add">{t('Add recipes')}</StyledLink>
-            <StyledLink to="/my">{t('My recipes')}</StyledLink>
-            <StyledLink to="/favorite">{t('Favorites')}</StyledLink>
-            <StyledLink to="/shopping-list">{t('Shopping list')}</StyledLink>
-            <StyledLink to="/search">
-              <SearchIcon />
+            <StyledLink path={location.pathname} to="/add">
+              {t('Add recipes')}
+            </StyledLink>
+            <StyledLink path={location.pathname} to="/my">
+              {t('My recipes')}
+            </StyledLink>
+            <StyledLink path={location.pathname} to="/favorite">
+              {t('Favorites')}
+            </StyledLink>
+            <StyledLink path={location.pathname} to="/shopping-list">
+              {t('Shopping list')}
+            </StyledLink>
+            <StyledLink path={location.pathname} to="/search">
+              <SearchIcon
+                path={location.pathname}
+                color={theme.colors.shopingListCrossIcon}
+              />
             </StyledLink>
           </StyledNav>
           <Headerblock>

@@ -7,6 +7,7 @@ export const MiniLoaderOverlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: transparent;
+  z-index: 999;
 `;
 
 export const MainLoaderOverlay = styled.div`

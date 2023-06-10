@@ -67,7 +67,7 @@ export const ContentWrapper = styled.div`
 export const Title = styled.h1`
   margin-bottom: 14px;
   text-align: center;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   @media (min-width: 768px) {
     margin-bottom: 14px;
     font-size: ${p => p.theme.fontSizes.xxxl}px;
@@ -81,7 +81,7 @@ export const Text = styled.p`
   margin-left: auto;
   text-align: center;
   font-size: ${p => p.theme.fontSizes.l}px;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   @media (min-width: 768px) {
     width: 550px;
     margin-bottom: 40px;

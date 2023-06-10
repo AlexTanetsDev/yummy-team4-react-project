@@ -6,8 +6,6 @@ import { selectError, selectIsLoading } from 'redux/auth/selectors';
 import {
   StyledWrapper,
   ContentWrapper,
-  Logo,
-  LogoImage,
   Title,
   Modal,
   InputWrapper,
@@ -22,7 +20,6 @@ import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { SingInButtonGreen } from 'components/Button/Button';
 import { FormError } from 'components/FormError/FormError';
-import { startPageLogo } from '../../images';
 import { errorIcon, succesIcon } from 'images';
 import { resend } from 'redux/auth/operations';
 import { MiniLoader } from 'components/Loader/Loader';
