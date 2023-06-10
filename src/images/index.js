@@ -46,6 +46,7 @@ import arrowRightIcon from './arrow-right.png';
 import closeModalIcon from './close-modal-icon.png';
 import userIcon from './user.png';
 import plusIcon from './plus.png';
+import squareWhite from './squareWhite.png';
 
 export {
   leftSpinachDesktop1x,
@@ -96,4 +97,5 @@ export {
   closeModalIcon,
   userIcon,
   plusIcon,
+  squareWhite,
 };

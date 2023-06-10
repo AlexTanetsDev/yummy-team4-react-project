@@ -43,12 +43,12 @@ export const Input = styled.input`
   padding: 20px 38px;
   font-family: 'Poppins';
   font-size: 12px;
-  color: #3e4462;
+  color: ${p => p.theme.colors.itemTextColor};
   line-height: 21px;
   border: ${p => p.theme.border.grayBorder};
   border-radius: 24px 44px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: ${p => p.theme.colors.mainBgColor};
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
@@ -79,7 +79,7 @@ export const SelectLabel = styled.label`
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  color: #001833;
+  color: ${p => p.theme.colors.mainTitleText};
   letter-spacing: -0.24px;
 
   @media (min-width: 768px) {

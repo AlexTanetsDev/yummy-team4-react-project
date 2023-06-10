@@ -3,6 +3,7 @@ import { startPageBgMob, startPageBgTab, startPageBg } from '../../images';
 import { FiMail } from 'react-icons/fi';
 
 export const StyledWrapper = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
 
@@ -41,6 +42,7 @@ export const LoaderWrapper = styled.div`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+
 `;
 
 export const ContentWrapper = styled.div`

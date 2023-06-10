@@ -15,3 +15,5 @@ export const selectCategoryList = state => state.auth.categoryList;
 export const selectError = state => state.auth.error;
 
 export const selectIsLoading = state => state.auth.isLoading;
+
+export const selectMotivation = state => state.auth.motivation;

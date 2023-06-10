@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com';
+// axios.defaults.baseURL = 'localhost:3001';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -352,3 +353,8 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
+
+export const updateMotivation = motivation => ({
+  type: 'UPDATE_MOTIVATION',
+  payload: motivation,
+});

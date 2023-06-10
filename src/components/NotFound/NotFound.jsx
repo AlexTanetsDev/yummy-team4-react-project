@@ -1,5 +1,3 @@
-import  { ThemeProvider } from 'styled-components';
-import { theme } from '../../utils/theme';
 import {
   NotFoundContainer,
   AlertContainer,
@@ -47,27 +45,20 @@ const getImageSrc = (
 
 const Alert = () => {
   return (
-      <ThemeProvider theme={theme}>
-        <AlertContainer>
-          <AlertTextPartOne  >
-            We are sorry,
-          </AlertTextPartOne>
-          <AlertTextPartTwo>
-            but the page you were looking for can’t be found...
-          </AlertTextPartTwo>
-        </AlertContainer>
-      </ThemeProvider>
+    <AlertContainer>
+      <AlertTextPartOne>We are sorry,</AlertTextPartOne>
+      <AlertTextPartTwo>
+        but the page you were looking for can’t be found...
+      </AlertTextPartTwo>
+    </AlertContainer>
   );
 };
-        
 
 const NotFound = () => {
   return (
-   
     <NotFoundContainer>
       <NotFoundImage src={getImageSrc()} alt="Logo" />
       <Alert />
-  
     </NotFoundContainer>
   );
 };

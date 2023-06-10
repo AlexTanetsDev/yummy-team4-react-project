@@ -15,7 +15,7 @@ export const Title = styled.h2`
   margin: 0;
   font-size: 24px;
   line-height: 24px;
-  color: #3e4462;
+  color: ${p => p.theme.colors.subTitleAddRecipes};
 `;
 
 export const TopContainer = styled.div`
@@ -81,7 +81,6 @@ export const IngridientContainer = styled.div`
 export const IngridientFields = styled.div`
   display: flex;
   align-items: center;
-
   flex-wrap: wrap;
 `;
 
@@ -170,20 +169,21 @@ export const ContainerNumberQuantity = styled.div`
 `;
 
 export const InputQuantity = styled.input`
-  background-color: transparent;
+  background-color: ${p => p.theme.colors.addRecepiesTexteriaBgr};
 
   width: 100%;
   height: 100%;
 
-  border: none;
   outline: none;
   padding-left: 10px;
   text-align: left;
+  border-radius: 6px;
+  border: none;
 
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
-  color: #000000;
+  color: ${p => p.theme.colors.addRecepiesTexteriaText};
 
   &:invalid {
     border: 1px solid gba(231, 74, 59, 1);
@@ -262,7 +262,7 @@ export const DeleteBtnContainer = styled.div``;
 export const DeleteButton = styled.button`
   border: none;
   outline: none;
-  color: rgba(51, 51, 51, 1);
+  color: #333333;
   background-color: transparent;
   margin: 0;
   padding: 0;

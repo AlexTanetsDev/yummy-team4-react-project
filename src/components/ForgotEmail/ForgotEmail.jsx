@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
+import { selectError, selectIsLoading } from 'redux/auth/selectors';
 import {
   StyledWrapper,
   ContentWrapper,
@@ -21,6 +22,7 @@ import { FormError } from 'components/FormError/FormError';
 import { errorIcon, succesIcon } from 'images';
 import { forgot } from 'redux/auth/operations';
 import { MiniLoader } from 'components/Loader/Loader';
+
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
 
 const initialValues = {
@@ -32,16 +34,20 @@ const emailSchema = object({
 });
 
 export const ForgotEmail = () => {
+
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = async (values, { resetForm }) => {
     await dispatch(forgot(values));
+
     if (!error) {
       navigate('/signin');
       resetForm();
+
     }
   };
 
@@ -49,6 +55,7 @@ export const ForgotEmail = () => {
     <>
       <StyledWrapper>
         <ContentWrapper>
+
           <Title>Recovery password</Title>
           <Modal>
             <ModalTitle>Enter your email</ModalTitle>
@@ -83,10 +90,12 @@ export const ForgotEmail = () => {
                     </IconWrap>
                     {errors.email && touched.email && (
                       <StateInputIcon src={errorIcon} />
+
                     )}
                     {!errors.email && touched.email && (
                       <StateInputIcon src={succesIcon} />
                     )}
+
                     <FormError name="email" component="div" />
                   </InputWrapper>
                   <SingInButtonGreen type="submit">
@@ -97,7 +106,9 @@ export const ForgotEmail = () => {
             </Formik>
           </Modal>
         </ContentWrapper>
+
         <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
+
       </StyledWrapper>
     </>,
     document.querySelector('#modal-root')

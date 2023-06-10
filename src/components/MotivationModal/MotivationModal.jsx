@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { selectUser } from 'redux/auth/selectors';
+import { updateMotivation } from '../../redux/auth/authSlise';
+import { selectMotivation } from 'redux/auth/selectors';
 import {
   Backdrop,
   MotivationMessage,
@@ -14,21 +15,29 @@ import {
 
 export const MotivationModal = () => {
   const [isShow, setIsShow] = useState(false);
+  const [motivationFiedl, setMotivationFiedl] = useState(null);
   const [message, setMessage] = useState('');
 
-  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const motivation = useSelector(selectMotivation);
   const tooltipRef = useRef(null);
+
+  const closeModal = useCallback(() => {
+    setIsShow(false);
+    setMessage('');
+    dispatch(updateMotivation({[motivationFiedl]: false }));
+  });
 
   useEffect(() => {
     const handleClick = e => {
       if (tooltipRef.current && !tooltipRef.current.contains(e.target)) {
-        setIsShow(false);
+        closeModal(false);
       }
     };
 
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
-        setIsShow(false);
+        closeModal(false);
       }
     };
 
@@ -45,27 +54,31 @@ export const MotivationModal = () => {
       document.removeEventListener('click', handleClick, true);
       bodyElement.style.overflow = 'auto';
     };
-  }, [isShow]);
+  }, [closeModal, isShow]);
 
   useEffect(() => {
-    if (user?.motivation?.firstAddedRecipe) {
-      setMessage('You have created your first shopping list!');
+    if (motivation?.firstAddedRecipe) {
+      setMessage('You have created your first recipe!');
       setIsShow(true);
+      setMotivationFiedl('firstAddedRecipe');
       return;
     }
-    if (user?.motivation?.hundredthDayOfUsage) {
-      setMessage('You have been using the application for 100 days!');
-      setIsShow(true);
+    if (motivation?.tenthDayOfUsage) {
+      setMessage('You have been using the application for 10 days!');
+		setIsShow(true);
+		setMotivationFiedl('tenthDayOfUsage');
       return;
     }
-    if (user?.motivation?.tenthAddedRecipe) {
-      setMessage('You have added 10 recipes to your favorites!');
-      setIsShow(true);
+    if (motivation?.tenthAddedRecipe) {
+      setMessage('You have created 10 recipes!');
+		setIsShow(true);
+		setMotivationFiedl('tenthAddedRecipe');
       return;
     }
-    if (!user?.motivation?.firstFavoritesRecipe) {
+    if (motivation?.firstFavoriteRecipe) {
       setMessage('You have added the first recipe to your favorites!');
-      setIsShow(true);
+		setIsShow(true);
+		setMotivationFiedl('firstFavoriteRecipe');
       return;
     }
 
@@ -74,10 +87,10 @@ export const MotivationModal = () => {
       setIsShow(false);
     };
   }, [
-    user?.motivation?.firstAddedRecipe,
-    user?.motivation?.firstFavoritesRecipe,
-    user?.motivation?.hundredthDayOfUsage,
-    user?.motivation?.tenthAddedRecipe,
+    motivation?.firstAddedRecipe,
+    motivation?.firstFavoriteRecipe,
+    motivation?.tenthAddedRecipe,
+    motivation?.tenthDayOfUsage,
   ]);
 
   return ReactDOM.createPortal(
@@ -89,7 +102,7 @@ export const MotivationModal = () => {
               <MotivationMessage>
                 <Colored>Wow!</Colored> {message}
               </MotivationMessage>
-              <CloseBtn onClick={() => setIsShow(false)} />
+              <CloseBtn onClick={closeModal} />
             </MessageBox>
           </ModalBox>
         </Backdrop>

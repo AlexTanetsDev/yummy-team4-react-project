@@ -44,7 +44,7 @@ export const TableTitle = styled.span`
   font-size: ${p => p.theme.fontSizes.s}px;
   line-height: 15px;
   letter-spacing: 0.03em;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
 
   @media (min-width: 768px) {
     line-height: 27px;
@@ -86,7 +86,7 @@ export const IngredientItem = styled.li`
   padding: 0 29px 0 14px;
   height: 86px;
 
-  background-color: ${p => p.theme.colors.lightGreenText};
+  background-color: ${p => p.theme.colors.favoritesDeleteBtnBgr};
   border-radius: 8px;
 
   @media (min-width: 768px) {
@@ -133,7 +133,7 @@ export const IngredientName = styled.span`
   font-size: ${p => p.theme.fontSizes.m}px;
   line-height: 1.2;
   letter-spacing: -0.24px;
-
+  color: ${p => p.theme.colors.itemTitleColor};
   @media (min-width: 768px) {
     font-size: 24px;
     line-height: 1;
