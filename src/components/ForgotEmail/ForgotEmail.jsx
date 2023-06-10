@@ -23,8 +23,6 @@ import { errorIcon, succesIcon } from 'images';
 import { forgot } from 'redux/auth/operations';
 import { MiniLoader } from 'components/Loader/Loader';
 
-import { selectError, selectIsLoading } from 'redux/auth/selectors';
-
 const initialValues = {
   email: '',
 };
@@ -34,7 +32,6 @@ const emailSchema = object({
 });
 
 export const ForgotEmail = () => {
-
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -47,7 +44,6 @@ export const ForgotEmail = () => {
     if (!error) {
       navigate('/signin');
       resetForm();
-
     }
   };
 
@@ -55,7 +51,6 @@ export const ForgotEmail = () => {
     <>
       <StyledWrapper>
         <ContentWrapper>
-
           <Title>Recovery password</Title>
           <Modal>
             <ModalTitle>Enter your email</ModalTitle>
@@ -90,7 +85,6 @@ export const ForgotEmail = () => {
                     </IconWrap>
                     {errors.email && touched.email && (
                       <StateInputIcon src={errorIcon} />
-
                     )}
                     {!errors.email && touched.email && (
                       <StateInputIcon src={succesIcon} />
@@ -108,7 +102,6 @@ export const ForgotEmail = () => {
         </ContentWrapper>
 
         <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
-
       </StyledWrapper>
     </>,
     document.querySelector('#modal-root')
