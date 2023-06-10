@@ -9,13 +9,11 @@ import {
   StyledWrapper,
   ButtonWrapper,
   Title,
-  Logo,
-  LogoImage,
   ErrorText,
+  LoaderWrapper,
 } from './EmailVerify.styled';
 import { SingInButton } from 'components/Button/Button';
-import { startPageLogo } from '../../images';
-import { MainLoader } from 'components/Loader/Loader';
+import { MiniLoader } from 'components/Loader/Loader';
 
 export const EmailVerify = () => {
   const dispatch = useDispatch();
@@ -32,27 +30,22 @@ export const EmailVerify = () => {
 
   return (
     <>
-      {isLoading ? (
-        <MainLoader />
-      ) : (
-        <StyledWrapper>
-          <ContentWrapper>
-            <Logo>
-              <LogoImage src={startPageLogo} />
-            </Logo>
-            {!error ? (
-              <Title>Email verified!</Title>
-            ) : (
-              <ErrorText>
-                Your email has already been verified or email not found!
-              </ErrorText>
-            )}
-            <ButtonWrapper>
-              <SingInButton>SigngIn</SingInButton>
-            </ButtonWrapper>
-          </ContentWrapper>
-        </StyledWrapper>
-      )}
+      <StyledWrapper>
+        <ContentWrapper>
+          {!error ? (
+            <Title>Email verified!</Title>
+          ) : (
+            <ErrorText>
+              Your email has already been verified or email not found!
+              {error}
+            </ErrorText>
+          )}
+          <ButtonWrapper>
+            <SingInButton>SigngIn</SingInButton>
+          </ButtonWrapper>
+        </ContentWrapper>
+        <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
+      </StyledWrapper>
     </>
   );
 };
