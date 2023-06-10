@@ -126,7 +126,7 @@ export const Modal = styled.div`
   }
 `;
 
-export const Title = styled.h1`
+export const ModalTitle = styled.h1`
   margin-bottom: 40px;
   font-size: 24px;
   font-weight: 600;
@@ -196,10 +196,15 @@ export const InputField = styled.input`
 export const Link = styled(NavLink)`
   display: block;
   text-align: center;
+  font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.mainBgColor};
   opacity: 0.8;
   &:hover {
     opacity: 1;
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 50px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
   }
 `;
 

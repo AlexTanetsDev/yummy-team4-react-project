@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
+import { useTranslation } from 'react-i18next';
+
 import {
   StyledWrapper,
   ContentWrapper,
@@ -14,6 +16,7 @@ import {
   InputField,
   ModalTitle,
   LoaderWrapper,
+  Link,
 } from './ForgotEmail.styled';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
@@ -34,7 +37,7 @@ const emailSchema = object({
 export const ForgotEmail = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -89,7 +92,6 @@ export const ForgotEmail = () => {
                     {!errors.email && touched.email && (
                       <StateInputIcon src={succesIcon} />
                     )}
-
                     <FormError name="email" component="div" />
                   </InputWrapper>
                   <SingInButtonGreen type="submit">
@@ -99,8 +101,8 @@ export const ForgotEmail = () => {
               )}
             </Formik>
           </Modal>
+          <Link to="/signin">{t('Sign in')}</Link>
         </ContentWrapper>
-
         <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
       </StyledWrapper>
     </>,

@@ -24,7 +24,7 @@ import {
   StateInputIcon,
   ModalWrapper,
   Modal,
-  Title,
+  ModalTitle,
   Link,
   IconsWrap,
   InputWrapper,
@@ -93,7 +93,7 @@ export const SignInForm = () => {
           <ImageReg />
           <ModalWrapper>
             <Modal>
-              <Title>{t('Sign In')}</Title>
+              <ModalTitle>{t('Sign In')}</ModalTitle>
               <Formik
                 initialValues={initialValues}
                 validationSchema={signInSchema}

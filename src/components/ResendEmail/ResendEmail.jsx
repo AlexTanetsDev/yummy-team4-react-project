@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
+import { useTranslation } from 'react-i18next';
 
 import {
   StyledWrapper,
@@ -15,6 +16,7 @@ import {
   InputField,
   ModalTitle,
   LoaderWrapper,
+  Link,
 } from './ResendEmail.styled';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
@@ -37,6 +39,7 @@ export const ResendEmail = () => {
   const navigate = useNavigate();
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
+  const { t } = useTranslation();
 
   const handleSubmit = async (values, { resetForm }) => {
     await dispatch(resend(values));
@@ -98,6 +101,7 @@ export const ResendEmail = () => {
                 )}
               </Formik>
             </Modal>
+            <Link to="/signin">{t('Sign in')}</Link>
           </>
         </ContentWrapper>
         <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
