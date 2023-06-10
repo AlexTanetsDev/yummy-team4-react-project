@@ -66,17 +66,6 @@ export const Title = styled.h1`
   }
 `;
 
-export const ErrorText = styled.h1`
-  margin-bottom: 34px;
-  text-align: center;
-  font-size: ${p => p.theme.fontSizes.xxxl}px;
-  color: red;
-  @media (min-width: 768px) {
-    margin-bottom: 64px;
-    font-size: ${p => p.theme.fontSizes.xxxxl}px;
-  }
-`;
-
 export const Modal = styled.div`
   display: flex;
   flex-direction: column;

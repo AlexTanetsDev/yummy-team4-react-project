@@ -50,53 +50,55 @@ export const ResendEmail = () => {
     <>
       <StyledWrapper>
         <ContentWrapper>
-          <Title>Please, verify your email!</Title>
-          <Modal>
-            <ModalTitle>Enter your email</ModalTitle>
-            <Formik
-              initialValues={initialValues}
-              validationSchema={emailSchema}
-              onSubmit={handleSubmit}
-            >
-              {({ values, errors, touched }) => (
-                <Form>
-                  <InputWrapper>
-                    <Field
-                      as={InputField}
-                      brdcolor={
-                        (!touched.email && 'white') ||
-                        (errors.email && touched.email && '#e74a3b') ||
-                        (!errors.email && touched.email && '#3cbc81')
-                      }
-                      name="email"
-                      type="text"
-                      placeholder="Email"
-                      values={values.email}
-                    />
-                    <IconWrap>
-                      <StyledFiMail
-                        color={`${
+          <>
+            <Title>Please, verify your email!</Title>
+            <Modal>
+              <ModalTitle>Enter your email</ModalTitle>
+              <Formik
+                initialValues={initialValues}
+                validationSchema={emailSchema}
+                onSubmit={handleSubmit}
+              >
+                {({ values, errors, touched }) => (
+                  <Form>
+                    <InputWrapper>
+                      <Field
+                        as={InputField}
+                        brdcolor={
                           (!touched.email && 'white') ||
                           (errors.email && touched.email && '#e74a3b') ||
                           (!errors.email && touched.email && '#3cbc81')
-                        }`}
+                        }
+                        name="email"
+                        type="text"
+                        placeholder="Email"
+                        values={values.email}
                       />
-                    </IconWrap>
-                    {errors.email && touched.email && (
-                      <StateInputIcon src={errorIcon} />
-                    )}
-                    {!errors.email && touched.email && (
-                      <StateInputIcon src={succesIcon} />
-                    )}
-                    <FormError name="email" component="div" />
-                  </InputWrapper>
-                  <SingInButtonGreen type="submit">
-                    Resend email
-                  </SingInButtonGreen>
-                </Form>
-              )}
-            </Formik>
-          </Modal>
+                      <IconWrap>
+                        <StyledFiMail
+                          color={`${
+                            (!touched.email && 'white') ||
+                            (errors.email && touched.email && '#e74a3b') ||
+                            (!errors.email && touched.email && '#3cbc81')
+                          }`}
+                        />
+                      </IconWrap>
+                      {errors.email && touched.email && (
+                        <StateInputIcon src={errorIcon} />
+                      )}
+                      {!errors.email && touched.email && (
+                        <StateInputIcon src={succesIcon} />
+                      )}
+                      <FormError name="email" component="div" />
+                    </InputWrapper>
+                    <SingInButtonGreen type="submit">
+                      Resend email
+                    </SingInButtonGreen>
+                  </Form>
+                )}
+              </Formik>
+            </Modal>
+          </>
         </ContentWrapper>
         <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
       </StyledWrapper>
