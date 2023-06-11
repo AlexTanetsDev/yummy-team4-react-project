@@ -81,8 +81,12 @@ export const StyledLinkBurger = styled(NavLink)`
   font-size: 18px;
   line-height: 18px;
   letter-spacing: -0.02em;
-  color: #22252a;
-
+  color: ${({ path }) =>
+    path
+      ? path.includes('categories')
+        ? p => p.theme.colors.firstAccentColor
+        : p => p.theme.colors.heroTitle
+      : p => p.theme.colors.heroTitle};
   @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: 24px;
@@ -128,7 +132,11 @@ export const StyledBurger = styled.button`
   margin-left: auto;
   top: 0;
   right: ${p => p.theme.space(6)};
-
+  color: ${p => p.theme.colors.heroTitle};
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: rotate(90deg);
+  }
   @media (min-width: 768px) {
     top: 0;
     right: ${p => p.theme.space(8)};
@@ -162,5 +170,5 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: transparent;
+  background-color: ${p => p.theme.colors.mainBgColor};
 `;

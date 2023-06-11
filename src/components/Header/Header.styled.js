@@ -2,13 +2,6 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as Search } from '../../images/icons/search.svg';
 
-const linkColor = ({ path }) =>
-  path.includes('recipe')
-    ? '#23262A'
-    : path.includes('categories')
-    ? p => p.theme.colors.firstAccentColor
-    : p => p.theme.colors.itemTextColor;
-
 export const StyledHeader = styled.header`
   z-index: 1;
   position: absolute;
@@ -98,6 +91,9 @@ export const SearchIconMobile = styled(Search)`
   margin-right: 8px;
   height: 24px;
   width: 24px;
+  path {
+    stroke: currentColor;
+  }
 `;
 
 export const StyledBurger = styled.button`
@@ -109,6 +105,7 @@ export const StyledBurger = styled.button`
   border-style: none;
   background-color: transparent;
   margin-left: 27.5px;
+  color: ${p => p.theme.colors.heroTitle};
 
   @media screen and (min-width: 768px) {
     margin-left: 54px;

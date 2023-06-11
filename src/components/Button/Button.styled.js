@@ -283,7 +283,7 @@ export const SaveChangesBtn = styled.button`
 
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.secondAccentColor};
+    color: ${p => p.theme.colors.itemTitleColor};
     outline: none;
   }
 `;
@@ -371,7 +371,7 @@ export const CancelBtn = styled.button`
 
   &:hover,
   &:focus {
-    background-color: transparent;
+    opacity: 0, 6;
     border: 1px solid #23262a;
     outline: none;
   }

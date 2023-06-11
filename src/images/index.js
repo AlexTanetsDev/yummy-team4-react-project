@@ -47,6 +47,7 @@ import closeModalIcon from './close-modal-icon.png';
 import userIcon from './user.png';
 import plusIcon from './plus.png';
 import squareWhite from './squareWhite.png';
+import editProfileUser from './editProfileUser.svg';
 
 export {
   leftSpinachDesktop1x,
@@ -98,4 +99,5 @@ export {
   userIcon,
   plusIcon,
   squareWhite,
+  editProfileUser,
 };
