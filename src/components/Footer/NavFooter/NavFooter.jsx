@@ -25,7 +25,7 @@ const NavFooter = () => {
       </li>
       <li>
         <NavLinkStyled to="/favorite" onClick={scrollToTop}>
-          {t('Favorite')}
+          {t('Favorites')}
         </NavLinkStyled>
       </li>
       <li>

@@ -1,5 +1,7 @@
 import { tick } from 'images';
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import {
   DropdownButton,
   DropdownMenu,
@@ -14,6 +16,7 @@ export const CustomDropdownMenu = ({
   selectedOption,
 }) => {
   const modalRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleClickOutside = event => {
@@ -40,13 +43,13 @@ export const CustomDropdownMenu = ({
 
       <DropdownMenu isOpen={isOpen}>
         <DropdownItem onClick={() => handleOptionClick('Title')}>
-          Title
+          {t('Title')}
         </DropdownItem>
         <DropdownItem onClick={() => handleOptionClick('Ingredient')}>
-          Ingredient
+          {t('Ingredient')}
         </DropdownItem>
         <DropdownItem onClick={() => handleOptionClick('Area')}>
-          Area
+          {t('Area')}
         </DropdownItem>
       </DropdownMenu>
     </div>

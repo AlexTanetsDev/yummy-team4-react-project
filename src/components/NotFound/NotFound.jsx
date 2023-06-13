@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import {
   NotFoundContainer,
   AlertContainer,
@@ -44,11 +46,13 @@ const getImageSrc = (
 };
 
 const Alert = () => {
+  const { t } = useTranslation();
+
   return (
     <AlertContainer>
-      <AlertTextPartOne>We are sorry,</AlertTextPartOne>
+      <AlertTextPartOne>{t('We are sorry')},</AlertTextPartOne>
       <AlertTextPartTwo>
-        but the page you were looking for can’t be found...
+        {t('But the page you were looking for can’t be found...')}
       </AlertTextPartTwo>
     </AlertContainer>
   );

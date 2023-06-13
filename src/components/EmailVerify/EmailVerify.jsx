@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { verify } from 'redux/auth/operations';
@@ -22,6 +23,7 @@ export const EmailVerify = () => {
   const params = useParams();
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const EmailVerification = async verificationToken => {
@@ -41,14 +43,14 @@ export const EmailVerify = () => {
               <LogoImage src={startPageLogo} />
             </Logo>
             {!error ? (
-              <Title>Email verified!</Title>
+              <Title>{t('Email verified!')}</Title>
             ) : (
               <ErrorText>
-                Your email has already been verified or email not found!
+                {t('Your email has already been verified or email not found!')}
               </ErrorText>
             )}
             <ButtonWrapper>
-              <SingInButton>SigngIn</SingInButton>
+              <SingInButton>{t('Sign In')}</SingInButton>
             </ButtonWrapper>
           </ContentWrapper>
         </StyledWrapper>

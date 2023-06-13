@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FieldArray, Field } from 'formik';
 import { FiMinus, FiPlus, FiX } from 'react-icons/fi';
 
@@ -215,6 +216,7 @@ export const RecipeIngridientsFields = ({ formik }) => {
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     (async () => {
@@ -241,7 +243,7 @@ export const RecipeIngridientsFields = ({ formik }) => {
         render={arrayHelpers => (
           <div>
             <TopContainer>
-              <Title>Ingredients</Title>
+              <Title>{t('Ingredients')}</Title>
               <MultButtonContainer>
                 <div className="col">
                   <MultButton
@@ -284,7 +286,7 @@ export const RecipeIngridientsFields = ({ formik }) => {
                         as={CustomSelect}
                         options={ingredients}
                         customStyles={IngredientInputStyles}
-                        label={'Ingredient...'}
+                        label={t('Ingredient...')}
                         name={`ingredients.${index}.name`}
                         id={`ingredients.${index}.name`}
                         onChange={option => {

@@ -1,5 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { FiTrash2 } from 'react-icons/fi';
 
@@ -34,6 +35,8 @@ export const FavoriteItem = ({
     query: '(max-width: 767px)',
   });
   const location = useLocation();
+  const { t } = useTranslation();
+
   return (
     <>
       {isMobile ? (
@@ -51,7 +54,9 @@ export const FavoriteItem = ({
               <InstructionsText>{instructions}</InstructionsText>
             </TextWrapper>
             <TimeWrapper>
-              <TimeText>{time} min</TimeText>
+              <TimeText>
+                {time} {t('Min')}
+              </TimeText>
             </TimeWrapper>
           </InfoWrapper>
         </StyledFavoriteItem>
@@ -68,13 +73,15 @@ export const FavoriteItem = ({
               <InstructionsText>{instructions}</InstructionsText>
             </TextWrapper>
             <TimeWrapper>
-              <TimeText>{time} min</TimeText>
+              <TimeText>
+                {time} {t('Min')}
+              </TimeText>
             </TimeWrapper>
           </InfoWrapper>
           <SeeRecipeButtonBlack
             to={`/recipe/${id}`}
             state={{ from: location }}
-            children="See recipe"
+            children={t('See recipe')}
           />
         </StyledFavoriteItem>
       )}

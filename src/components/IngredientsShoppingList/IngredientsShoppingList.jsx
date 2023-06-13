@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+
 import { IngridientsShoppingListItem } from './IngridientsShoppingListItem';
 import {
   Header,
@@ -11,15 +13,17 @@ export const IngridientsShoppingList = ({
   handleDelete,
   state,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Header>
         <div>
-          <span>Products</span>
+          <span>{t('Products')}</span>
         </div>
         <NumberIRemoveWrapper>
-          <span>Number</span>
-          <span>Remove</span>
+          <span>{t('Number')}</span>
+          <span>{t('Remove')}</span>
         </NumberIRemoveWrapper>
       </Header>
 

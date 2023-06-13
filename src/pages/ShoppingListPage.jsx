@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { IngridientsShoppingList } from '../components/IngredientsShoppingList/IngredientsShoppingList';
 import {
   deleteShoppingListItem,
@@ -16,6 +18,7 @@ const ShoppingList = () => {
   const [ingridients, setIngridients] = useState([]);
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     (async () => {
@@ -40,12 +43,12 @@ const ShoppingList = () => {
     deleteShoppingListItem(id).then(resp =>
       setIngridients(ingridients.filter(item => item._id !== id))
     );
-    toast.success('Ingredient removed');
+    toast.success(t('Deleted'));
   };
 
   return (
     <Container>
-      <ShoppingListTitle>Shopping List</ShoppingListTitle>
+      <ShoppingListTitle>{t('Shopping List')}</ShoppingListTitle>
 
       {isLoading ? (
         <MiniLoader />
@@ -58,7 +61,7 @@ const ShoppingList = () => {
       )}
       {location.state && (
         <GoBackToRecipeBtn from={location.state}>
-          Back to recipes
+          {t('Back to recipes')}
         </GoBackToRecipeBtn>
       )}
     </Container>

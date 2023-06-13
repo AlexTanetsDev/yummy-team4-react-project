@@ -59,13 +59,13 @@ export const SignInForm = () => {
   const [type, setType] = useState('password');
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
   const error = useSelector(selectError);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(categoryList());
     }
   }, [dispatch, isLoggedIn]);
-  const { t } = useTranslation();
 
   const handleSubmit = async (values, { resetForm }) => {
     await dispatch(signIn(values));
@@ -190,8 +190,8 @@ export const SignInForm = () => {
                   </Form>
                 )}
               </Formik>
-              <ResendLink to="/resend">Resend verification email</ResendLink>
-              <ResendLink to="/forgot">Forgot a password</ResendLink>
+              <ResendLink to="/resend">{t('Resend')}</ResendLink>
+              <ResendLink to="/forgot">{t('Forgot a password')}</ResendLink>
             </Modal>
             <Link to="/register">{t('Registration')}</Link>
           </ModalWrapper>
