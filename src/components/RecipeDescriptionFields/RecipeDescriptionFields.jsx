@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { Field } from 'formik';
 
 import { selectCategoryList } from 'redux/auth/selectors';
@@ -161,6 +162,7 @@ export const RecipeDescriptionFields = ({ formik }) => {
   const [categories, setCategories] = useState([]);
 
   const categoriesList = useSelector(selectCategoryList);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const categoriesObj = categoriesList.map(category => ({
@@ -184,7 +186,7 @@ export const RecipeDescriptionFields = ({ formik }) => {
 
       <InputFieldsContainer>
         <FieldContainer>
-          <LabelTitle htmlFor="title">Enter item title</LabelTitle>
+          <LabelTitle htmlFor="title">{t('Enter item title')}</LabelTitle>
           <InputTitle
             type="text"
             id="title"
@@ -196,7 +198,9 @@ export const RecipeDescriptionFields = ({ formik }) => {
         </FieldContainer>
 
         <FieldContainer>
-          <LabelTitle htmlFor="description">Enter about recipe</LabelTitle>
+          <LabelTitle htmlFor="description">
+            {t('Enter about recipe')}
+          </LabelTitle>
           <InputTitle
             id="description"
             type="text"
@@ -208,7 +212,7 @@ export const RecipeDescriptionFields = ({ formik }) => {
         </FieldContainer>
 
         <FieldSelectContainer>
-          <LabelCategory htmlFor="category">Category</LabelCategory>
+          <LabelCategory htmlFor="category">{t('Category')}</LabelCategory>
           <Field
             as={CustomSelect}
             options={categories}
@@ -227,7 +231,7 @@ export const RecipeDescriptionFields = ({ formik }) => {
         </FieldSelectContainer>
 
         <FieldSelectContainer>
-          <LabelCategory htmlFor="time">Cooking Time</LabelCategory>
+          <LabelCategory htmlFor="time">{t('Cooking Time')}</LabelCategory>
           <Field
             as={CustomSelect}
             options={times}

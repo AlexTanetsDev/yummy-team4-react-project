@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
@@ -25,6 +26,7 @@ export const RecipeHero = ({ descr, title, time, id, favorites }) => {
   const [isOwner, setIsOwner] = useState(false);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (favorites?.includes(user.id)) {
@@ -36,7 +38,7 @@ export const RecipeHero = ({ descr, title, time, id, favorites }) => {
     const resp = await addFavoriteById(id);
     if (resp) {
       setIsOwner(true);
-      toast.success('Added to favorite sucsess!');
+      toast.success(t('Added'));
 
       const { firstFavoriteRecipe } = resp;
       dispatch(updateMotivation({ firstFavoriteRecipe }));
@@ -48,7 +50,7 @@ export const RecipeHero = ({ descr, title, time, id, favorites }) => {
 
     if (resp) {
       setIsOwner(false);
-      toast.error('Deleted from favorites');
+      toast.error(t('Deleted'));
     }
   };
 
@@ -61,17 +63,19 @@ export const RecipeHero = ({ descr, title, time, id, favorites }) => {
           {!isOwner ? (
             <AddToFavoriteButton
               onClick={handleAddToFavorite}
-              children={'Add to favorite recipes'}
+              children={t('Add to favorite recipes')}
             />
           ) : (
             <RemoveFromFavoriteBtn
               onClick={handleRemoveFromFavorites}
-              children={'Remove from favorite'}
+              children={t('Remove from favorite')}
             />
           )}
           <HeroSectionRecipeTimeBox>
             <ClockIcon />
-            <HeroSectionRecipeTime>{time} min</HeroSectionRecipeTime>
+            <HeroSectionRecipeTime>
+              {time} {t('Min')}
+            </HeroSectionRecipeTime>
           </HeroSectionRecipeTimeBox>
         </>
       ) : (

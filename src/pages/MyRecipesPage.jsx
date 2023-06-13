@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Sections } from 'components/Sections/Sections';
 import { Container } from 'components/Container/Container';
@@ -18,6 +19,7 @@ const MyRecipesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const renderMyRecipesPage = async () => {
@@ -43,7 +45,7 @@ const MyRecipesPage = () => {
       setIsLoading(true);
 
       await OwnRecipeApi.DeleteRecipe(id);
-      toast.error('Deleted from my recipes');
+      toast.error(t('Deleted'));
 
       if (currentPage > 1 && lastPage === currentPage && lastItem === 1) {
         setCurrentPage(currentPage - 1);
@@ -68,11 +70,9 @@ const MyRecipesPage = () => {
       <Sections>
         <Container>
           {error && (
-            <AlertMessage>
-              Oops, something went wrong. Please try again later...
-            </AlertMessage>
+            <AlertMessage>{t('Oops, something went wrong')}</AlertMessage>
           )}
-          <SectionTitle title="My recipes" />
+          <SectionTitle title={t('My recipes Title')} />
           {isLoading ? (
             <MiniLoader />
           ) : (
@@ -112,7 +112,7 @@ const MyRecipesPage = () => {
                   />
                 </>
               ) : (
-                <AlertMessage>Please add the recipe...</AlertMessage>
+                <AlertMessage>{t('Please add the recipe...')}</AlertMessage>
               )}
             </>
           )}

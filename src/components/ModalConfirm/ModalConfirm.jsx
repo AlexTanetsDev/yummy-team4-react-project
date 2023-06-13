@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import { logOut } from '../../redux/auth/operations';
 import { CancelButton, LogOutButton } from '../Button/Button';
 import {
@@ -17,6 +19,7 @@ export const ModalConfirm = ({ opened, onClose }) => {
   const navigate = useNavigate();
   const [isShow, setIsShow] = useState(opened);
   const tooltipRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleClick = e => {
@@ -53,13 +56,13 @@ export const ModalConfirm = ({ opened, onClose }) => {
             <CloseModalBtn type="button" onClick={onClose}>
               <CloseModalIcon src={closeModalIcon} alt="close" />
             </CloseModalBtn>
-            <LogoutTitle>Are you sure you want to log out?</LogoutTitle>
+            <LogoutTitle>{t('Are you sure you want to log out')}</LogoutTitle>
             <WrapBtn>
               <LogOutButton onClick={handleBtnConfirmLogoutClick}>
-                Log out
+                {t('Log out')}
               </LogOutButton>
               <CancelButton type="button" onClick={onClose}>
-                Cancel
+                {t('Cancel')}
               </CancelButton>
             </WrapBtn>
           </Modal>

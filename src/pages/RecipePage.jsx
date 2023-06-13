@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { getRecipeById } from 'apiService';
 import { useSelector } from 'react-redux';
 import { useParams, useLocation } from 'react-router-dom';
@@ -17,6 +19,7 @@ const RecipePage = () => {
   const { recipeId } = useParams();
   let location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
+  const { t } = useTranslation();
   const { pathname, search } = location.state?.from;
 
   useEffect(() => {
@@ -63,7 +66,7 @@ const RecipePage = () => {
           </>
         )}
         <GoBackToRecipeBtn from={pathname + search}>
-          Back to recipes
+          {t('Back to recipes')}
         </GoBackToRecipeBtn>
       </Container>
     </>

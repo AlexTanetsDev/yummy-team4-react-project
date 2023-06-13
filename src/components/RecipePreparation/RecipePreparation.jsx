@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import {
   RecipePreparationWrapper,
   PreparationTitle,
@@ -9,12 +11,14 @@ import {
 } from './RecipePreparation.styled';
 
 export const RecepiePreparation = ({ image, instructions }) => {
+  const { t } = useTranslation();
+
   let pointNumber = 0;
 
   return (
     <RecipePreparationWrapper>
       <div>
-        <PreparationTitle>Recipe Preparation</PreparationTitle>
+        <PreparationTitle>{t('Recipe Preparation')}</PreparationTitle>
         <PreparationList>
           {instructions?.map(item => {
             if (item === '\r') {
