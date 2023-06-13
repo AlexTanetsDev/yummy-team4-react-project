@@ -56,7 +56,7 @@ export const ModalConfirm = ({ opened, onClose }) => {
             <CloseModalBtn type="button" onClick={onClose}>
               <CloseModalIcon src={closeModalIcon} alt="close" />
             </CloseModalBtn>
-            <LogoutTitle>{t('Are you sure you want to log out?')}</LogoutTitle>
+            <LogoutTitle>{t('Are you sure you want to log out')}</LogoutTitle>
             <WrapBtn>
               <LogOutButton onClick={handleBtnConfirmLogoutClick}>
                 {t('Log out')}
