@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
-import { useTranslation } from 'react-i18next';
 
 import {
   StyledWrapper,
@@ -41,7 +40,6 @@ export const ForgotEmail = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
   const handleSubmit = async (values, { resetForm }) => {
     await dispatch(forgot(values));
@@ -56,7 +54,6 @@ export const ForgotEmail = () => {
     <>
       <StyledWrapper>
         <ContentWrapper>
-
           <Title>{t('Recovery password')}</Title>
 
           <Modal>

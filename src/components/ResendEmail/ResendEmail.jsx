@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
-import { useTranslation } from 'react-i18next';
 
 import {
   StyledWrapper,
@@ -97,7 +96,7 @@ export const ResendEmail = () => {
                       <FormError name="email" component="div" />
                     </InputWrapper>
                     <SingInButtonGreen type="submit">
-                       {t('Resend email')}
+                      {t('Resend email')}
                     </SingInButtonGreen>
                   </Form>
                 )}
@@ -105,7 +104,6 @@ export const ResendEmail = () => {
             </Modal>
             <Link to="/signin">{t('Sign in')}</Link>
           </>
-
         </ContentWrapper>
         <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
       </StyledWrapper>
