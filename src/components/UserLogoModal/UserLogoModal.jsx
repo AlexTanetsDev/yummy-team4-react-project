@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from 'react-i18next';
 import { ModalConfirm } from '../ModalConfirm/ModalConfirm';
 import {
   EditIcon,
@@ -10,6 +10,7 @@ import {
   UserModal,
   LogoutIcon,
 } from './UserLogoModal.styled';
+
 import { editIcon, arrowRightIcon } from '../../images';
 import { UserImfoModal } from '../UserInfoModal/UserInfoModal';
 
@@ -17,7 +18,9 @@ export const UserLogoModal = ({ opened }) => {
   const [logout, setLogout] = useState(false);
   const [edit, setEdit] = useState(false);
   const [isShow, setIsShow] = useState(opened);
+
   const { t } = useTranslation();
+
 
   const tooltipRef = useRef(null);
 
@@ -55,6 +58,7 @@ export const UserLogoModal = ({ opened }) => {
       {isShow && (
         <UserModal ref={tooltipRef}>
           <EditProfile type="button" onClick={handleToggleEditModalClick}>
+
             <p>
               {t('Edit profile')}
               <EditIcon src={editIcon} alt="edit button" />

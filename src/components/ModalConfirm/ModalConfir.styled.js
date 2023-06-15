@@ -13,6 +13,7 @@ export const Modal = styled.div`
   border-radius: 30px;
   background-color: ${p => p.theme.colors.mainBgColor};
   border: solid 1px ${p => p.theme.colors.firstAccentColor};
+  color: ${p => p.theme.colors.mainTitleText};
   @media (max-width: 400px) {
     width: 310px;
     padding-top: 50px;
@@ -35,8 +36,11 @@ export const CloseModalBtn = styled.button`
   right: 18px;
   display: block;
   padding: 0;
-  background-color: transparent;
+  background-color: ${p => p.theme.colors.lightGreenText};
+  border-radius: 50%;
+  padding: 2px;
   border: none;
+
   @media (min-width: 768px) {
     top: 24px;
     right: 24px;
@@ -51,6 +55,7 @@ export const CloseModalIcon = styled.img`
   display: block;
   width: 20px;
   height: 20px;
+
   @media (min-width: 768px) {
     width: 24px;
     height: 24px;

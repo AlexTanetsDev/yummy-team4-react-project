@@ -15,9 +15,12 @@ import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 import { LogoHeader } from 'components/Logo/Logo';
 
 import { IoMdClose } from 'react-icons/io';
+import { useLocation } from 'react-router-dom';
+import { red } from '@mui/material/colors';
 
 export const Modal = ({ active, setActive }) => {
   const { t } = useTranslation();
+  const location = useLocation();
 
   return (
     <MobileMenu
@@ -43,6 +46,7 @@ export const Modal = ({ active, setActive }) => {
             onClick={() => {
               setActive(false);
             }}
+            path={location.pathname}
           >
             {t('Categories')}
           </StyledLinkBurger>
