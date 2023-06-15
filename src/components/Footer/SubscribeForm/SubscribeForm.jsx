@@ -66,7 +66,7 @@ const SubscribeForm = () => {
               <Input
                 type="email"
                 name="email"
-                placeholder="Enter your email address"
+                placeholder={t('Enter your email address')}
                 border={
                   props.touched.email && props.errors.email
                     ? '1px solid #E74A3B'

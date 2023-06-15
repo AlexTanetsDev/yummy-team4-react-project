@@ -9,9 +9,12 @@ import {
 } from './SearchedRecipesList.styled';
 import { vegetablesBasket } from '../../images/index';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const SearchedRecipesList = ({ recipes }) => {
   const location = useLocation();
+  const { t } = useTranslation();
+
   return (
     <RecipesList>
       {recipes && recipes.length > 0 ? (
@@ -30,7 +33,7 @@ export const SearchedRecipesList = ({ recipes }) => {
       ) : (
         <ImageWrapper>
           <ImageBasket src={vegetablesBasket} alt="Vegetables basket" />
-          <Title>Try looking for something else...</Title>
+          <Title>{t('Try looking for something else...')}</Title>
         </ImageWrapper>
       )}
     </RecipesList>

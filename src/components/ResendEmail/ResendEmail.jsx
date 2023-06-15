@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
 
 import {
@@ -40,6 +41,7 @@ export const ResendEmail = () => {
   const navigate = useNavigate();
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
+  const { t } = useTranslation();
 
   const handleSubmit = async (values, { resetForm }) => {
     await dispatch(resend(values));
@@ -57,9 +59,9 @@ export const ResendEmail = () => {
           <Logo>
             <LogoImage src={startPageLogo} />
           </Logo>
-          <Title>Please, verify your email!</Title>
+          <Title>{t('Please, verify your email!')}</Title>
           <Modal>
-            <ModalTitle>Enter your email</ModalTitle>
+            <ModalTitle>{t('Enter your email address')}</ModalTitle>
             <Formik
               initialValues={initialValues}
               validationSchema={emailSchema}
@@ -77,7 +79,7 @@ export const ResendEmail = () => {
                       }
                       name="email"
                       type="text"
-                      placeholder="Email"
+                      placeholder={t('Email')}
                       values={values.email}
                     />
                     <IconWrap>
@@ -98,7 +100,7 @@ export const ResendEmail = () => {
                     <FormError name="email" component="div" />
                   </InputWrapper>
                   <SingInButtonGreen type="submit">
-                    Resend email
+                    {t('Send email')}
                   </SingInButtonGreen>
                 </Form>
               )}
