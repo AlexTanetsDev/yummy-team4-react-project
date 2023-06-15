@@ -283,7 +283,7 @@ export const SaveChangesBtn = styled.button`
 
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.secondAccentColor};
+    color: ${p => p.theme.colors.itemTitleColor};
     outline: none;
   }
 `;
@@ -314,7 +314,7 @@ export const SeeAllBtn = styled.button`
 export const LogOutBtn = styled.button`
   width: 137px;
   margin-right: 8px;
-  padding: 14px 18px;
+  padding: 14px 0;
   background-color: ${p => p.theme.colors.firstAccentColor};
   color: ${p => p.theme.colors.mainBgColor};
   font-family: 'Poppins';
@@ -330,7 +330,7 @@ export const LogOutBtn = styled.button`
   }
 
   @media (min-width: 768px) {
-    padding: 19px 65px;
+    padding: 19px 0;
     width: 192px;
     margin-right: 16px;
     font-size: ${p => p.theme.fontSizes.xl}px;
@@ -346,7 +346,7 @@ export const LogOutBtn = styled.button`
 `;
 
 export const CancelBtn = styled.button`
-  padding: 14px 44px;
+  padding: 14px 0;
   width: 137px;
   background-color: #d9d9d9;
   color: #23262a;
@@ -363,7 +363,7 @@ export const CancelBtn = styled.button`
   }
 
   @media (min-width: 768px) {
-    padding: 19px 68px;
+    padding: 19px 0;
     width: 192px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 18px;
@@ -371,14 +371,14 @@ export const CancelBtn = styled.button`
 
   &:hover,
   &:focus {
-    background-color: transparent;
+    opacity: 0, 6;
     border: 1px solid #23262a;
     outline: none;
   }
 `;
 
 export const AddBtn = styled.button`
-  padding: 11px 48px;
+  padding: 11px 0;
   width: 129px;
   background-color: ${p => p.theme.colors.secondAccentColor};
   color: ${p => p.theme.colors.footerText};
@@ -391,7 +391,7 @@ export const AddBtn = styled.button`
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
-    padding: 13px 64px;
+    padding: 13px 0;
     width: 161px;
   }
 

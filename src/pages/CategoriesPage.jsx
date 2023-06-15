@@ -7,6 +7,8 @@ import { CategoryList } from 'components/CategoryList/CategoryList';
 import { NavCategory } from 'components/CategoryList/CategoryList.styled';
 import { ResipeCategoriItems } from 'components/ResipeCategoriItems/ResipeCategoriItems';
 import { useParams, useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import { getRecipesByCategory } from 'apiService';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
 import { MiniLoader } from 'components/Loader/Loader';
@@ -22,6 +24,7 @@ const CategoriesPage = () => {
   const [error, setError] = useState('');
   const categories = useSelector(selectCategoryList);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
+  const { t } = useTranslation();
 
   const [currentPage, setCurrentPage] = useState(() => {
     const page = searchParams.get('page')
@@ -74,11 +77,9 @@ const CategoriesPage = () => {
   return (
     <Container>
       {error ? (
-        <AlertMessage>
-          Oops, something went wrong. Please try again later...
-        </AlertMessage>
+        <AlertMessage>{t('Oops, something went wrong')}</AlertMessage>
       ) : (
-        <Sections title="Categories">
+        <Sections title={t('Categories')}>
           <NavCategory>
             <CategoryList categories={categories} />
           </NavCategory>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
   PreparationContainer,
@@ -10,14 +11,16 @@ import {
 } from './RecipePreparationFields.styled';
 
 export const RecipePreparationFields = ({ formik }) => {
+  const { t } = useTranslation();
+
   return (
     <PreparationContainer>
-      <Title>Recipe Preparation</Title>
+      <Title>{t('Recipe Preparation')}</Title>
       <InputContainer>
         <label htmlFor="preparationDescription"></label>
         <InputRecipe
           id="preparationDescription"
-          placeholder="Enter recipe"
+          placeholder={t('Enter recipe')}
           maxLength="300"
           {...formik.getFieldProps('preparation')}
         />

@@ -260,7 +260,7 @@ export const ResetPassword = () => {
           <ContentWrapper>
             <ErrorText>{error}</ErrorText>
             <ButtonWrapper>
-              <SingInButton>SigngIn</SingInButton>
+              <SingInButton>{t('Sign in')}</SingInButton>
             </ButtonWrapper>
           </ContentWrapper>
         )}

@@ -18,7 +18,7 @@ export function Search({ onSubmit }) {
     eve.preventDefault();
 
     if (searchQuery.trim() === '') {
-      toast.error('Enter the recipe name or ingredient to search.', {
+      toast.error(t('Enter the recipe name or ingredient to search'), {
         style: {
           border: '1px solid #eb300d',
           padding: '16px',

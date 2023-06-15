@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import { PopularApi } from '../../apiService';
 import { MiniLoader } from 'components/Loader/Loader';
 import { AlertMessage } from 'components/AlertMessage/AlertMessage';
@@ -22,6 +24,7 @@ export const PopularRecipe = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     (async () => {
@@ -39,18 +42,14 @@ export const PopularRecipe = () => {
 
   return (
     <ContainerPopular>
-      {error && (
-        <AlertMessage>
-          Oops, something went wrong. Please try again later...
-        </AlertMessage>
-      )}
+      {error && <AlertMessage>{t('Oops, something went wrong')}</AlertMessage>}
       {isLoading ? (
         <MiniLoader />
       ) : (
         <>
           {popular.length > 0 ? (
             <>
-              <Title>Popular recipe</Title>
+              <Title>{t('Popular recipe')}</Title>
               <PopularList>
                 {popular.map(({ id, preview, title, description }) => (
                   <PopularItem key={id}>
@@ -69,7 +68,7 @@ export const PopularRecipe = () => {
             </>
           ) : (
             <ContainerEmpty>
-              <Title>No popular recipe...</Title>
+              <Title>{t('No recipes are found')}</Title>
             </ContainerEmpty>
           )}
         </>

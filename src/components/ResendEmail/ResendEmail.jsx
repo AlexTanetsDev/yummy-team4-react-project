@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
 import { useTranslation } from 'react-i18next';
 
@@ -54,9 +55,9 @@ export const ResendEmail = () => {
       <StyledWrapper>
         <ContentWrapper>
           <>
-            <Title>Please, verify your email!</Title>
+            <Title>{t('Please, verify your email!')}</Title>
             <Modal>
-              <ModalTitle>Enter your email</ModalTitle>
+              <ModalTitle>{t('Enter your email')}</ModalTitle>
               <Formik
                 initialValues={initialValues}
                 validationSchema={emailSchema}
@@ -74,9 +75,10 @@ export const ResendEmail = () => {
                         }
                         name="email"
                         type="text"
-                        placeholder="Email"
+                        placeholder={t('Email')}
                         values={values.email}
                       />
+
                       <IconWrap>
                         <StyledFiMail
                           color={`${
@@ -95,7 +97,7 @@ export const ResendEmail = () => {
                       <FormError name="email" component="div" />
                     </InputWrapper>
                     <SingInButtonGreen type="submit">
-                      Resend email
+                       {t('Resend email')}
                     </SingInButtonGreen>
                   </Form>
                 )}
@@ -103,6 +105,7 @@ export const ResendEmail = () => {
             </Modal>
             <Link to="/signin">{t('Sign in')}</Link>
           </>
+
         </ContentWrapper>
         <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
       </StyledWrapper>

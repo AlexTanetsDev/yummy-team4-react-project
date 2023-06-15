@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import ReactCountryFlag from 'react-country-flag';
+import { useTranslation } from 'react-i18next';
+
 import { getSearchedRecipes } from '../apiService/search.js';
 import { getAreasList } from '../apiService';
 import { Sections } from 'components/Sections/Sections';
@@ -33,6 +35,7 @@ const SearchPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [areasList, setAreasList] = useState([]);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     (async () => {
@@ -55,12 +58,12 @@ const SearchPage = () => {
         setRecipes(data);
         setTotalRecipe(total);
         if (data.length > 0) {
-          toast.success('Recipes are found!');
+          toast.success(t('Recipes are found!'));
         } else {
-          toast.error('No recipes are found');
+          toast.error(t('No recipes are found'));
         }
       } catch (error) {
-        toast.error('No recipes with this ingredient are found');
+        toast.error(t('No recipes with this ingredient are found'));
         setRecipes([]);
         setTotalRecipe(0);
       } finally {
@@ -68,7 +71,7 @@ const SearchPage = () => {
       }
     };
     fetchData();
-  }, [query, selectedOptionFinal]);
+  }, [query, selectedOptionFinal, t]);
 
   const searcRecipe = async page => {
     try {
@@ -80,7 +83,7 @@ const SearchPage = () => {
       );
       setRecipes(data);
     } catch (error) {
-      toast.error('Oops.. something went wrong try again');
+      toast.error(t('Oops.. something went wrong try again'));
       setRecipes([]);
       setTotalRecipe(0);
     } finally {
@@ -126,7 +129,7 @@ const SearchPage = () => {
     <>
       <Sections>
         <Container>
-          <SectionTitle title="Search" />
+          <SectionTitle title={t('Search')} />
           {selectedOption === 'Area' ? (
             <FlagsList>
               {areasList.map(area => {

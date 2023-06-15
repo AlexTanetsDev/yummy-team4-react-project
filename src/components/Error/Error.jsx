@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../utils/theme';
 import {
@@ -47,13 +49,15 @@ const getImageSrc = (
 };
 
 const Alert = () => {
+  const { t } = useTranslation();
+
   return (
     <ThemeProvider theme={theme}>
       <AlertContainer>
-        <AlertTextPartOne>We are sorry,</AlertTextPartOne>
+        <AlertTextPartOne>{t('We are sorry')},</AlertTextPartOne>
         <AlertTextPartTwo>
-          but you are not logged in. Please return to the{' '}
-          <AlertTextLink to="/">main page...</AlertTextLink>
+          {t('But you are not logged in')}{' '}
+          <AlertTextLink to="/">{t('Main page...')}</AlertTextLink>
         </AlertTextPartTwo>
       </AlertContainer>
     </ThemeProvider>
