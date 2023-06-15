@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -28,6 +29,7 @@ import {
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
   LoaderWrapper,
+  Link,
 } from './ResetPassword.styled';
 import { errorIcon, warningIcon, succesIcon } from 'images';
 import { SingInButton } from 'components/Button/Button';
@@ -102,150 +104,158 @@ export const ResetPassword = () => {
     }
   };
 
-  return (
+  return ReactDOM.createPortal(
     <>
       <StyledWrapper>
-        <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
         {!error ? (
-          <ContentWrapper>
-            <ModalWrapper>
-              <Modal>
-                <Title>{t('Enter your new password')}</Title>
-                <Formik
-                  initialValues={initialValues}
-                  validationSchema={passwordSchema}
-                  onSubmit={handleSubmit}
-                >
-                  {({ values, errors, touched }) => (
-                    <Form autoComplete="off">
-                      <InputWrapper>
-                        <Field
-                          type={type}
-                          name="password"
-                          placeholder={t('Password')}
-                          values={values.password}
-                          as={InputField}
-                          brdcolor={
-                            (!touched.password && 'white') ||
-                            (errors.password &&
-                              touched.password &&
-                              '#e74a3b') ||
-                            (6 <= values.password.length &&
+          <>
+            <ContentWrapper>
+              <ModalWrapper>
+                <Modal>
+                  <Title>{t('Enter your new password')}</Title>
+                  <Formik
+                    initialValues={initialValues}
+                    validationSchema={passwordSchema}
+                    onSubmit={handleSubmit}
+                  >
+                    {({ values, errors, touched }) => (
+                      <Form autoComplete="off">
+                        <InputWrapper>
+                          <Field
+                            type={type}
+                            name="password"
+                            placeholder={t('Password')}
+                            values={values.password}
+                            as={InputField}
+                            brdcolor={
+                              (!touched.password && 'white') ||
+                              (errors.password &&
+                                touched.password &&
+                                '#e74a3b') ||
+                              (6 <= values.password.length &&
+                                values.password.length < 8 &&
+                                '#f6c23e') ||
+                              (8 <= values.password.length && '#3cbc81')
+                            }
+                          />
+                          <StyledFiLock
+                            color={`${
+                              (!touched.password && 'white') ||
+                              (errors.password &&
+                                touched.password &&
+                                '#e74a3b') ||
+                              (6 <= values.password.length &&
+                                values.password.length < 8 &&
+                                '#f6c23e') ||
+                              (8 <= values.password.length && '#3cbc81')
+                            }`}
+                          />
+                          <IconsWrap>
+                            {6 <= values.password.length &&
                               values.password.length < 8 &&
-                              '#f6c23e') ||
-                            (8 <= values.password.length && '#3cbc81')
-                          }
-                        />
-                        <StyledFiLock
-                          color={`${
-                            (!touched.password && 'white') ||
-                            (errors.password &&
-                              touched.password &&
-                              '#e74a3b') ||
-                            (6 <= values.password.length &&
-                              values.password.length < 8 &&
-                              '#f6c23e') ||
-                            (8 <= values.password.length && '#3cbc81')
-                          }`}
-                        />
-                        <IconsWrap>
+                              !errors.password && (
+                                <StateInputIcon src={warningIcon} />
+                              )}
+                            {8 <= values.password.length &&
+                              !errors.password && (
+                                <StateInputIcon src={succesIcon} />
+                              )}
+                            {errors.password && touched.password && (
+                              <StateInputIcon src={errorIcon} />
+                            )}
+                            <EyeIcon onClick={handleClick}>
+                              {toggleIcon}
+                            </EyeIcon>
+                          </IconsWrap>
                           {6 <= values.password.length &&
                             values.password.length < 8 &&
                             !errors.password && (
-                              <StateInputIcon src={warningIcon} />
+                              <WarningAndSuccessMessage color={'#f6c23e'}>
+                                {t('Your password is little secure')}
+                              </WarningAndSuccessMessage>
                             )}
                           {8 <= values.password.length && !errors.password && (
-                            <StateInputIcon src={succesIcon} />
-                          )}
-                          {errors.password && touched.password && (
-                            <StateInputIcon src={errorIcon} />
-                          )}
-                          <EyeIcon onClick={handleClick}>{toggleIcon}</EyeIcon>
-                        </IconsWrap>
-                        {6 <= values.password.length &&
-                          values.password.length < 8 &&
-                          !errors.password && (
-                            <WarningAndSuccessMessage color={'#f6c23e'}>
-                              {t('Your password is little secure')}
-                            </WarningAndSuccessMessage>
-                          )}
-                        {8 <= values.password.length && !errors.password && (
-                          <WarningAndSuccessMessage color={'#3cbc81'}>
-                            {t('Password is secure')}
-                          </WarningAndSuccessMessage>
-                        )}
-                        <FormError name="password" component="div" />
-                      </InputWrapper>
-                      <InputWrapper>
-                        <Field
-                          type={type}
-                          name="confirmPassword"
-                          placeholder={t('Confirm password')}
-                          values={values.confirmPassword}
-                          as={InputField}
-                          brdcolor={
-                            (!touched.confirmPassword && 'white') ||
-                            (errors.confirmPassword &&
-                              touched.confirmPassword &&
-                              '#e74a3b') ||
-                            (6 <= values.confirmPassword.length &&
-                              values.confirmPassword.length < 8 &&
-                              '#f6c23e') ||
-                            (8 <= values.confirmPassword.length && '#3cbc81')
-                          }
-                        />
-                        <StyledFiLock
-                          color={`${
-                            (!touched.confirmPassword && 'white') ||
-                            (errors.confirmPassword &&
-                              touched.confirmPassword &&
-                              '#e74a3b') ||
-                            (6 <= values.confirmPassword.length &&
-                              values.confirmPassword.length < 8 &&
-                              '#f6c23e') ||
-                            (8 <= values.confirmPassword.length && '#3cbc81')
-                          }`}
-                        />
-                        <IconsWrap>
-                          {6 <= values.confirmPassword.length &&
-                            values.confirmPassword.length < 8 &&
-                            !errors.confirmPassword && (
-                              <StateInputIcon src={warningIcon} />
-                            )}
-                          {8 <= values.confirmPassword.length &&
-                            !errors.confirmPassword && (
-                              <StateInputIcon src={succesIcon} />
-                            )}
-                          {errors.confirmPassword &&
-                            touched.confirmPassword && (
-                              <StateInputIcon src={errorIcon} />
-                            )}
-                          <EyeIcon onClick={handleClick}>{toggleIcon}</EyeIcon>
-                        </IconsWrap>
-                        {6 <= values.confirmPassword.length &&
-                          values.confirmPassword.length < 8 &&
-                          !errors.confirmPassword && (
-                            <WarningAndSuccessMessage color={'#f6c23e'}>
-                              {t('Your password is little secure')}
-                            </WarningAndSuccessMessage>
-                          )}
-                        {8 <= values.confirmPassword.length &&
-                          !errors.confirmPassword && (
                             <WarningAndSuccessMessage color={'#3cbc81'}>
                               {t('Password is secure')}
                             </WarningAndSuccessMessage>
                           )}
-                        <FormError name="confirmPassword" component="div" />
-                      </InputWrapper>
-                      <SingInButtonGreen type="submit">
-                        {t('Sign up')}
-                      </SingInButtonGreen>
-                    </Form>
-                  )}
-                </Formik>
-              </Modal>
-            </ModalWrapper>
-          </ContentWrapper>
+                          <FormError name="password" component="div" />
+                        </InputWrapper>
+                        <InputWrapper>
+                          <Field
+                            type={type}
+                            name="confirmPassword"
+                            placeholder={t('Confirm password')}
+                            values={values.confirmPassword}
+                            as={InputField}
+                            brdcolor={
+                              (!touched.confirmPassword && 'white') ||
+                              (errors.confirmPassword &&
+                                touched.confirmPassword &&
+                                '#e74a3b') ||
+                              (6 <= values.confirmPassword.length &&
+                                values.confirmPassword.length < 8 &&
+                                '#f6c23e') ||
+                              (8 <= values.confirmPassword.length && '#3cbc81')
+                            }
+                          />
+                          <StyledFiLock
+                            color={`${
+                              (!touched.confirmPassword && 'white') ||
+                              (errors.confirmPassword &&
+                                touched.confirmPassword &&
+                                '#e74a3b') ||
+                              (6 <= values.confirmPassword.length &&
+                                values.confirmPassword.length < 8 &&
+                                '#f6c23e') ||
+                              (8 <= values.confirmPassword.length && '#3cbc81')
+                            }`}
+                          />
+                          <IconsWrap>
+                            {6 <= values.confirmPassword.length &&
+                              values.confirmPassword.length < 8 &&
+                              !errors.confirmPassword && (
+                                <StateInputIcon src={warningIcon} />
+                              )}
+                            {8 <= values.confirmPassword.length &&
+                              !errors.confirmPassword && (
+                                <StateInputIcon src={succesIcon} />
+                              )}
+                            {errors.confirmPassword &&
+                              touched.confirmPassword && (
+                                <StateInputIcon src={errorIcon} />
+                              )}
+                            <EyeIcon onClick={handleClick}>
+                              {toggleIcon}
+                            </EyeIcon>
+                          </IconsWrap>
+                          {6 <= values.confirmPassword.length &&
+                            values.confirmPassword.length < 8 &&
+                            !errors.confirmPassword && (
+                              <WarningAndSuccessMessage color={'#f6c23e'}>
+                                {t('Your password is little secure')}
+                              </WarningAndSuccessMessage>
+                            )}
+                          {8 <= values.confirmPassword.length &&
+                            !errors.confirmPassword && (
+                              <WarningAndSuccessMessage color={'#3cbc81'}>
+                                {t('Password is secure')}
+                              </WarningAndSuccessMessage>
+                            )}
+                          <FormError name="confirmPassword" component="div" />
+                        </InputWrapper>
+                        <SingInButtonGreen type="submit">
+                          {t('Sign up')}
+                        </SingInButtonGreen>
+                      </Form>
+                    )}
+                  </Formik>
+                </Modal>
+                <Link to="/signin">{t('Sign in')}</Link>
+              </ModalWrapper>
+            </ContentWrapper>
+            <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
+          </>
         ) : (
           <ContentWrapper>
             <ErrorText>{error}</ErrorText>
@@ -255,6 +265,7 @@ export const ResetPassword = () => {
           </ContentWrapper>
         )}
       </StyledWrapper>
-    </>
+    </>,
+    document.querySelector('#modal-root')
   );
 };

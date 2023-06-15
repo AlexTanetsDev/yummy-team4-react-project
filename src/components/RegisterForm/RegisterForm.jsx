@@ -18,7 +18,7 @@ import {
   ModalWrapper,
   Modal,
   InputField,
-  Title,
+  ModalTitle,
   ImageReg,
   BottomBgImage,
   Link,
@@ -78,7 +78,6 @@ export const RegisterForm = () => {
 
   return ReactDOM.createPortal(
     <>
-      {isLoading && <MiniLoader />}
       <StyledWrapper>
         <LanguageSelector page="auth" />
         <BottomBgImage />
@@ -86,7 +85,7 @@ export const RegisterForm = () => {
           <ImageReg />
           <ModalWrapper>
             <Modal>
-              <Title>{t('Registration')}</Title>
+              <ModalTitle>{t('Registration')}</ModalTitle>
               <Formik
                 initialValues={initialValues}
                 validationSchema={registerSchema}

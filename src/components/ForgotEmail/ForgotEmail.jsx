@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
+import { useTranslation } from 'react-i18next';
+
 import {
   StyledWrapper,
   ContentWrapper,
-  Logo,
-  LogoImage,
   Title,
   Modal,
   InputWrapper,
@@ -17,12 +17,12 @@ import {
   InputField,
   ModalTitle,
   LoaderWrapper,
+  Link,
 } from './ForgotEmail.styled';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { SingInButtonGreen } from 'components/Button/Button';
 import { FormError } from 'components/FormError/FormError';
-import { startPageLogo } from '../../images';
 import { errorIcon, succesIcon } from 'images';
 import { forgot } from 'redux/auth/operations';
 import { MiniLoader } from 'components/Loader/Loader';
@@ -36,8 +36,9 @@ const emailSchema = object({
 });
 
 export const ForgotEmail = () => {
-  const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -46,20 +47,18 @@ export const ForgotEmail = () => {
     await dispatch(forgot(values));
 
     if (!error) {
-      resetForm();
       navigate('/signin');
+      resetForm();
     }
   };
 
   return ReactDOM.createPortal(
     <>
       <StyledWrapper>
-        <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
         <ContentWrapper>
-          <Logo>
-            <LogoImage src={startPageLogo} />
-          </Logo>
+
           <Title>{t('Recovery password')}</Title>
+
           <Modal>
             <ModalTitle>{t('Enter your email address')}</ModalTitle>
             <Formik
@@ -106,7 +105,9 @@ export const ForgotEmail = () => {
               )}
             </Formik>
           </Modal>
+          <Link to="/signin">{t('Sign in')}</Link>
         </ContentWrapper>
+        <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
       </StyledWrapper>
     </>,
     document.querySelector('#modal-root')

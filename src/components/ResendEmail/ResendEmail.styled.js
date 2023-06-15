@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { startPageBgMob, startPageBgTab, startPageBg } from '../../images';
 import { FiMail } from 'react-icons/fi';
+import { NavLink } from 'react-router-dom';
 
 export const StyledWrapper = styled.div`
   width: 100%;
@@ -38,30 +39,9 @@ export const StyledWrapper = styled.div`
 
 export const LoaderWrapper = styled.div`
   position: absolute;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-`;
-
-export const Logo = styled.div`
-  margin-right: auto;
-  margin-left: auto;
-  width: 54px;
-  height: 54px;
-  margin-bottom: 28px;
-  border-radius: 12px;
-  background-color: ${p => p.theme.colors.firstAccentColor};
-  @media (min-width: 768px) {
-    width: 68px;
-    height: 68px;
-    margin-bottom: 44px;
-  }
-`;
-
-export const LogoImage = styled.img`
-  padding: 5px;
-  @media (min-width: 768px) {
-    padding: 12px;
-  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -90,8 +70,9 @@ export const Title = styled.h1`
 export const Modal = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-bottom: 18px;
   padding: 32px 28px;
+  align-items: center;
   background-color: ${p => p.theme.colors.thirdAccentColor};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
@@ -122,7 +103,6 @@ export const ModalTitle = styled.h1`
     font-size: ${p => p.theme.fontSizes.xxxl}px;
     @media (max-width: 1440px) and (max-height: 940px) {
       margin-bottom: 40px;
-      font-size: 24px;
       font-weight: 600;
     }
   }
@@ -176,6 +156,21 @@ export const InputField = styled.input`
     &:hover {
       opacity: 1;
     }
+  }
+`;
+
+export const Link = styled(NavLink)`
+  display: block;
+  text-align: center;
+  font-size: ${p => p.theme.fontSizes.l}px;
+  color: ${p => p.theme.colors.mainBgColor};
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 50px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
   }
 `;
 

@@ -42,6 +42,7 @@ export const StyledWrapper = styled.div`
 
 export const LoaderWrapper = styled.div`
   position: absolute;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
 `;
@@ -170,6 +171,21 @@ export const InputField = styled.input`
     &:hover {
       opacity: 1;
     }
+  }
+`;
+
+export const Link = styled(NavLink)`
+  display: block;
+  text-align: center;
+  font-size: ${p => p.theme.fontSizes.l}px;
+  color: ${p => p.theme.colors.mainBgColor};
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 50px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
   }
 `;
 
