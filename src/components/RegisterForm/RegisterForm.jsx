@@ -59,7 +59,6 @@ export const RegisterForm = () => {
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });

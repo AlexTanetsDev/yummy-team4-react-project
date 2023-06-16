@@ -61,6 +61,9 @@ export const SignInForm = () => {
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
   const error = useSelector(selectError);
   const { t } = useTranslation();
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -74,10 +77,6 @@ export const SignInForm = () => {
       resetForm();
     }
   };
-
-  const isMobile = useMediaQuery({
-    query: '(max-width: 767px)',
-  });
 
   const handleClick = () => {
     if (type === 'password') {
