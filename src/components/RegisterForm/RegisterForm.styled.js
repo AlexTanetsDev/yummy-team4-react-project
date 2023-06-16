@@ -25,6 +25,11 @@ export const LoaderWrapper = styled.div`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  @media (max-width: 768px) {
+    top: 2%;
+    width: 279px;
+    background-color: ${p => p.theme.colors.thirdAccentColor};
+  }
 `;
 
 export const BottomBgImage = styled.div`
@@ -100,6 +105,7 @@ export const ImageReg = styled.div`
 export const ModalWrapper = styled.div``;
 
 export const Modal = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
