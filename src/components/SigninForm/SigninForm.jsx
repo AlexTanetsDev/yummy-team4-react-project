@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { useMediaQuery } from 'react-responsive';
 import { Formik, Form, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { categoryList, signIn } from '../../redux/auth/operations';
@@ -60,6 +61,9 @@ export const SignInForm = () => {
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
   const error = useSelector(selectError);
   const { t } = useTranslation();
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -94,6 +98,11 @@ export const SignInForm = () => {
           <ModalWrapper>
             <Modal>
               <ModalTitle>{t('Sign In')}</ModalTitle>
+              {isLoading && isMobile && (
+                <LoaderWrapper>
+                  <MiniLoader />
+                </LoaderWrapper>
+              )}
               <Formik
                 initialValues={initialValues}
                 validationSchema={signInSchema}
@@ -196,7 +205,11 @@ export const SignInForm = () => {
             <Link to="/register">{t('Registration')}</Link>
           </ModalWrapper>
         </ContentWrapper>
-        <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
+        {isLoading && !isMobile && (
+          <LoaderWrapper>
+            <MiniLoader />
+          </LoaderWrapper>
+        )}
       </StyledWrapper>
     </>,
     document.querySelector('#modal-root')

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
+import { useMediaQuery } from 'react-responsive';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { useTranslation } from 'react-i18next';
@@ -58,6 +59,9 @@ export const RegisterForm = () => {
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   const handleSubmit = async (values, { resetForm }) => {
     await dispatch(register(values));
@@ -86,6 +90,11 @@ export const RegisterForm = () => {
           <ModalWrapper>
             <Modal>
               <ModalTitle>{t('Registration')}</ModalTitle>
+              {isLoading && isMobile && (
+                <LoaderWrapper>
+                  <MiniLoader />
+                </LoaderWrapper>
+              )}
               <Formik
                 initialValues={initialValues}
                 validationSchema={registerSchema}
@@ -218,7 +227,11 @@ export const RegisterForm = () => {
             <Link to="/signin">{t('Sign in')}</Link>
           </ModalWrapper>
         </ContentWrapper>
-        <LoaderWrapper>{isLoading && <MiniLoader />}</LoaderWrapper>
+        {isLoading && !isMobile && (
+          <LoaderWrapper>
+            <MiniLoader />
+          </LoaderWrapper>
+        )}
       </StyledWrapper>
     </>,
     document.querySelector('#modal-root')
