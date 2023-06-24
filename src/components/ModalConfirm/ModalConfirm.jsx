@@ -11,7 +11,7 @@ import {
   LogoutTitle,
   Modal,
   WrapBtn,
-} from './ModalConfir.styled';
+} from './ModalConfirm.styled';
 import { closeModalIcon } from '../../images';
 
 export const ModalConfirm = ({ opened, onClose }) => {
@@ -19,6 +19,7 @@ export const ModalConfirm = ({ opened, onClose }) => {
   const navigate = useNavigate();
   const [isShow, setIsShow] = useState(opened);
   const tooltipRef = useRef(null);
+  const ref = useRef(1);
   const { t } = useTranslation();
 
   useEffect(() => {

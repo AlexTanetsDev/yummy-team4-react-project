@@ -20,6 +20,7 @@ import {
   RemoveFavoriteRecBtn,
   ButtonUp,
   BackTorecipeBtn,
+  GoogleBtn,
 } from './Button.styled';
 
 export const SearchButtonBlack = ({ type = 'button', onClick, children }) => {
@@ -56,6 +57,10 @@ export const ResendEmailButton = ({ type = 'button', onClick, children }) => {
 
 export const SingInButtonGreen = ({ type = 'button', children }) => {
   return <SingInBtnGreen type={type}>{children}</SingInBtnGreen>;
+};
+
+export const GoogleButton = ({ type = 'button', children }) => {
+  return <GoogleBtn type={type}>{children}</GoogleBtn>;
 };
 
 export const RegistrationButton = ({ type = 'button', onClick, children }) => {

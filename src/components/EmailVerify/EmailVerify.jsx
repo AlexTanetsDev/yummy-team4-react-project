@@ -31,19 +31,18 @@ export const EmailVerify = () => {
   }, [dispatch, params.verificationToken]);
 
   return (
-     <StyledWrapper>
-        <ContentWrapper>
-          {!error ? (
-            <Title>{t('Email verified!')}</Title>
-          ) : (
-            <ErrorText>{t(error)}</ErrorText>
-          )}
-          <ButtonWrapper>
-            <SingInButton>{t('Sign In')}</SingInButton>
-          </ButtonWrapper>
-        </ContentWrapper>
-        <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
-      </StyledWrapper>
-
+    <StyledWrapper>
+      <ContentWrapper>
+        {!error ? (
+          <Title>{t('Email verified!')}</Title>
+        ) : (
+          <ErrorText>{t(error)}</ErrorText>
+        )}
+        <ButtonWrapper>
+          <SingInButton>{t('Sign In')}</SingInButton>
+        </ButtonWrapper>
+      </ContentWrapper>
+      <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
+    </StyledWrapper>
   );
 };

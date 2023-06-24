@@ -6,13 +6,13 @@ import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { useTranslation } from 'react-i18next';
 
-import { SingInButtonGreen } from 'components/Button/Button';
+import { SingInButtonGreen, GoogleButton } from 'components/Button/Button';
 import { FormError } from 'components/FormError/FormError';
 import { MiniLoader } from 'components/Loader/Loader';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
 
-import { register } from 'redux/auth/operations';
+import { register, google } from 'redux/auth/operations';
 
 import {
   StyledWrapper,
@@ -35,6 +35,8 @@ import {
   StyledAiFillEye,
   EyeIcon,
   LoaderWrapper,
+  GoogleLink,
+  LinkText,
 } from './RegisterForm.styled';
 
 import { errorIcon, warningIcon, succesIcon } from 'images';
@@ -220,6 +222,9 @@ export const RegisterForm = () => {
                     <SingInButtonGreen type="submit">
                       {t('Sign up')}
                     </SingInButtonGreen>
+                    <GoogleLink href="http://localhost:3001/api/users/google">
+                      <LinkText>GOOGLE</LinkText>
+                    </GoogleLink>
                   </Form>
                 )}
               </Formik>

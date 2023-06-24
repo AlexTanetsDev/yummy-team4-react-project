@@ -12,6 +12,7 @@ import {
   verifyReset,
   resetPassword,
   forgot,
+  googleVerify,
 } from './operations';
 
 const initialState = {
@@ -118,6 +119,15 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
+      .addCase(googleVerify.pending, handleIsLoadingPending)
+      .addCase(googleVerify.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(googleVerify.rejected, handleIsRefreshingRejected)
       .addCase(logOut.pending, handleIsLoadingPending)
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null, avatarURL: '' };
