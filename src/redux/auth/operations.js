@@ -248,6 +248,19 @@ export const google = createAsyncThunk('auth/google', async (_, thunkAPI) => {
   try {
     await axios.get('/api/users/google');
   } catch (error) {
+    toast.error(error.response.data.message, {
+      duration: 2000,
+      style: {
+        width: '300px',
+        height: '150px',
+        backgroundColor: '#DD4F4F',
+        color: '#fff',
+        fontSize: '20px',
+        marginTop: '20%',
+        marginRight: 'auto',
+        marginLeft: 'auto',
+      },
+    });
     return thunkAPI.rejectWithValue(error.response.data.message);
   }
 });
@@ -260,6 +273,19 @@ export const googleVerify = createAsyncThunk(
       const res = await axios.get('api/users/current');
       return res.data;
     } catch (error) {
+      toast.error(error.response.data.message, {
+        duration: 2000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
