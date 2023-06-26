@@ -1,3 +1,4 @@
+import { ReactComponent as editProfileUser } from '../../images/editProfileUser.svg';
 import styled from 'styled-components';
 
 export const UserModal = styled.div`
@@ -11,6 +12,7 @@ export const UserModal = styled.div`
   border: solid 1px ${p => p.theme.colors.firstAccentColor};
   border-radius: 10px;
   background-color: ${p => p.theme.colors.mainBgColor};
+
   @media (min-width: 768px) {
     width: 177px;
     height: 134px;
@@ -22,8 +24,9 @@ export const WrapContent = styled.div`
 `;
 
 export const EditProfile = styled.button`
-  position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 125px;
   height: 23px;
   margin-right: auto;
@@ -34,22 +37,28 @@ export const EditProfile = styled.button`
   font-size: 14px;
   font-weight: 600;
   background-color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.heroTitle};
+
   border-color: transparent;
   outline: none;
+
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.firstAccentColor};
+  }
   @media (min-width: 768px) {
     width: 141px;
     margin-bottom: 32px;
   }
 `;
 
-export const EditIcon = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translate(-100%, -50%);
-  display: block;
+export const EditIcon = styled(editProfileUser)`
+  color: currentColor;
   width: 14px;
   height: 14px;
+  path {
+    stroke: currentColor;
+  }
 `;
 
 export const LogOut = styled.button`

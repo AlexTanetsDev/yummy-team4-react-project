@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { updateUser } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
 import { Formik, Form, Field } from 'formik';
@@ -97,6 +99,7 @@ export const UserImfoModal = ({ opened, onClose }) => {
   initialValues.photo = user.avatarURL;
   const [isShow, setIsShow] = useState(opened);
   const tooltipRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleClick = e => {
@@ -137,9 +140,7 @@ export const UserImfoModal = ({ opened, onClose }) => {
         <>
           <UserEditModal ref={tooltipRef}>
             {error ? (
-              <AlertMessage>
-                Oops, something went wrong. Please try again later...
-              </AlertMessage>
+              <AlertMessage>{t('Oops, something went wrong')}</AlertMessage>
             ) : (
               <>
                 {isLoading ? (
@@ -170,7 +171,7 @@ export const UserImfoModal = ({ opened, onClose }) => {
                               as={InputField}
                               type="text"
                               name="name"
-                              placeholder="Name"
+                              placeholder={t('Name')}
                               values={values.name}
                             />
                             <EditIcon src={editIcon} alt="edit button" />
@@ -180,7 +181,7 @@ export const UserImfoModal = ({ opened, onClose }) => {
                             <FormError name="name" component="div" />
                           </InputWrapper>
                           <SaveChangesButton type="submit">
-                            Save changes
+                            {t('Save changes')}
                           </SaveChangesButton>
                         </Form>
                       )}

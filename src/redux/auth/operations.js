@@ -2,7 +2,8 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
-axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com';
+// axios.defaults.baseURL = 'https://yummy-team4-nodejs-project.onrender.com';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -47,7 +48,7 @@ export const register = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -59,7 +60,7 @@ export const verify = createAsyncThunk(
       const response = await axios.post(`api/users/verify/${credentials}`);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -97,7 +98,7 @@ export const resend = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -135,7 +136,7 @@ export const verifyReset = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -174,7 +175,7 @@ export const resetPassword = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -212,7 +213,7 @@ export const forgot = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -238,34 +239,57 @@ export const signIn = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
 
-export const categoryList = createAsyncThunk(
-  'auth/categoryList',
-  async (credentials, thunkAPI) => {
-    try {
-      const response = await axios.get(`/api/category-list`, credentials);
-      const state = thunkAPI.getState();
-      const token = state.auth.token;
-      setAuthHeader(token);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const google = createAsyncThunk('auth/google', async (_, thunkAPI) => {
   try {
-    await axios.post('/api/users/logout');
-    clearAuthHeader();
+    await axios.get('/api/users/google');
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    toast.error(error.response.data.message, {
+      duration: 2000,
+      style: {
+        width: '300px',
+        height: '150px',
+        backgroundColor: '#DD4F4F',
+        color: '#fff',
+        fontSize: '20px',
+        marginTop: '20%',
+        marginRight: 'auto',
+        marginLeft: 'auto',
+      },
+    });
+    return thunkAPI.rejectWithValue(error.response.data.message);
   }
 });
+
+export const googleVerify = createAsyncThunk(
+  'auth/googleVerify',
+  async (credentials, thunkAPI) => {
+    try {
+      setAuthHeader(credentials);
+      const res = await axios.get('api/users/current');
+      return res.data;
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        duration: 2000,
+        style: {
+          width: '300px',
+          height: '150px',
+          backgroundColor: '#DD4F4F',
+          color: '#fff',
+          fontSize: '20px',
+          marginTop: '20%',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
 
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
@@ -281,10 +305,34 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('api/users/current');
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
+
+export const categoryList = createAsyncThunk(
+  'auth/categoryList',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.get(`/api/category-list`, credentials);
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+      setAuthHeader(token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+  try {
+    await axios.post('/api/users/logout');
+    clearAuthHeader();
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response.data.message);
+  }
+});
 
 export const updateSubscription = createAsyncThunk(
   'auth/subscription',
@@ -319,7 +367,7 @@ export const updateSubscription = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -348,7 +396,12 @@ export const updateUser = createAsyncThunk(
           marginLeft: 'auto',
         },
       });
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
+
+export const updateMotivation = motivation => ({
+  type: 'UPDATE_MOTIVATION',
+  payload: motivation,
+});

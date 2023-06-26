@@ -12,6 +12,7 @@ import {
   verifyReset,
   resetPassword,
   forgot,
+  googleVerify,
 } from './operations';
 
 const initialState = {
@@ -22,6 +23,7 @@ const initialState = {
   isRefreshing: false,
   categoryList: [],
   error: null,
+  motivation: {},
 };
 
 const handleIsLoadingPending = state => {
@@ -45,6 +47,20 @@ const handleIsRefreshingRejected = (state, action) => {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    updateMotivation: (state, action) => {
+      if (
+        (!state.motivation.hasOwnProperty(Object.keys(action.payload)[0]) &&
+          Object.values(action.payload)[0]) ||
+        state.motivation[Object.keys(action.payload)[0]]
+      ) {
+        state.motivation = {
+          ...state.motivation,
+          ...action.payload,
+        };
+      }
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(forgot.pending, handleIsLoadingPending)
@@ -103,6 +119,15 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
+      .addCase(googleVerify.pending, handleIsLoadingPending)
+      .addCase(googleVerify.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(googleVerify.rejected, handleIsRefreshingRejected)
       .addCase(logOut.pending, handleIsLoadingPending)
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null, avatarURL: '' };
@@ -120,6 +145,12 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.error = null;
+
+        authSlice.caseReducers.updateMotivation(state, {
+          payload: {
+            tenthDayOfUsage: action.payload.tenthDayOfUsage,
+          },
+        });
       })
       .addCase(refreshUser.rejected, handleIsRefreshingRejected)
       .addCase(updateSubscription.pending, handleIsRefreshingPending)
@@ -142,8 +173,8 @@ const authSlice = createSlice({
         state.user.name = action.payload.name;
         state.isRefreshing = false;
         state.error = null;
-      })
-      .addCase(updateUser.rejected, handleIsRefreshingRejected),
+      }),
 });
 
 export const authReducer = authSlice.reducer;
+export const { updateMotivation } = authSlice.actions;

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -27,10 +28,12 @@ import {
   WarningAndSuccessMessage,
   StyledAiFillEyeInvisible,
   StyledAiFillEye,
+  LoaderWrapper,
+  Link,
 } from './ResetPassword.styled';
 import { errorIcon, warningIcon, succesIcon } from 'images';
 import { SingInButton } from 'components/Button/Button';
-import { MainLoader } from 'components/Loader/Loader';
+import { MiniLoader } from 'components/Loader/Loader';
 
 const initialValues = {
   password: '',
@@ -101,13 +104,11 @@ export const ResetPassword = () => {
     }
   };
 
-  return (
+  return ReactDOM.createPortal(
     <>
-      {isLoading ? (
-        <MainLoader />
-      ) : (
-        <StyledWrapper>
-          {!error ? (
+      <StyledWrapper>
+        {!error ? (
+          <>
             <ContentWrapper>
               <ModalWrapper>
                 <Modal>
@@ -250,18 +251,21 @@ export const ResetPassword = () => {
                     )}
                   </Formik>
                 </Modal>
+                <Link to="/signin">{t('Sign in')}</Link>
               </ModalWrapper>
             </ContentWrapper>
-          ) : (
-            <ContentWrapper>
-              <ErrorText>{error}</ErrorText>
-              <ButtonWrapper>
-                <SingInButton>SigngIn</SingInButton>
-              </ButtonWrapper>
-            </ContentWrapper>
-          )}
-        </StyledWrapper>
-      )}
-    </>
+            <LoaderWrapper> {isLoading && <MiniLoader />}</LoaderWrapper>
+          </>
+        ) : (
+          <ContentWrapper>
+            <ErrorText>{error}</ErrorText>
+            <ButtonWrapper>
+              <SingInButton>{t('Sign in')}</SingInButton>
+            </ButtonWrapper>
+          </ContentWrapper>
+        )}
+      </StyledWrapper>
+    </>,
+    document.querySelector('#modal-root')
   );
 };

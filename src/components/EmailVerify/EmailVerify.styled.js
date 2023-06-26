@@ -35,26 +35,12 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const Logo = styled.div`
-  margin-right: auto;
-  margin-left: auto;
-  width: 54px;
-  height: 54px;
-  margin-bottom: 28px;
-  border-radius: 12px;
-  background-color: ${p => p.theme.colors.firstAccentColor};
-  @media (min-width: 768px) {
-    width: 68px;
-    height: 68px;
-    margin-bottom: 44px;
-  }
-`;
 
-export const LogoImage = styled.img`
-  padding: 5px;
-  @media (min-width: 768px) {
-    padding: 12px;
-  }
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export const ContentWrapper = styled.div`

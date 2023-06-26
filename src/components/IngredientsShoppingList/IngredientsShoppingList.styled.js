@@ -46,6 +46,7 @@ export const ShoppingListTitle = styled.h2`
   font-size: 28px;
   line-height: 28px;
   margin: 50px 10px;
+  color: ${p => p.theme.colors.mainTitleText};
 
   @media screen and (min-width: 768px) {
     font-size: 32px;

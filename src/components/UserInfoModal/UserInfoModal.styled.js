@@ -134,6 +134,7 @@ export const InputField = styled.input`
   border-color: ${p => p.theme.colors.itemTextColor};
   border-radius: 6px;
   opacity: 0.6;
+  outline: none;
   &:hover {
     opacity: 1;
   }
@@ -209,7 +210,7 @@ export const FileInputContainer = styled.div`
   margin-left: auto;
   margin-bottom: 54px;
   border-radius: 50%;
-  background-color: #d9d9d9;
+  background-color: ${p => p.theme.colors.addRecepiesTexteriaBgr};
   background-image: url(${userIcon});
   background-repeat: no-repeat;
   background-position: 50% 50%;

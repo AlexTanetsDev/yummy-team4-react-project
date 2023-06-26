@@ -61,7 +61,7 @@ export const Point = styled.span`
   font-weight: 600;
   font-size: ${p => p.theme.fontSizes.m}px;
   line-height: 18px;
-  color: ${p => p.theme.colors.whiteText};
+  color: ${p => p.theme.colors.itemTitleColor};
 
   @media (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes.l}px;
@@ -74,7 +74,7 @@ export const PreparationText = styled.p`
   font-size: ${p => p.theme.fontSizes.m}px;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: rgba(0, 0, 0, 0.8);
+  color: ${p => p.theme.colors.itemTitleColor};
 
   @media (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes.l}px;

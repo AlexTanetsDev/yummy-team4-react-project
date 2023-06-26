@@ -3,9 +3,13 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
+import { OwnRecipeApi } from '../../apiService';
+import { updateMotivation } from '../../redux/auth/authSlise';
 
 import { MiniLoader } from 'components/Loader/Loader';
-import { OwnRecipeApi } from '../../apiService';
 import { RecipeDescriptionFields } from '../../components/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngridientsFields } from '../../components/RecipeIngridientsFields/RecipeIngridientsFields';
 import { RecipePreparationFields } from '../../components/RecipePreparationFields/RecipePreparationFields';
@@ -44,6 +48,8 @@ export const AddRecipeForm = () => {
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
@@ -74,7 +80,11 @@ export const AddRecipeForm = () => {
       formData.append('category', values.category);
       formData.append('time', values.time);
 
-      await OwnRecipeApi.AddRecipe(formData);
+      const { firstAddedRecipe, tenthAddedRecipe } =
+        await OwnRecipeApi.AddRecipe(formData);
+
+      if (firstAddedRecipe) dispatch(updateMotivation({ firstAddedRecipe }));
+      if (tenthAddedRecipe) dispatch(updateMotivation({ tenthAddedRecipe }));
 
       resetForm();
       navigate('/my');
@@ -87,11 +97,7 @@ export const AddRecipeForm = () => {
   };
 
   if (error) {
-    return (
-      <AlertMessage>
-        Oops, something went wrong. Please try again later...
-      </AlertMessage>
-    );
+    return <AlertMessage>{t('Oops, something went wrong')}</AlertMessage>;
   }
 
   return (
@@ -115,12 +121,12 @@ export const AddRecipeForm = () => {
                   type="submit"
                   onClick={() => {
                     if (!formik.isValid) {
-                      toast.error('Please fill in all fields correctly.');
+                      toast.error(t('Please fill in all fields correctly'));
                     }
                   }}
                   disabled={isLoading}
                 >
-                  Add
+                  {t('Add')}
                 </AddButton>
               </Form>
             </FormContainer>

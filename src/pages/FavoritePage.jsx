@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-hot-toast';
 
 import { Sections } from 'components/Sections/Sections';
@@ -18,6 +19,7 @@ const FavoritePage = () => {
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const renderFavorite = async () => {
@@ -45,7 +47,7 @@ const FavoritePage = () => {
       setIsLoading(true);
 
       await deleteFavoriteById(id);
-      toast.error('Deleted from favorites');
+      toast.error(t('Deleted'));
 
       if (page > 1 && lastPage === page && lastItem === 1) {
         setPage(page - 1);
@@ -70,11 +72,9 @@ const FavoritePage = () => {
       <Sections>
         <Container>
           {error && (
-            <AlertMessage>
-              Oops, something went wrong. Please try again later...
-            </AlertMessage>
+            <AlertMessage>{t('Oops, something went wrong')}</AlertMessage>
           )}
-          <SectionTitle title="Favorites" />
+          <SectionTitle title={t('Favorites')} />
           {isLoading ? (
             <MiniLoader />
           ) : (
@@ -114,9 +114,7 @@ const FavoritePage = () => {
                   />
                 </>
               ) : (
-                <AlertMessage>
-                  Please add the recipe to your favorites...
-                </AlertMessage>
+                <AlertMessage>{t('Please add the recipe...')}</AlertMessage>
               )}
             </>
           )}

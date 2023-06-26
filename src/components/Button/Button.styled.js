@@ -67,7 +67,7 @@ export const SingInBtn = styled(NavLink)`
   display: block;
   padding: 10px 24px;
   background-color: transparent;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
@@ -98,7 +98,7 @@ export const SingInBtnGreen = styled.button`
   margin-top: 28px;
   width: 279px;
   height: 45px;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   border-radius: 6px;
   border-color: transparent;
   background-color: ${p => p.theme.colors.firstAccentColor};
@@ -115,10 +115,6 @@ export const SingInBtnGreen = styled.button`
     margin-top: 28px;
     width: 279px;
     height: 45px;
-    color: ${p => p.theme.colors.mainBgColor};
-    border-radius: 6px;
-    border-color: transparent;
-    background-color: ${p => p.theme.colors.firstAccentColor};
   }
 
   &:hover,
@@ -129,12 +125,44 @@ export const SingInBtnGreen = styled.button`
   }
 `;
 
+export const GoogleBtn = styled.button`
+  display: block;
+  margin-top: 10px;
+  width: 279px;
+  height: 45px;
+  color: ${p => p.theme.colors.darkBgColor};
+  border-radius: 6px;
+  border-color: transparent;
+  background-color: ${p => p.theme.colors.mainBgColor};
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media (max-width: 400px) {
+    width: 250px;
+  }
+  @media (min-width: 768px) {
+    margin-top: 15px;
+    width: 400px;
+    height: 59px;
+  }
+  @media (min-width: 400px) and (max-width: 1440px) and (max-height: 940px) {
+    margin-top: 10px;
+    width: 279px;
+    height: 45px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.darkBgColor};
+    color: ${p => p.theme.colors.mainBgColor};
+    outline: none;
+  }
+`;
+
 export const RegistrationBtn = styled(NavLink)`
   display: block;
   padding: 11px 24px;
   width: 132px;
   background-color: ${p => p.theme.colors.firstAccentColor};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
@@ -287,7 +315,7 @@ export const SaveChangesBtn = styled.button`
 
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.secondAccentColor};
+    color: ${p => p.theme.colors.itemTitleColor};
     outline: none;
   }
 `;
@@ -318,7 +346,7 @@ export const SeeAllBtn = styled.button`
 export const LogOutBtn = styled.button`
   width: 137px;
   margin-right: 8px;
-  padding: 14px 18px;
+  padding: 14px 0;
   background-color: ${p => p.theme.colors.firstAccentColor};
   color: ${p => p.theme.colors.mainBgColor};
   font-family: 'Poppins';
@@ -334,7 +362,7 @@ export const LogOutBtn = styled.button`
   }
 
   @media (min-width: 768px) {
-    padding: 19px 65px;
+    padding: 19px 0;
     width: 192px;
     margin-right: 16px;
     font-size: ${p => p.theme.fontSizes.xl}px;
@@ -350,7 +378,7 @@ export const LogOutBtn = styled.button`
 `;
 
 export const CancelBtn = styled.button`
-  padding: 14px 44px;
+  padding: 14px 0;
   width: 137px;
   background-color: #d9d9d9;
   color: #23262a;
@@ -367,7 +395,7 @@ export const CancelBtn = styled.button`
   }
 
   @media (min-width: 768px) {
-    padding: 19px 68px;
+    padding: 19px 0;
     width: 192px;
     font-size: ${p => p.theme.fontSizes.xl}px;
     line-height: 18px;
@@ -375,17 +403,17 @@ export const CancelBtn = styled.button`
 
   &:hover,
   &:focus {
-    background-color: transparent;
+    opacity: 0, 6;
     border: 1px solid #23262a;
     outline: none;
   }
 `;
 
 export const AddBtn = styled.button`
-  padding: 11px 48px;
+  padding: 11px 0;
   width: 129px;
   background-color: ${p => p.theme.colors.secondAccentColor};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.xl}px;
   line-height: 24px;
@@ -395,7 +423,7 @@ export const AddBtn = styled.button`
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) {
-    padding: 13px 64px;
+    padding: 13px 0;
     width: 161px;
   }
 
@@ -487,7 +515,7 @@ export const SeeRecipeBtnBlack = styled(NavLink)`
     width: 138px;
     height: 45px;
     background-color: ${p => p.theme.colors.secondAccentColor};
-    color: ${p => p.theme.colors.mainBgColor};
+    color: #fafafa;
     font-family: 'Poppins';
     font-size: ${p => p.theme.fontSizes.l}px;
     line-height: 21px;
@@ -523,7 +551,7 @@ export const SeeRecipeBtnGreen = styled.button`
   width: 88px;
   height: 27px;
   background-color: ${p => p.theme.colors.firstAccentColor};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.s}px;
   line-height: 15px;
@@ -567,8 +595,8 @@ export const FavoritesDeleteBtn = styled.button`
   padding: 5px;
   width: 24px;
   height: 24px;
-  background-color: ${p => p.theme.colors.lightGreenText};
-  color: ${p => p.theme.colors.secondAccentColor};
+  background-color: ${p => p.theme.colors.favoritesDeleteBtnBgr};
+  color: ${p => p.theme.colors.heroTitle};
   font-size: ${p => p.theme.fontSizes.xl}px;
   border: ${p => p.theme.border.favoriteBtnBorder};
   border-radius: 4px;
@@ -613,7 +641,7 @@ export const MyRecipesDeleteBtn = styled.button`
   width: 24px;
   height: 24px;
   background-color: ${p => p.theme.colors.firstAccentColor};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-size: ${p => p.theme.fontSizes.l}px;
   border: ${p => p.theme.border.greenBtnBorder};
   border-radius: 4px;

@@ -135,7 +135,7 @@ export const InstructionsText = styled.p`
     font-size: ${p => p.theme.fontSizes.xxl}px;
     line-height: 24px;
     letter-spacing: -0.02em;
-    color: ${p => p.theme.colors.itemTextColor};
+    color: ${p => p.theme.colors.itemTitleColor};
   }
 `;
 
@@ -158,7 +158,7 @@ export const TimeText = styled.p`
   font-size: ${p => p.theme.fontSizes.s}px;
   line-height: 14px;
   letter-spacing: -0.24px;
-  color: ${p => p.theme.colors.itemTitleColor};
+  color: ${p => p.theme.colors.itemTextColor};
 
   @media (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes.l}px;

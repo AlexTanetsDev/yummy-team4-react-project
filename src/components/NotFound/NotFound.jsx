@@ -1,5 +1,5 @@
-import  { ThemeProvider } from 'styled-components';
-import { theme } from '../../utils/theme';
+import { useTranslation } from 'react-i18next';
+
 import {
   NotFoundContainer,
   AlertContainer,
@@ -46,28 +46,23 @@ const getImageSrc = (
 };
 
 const Alert = () => {
+  const { t } = useTranslation();
+
   return (
-      <ThemeProvider theme={theme}>
-        <AlertContainer>
-          <AlertTextPartOne  >
-            We are sorry,
-          </AlertTextPartOne>
-          <AlertTextPartTwo>
-            but the page you were looking for can’t be found...
-          </AlertTextPartTwo>
-        </AlertContainer>
-      </ThemeProvider>
+    <AlertContainer>
+      <AlertTextPartOne>{t('We are sorry')},</AlertTextPartOne>
+      <AlertTextPartTwo>
+        {t('But the page you were looking for can’t be found...')}
+      </AlertTextPartTwo>
+    </AlertContainer>
   );
 };
-        
 
 const NotFound = () => {
   return (
-   
     <NotFoundContainer>
       <NotFoundImage src={getImageSrc()} alt="Logo" />
       <Alert />
-  
     </NotFoundContainer>
   );
 };

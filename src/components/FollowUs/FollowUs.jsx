@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { ReactComponent as Facebook } from '../../images/icons/facebook.svg';
 import { ReactComponent as Youtube } from '../../images/icons/youtube.svg';
 import { ReactComponent as Twitter } from '../../images/icons/twitter.svg';
@@ -11,9 +13,11 @@ import {
 } from './FollowUs.styled';
 
 export const FollowUs = () => {
+  const { t } = useTranslation();
+
   return (
     <SocialContainer>
-      <Title>Folow us</Title>
+      <Title>{t('Folow us')}</Title>
       <SocLinkList>
         <SocLinkItem>
           <a

@@ -19,6 +19,18 @@ export const StyledWrapper = styled.div`
   background-color: ${p => p.theme.colors.lightBgColor};
 `;
 
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  @media (max-width: 768px) {
+    top: 2%;
+    width: 279px;
+    background-color: ${p => p.theme.colors.thirdAccentColor};
+  }
+`;
+
 export const BottomBgImage = styled.div`
   position: absolute;
   left: 50%;
@@ -91,6 +103,7 @@ export const ImageReg = styled.div`
 export const ModalWrapper = styled.div``;
 
 export const Modal = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,11 +132,11 @@ export const Modal = styled.div`
   }
 `;
 
-export const Title = styled.h1`
+export const ModalTitle = styled.h1`
   margin-bottom: 40px;
   font-size: 24px;
   font-weight: 600;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   @media (min-width: 768px) {
     margin-bottom: 50px;
     font-size: ${p => p.theme.fontSizes.xxxl}px;
@@ -189,10 +202,15 @@ export const InputField = styled.input`
 export const Link = styled(NavLink)`
   display: block;
   text-align: center;
+  font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.mainBgColor};
   opacity: 0.8;
   &:hover {
     opacity: 1;
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 50px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
   }
 `;
 
@@ -201,7 +219,7 @@ export const ResendLink = styled(NavLink)`
   margin-top: 10px;
   font-size: ${p => p.theme.fontSizes.l}px;
   text-align: center;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   opacity: 0.8;
   &:hover {
     opacity: 1;

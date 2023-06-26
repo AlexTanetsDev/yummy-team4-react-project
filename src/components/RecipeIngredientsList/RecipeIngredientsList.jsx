@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import { addToShoppingList } from 'apiService/ShoppingListApi';
 import {
   IngredientsSection,
@@ -22,6 +24,7 @@ import { vegetablesBasket } from 'images';
 export const RecipeIngredientsList = ({ ingredients, backTo, state }) => {
   const [list, setList] = useState([]);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem('shoppingList'));
@@ -36,23 +39,23 @@ export const RecipeIngredientsList = ({ ingredients, backTo, state }) => {
       if (res) {
         setList([]);
         localStorage.setItem('shoppingList', JSON.stringify([]));
-        toast.success('Added to shopping list');
+        toast.success(t('Added'));
         navigate('/shopping-list', { state: backTo });
         return;
       }
-      toast.error('Something went wrong. Try again.');
+      toast.error(t('Oops.. something went wrong try again'));
       return;
     }
-    toast.error('Ingredients allready added');
+    toast.error(t('Ingredients allready added'));
   };
 
   return (
     <IngredientsSection>
       <TableTitlesBox>
-        <TableTitle>Ingredients</TableTitle>
+        <TableTitle>{t('Ingredients')}</TableTitle>
         <Wrapper>
-          <TableTitle>Number</TableTitle>
-          <TableTitle>Add to list</TableTitle>
+          <TableTitle>{t('Number')}</TableTitle>
+          <TableTitle>{t('Add to list')}</TableTitle>
         </Wrapper>
       </TableTitlesBox>
       <IngredietntsList>
@@ -75,7 +78,7 @@ export const RecipeIngredientsList = ({ ingredients, backTo, state }) => {
         })}
       </IngredietntsList>
       <RemoveFromFavoriteBtn onClick={handleAddtoShoppingList}>
-        Add to shopping list
+        {t('Add to shopping list')}
       </RemoveFromFavoriteBtn>
     </IngredientsSection>
   );

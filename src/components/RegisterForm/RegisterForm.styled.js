@@ -20,6 +20,18 @@ export const StyledWrapper = styled.div`
   background-color: ${p => p.theme.colors.lightBgColor};
 `;
 
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  @media (max-width: 768px) {
+    top: 2%;
+    width: 279px;
+    background-color: ${p => p.theme.colors.thirdAccentColor};
+  }
+`;
+
 export const BottomBgImage = styled.div`
   position: absolute;
   left: 50%;
@@ -93,6 +105,7 @@ export const ImageReg = styled.div`
 export const ModalWrapper = styled.div``;
 
 export const Modal = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,7 +134,7 @@ export const Modal = styled.div`
   }
 `;
 
-export const Title = styled.h1`
+export const ModalTitle = styled.h1`
   margin-bottom: 18px;
   font-size: 24px;
   font-weight: 600;
@@ -188,14 +201,57 @@ export const InputField = styled.input`
   }
 `;
 
+export const GoogleLink = styled.a`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 279px;
+  height: 45px;
+  color: ${p => p.theme.colors.darkBgColor};
+  border-radius: 6px;
+  border-color: transparent;
+  background-color: ${p => p.theme.colors.mainBgColor};
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media (max-width: 400px) {
+    width: 250px;
+  }
+  @media (min-width: 768px) {
+    margin-top: 15px;
+    width: 400px;
+    height: 59px;
+  }
+  @media (min-width: 400px) and (max-width: 1440px) and (max-height: 940px) {
+    margin-top: 10px;
+    width: 279px;
+    height: 45px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.darkBgColor};
+    color: ${p => p.theme.colors.mainBgColor};
+    outline: none;
+  }
+`;
+
+export const LinkText = styled.span`
+  display: block;
+`;
+
 export const Link = styled(NavLink)`
   display: block;
-
   text-align: center;
+  font-size: ${p => p.theme.fontSizes.l}px;
   color: ${p => p.theme.colors.mainBgColor};
   opacity: 0.8;
   &:hover {
     opacity: 1;
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 50px;
+    font-size: ${p => p.theme.fontSizes.xl}px;
   }
 `;
 

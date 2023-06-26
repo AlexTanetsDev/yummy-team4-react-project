@@ -9,8 +9,6 @@ import { selectIsLoggedIn } from 'redux/auth/selectors';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from './RestrictedRoute';
 
-// import { PrivateRoute } from './PrivateRout';
-
 import { MainLoader } from './Loader/Loader';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, theme } from 'utils/theme';
@@ -33,6 +31,7 @@ const EmailVerifyPage = lazy(() => import('../pages/EmailVerifyPage'));
 const ResendEmailPage = lazy(() => import('../pages/ResendEmailPage'));
 const ForgotEmailPage = lazy(() => import('../pages/ForgotEmailPage'));
 const ResetPasswordPage = lazy(() => import('../pages/ResetPasswordPage'));
+const GoogleVerifyPage = lazy(() => import('../pages/GoogleVerifyPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -77,7 +76,12 @@ export const App = () => {
         <Routes>
           <Route
             path="/"
-            element={<SharedLayout onClick={handleTogleThemeClick} />}
+            element={
+              <SharedLayout
+                onClick={handleTogleThemeClick}
+                isDarkTheme={isDarkTheme}
+              />
+            }
           >
             {isLoggedIn ? (
               <Route index element={<MainPage />} />
@@ -105,6 +109,15 @@ export const App = () => {
               path="signin"
               element={
                 <RestrictedRoute component={<SignInPage />} redirectTo="/" />
+              }
+            />
+            <Route
+              path="google-redirect/:token"
+              element={
+                <RestrictedRoute
+                  component={<GoogleVerifyPage />}
+                  redirectTo="/"
+                />
               }
             />
             <Route path="resend" element={<ResendEmailPage />} />

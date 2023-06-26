@@ -9,6 +9,7 @@ import {
 } from './SearchBar.styled';
 import { CustomDropdownMenu } from 'components/CustomDropdownMenu/CustomDropdownMenu';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const SearchBar = ({
   query,
@@ -19,6 +20,7 @@ export const SearchBar = ({
   selectedOption,
 }) => {
   const [value, setValue] = useState(query ?? '');
+  const { t } = useTranslation();
 
   return (
     <SearchBarContainer>
@@ -29,16 +31,16 @@ export const SearchBar = ({
             onChange={event => setValue(event.target.value)}
             type="text"
             autoComplete="off"
-            placeholder="Search"
+            placeholder={t('Search')}
             name="searchBar"
             id="searchText"
             required
           />
-          <SearchButton type="submit" children="Search" />
+          <SearchButton type="submit" children={t('Search')} />
         </InputWrapper>
 
         <SearchTypeSelector>
-          <SelectLabel>Search by:</SelectLabel>
+          <SelectLabel>{t('Search by:')}</SelectLabel>
           <CustomDropdownMenu
             handleOptionClick={handleOptionClick}
             isOpen={isOpen}

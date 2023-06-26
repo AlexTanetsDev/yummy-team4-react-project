@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FieldArray, Field } from 'formik';
 import { FiMinus, FiPlus, FiX } from 'react-icons/fi';
 
@@ -24,6 +25,7 @@ import {
   Error,
   ErrorText,
 } from './RecipeIngridientsFields.styled';
+import { useTheme } from 'styled-components';
 
 const Units = [
   {
@@ -44,173 +46,177 @@ const Units = [
   },
 ];
 
-const IngredientInputStyles = {
-  option: (provided, state) => ({
-    ...provided,
-    fontFamily: 'Poppins',
-    paddingBottom: 6,
-    fontSize: 12,
-    lineHeight: 1.5,
-    letterSpacing: '-0.02em',
-    opacity: 0.5,
-    color: state.isSelected ? '#8baa36' : '#000000',
-    backgroundColor: state.isSelected ? 'transparent' : 'white',
-
-    '@media screen and (min-width: 768px)': {
-      fontSize: 14,
-    },
-  }),
-  control: (provided, state) => ({
-    ...provided,
-    width: '100%',
-    fontFamily: 'Poppins',
-    fontSize: 14,
-    lineHeight: 1.235,
-    letterSpacing: '-0.02em',
-    color: '#000000',
-    borderRadius: '6px',
-    backgroundColor: '#D9D9D9',
-    padding: 16,
-    paddingRight: 12,
-
-    '@media screen and (min-width: 768px)': {
-      fontSize: 18,
-      lineHeight: 1.5,
-      paddingLeft: 18,
-      paddingRight: 18,
-    },
-  }),
-  menu: (provided, state) => ({
-    ...provided,
-    width: '100%',
-    overflow: 'auto',
-    borderRadius: '6px',
-    backgroundColor: '#ffffff',
-    paddingLeft: 18,
-    paddingTop: 8,
-    paddingBottom: 8,
-    boxShadow: '0 6.5px 7.8px rgba(0, 0, 0, 0.0314074)',
-  }),
-  placeholder: provided => ({
-    ...provided,
-    opacity: 0.5,
-  }),
-  dropdownIndicator: (provided, state) => ({
-    ...provided,
-    color: '#8BAA36',
-  }),
-  menuList: provided => ({
-    ...provided,
-
-    maxHeight: '138px',
-    overflowY: 'auto',
-
-    '@media screen and (min-width: 768px)': {
-      maxHeight: '154px',
-    },
-
-    '&::-webkit-scrollbar': {
-      width: '4px',
-    },
-    '&::-webkit-scrollbar-track': {
-      // background: '#E7E5E5',
-    },
-    '&::-webkit-scrollbar-thumb': {
-      background: '#E7E5E5',
-      borderRadius: 12,
-    },
-  }),
-};
-
-const UnitInputStyles = {
-  option: (provided, state) => ({
-    ...provided,
-    paddingBottom: 6,
-
-    fontFamily: 'Poppins',
-    fontSize: 12,
-    lineHeight: 1.5,
-    letterSpacing: '-0.02em',
-    color: state.isSelected ? '#8baa36' : '#000000',
-    backgroundColor: state.isSelected ? 'transparent' : 'white',
-    opacity: 0.5,
-
-    '@media screen and (min-width: 768px)': {
-      fontSize: 14,
-      lineHeight: 1.5,
-    },
-  }),
-  control: (provided, state) => ({
-    ...provided,
-    width: '100%',
-
-    paddingTop: 16,
-    paddingBottom: 16,
-    paddingRight: 10,
-    paddingLeft: 46,
-
-    fontFamily: 'Poppins',
-    fontSize: 14,
-    lineHeight: 1.235,
-    letterSpacing: '-0.02em',
-    color: '#000000',
-    borderRadius: '6px',
-    backgroundColor: '#D9D9D9',
-
-    '@media screen and (min-width: 768px)': {
-      fontSize: 18,
-      lineHeight: 1.5,
-      paddingLeft: 62,
-      paddingRight: 14,
-    },
-  }),
-  menu: (provided, state) => ({
-    ...provided,
-    width: '100%',
-
-    paddingLeft: 48,
-    paddingTop: 8,
-    paddingBottom: 8,
-
-    overflow: 'auto',
-    borderRadius: '6px',
-    backgroundColor: '#ffffff',
-    boxShadow: '0 6.5px 7.8px rgba(0, 0, 0, 0.0314074)',
-
-    '@media screen and (min-width: 768px)': {
-      paddingLeft: 58,
-    },
-  }),
-  dropdownIndicator: (provided, state) => ({
-    ...provided,
-    color: '#8BAA36',
-  }),
-  menuList: provided => ({
-    ...provided,
-    maxHeight: '138px',
-    overflowY: 'auto',
-
-    '@media screen and (min-width: 768px)': {
-      maxHeight: '154px',
-    },
-
-    '&::-webkit-scrollbar': {
-      width: '4px',
-    },
-    '&::-webkit-scrollbar-track': {
-      // background: '#E7E5E5',
-    },
-    '&::-webkit-scrollbar-thumb': {
-      background: '#E7E5E5',
-      borderRadius: 12,
-    },
-  }),
-};
-
 export const RecipeIngridientsFields = ({ formik }) => {
+  const theme = useTheme();
+  const IngredientInputStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      fontFamily: 'Poppins',
+      paddingBottom: 6,
+      fontSize: 12,
+      lineHeight: 1.5,
+      letterSpacing: '-0.02em',
+      opacity: 0.5,
+      color: state.isSelected ? '#8baa36' : '#000000',
+      backgroundColor: state.isSelected ? 'transparent' : 'white',
+
+      '@media screen and (min-width: 768px)': {
+        fontSize: 14,
+      },
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      width: '100%',
+      fontFamily: 'Poppins',
+      fontSize: 14,
+      lineHeight: 1.235,
+      letterSpacing: '-0.02em',
+      color: theme.colors.addRecepiesTexteriaText,
+      borderRadius: '6px',
+      backgroundColor: theme.colors.addRecepiesTexteriaBgr,
+      padding: 16,
+      paddingRight: 12,
+      border: theme.border.addRecepiesTextarea,
+
+      '@media screen and (min-width: 768px)': {
+        fontSize: 18,
+        lineHeight: 1.5,
+        paddingLeft: 18,
+        paddingRight: 18,
+      },
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      width: '100%',
+      overflow: 'auto',
+      borderRadius: '6px',
+      backgroundColor: '#ffffff',
+      paddingLeft: 18,
+      paddingTop: 8,
+      paddingBottom: 8,
+      boxShadow: '0 6.5px 7.8px rgba(0, 0, 0, 0.0314074)',
+    }),
+    placeholder: provided => ({
+      ...provided,
+      opacity: 0.5,
+    }),
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+      color: '#8BAA36',
+    }),
+    menuList: provided => ({
+      ...provided,
+
+      maxHeight: '138px',
+      overflowY: 'auto',
+
+      '@media screen and (min-width: 768px)': {
+        maxHeight: '154px',
+      },
+
+      '&::-webkit-scrollbar': {
+        width: '4px',
+      },
+      '&::-webkit-scrollbar-track': {
+        // background: '#E7E5E5',
+      },
+      '&::-webkit-scrollbar-thumb': {
+        background: '#E7E5E5',
+        borderRadius: 12,
+      },
+    }),
+  };
+
+  const UnitInputStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      paddingBottom: 6,
+
+      fontFamily: 'Poppins',
+      fontSize: 12,
+      lineHeight: 1.5,
+      letterSpacing: '-0.02em',
+      color: state.isSelected ? '#8baa36' : '#000000',
+      backgroundColor: state.isSelected ? 'transparent' : 'white',
+      opacity: 0.5,
+
+      '@media screen and (min-width: 768px)': {
+        fontSize: 14,
+        lineHeight: 1.5,
+      },
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      width: '100%',
+
+      paddingTop: 16,
+      paddingBottom: 16,
+      paddingRight: 10,
+      paddingLeft: 46,
+
+      fontFamily: 'Poppins',
+      fontSize: 14,
+      lineHeight: 1.235,
+      letterSpacing: '-0.02em',
+      color: '#000000',
+      borderRadius: '6px',
+      backgroundColor: theme.colors.addRecepiesTexteriaBgr,
+      border: theme.border.addRecepiesTextarea,
+
+      '@media screen and (min-width: 768px)': {
+        fontSize: 18,
+        lineHeight: 1.5,
+        paddingLeft: 62,
+        paddingRight: 14,
+      },
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      width: '100%',
+
+      paddingLeft: 48,
+      paddingTop: 8,
+      paddingBottom: 8,
+
+      overflow: 'auto',
+      borderRadius: '6px',
+      backgroundColor: '#ffffff',
+      boxShadow: '0 6.5px 7.8px rgba(0, 0, 0, 0.0314074)',
+
+      '@media screen and (min-width: 768px)': {
+        paddingLeft: 58,
+      },
+    }),
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+      color: '#8BAA36',
+    }),
+    menuList: provided => ({
+      ...provided,
+      maxHeight: '138px',
+      overflowY: 'auto',
+
+      '@media screen and (min-width: 768px)': {
+        maxHeight: '154px',
+      },
+
+      '&::-webkit-scrollbar': {
+        width: '4px',
+      },
+      '&::-webkit-scrollbar-track': {
+        // background: '#E7E5E5',
+      },
+      '&::-webkit-scrollbar-thumb': {
+        background: '#E7E5E5',
+        borderRadius: 12,
+      },
+    }),
+  };
+
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     (async () => {
@@ -237,7 +243,7 @@ export const RecipeIngridientsFields = ({ formik }) => {
         render={arrayHelpers => (
           <div>
             <TopContainer>
-              <Title>Ingredients</Title>
+              <Title>{t('Ingredients')}</Title>
               <MultButtonContainer>
                 <div className="col">
                   <MultButton
@@ -280,7 +286,7 @@ export const RecipeIngridientsFields = ({ formik }) => {
                         as={CustomSelect}
                         options={ingredients}
                         customStyles={IngredientInputStyles}
-                        label={'Ingredient...'}
+                        label={t('Ingredient...')}
                         name={`ingredients.${index}.name`}
                         id={`ingredients.${index}.name`}
                         onChange={option => {
@@ -360,7 +366,7 @@ export const RecipeIngridientsFields = ({ formik }) => {
                         }
                       }}
                     >
-                      <FiX size={18} color="rgba(51, 51, 51, 1)" />
+                      <FiX size={18} color="#333333" />
                     </DeleteButton>
                   </DeleteBtnContainer>
                 </IngridientContainer>
