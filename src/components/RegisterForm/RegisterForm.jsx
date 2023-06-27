@@ -222,7 +222,7 @@ export const RegisterForm = () => {
                     <SingInButtonGreen type="submit">
                       {t('Sign up')}
                     </SingInButtonGreen>
-                    <GoogleLink href="http://localhost:3001/api/users/google">
+                    <GoogleLink href="https://yummy-team4-nodejs-project.onrender.com/api/users/google">
                       <LinkText>GOOGLE</LinkText>
                     </GoogleLink>
                   </Form>
