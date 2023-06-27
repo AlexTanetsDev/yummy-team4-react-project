@@ -123,10 +123,15 @@ export const UserProfileWrap = styled.div`
 `;
 
 export const Avatar = styled.button`
+  /* position: absolute; */
   display: block;
+  margin-left: 10px;
   padding: 0;
   border-radius: 50%;
   border: solid 1px transparent;
+  @media screen and (min-width: 768px) {
+    margin-left: 20px;
+  }
 `;
 
 export const AvatarImg = styled.img`
@@ -142,6 +147,11 @@ export const AvatarImg = styled.img`
 `;
 
 export const UserName = styled.p`
-  margin-left: 14px;
+  width: 80px;
+  margin-left: 5px;
   color: ${p => p.theme.colors.userNameColor};
+  @media screen and (min-width: 768px) {
+    width: 120px;
+    margin-left: 30px;
+  }
 `;

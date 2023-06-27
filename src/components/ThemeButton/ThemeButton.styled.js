@@ -5,7 +5,13 @@ export const LabelSwitch = styled.label`
   display: inline-block;
   width: 50px;
   height: 25px;
-  margin-left: 50px;
+  margin-left: 10px;
+  @media screen and (min-width: 400px) {
+    margin-left: 10px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: 70px;
+  }
 `;
 
 export const Span = styled.span`
