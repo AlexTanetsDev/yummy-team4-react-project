@@ -9,6 +9,7 @@ import {
   LogOut,
   UserModal,
   LogoutIcon,
+  EditText,
 } from './UserLogoModal.styled';
 
 import { editIcon, arrowRightIcon } from '../../images';
@@ -20,7 +21,6 @@ export const UserLogoModal = ({ opened }) => {
   const [isShow, setIsShow] = useState(opened);
 
   const { t } = useTranslation();
-
 
   const tooltipRef = useRef(null);
 
@@ -58,11 +58,8 @@ export const UserLogoModal = ({ opened }) => {
       {isShow && (
         <UserModal ref={tooltipRef}>
           <EditProfile type="button" onClick={handleToggleEditModalClick}>
-
-            <p>
-              {t('Edit profile')}
-              <EditIcon src={editIcon} alt="edit button" />
-            </p>
+            <EditText>{t('Edit profile')}</EditText>
+            <EditIcon src={editIcon} alt="edit button" />
           </EditProfile>
           <LogOut onClick={handleBtnToggleLogoutModalClick}>
             <p>{t('Log out')}</p>
