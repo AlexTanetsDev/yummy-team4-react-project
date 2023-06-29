@@ -6,13 +6,13 @@ import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { useTranslation } from 'react-i18next';
 
-import { SingInButtonGreen, GoogleButton } from 'components/Button/Button';
+import { SingInButtonGreen } from 'components/Button/Button';
 import { FormError } from 'components/FormError/FormError';
 import { MiniLoader } from 'components/Loader/Loader';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
 
-import { register, google } from 'redux/auth/operations';
+import { register } from 'redux/auth/operations';
 
 import {
   StyledWrapper,

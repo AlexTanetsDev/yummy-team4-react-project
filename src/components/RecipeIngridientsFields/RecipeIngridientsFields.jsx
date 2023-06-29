@@ -214,25 +214,18 @@ export const RecipeIngridientsFields = ({ formik }) => {
   };
 
   const [ingredients, setIngredients] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const { t } = useTranslation();
 
   useEffect(() => {
     (async () => {
       try {
-        setIsLoading(true);
         const data = await IngredientsApi.fetchIngredientsList();
         const ingredientsObj = data.map(ingredient => ({
           value: ingredient._id,
           label: ingredient.ttl,
         }));
         setIngredients(ingredientsObj);
-      } catch (error) {
-        setError({ error });
-      } finally {
-        setIsLoading(false);
-      }
+      } catch (error) {}
     })();
   }, []);
 

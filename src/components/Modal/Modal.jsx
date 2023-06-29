@@ -16,7 +16,6 @@ import { LogoHeader } from 'components/Logo/Logo';
 
 import { IoMdClose } from 'react-icons/io';
 import { useLocation } from 'react-router-dom';
-import { red } from '@mui/material/colors';
 
 export const Modal = ({ active, setActive }) => {
   const { t } = useTranslation();
