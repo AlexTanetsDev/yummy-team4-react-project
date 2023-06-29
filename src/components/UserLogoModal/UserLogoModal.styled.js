@@ -26,7 +26,7 @@ export const WrapContent = styled.div`
 export const EditProfile = styled.button`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 125px;
   height: 23px;
   margin-right: auto;
@@ -52,10 +52,14 @@ export const EditProfile = styled.button`
   }
 `;
 
+export const EditText = styled.p``;
+
 export const EditIcon = styled(editProfileUser)`
+  display: block;
   color: currentColor;
   width: 14px;
   height: 14px;
+  margin-left: 15px;
   path {
     stroke: currentColor;
   }

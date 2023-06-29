@@ -19,7 +19,6 @@ export const ModalConfirm = ({ opened, onClose }) => {
   const navigate = useNavigate();
   const [isShow, setIsShow] = useState(opened);
   const tooltipRef = useRef(null);
-  const ref = useRef(1);
   const { t } = useTranslation();
 
   useEffect(() => {

@@ -25,8 +25,8 @@ export const MotivationModal = () => {
   const closeModal = useCallback(() => {
     setIsShow(false);
     setMessage('');
-    dispatch(updateMotivation({[motivationFiedl]: false }));
-  });
+    dispatch(updateMotivation({ [motivationFiedl]: false }));
+  }, [dispatch, motivationFiedl]);
 
   useEffect(() => {
     const handleClick = e => {
@@ -65,20 +65,20 @@ export const MotivationModal = () => {
     }
     if (motivation?.tenthDayOfUsage) {
       setMessage('You have been using the application for 10 days!');
-		setIsShow(true);
-		setMotivationFiedl('tenthDayOfUsage');
+      setIsShow(true);
+      setMotivationFiedl('tenthDayOfUsage');
       return;
     }
     if (motivation?.tenthAddedRecipe) {
       setMessage('You have created 10 recipes!');
-		setIsShow(true);
-		setMotivationFiedl('tenthAddedRecipe');
+      setIsShow(true);
+      setMotivationFiedl('tenthAddedRecipe');
       return;
     }
     if (motivation?.firstFavoriteRecipe) {
       setMessage('You have added the first recipe to your favorites!');
-		setIsShow(true);
-		setMotivationFiedl('firstFavoriteRecipe');
+      setIsShow(true);
+      setMotivationFiedl('firstFavoriteRecipe');
       return;
     }
 

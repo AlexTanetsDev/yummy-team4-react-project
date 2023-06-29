@@ -6,13 +6,13 @@ import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { useTranslation } from 'react-i18next';
 
-import { SingInButtonGreen, GoogleButton } from 'components/Button/Button';
+import { SingInButtonGreen } from 'components/Button/Button';
 import { FormError } from 'components/FormError/FormError';
 import { MiniLoader } from 'components/Loader/Loader';
 import { LanguageSelector } from 'components/LanguageSelector/LanguageSelector';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
 
-import { register, google } from 'redux/auth/operations';
+import { register } from 'redux/auth/operations';
 
 import {
   StyledWrapper,
@@ -58,6 +58,7 @@ export const RegisterForm = () => {
   const { t } = useTranslation();
 
   const [type, setType] = useState('password');
+  const [isloadingGoogle, setIsloadingGoogle] = useState(false);
   const [toggleIcon, setToggleIcon] = useState(<StyledAiFillEyeInvisible />);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -82,6 +83,10 @@ export const RegisterForm = () => {
     }
   };
 
+  const handleClickGoogle = () => {
+    setIsloadingGoogle(true);
+  };
+
   return ReactDOM.createPortal(
     <>
       <StyledWrapper>
@@ -92,7 +97,7 @@ export const RegisterForm = () => {
           <ModalWrapper>
             <Modal>
               <ModalTitle>{t('Registration')}</ModalTitle>
-              {isLoading && isMobile && (
+              {(isLoading || isloadingGoogle) && isMobile && (
                 <LoaderWrapper>
                   <MiniLoader />
                 </LoaderWrapper>
@@ -222,7 +227,10 @@ export const RegisterForm = () => {
                     <SingInButtonGreen type="submit">
                       {t('Sign up')}
                     </SingInButtonGreen>
-                    <GoogleLink href="https://yummy-team4-nodejs-project.onrender.com/api/users/google">
+                    <GoogleLink
+                      onClick={handleClickGoogle}
+                      href="https://yummy-team4-nodejs-project.onrender.com/api/users/google"
+                    >
                       <LinkText>GOOGLE</LinkText>
                     </GoogleLink>
                   </Form>
@@ -232,7 +240,7 @@ export const RegisterForm = () => {
             <Link to="/signin">{t('Sign in')}</Link>
           </ModalWrapper>
         </ContentWrapper>
-        {isLoading && !isMobile && (
+        {(isLoading || isloadingGoogle) && !isMobile && (
           <LoaderWrapper>
             <MiniLoader />
           </LoaderWrapper>
