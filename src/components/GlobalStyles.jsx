@@ -2,9 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 export const GlobalStyles = createGlobalStyle`
+   
+      @font-face {
+        font-family: NotoColorEmojiLimited;
+        unicode-range: U+1F1E6-1F1FF;
+        src: url(https://raw.githack.com/googlefonts/noto-emoji/main/fonts/NotoColorEmoji.ttf);
+      }
+  
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'NotoColorEmojiLimited','Poppins', sans-serif;
   background-color: ${p => p.theme.colors.mainBgColor};
 }
 code {
