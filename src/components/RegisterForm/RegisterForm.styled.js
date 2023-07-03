@@ -138,7 +138,7 @@ export const ModalTitle = styled.h1`
   margin-bottom: 18px;
   font-size: 24px;
   font-weight: 600;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   @media (min-width: 768px) {
     margin-bottom: 32px;
     font-size: ${p => p.theme.fontSizes.xxxl}px;
@@ -162,7 +162,7 @@ export const InputField = styled.input`
   padding-left: 40px;
   padding-right: 50px;
   font-size: ${p => p.theme.fontSizes.l}px;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   background-color: ${p => p.theme.colors.thirdAccentColor};
   border-color: ${props => props.brdcolor};
   border-radius: 6px;
@@ -190,7 +190,7 @@ export const InputField = styled.input`
     height: 45px;
     padding-left: 40px;
     font-size: ${p => p.theme.fontSizes.l}px;
-    color: ${p => p.theme.colors.mainBgColor};
+    color: ${p => p.theme.colors.footerText};
     background-color: ${p => p.theme.colors.thirdAccentColor};
     border: solid 1px ${p => p.theme.colors.mainBgColor};
     border-radius: 6px;
@@ -209,10 +209,10 @@ export const GoogleLink = styled.a`
   margin-top: 10px;
   width: 279px;
   height: 45px;
-  color: ${p => p.theme.colors.darkBgColor};
+  background-color: ${p => p.theme.colors.firstAccentColor};
+  color: ${p => p.theme.colors.footerText};
   border-radius: 6px;
   border-color: transparent;
-  background-color: ${p => p.theme.colors.mainBgColor};
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media (max-width: 400px) {
     width: 250px;
@@ -231,7 +231,7 @@ export const GoogleLink = styled.a`
   &:hover,
   &:focus {
     background-color: ${p => p.theme.colors.darkBgColor};
-    color: ${p => p.theme.colors.mainBgColor};
+    color: ${p => p.theme.colors.firstAccentColor};
     outline: none;
   }
 `;
@@ -244,7 +244,7 @@ export const Link = styled(NavLink)`
   display: block;
   text-align: center;
   font-size: ${p => p.theme.fontSizes.l}px;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   opacity: 0.8;
   &:hover {
     opacity: 1;

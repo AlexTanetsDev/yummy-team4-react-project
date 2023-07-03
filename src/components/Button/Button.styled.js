@@ -337,8 +337,8 @@ export const SeeAllBtn = styled.button`
 
   &:hover,
   &:focus {
-    background-color: ${p => p.theme.colors.secondAccentColor};
-    border: ${p => p.theme.border.blackBtnBorder};
+    background-color: ${p => p.theme.colors.hoverSeeAll};
+    /* border: ${p => p.theme.border.blackBtnBorder}; */
     outline: none;
   }
 `;
@@ -429,7 +429,7 @@ export const AddBtn = styled.button`
 
   &:hover,
   &:focus {
-    background-color: ${p => p.theme.colors.firstAccentColor};
+    background-color: ${p => p.theme.colors.hoverSeeRecipes};
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
   }
@@ -535,7 +535,7 @@ export const SeeRecipeBtnBlack = styled(NavLink)`
 
   &:hover,
   &:focus {
-    background-color: ${p => p.theme.colors.firstAccentColor};
+    background-color: ${p => p.theme.colors.hoverSeeRecipes};
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
   }
@@ -579,8 +579,8 @@ export const SeeRecipeBtnGreen = styled.button`
 
   &:hover,
   &:focus {
-    background-color: ${p => p.theme.colors.secondAccentColor};
-    border: ${p => p.theme.border.blackBtnBorder};
+    background-color: ${p => p.theme.colors.hoverSeeAll};
+    border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
   }
 `;

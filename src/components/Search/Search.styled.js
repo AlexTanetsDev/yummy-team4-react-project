@@ -41,7 +41,7 @@ export const SearchMainPageBlack = styled.button`
   padding: 14px 32px;
   width: 113px;
   background-color: ${p => p.theme.colors.secondAccentColor};
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   font-family: 'Poppins';
   font-size: ${p => p.theme.fontSizes.l}px;
   line-height: 21px;
@@ -68,7 +68,7 @@ export const SearchMainPageBlack = styled.button`
 
   &:hover,
   &:focus {
-    background-color: ${p => p.theme.colors.firstAccentColor};
+    background-color: ${p => p.theme.colors.hoverSeeRecipes};
     border: ${p => p.theme.border.greenBtnBorder};
     outline: none;
   }

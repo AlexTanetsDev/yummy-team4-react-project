@@ -160,7 +160,7 @@ export const InputField = styled.input`
   padding-left: 40px;
   padding-right: 50px;
   font-size: ${p => p.theme.fontSizes.l}px;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   background-color: ${p => p.theme.colors.thirdAccentColor};
   border-color: ${props => props.brdcolor};
   border-radius: 6px;
@@ -203,7 +203,7 @@ export const Link = styled(NavLink)`
   display: block;
   text-align: center;
   font-size: ${p => p.theme.fontSizes.l}px;
-  color: ${p => p.theme.colors.mainBgColor};
+  color: ${p => p.theme.colors.footerText};
   opacity: 0.8;
   &:hover {
     opacity: 1;
