@@ -83,7 +83,7 @@ export const Title = styled.p`
   line-height: 14px;
   opacity: 0.5;
   letter-spacing: -0.02em;
-
+  color: ${p => p.theme.colors.inputAddRecepies};
   @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: 24px;
