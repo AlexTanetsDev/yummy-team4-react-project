@@ -158,7 +158,7 @@ export const RecipeIngridientsFields = ({ formik }) => {
       fontSize: 14,
       lineHeight: 1.235,
       letterSpacing: '-0.02em',
-      color: '#000000',
+      color: theme.colors.addRecepiesTexteriaText,
       borderRadius: '6px',
       backgroundColor: theme.colors.addRecepiesTexteriaBgr,
       border: theme.border.addRecepiesTextarea,
@@ -359,7 +359,7 @@ export const RecipeIngridientsFields = ({ formik }) => {
                         }
                       }}
                     >
-                      <FiX size={18} color="#333333" />
+                      <FiX size={18} color={theme.colors.shopingListCrossIcon} />
                     </DeleteButton>
                   </DeleteBtnContainer>
                 </IngridientContainer>

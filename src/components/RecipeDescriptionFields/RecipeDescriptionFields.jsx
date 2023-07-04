@@ -6,6 +6,7 @@ import { Field } from 'formik';
 import { selectCategoryList } from 'redux/auth/selectors';
 import { CustomSelect } from '../CustomSelect/CustomSelect';
 import photoIcon from '../../images/addRecipePhoto.svg';
+import { useTheme } from 'styled-components';
 import {
   DescriptionContainer,
   FieldContainer,
@@ -29,79 +30,6 @@ const times = Array.from(Array(24), (_, i) => (i + 1) * 5).map(time => ({
   value: `${time}`,
   label: `${time} min`,
 }));
-
-const categoryInputStyles = {
-  option: (provided, state) => ({
-    ...provided,
-    fontFamily: 'Poppins',
-    paddingBottom: 6,
-    fontSize: 12,
-    lineHeight: 1.5,
-    letterSpacing: '-0.02em',
-    opacity: 0.5,
-    color: state.isSelected ? '#8baa36' : '#000000',
-    backgroundColor: state.isSelected ? 'transparent' : 'white',
-
-    '@media screen and (min-width: 768px)': {
-      fontSize: 14,
-    },
-  }),
-  control: (provided, state) => ({
-    ...provided,
-    fontFamily: 'Poppins',
-    fontSize: 12,
-    lineHeight: 1,
-    letterSpacing: '-0.02em',
-    color: '#000000',
-    borderRadius: '6px',
-    paddingLeft: 14,
-    minWidth: '120px',
-
-    '@media screen and (min-width: 768px)': {
-      fontSize: 14,
-    },
-  }),
-  menu: (provided, state) => ({
-    ...provided,
-    width: '123px',
-    overflow: 'auto',
-    borderRadius: '6px',
-    backgroundColor: '#ffffff',
-    paddingLeft: 18,
-    paddingTop: 8,
-    paddingBottom: 8,
-    boxShadow: '0 6.5px 7.8px rgba(0, 0, 0, 0.0314074)',
-
-    '@media screen and (min-width: 768px)': {
-      width: '132px',
-    },
-  }),
-  dropdownIndicator: (provided, state) => ({
-    ...provided,
-    color: '#8BAA36',
-    paddingLeft: 8,
-  }),
-  menuList: provided => ({
-    ...provided,
-    maxHeight: '138px',
-    overflowY: 'auto',
-
-    '@media screen and (min-width: 768px)': {
-      maxHeight: '154px',
-    },
-
-    '&::-webkit-scrollbar': {
-      width: '4px',
-    },
-    '&::-webkit-scrollbar-track': {
-      // background: '#E7E5E5',
-    },
-    '&::-webkit-scrollbar-thumb': {
-      background: '#E7E5E5',
-      borderRadius: 12,
-    },
-  }),
-};
 
 const FileInput = ({
   field,
@@ -160,6 +88,7 @@ const FileInput = ({
 
 export const RecipeDescriptionFields = ({ formik }) => {
   const [categories, setCategories] = useState([]);
+  const theme = useTheme();
 
   const categoriesList = useSelector(selectCategoryList);
   const { t } = useTranslation();
@@ -172,6 +101,78 @@ export const RecipeDescriptionFields = ({ formik }) => {
     setCategories(categoriesObj);
   }, [categoriesList]);
 
+  const categoryInputStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      fontFamily: 'Poppins',
+      paddingBottom: 6,
+      fontSize: 12,
+      lineHeight: 1.5,
+      letterSpacing: '-0.02em',
+      opacity: 0.5,
+      color: state.isSelected ? '#8baa36' : '#000000',
+      backgroundColor: state.isSelected ? 'transparent' : 'white',
+
+      '@media screen and (min-width: 768px)': {
+        fontSize: 14,
+      },
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      fontFamily: 'Poppins',
+      fontSize: 12,
+      lineHeight: 1,
+      letterSpacing: '-0.02em',
+      color: theme.colors.addRecepiesTexteriaText,
+      borderRadius: '6px',
+      paddingLeft: 14,
+      minWidth: '120px',
+
+      '@media screen and (min-width: 768px)': {
+        fontSize: 14,
+      },
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      width: '123px',
+      overflow: 'auto',
+      borderRadius: '6px',
+      backgroundColor: '#ffffff',
+      paddingLeft: 18,
+      paddingTop: 8,
+      paddingBottom: 8,
+      boxShadow: '0 6.5px 7.8px rgba(0, 0, 0, 0.0314074)',
+
+      '@media screen and (min-width: 768px)': {
+        width: '132px',
+      },
+    }),
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+      color: '#8BAA36',
+      paddingLeft: 8,
+    }),
+    menuList: provided => ({
+      ...provided,
+      maxHeight: '138px',
+      overflowY: 'auto',
+
+      '@media screen and (min-width: 768px)': {
+        maxHeight: '154px',
+      },
+
+      '&::-webkit-scrollbar': {
+        width: '4px',
+      },
+      '&::-webkit-scrollbar-track': {
+        // background: '#E7E5E5',
+      },
+      '&::-webkit-scrollbar-thumb': {
+        background: '#E7E5E5',
+        borderRadius: 12,
+      },
+    }),
+  };
   return (
     <DescriptionContainer>
       <Field

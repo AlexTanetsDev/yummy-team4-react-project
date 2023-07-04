@@ -246,7 +246,6 @@ export const ErrorPhoto = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 10;
 
   text-align: end;
 
@@ -263,5 +262,4 @@ export const ErrorText = styled.div`
 
   color: #e74a3b;
   pointer-events: none;
-  z-index: 20;
 `;
