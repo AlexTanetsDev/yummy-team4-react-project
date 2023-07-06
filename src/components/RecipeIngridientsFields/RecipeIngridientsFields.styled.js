@@ -162,9 +162,9 @@ export const QuantityContainer = styled.div`
 
 export const ContainerNumberQuantity = styled.div`
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
+  top: 1px;
+  bottom: 1px;
+  left: 1px;
   right: 56%;
 `;
 
@@ -262,10 +262,8 @@ export const DeleteBtnContainer = styled.div``;
 export const DeleteButton = styled.button`
   border: none;
   outline: none;
-  color: #333333;
+  color: ${p => p.theme.colors.shopingListCrossIcon};
   background-color: transparent;
-  margin: 0;
-  padding: 0;
   font-size: 24px;
   line-height: 24px;
   cursor: pointer;
@@ -274,7 +272,7 @@ export const DeleteButton = styled.button`
 export const Error = styled.div`
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   right: 0;
 
