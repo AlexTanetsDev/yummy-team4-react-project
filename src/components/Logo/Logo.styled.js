@@ -41,7 +41,11 @@ export const LogoHeaderImg = styled.img`
 export const LogoFooterWrapper = styled.div`
   position: absolute;
   top: ${p => p.theme.space(7)};
-  left: ${p => p.theme.space(29)};
+  left: ${p => p.theme.space(23)};
+
+  @media (min-width: 370px) {
+    left: ${p => p.theme.space(29)};
+  }
 
   @media (min-width: 768px) {
     top: ${p => p.theme.space(12.5)};
