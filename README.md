@@ -89,7 +89,7 @@
 
 <div align="center">
   <img src="https://i.imgur.com/u717Yy0.png" title="Screen1" **alt="Screen1" width="400"/>
-  <img src="https://i.imgur.com/WM2gO3U.png" title="Screen2" **alt="Screen2" width="400"/>
+  <img src="https://i.imgur.com/d2JwuVS.png" title="Screen2" **alt="Screen2" width="400"/>
   <img src="https://i.imgur.com/EDmJTqU.png" title="Screen3" **alt="Screen3" width="400"/>
   <img src="https://i.imgur.com/tvhE8la.png" title="Screen4" **alt="Screen4" width="400"/>
   <img src="https://i.imgur.com/U9WQfhw.png" title="Screen5" **alt="Screen5" width="400"/>
